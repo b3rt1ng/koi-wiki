@@ -12,6 +12,10 @@ Those are generic payloads, easy to use, straight forward. But sometimes you wil
 
 Koi has a built in obfuscator tool presented as an interactive plug and play, obfuscation chainer.
 
+!!! TIP
+    you can use in directly on your terminal with the `koifuscator` command
+    ![you need to select your interface](assets/images/koifuscator.png)
+
 By running `obfuscator`, you will be asked to chose your interface
 
 ![you need to select your interface](assets/images/obfuscator_intro.png)
