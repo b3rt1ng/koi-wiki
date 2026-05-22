@@ -1,14 +1,14 @@
-# Koi — Module Development Guide
+# Koi - Module Development Guide
 
 ## Overview
 
 Koi modules are self-contained Python classes that extend `KoiModule`. Each module represents one capability (enumeration, file transfer, pivoting, etc.) and is automatically discovered by the framework when placed in `src/koi/modules/`.
 
-A module gets a live `Session` object injected at construction time. Through the base class it has access to helpers for executing remote commands, transferring files, printing output, and managing the connection — without ever touching the raw socket directly.
+A module gets a live `Session` object injected at construction time. Through the base class it has access to helpers for executing remote commands, transferring files, printing output, and managing the connection - without ever touching the raw socket directly.
 
 ---
 
-## The Blueprint — KoiModule Base Class
+## The Blueprint - KoiModule Base Class
 
 `KoiModule` (defined in `blueprint.py`) is the abstract base class every module must inherit from. It handles argument parsing, provides all helpers, and enforces the single entry point `run()`.
 
@@ -34,15 +34,15 @@ These are declared at class level and define the module's identity and behaviour
 | `description` | `str` | Yes | One-line summary shown in `module list` |
 | `usage` | `str` | No | Longer help string shown by `module help <name>` |
 | `category` | `str` | No | Grouping label in the UI (e.g. `"Enumeration"`, `"Pivoting"`) |
-| `platform` | `str` or `list[str]` | No | Supported OS types — see [Platform Targeting](#platform-targeting) |
-| `arguments` | `list[dict]` | No | Argument definitions — see [Argument Parsing](#argument-parsing) |
+| `platform` | `str` or `list[str]` | No | Supported OS types - see [Platform Targeting](#platform-targeting) |
+| `arguments` | `list[dict]` | No | Argument definitions - see [Argument Parsing](#argument-parsing) |
 
 ### Lifecycle
 
 ```
 KoiModule.__init__(session, args)
   └─ _parse_args()          # builds self.args from self.arguments + raw CLI args
-       └─ run()             # YOUR code — called by the framework
+       └─ run()             # YOUR code - called by the framework
 ```
 
 The framework calls `__init__` then `run()`. You never override `__init__`; put all logic in `run()`.
@@ -98,10 +98,10 @@ All helpers are available as `self.<method>` inside `run()`.
 
 Runs a shell command on the remote Linux session and blocks until it completes or times out. Returns a `CommandResult` with:
 
-- `.stdout` — full output as a string
-- `.returncode` — exit code
-- `.success` — `True` if `returncode == 0`
-- `.duration` — elapsed time in seconds
+- `.stdout` - full output as a string
+- `.returncode` - exit code
+- `.success` - `True` if `returncode == 0`
+- `.duration` - elapsed time in seconds
 
 ```python
 result = self.exec("id")
@@ -113,7 +113,7 @@ else:
 
 Raises `CommandTimeout` if the command exceeds `timeout` seconds.
 
-> **Note:** `exec` uses a sentinel marker appended to the command, so it works correctly even on raw/non-PTY shells. **Do not use it on Windows sessions** — use `_win_query` instead.
+> **Note:** `exec` uses a sentinel marker appended to the command, so it works correctly even on raw/non-PTY shells. **Do not use it on Windows sessions** - use `_win_query` instead.
 
 #### `self.exec_stream(command, timeout=30.0) → Iterator[StreamLine]`
 
@@ -165,8 +165,8 @@ These are not methods of `KoiModule` directly, but utilities from `koi.utils.tcp
 #### `spawn_recv_server(timeout) → (port, collect_fn)`
 
 Opens a local TCP listener on a random port and returns:
-- `port` — the port number to give to the remote side
-- `collect_fn` — a callable that blocks until the data arrives and returns it as `bytes`
+- `port` - the port number to give to the remote side
+- `collect_fn` - a callable that blocks until the data arrives and returns it as `bytes`
 
 Used when you want the **remote machine to push data to you** (download).
 
@@ -181,9 +181,9 @@ data = collect()   # bytes
 #### `spawn_send_server(raw_bytes, timeout, on_progress=None) → (port, thread, errors)`
 
 Opens a local TCP listener and serves `raw_bytes` to the first client that connects. Returns:
-- `port` — port to connect to from the remote side
-- `thread` — the serving thread (join it to wait for completion)
-- `errors` — list that will contain any exception messages on failure
+- `port` - port to connect to from the remote side
+- `thread` - the serving thread (join it to wait for completion)
+- `errors` - list that will contain any exception messages on failure
 
 Used when you want to **push data to the remote machine** (upload).
 
@@ -217,7 +217,7 @@ Print a styled notification line. Choose the level that matches the semantics:
 | `status` | Ongoing progress step |
 | `success` | Operation completed successfully |
 | `warn` | Non-fatal issue worth noting |
-| `err` | Error — typically followed by `return` |
+| `err` | Error - typically followed by `return` |
 
 #### `self.box(title, data: dict)`
 
@@ -231,16 +231,16 @@ self.box("Download complete", {
 })
 ```
 
-#### `self.spinner(msg)` — context manager
+#### `self.spinner(msg)` - context manager
 
 Shows a spinner while a blocking operation runs.
 
 ```python
-with self.spinner("Checking file existence…"):
+with self.spinner("Checking file existence"):
     result = self.exec("test -f /etc/shadow")
 ```
 
-#### `self.breaker(text="")` — context manager / function
+#### `self.breaker(text="")` - context manager / function
 
 Prints a horizontal separator, optionally with a label. Used to frame large text dumps.
 
@@ -292,7 +292,7 @@ class HelloModule(KoiModule):
     platform    = "linux"
 
     def run(self) -> None:
-        with self.spinner("Running whoami…"):
+        with self.spinner("Running whoami"):
             result = self.exec("whoami")
 
         if not result.success:
@@ -338,7 +338,7 @@ def run(self) -> None:
 
 ## Real-World Examples
 
-### Simple Linux Module — get_users
+### Simple Linux Module - get_users
 
 `get_users` is the simplest possible module: one `exec` call, parse stdout, display.
 
@@ -373,7 +373,7 @@ def run(self) -> None:
 
 ---
 
-### Cross-platform Module — get_processes
+### Cross-platform Module - get_processes
 
 `get_processes` demonstrates the standard cross-platform pattern: branch on `self.session.os_type`, use `_exec_clean` for Linux and `_win_query` for Windows.
 
@@ -385,30 +385,30 @@ def run(self) -> None:
         self._run_windows()
 
 def _run_linux(self) -> None:
-    with self.spinner("Collecting processes…"):
+    with self.spinner("Collecting processes"):
         raw = self._exec_clean(
             "ps aux --no-headers 2>/dev/null || ps aux 2>/dev/null",
             timeout=15,
         )
     procs = self._parse_linux(raw)
-    # … display with self.box(…)
+    #  display with self.box()
 
 def _run_windows(self) -> None:
     ps_expr = "(tasklist /fo csv /nh /v) -join '§'"
-    with self.spinner("Collecting processes via tasklist…"):
+    with self.spinner("Collecting processes via tasklist"):
         raw = self._win_query(ps_expr, timeout=30)
     procs = self._parse_windows_tasklist(raw)
-    # … display with self.box(…)
+    #  display with self.box()
 ```
 
 **Key takeaways:**
-- Use `_exec_clean` instead of `exec` when you need to parse the output programmatically — it gives you clean text free of prompt noise.
+- Use `_exec_clean` instead of `exec` when you need to parse the output programmatically - it gives you clean text free of prompt noise.
 - Use `_win_query` for all Windows queries; never use `exec` on a Windows session.
-- Wrap slow queries in `self.spinner(…)`.
+- Wrap slow queries in `self.spinner()`.
 
 ---
 
-### File Transfer Module — download
+### File Transfer Module - download
 
 `download` shows how to set up a local TCP listener and trigger the remote machine to connect and send a file.
 
@@ -447,14 +447,14 @@ This is essentially what `spawn_recv_server` wraps for you. Prefer `spawn_recv_s
 
 ---
 
-### Windows Upload Module — ligolo / sharphound / populate_win
+### Windows Upload Module - ligolo / sharphound / populate_win
 
 All three upload modules follow the same pattern:
 
 1. Prepare the binary locally (download from GitHub, extract from zip, etc.)
 2. Call `spawn_send_server(raw, timeout=...)` to serve the bytes.
 3. Send a PowerShell TCP-read command to the target.
-4. Join the serving thread and verify the file landed with `_win_query("(Test-Path …)")`.
+4. Join the serving thread and verify the file landed with `_win_query("(Test-Path )")`.
 
 ```python
 from koi.utils.tcp import spawn_send_server
@@ -507,7 +507,7 @@ else:
     ...
 ```
 
-`_win_query` handles this transparently — you don't need the check there. You do need it when sending raw PowerShell that doesn't go through `_win_query`, for example when triggering a TCP upload:
+`_win_query` handles this transparently - you don't need the check there. You do need it when sending raw PowerShell that doesn't go through `_win_query`, for example when triggering a TCP upload:
 
 ```python
 def _send_ps(self, ps_cmd: str) -> None:
@@ -529,19 +529,19 @@ A portable `_send_ps` helper (as used in `sharphound.py`, `populate_win.py`, `li
 
 ## Error Handling Best Practices
 
-- Always call `self.err(msg)` and then **`return`** immediately — don't continue after an error.
+- Always call `self.err(msg)` and then **`return`** immediately - don't continue after an error.
 - Wrap network calls (`urllib`, `socket`) in `try/except` blocks and surface the exception message with `self.err`.
-- After an upload, always verify the file exists with `_win_query("(Test-Path …)")` or `exec("test -f …")` — AV/EDR may silently delete the binary.
+- After an upload, always verify the file exists with `_win_query("(Test-Path )")` or `exec("test -f ")` - AV/EDR may silently delete the binary.
 - If a module leaves behind a temporary workspace on the target (e.g. `C:\Windows\Temp\sh_xxxx`), implement a `_cleanup()` method and call it both on success and on early exit.
 
 ```python
 def run(self) -> None:
     if not self._upload(raw, dest):
         self.err("Upload failed.")
-        self._cleanup(work_dir)   # ← always clean up
+        self._cleanup(work_dir)   # always clean up
         return
 
-    # … rest of the logic …
+    # rest of the logic
 
     self._cleanup(work_dir)
     self.success("Done.")
