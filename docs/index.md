@@ -1,3 +1,9 @@
+---
+title: Koi Wiki
+description: Official Koi reverse shell handler documentation
+image: assets/images/logo.png
+---
+
 # Getting Started
 
 ## Installation
