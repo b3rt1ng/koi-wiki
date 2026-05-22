@@ -1,0 +1,46 @@
+site_name: Koi Documentation
+site_url: https://b3rt1ng.github.io/Koi/
+
+theme:
+  name: material
+  # Ajout de ton logo personnalisé détouré
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
+  
+  palette:
+    # Thème sombre par défaut
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Thème clair
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - content.code.copy # Ajoute un bouton pour copier le code d'un clic
+
+# On indique à MkDocs de charger ton fichier CSS personnalisé
+extra_css:
+  - stylesheets/extra.css
+
+# Structure complète basée sur ton arborescence de fichiers
+nav:
+  - Home: index.md
+  # - Getting Started: getting-started.md
+  - Generate Payloads: payloads.md
+  - Upgrading Sessions: upgrading-sessions.md
+  - Module Development: make-your-modules.md
+  - Future Updates: future-updates.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
