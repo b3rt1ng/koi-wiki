@@ -1,0 +1,677 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/make-your-modules/">
+      
+      
+        <link rel="prev" href="../upgrading-sessions/">
+      
+      
+        <link rel="next" href="../future-updates/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Module Development - Koi Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Koi Documentation" class="md-header__button md-logo" aria-label="Koi Documentation" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Koi Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module Development
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Koi Documentation" class="md-nav__button md-logo" aria-label="Koi Documentation" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Koi Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generate Payloads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrading-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading Sessions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../future-updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Future Updates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Module Development</h1>
+
+<p>Koi Modules — "How to Create a New Module"
+Overview</p>
+<hr />
+<p>This document describes the conventions, required exports, lifecycle, and best practices
+for authoring modules that integrate with the Koi application. Place new module files
+in the project's modules directory (e.g. src/koi/modules) and implement the required
+interface so Koi's module loader can discover, validate, and register your module.
+High-level goals for a module:
+ - Be self-contained: encapsulate behavior, configuration, and dependencies.
+ - Declare metadata: name, version, description, compat/engine version.
+ - Expose lifecycle hooks: load/init, start/activate, stop/deactivate, unload.
+ - Support configuration schema and validation.
+ - Integrate with Koi's logging, event bus, and permission systems.
+File placement &amp; discovery</p>
+<hr />
+<ul>
+<li>Place your module source file (or directory) under src/koi/modules.</li>
+<li>Module files may be:<ul>
+<li>Single-file modules (e.g. myModule.js / my_module.py)</li>
+<li>Directory modules (e.g. my_module/index.js or my_module/<strong>init</strong>.py) with assets.</li>
+</ul>
+</li>
+<li>The module loader typically discovers modules by scanning the modules directory
+  and loading files that match configured patterns (e.g. <em>.js, </em>.ts, *.py).
+Module metadata (required)</li>
+</ul>
+<hr />
+<p>Every module must expose metadata describing itself. Typical fields:
+ - name (string, unique)               : short machine-friendly identifier
+ - title (string)                      : human-friendly name
+ - description (string)                : what the module does
+ - version (semver string)             : module release version
+ - engineCompatibility (semver range)  : supported Koi engine versions
+ - author (string/object)              : author name and contact
+ - license (string)                    : SPDX license identifier (recommended)
+Example metadata (JS-like):
+ const meta = {
+   name: 'example-module',
+   title: 'Example Module',
+   description: 'Adds example functionality to Koi.',
+   version: '1.0.0',
+   engineCompatibility: '^1.2.0',
+   author: 'Your Name <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#121;&#111;&#117;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#121;&#111;&#117;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>',
+   license: 'MIT'
+ };
+Required exports / interface</p>
+<hr />
+<p>A module should export a predictable set of properties and functions. The loader
+uses these to initialize and manage the module.
+Typical required exports:
+ - metadata/meta (object)           : as above
+ - register(container)              : register services, commands, event handlers
+ - init(context, config)            : optional, called once after registration
+ - start(context)                   : optional, activate resources (start timers, listeners)
+ - stop(context)                    : optional, gracefully shut down
+ - shutdown(context)                : optional, final cleanup before unload
+If a language uses classes, a single exported class implementing these methods is fine.
+"container" and "context" objects</p>
+<hr />
+<p>The module loader calls register/init/start/stop with helper objects:
+ - container:
+     - registerService(name, factory)
+     - provideCommand(name, handler, options)
+     - provideEventListener(eventName, handler, options)
+     - addRoute(path, handler)            // if applicable (HTTP modules)
+     - config (reference to resolved configuration)
+ - context:
+     - logger (scoped logger for module)
+     - emit(eventName, payload)
+     - on(eventName, handler)
+     - off(eventName, handler)
+     - getService(name)
+     - config (resolved module config)
+Configuration</p>
+<hr />
+<ul>
+<li>Expose a configuration schema (JSON Schema or similar) to validate user configuration.</li>
+<li>Provide default config values.</li>
+<li>Prefer explicit, documented config keys; keep them namespaced under the module name.
+Example config shape:
+ const configSchema = {
+   type: 'object',
+   properties: {
+     enabled: { type: 'boolean', default: true },
+     apiKey: { type: 'string' },
+     pollingInterval: { type: 'integer', minimum: 1000, default: 60000 }
+   },
+   required: ['apiKey']
+ };
+Commands, Events &amp; APIs</li>
+</ul>
+<hr />
+<ul>
+<li>If your module exposes commands (CLI or runtime), register them in the register() step
+  with clear help text, parameter validation, and permission requirements.</li>
+<li>For events: subscribe during start(), unsubscribe during stop() to avoid leaks.</li>
+<li>For HTTP/REST modules: register routes in register() and add middleware as needed.
+Permissions &amp; Security</li>
+</ul>
+<hr />
+<ul>
+<li>Declare required permissions/scopes for commands and actions.</li>
+<li>Validate and sanitize all external inputs.</li>
+<li>Use the context/logger for audit logging of privileged operations.</li>
+<li>Avoid storing secrets in plaintext; integrate with the application's secrets manager.
+Dependency declaration</li>
+</ul>
+<hr />
+<ul>
+<li>If your module depends on services provided by other modules, declare them explicitly.</li>
+<li>During register(), request/get dependencies from the container via service names.</li>
+<li>Handle optional dependencies gracefully (e.g., degrade features if dependency is absent).
+Lifecycle best practices</li>
+</ul>
+<hr />
+<ul>
+<li>register(): declare services, commands, and static wiring. Avoid starting async loops.</li>
+<li>init(): perform synchronous initialization that depends on resolved configuration.</li>
+<li>start(): launch background tasks, open connections, subscribe to events.</li>
+<li>stop(): stop background tasks, close connections, unsubscribe from events.</li>
+<li>shutdown/unload(): final cleanup, free resources; idempotent and fast.
+Error handling and logging</li>
+</ul>
+<hr />
+<ul>
+<li>Use the provided logger for module-scoped logs.</li>
+<li>Throw descriptive errors during registration/init to fail fast if misconfigured.</li>
+<li>Catch and handle runtime errors; avoid letting unhandled exceptions crash the host.
+Testing</li>
+</ul>
+<hr />
+<ul>
+<li>Provide unit tests for core logic; keep side effects abstracted behind interfaces.</li>
+<li>Provide integration tests that run with a test instance of Koi or with mocks of
+  the container/context.</li>
+<li>Example test targets:<ul>
+<li>metadata validation</li>
+<li>config schema validation</li>
+<li>register()/init()/start()/stop() happy paths and failure modes
+Packaging &amp; distribution</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Keep module folder self-contained: source, README, package manifest (if applicable),
+  changelog, license, and tests.</li>
+<li>Use semantic versioning; bump major version for breaking changes.</li>
+<li>If publishing to a registry, ensure package manifest declares engineCompatibility.
+Documentation &amp; README</li>
+</ul>
+<hr />
+<ul>
+<li>Each module must include a README that documents:<ul>
+<li>Purpose and features</li>
+<li>Installation (where to place files)</li>
+<li>Configuration keys and defaults</li>
+<li>Available commands/APIs/events</li>
+<li>Permissions required</li>
+<li>Example usage
+Example pseudocode (JavaScript-style)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>const metadata = { name: 'example-module', version: '1.0.0', description: '...' };
+function register(container) {
+  container.registerService('example', () =&gt; new ExampleService(container.config));
+  container.provideCommand('example:do', async (args) =&gt; { ... }, { description: 'Do example' });
+}
+async function init(context, config) {
+  // validate config, prepare resources
+}
+async function start(context) {
+  context.logger.info('Starting example module');
+  // open connections, subscribe to events
+}
+async function stop(context) {
+  context.logger.info('Stopping example module');
+  // stop timers, close connections
+}
+module.exports = { metadata, register, init, start, stop };
+Versioning &amp; Compatibility</p>
+<hr />
+<ul>
+<li>Always test with the target Koi engine version(s).</li>
+<li>Use engineCompatibility metadata to prevent loading on incompatible hosts.</li>
+<li>Provide migration scripts or instructions for breaking upgrades.
+Troubleshooting</li>
+</ul>
+<hr />
+<ul>
+<li>On module load failure: check metadata, exports, and config schema.</li>
+<li>On runtime errors: enable debug logging for the module, inspect stack traces,
+  and ensure proper cleanup on stop/start cycles.
+Checklist before submitting a module</li>
+</ul>
+<hr />
+<ul>
+<li>[ ] Unique module name and semver version</li>
+<li>[ ] metadata field populated (name, version, description, engineCompatibility)</li>
+<li>[ ] Exports: register() at minimum; init/start/stop as applicable</li>
+<li>[ ] Configuration schema with sensible defaults and validation</li>
+<li>[ ] Properly scoped logging and error handling</li>
+<li>[ ] Unit/integration tests</li>
+<li>[ ] README documenting installation and usage</li>
+<li>[ ] License and author information
+Notes</li>
+</ul>
+<hr />
+<ul>
+<li>This document is intentionally implementation-agnostic. Adjust names of exported
+  functions and lifecycle hooks to match the concrete loader API used by your Koi
+  codebase. If the loader expects different hook names or a class-based module,
+  follow the exact patterns recognized by the loader.
+If you paste specific module source files from src/koi/modules, I can produce a
+tailored template and a concrete example module matching the exact loader API.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
