@@ -1,33 +1,26 @@
-/* Configuration pour le thème Sombre (Slate) */
 [data-md-color-scheme="slate"] {
-  /* Tes variables de couleurs actuelles */
-  --md-primary-fg-color: #f86546;       /* PUMPKIN */
+  --md-primary-fg-color: #f86546;
   --md-primary-fg-color--transparent: rgba(248, 101, 70, 0.1);
-  --md-accent-fg-color: #eb6f5c;        /* CORAL */
+  --md-accent-fg-color: #eb6f5c;
   --md-accent-bg-color: rgba(235, 111, 92, 0.1);
 
-  --md-default-bg-color: #282a36;       /* Fond général style Dracula */
+  --md-default-bg-color: #282a36;
   --md-main-bg-color: #282a36;          
   
   --md-code-bg-color: #1e1f29;          
   --md-footer-bg-color: #1e1f29;
 }
 
-/* --- Remplace la couleur unie du Header par ton image --- */
 .md-header {
-  /* On charge l'image depuis ton dossier assets */
-  background-image: url("../assets/banner2.png");
+  background-image: url("../assets/banner.png");
   
-  /* On centre l'image et on s'assure qu'elle couvre tout le header */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   
-  /* Optionnel : Ajuste la couleur du texte/icônes si besoin pour le contraste */
   color: #ffffff; 
 }
 
-/* Personnalisation de la coloration syntaxique dans le code */
 :root {
   --md-code-hl-number-color: #eb6f5c;   
   --md-code-hl-keyword-color: #f86546;  
