@@ -22,6 +22,14 @@
 }
 
 :root {
-  --md-code-hl-number-color: #eb6f5c;   
-  --md-code-hl-keyword-color: #f86546;  
+  --md-primary-fg-color: #E64A19;
+  --md-primary-bg-color: #F5F5F3;
+  --md-accent-fg-color: #5D4037;
+}
+
+.md-typeset hr {
+  border: none;
+  border-top: 1px solid var(--md-primary-fg-color);
+  margin: 2em 0;
+  opacity: 0.5;
 }

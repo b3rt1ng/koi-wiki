@@ -389,12 +389,12 @@
   <a href="#the-blueprint-koimodule-base-class" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Blueprint — KoiModule Base Class
+        The Blueprint - KoiModule Base Class
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The Blueprint — KoiModule Base Class">
+    <nav class="md-nav" aria-label="The Blueprint - KoiModule Base Class">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -602,7 +602,7 @@
   <a href="#selfspinnermsg-context-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.spinner(msg) — context manager
+        self.spinner(msg) - context manager
       
     </span>
   </a>
@@ -613,7 +613,7 @@
   <a href="#selfbreakertext-context-manager-function" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.breaker(text="") — context manager / function
+        self.breaker(text="") - context manager / function
       
     </span>
   </a>
@@ -729,7 +729,7 @@
   <a href="#simple-linux-module-get_users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simple Linux Module — get_users
+        Simple Linux Module - get_users
       
     </span>
   </a>
@@ -740,7 +740,7 @@
   <a href="#cross-platform-module-get_processes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cross-platform Module — get_processes
+        Cross-platform Module - get_processes
       
     </span>
   </a>
@@ -751,7 +751,7 @@
   <a href="#file-transfer-module-download" class="md-nav__link">
     <span class="md-ellipsis">
       
-        File Transfer Module — download
+        File Transfer Module - download
       
     </span>
   </a>
@@ -762,7 +762,7 @@
   <a href="#windows-upload-module-ligolo-sharphound-populate_win" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Windows Upload Module — ligolo / sharphound / populate_win
+        Windows Upload Module - ligolo / sharphound / populate_win
       
     </span>
   </a>
@@ -922,12 +922,12 @@
   <a href="#the-blueprint-koimodule-base-class" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Blueprint — KoiModule Base Class
+        The Blueprint - KoiModule Base Class
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The Blueprint — KoiModule Base Class">
+    <nav class="md-nav" aria-label="The Blueprint - KoiModule Base Class">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1135,7 +1135,7 @@
   <a href="#selfspinnermsg-context-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.spinner(msg) — context manager
+        self.spinner(msg) - context manager
       
     </span>
   </a>
@@ -1146,7 +1146,7 @@
   <a href="#selfbreakertext-context-manager-function" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.breaker(text="") — context manager / function
+        self.breaker(text="") - context manager / function
       
     </span>
   </a>
@@ -1262,7 +1262,7 @@
   <a href="#simple-linux-module-get_users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simple Linux Module — get_users
+        Simple Linux Module - get_users
       
     </span>
   </a>
@@ -1273,7 +1273,7 @@
   <a href="#cross-platform-module-get_processes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cross-platform Module — get_processes
+        Cross-platform Module - get_processes
       
     </span>
   </a>
@@ -1284,7 +1284,7 @@
   <a href="#file-transfer-module-download" class="md-nav__link">
     <span class="md-ellipsis">
       
-        File Transfer Module — download
+        File Transfer Module - download
       
     </span>
   </a>
@@ -1295,7 +1295,7 @@
   <a href="#windows-upload-module-ligolo-sharphound-populate_win" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Windows Upload Module — ligolo / sharphound / populate_win
+        Windows Upload Module - ligolo / sharphound / populate_win
       
     </span>
   </a>
@@ -1396,12 +1396,12 @@
 
 
 
-<h1 id="koi-module-development-guide">Koi — Module Development Guide</h1>
+<h1 id="koi-module-development-guide">Koi - Module Development Guide</h1>
 <h2 id="overview">Overview</h2>
 <p>Koi modules are self-contained Python classes that extend <code>KoiModule</code>. Each module represents one capability (enumeration, file transfer, pivoting, etc.) and is automatically discovered by the framework when placed in <code>src/koi/modules/</code>.</p>
-<p>A module gets a live <code>Session</code> object injected at construction time. Through the base class it has access to helpers for executing remote commands, transferring files, printing output, and managing the connection — without ever touching the raw socket directly.</p>
+<p>A module gets a live <code>Session</code> object injected at construction time. Through the base class it has access to helpers for executing remote commands, transferring files, printing output, and managing the connection - without ever touching the raw socket directly.</p>
 <hr />
-<h2 id="the-blueprint-koimodule-base-class">The Blueprint — KoiModule Base Class</h2>
+<h2 id="the-blueprint-koimodule-base-class">The Blueprint - KoiModule Base Class</h2>
 <p><code>KoiModule</code> (defined in <code>blueprint.py</code>) is the abstract base class every module must inherit from. It handles argument parsing, provides all helpers, and enforces the single entry point <code>run()</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.modules.blueprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">KoiModule</span>
 
@@ -1453,20 +1453,20 @@
 <td><code>platform</code></td>
 <td><code>str</code> or <code>list[str]</code></td>
 <td>No</td>
-<td>Supported OS types — see <a href="#platform-targeting">Platform Targeting</a></td>
+<td>Supported OS types - see <a href="#platform-targeting">Platform Targeting</a></td>
 </tr>
 <tr>
 <td><code>arguments</code></td>
 <td><code>list[dict]</code></td>
 <td>No</td>
-<td>Argument definitions — see <a href="#argument-parsing">Argument Parsing</a></td>
+<td>Argument definitions - see <a href="#argument-parsing">Argument Parsing</a></td>
 </tr>
 </tbody>
 </table>
 <h3 id="lifecycle">Lifecycle</h3>
 <div class="highlight"><pre><span></span><code>KoiModule.__init__(session, args)
   └─ _parse_args()          # builds self.args from self.arguments + raw CLI args
-       └─ run()             # YOUR code — called by the framework
+       └─ run()             # YOUR code - called by the framework
 </code></pre></div>
 <p>The framework calls <code>__init__</code> then <code>run()</code>. You never override <code>__init__</code>; put all logic in <code>run()</code>.</p>
 <h3 id="argument-parsing">Argument Parsing</h3>
@@ -1507,10 +1507,10 @@
 <h4 id="selfexeccommand-timeout300-commandresult"><code>self.exec(command, timeout=30.0) → CommandResult</code></h4>
 <p>Runs a shell command on the remote Linux session and blocks until it completes or times out. Returns a <code>CommandResult</code> with:</p>
 <ul>
-<li><code>.stdout</code> — full output as a string</li>
-<li><code>.returncode</code> — exit code</li>
-<li><code>.success</code> — <code>True</code> if <code>returncode == 0</code></li>
-<li><code>.duration</code> — elapsed time in seconds</li>
+<li><code>.stdout</code> - full output as a string</li>
+<li><code>.returncode</code> - exit code</li>
+<li><code>.success</code> - <code>True</code> if <code>returncode == 0</code></li>
+<li><code>.duration</code> - elapsed time in seconds</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
@@ -1520,7 +1520,7 @@
 </code></pre></div>
 <p>Raises <code>CommandTimeout</code> if the command exceeds <code>timeout</code> seconds.</p>
 <blockquote>
-<p><strong>Note:</strong> <code>exec</code> uses a sentinel marker appended to the command, so it works correctly even on raw/non-PTY shells. <strong>Do not use it on Windows sessions</strong> — use <code>_win_query</code> instead.</p>
+<p><strong>Note:</strong> <code>exec</code> uses a sentinel marker appended to the command, so it works correctly even on raw/non-PTY shells. <strong>Do not use it on Windows sessions</strong> - use <code>_win_query</code> instead.</p>
 </blockquote>
 <h4 id="selfexec_streamcommand-timeout300-iteratorstreamline"><code>self.exec_stream(command, timeout=30.0) → Iterator[StreamLine]</code></h4>
 <p>Like <code>exec</code> but yields output line by line as <code>StreamLine</code> objects (<code>.text</code> attribute). Useful for long-running commands where you want to display progress in real time.</p>
@@ -1557,8 +1557,8 @@
 <p>These are not methods of <code>KoiModule</code> directly, but utilities from <code>koi.utils.tcp</code> that module authors use together with <code>exec</code> or <code>_win_query</code>/<code>_send_ps</code> to transfer binary data.</p>
 <h4 id="spawn_recv_servertimeout-port-collect_fn"><code>spawn_recv_server(timeout) → (port, collect_fn)</code></h4>
 <p>Opens a local TCP listener on a random port and returns:
-- <code>port</code> — the port number to give to the remote side
-- <code>collect_fn</code> — a callable that blocks until the data arrives and returns it as <code>bytes</code></p>
+- <code>port</code> - the port number to give to the remote side
+- <code>collect_fn</code> - a callable that blocks until the data arrives and returns it as <code>bytes</code></p>
 <p>Used when you want the <strong>remote machine to push data to you</strong> (download).</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.utils.tcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">spawn_recv_server</span>
 
@@ -1568,9 +1568,9 @@
 </code></pre></div>
 <h4 id="spawn_send_serverraw_bytes-timeout-on_progressnone-port-thread-errors"><code>spawn_send_server(raw_bytes, timeout, on_progress=None) → (port, thread, errors)</code></h4>
 <p>Opens a local TCP listener and serves <code>raw_bytes</code> to the first client that connects. Returns:
-- <code>port</code> — port to connect to from the remote side
-- <code>thread</code> — the serving thread (join it to wait for completion)
-- <code>errors</code> — list that will contain any exception messages on failure</p>
+- <code>port</code> - port to connect to from the remote side
+- <code>thread</code> - the serving thread (join it to wait for completion)
+- <code>errors</code> - list that will contain any exception messages on failure</p>
 <p>Used when you want to <strong>push data to the remote machine</strong> (upload).</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.utils.tcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">spawn_send_server</span>
 
@@ -1617,7 +1617,7 @@
 </tr>
 <tr>
 <td><code>err</code></td>
-<td>Error — typically followed by <code>return</code></td>
+<td>Error - typically followed by <code>return</code></td>
 </tr>
 </tbody>
 </table>
@@ -1629,12 +1629,12 @@
     <span class="s2">&quot;size&quot;</span><span class="p">:</span>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">,</span>
 <span class="p">})</span>
 </code></pre></div>
-<h4 id="selfspinnermsg-context-manager"><code>self.spinner(msg)</code> — context manager</h4>
+<h4 id="selfspinnermsg-context-manager"><code>self.spinner(msg)</code> - context manager</h4>
 <p>Shows a spinner while a blocking operation runs.</p>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Checking file existence…&quot;</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Checking file existence&quot;</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;test -f /etc/shadow&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="selfbreakertext-context-manager-function"><code>self.breaker(text="")</code> — context manager / function</h4>
+<h4 id="selfbreakertext-context-manager-function"><code>self.breaker(text="")</code> - context manager / function</h4>
 <p>Prints a horizontal separator, optionally with a label. Used to frame large text dumps.</p>
 <h4 id="selfuiprogressbartotal"><code>self.ui.ProgressBar(total)</code></h4>
 <p>Shows a progress bar. Call <code>.update(current)</code> to advance it and <code>.done()</code> when finished.</p>
@@ -1667,7 +1667,7 @@
     <span class="n">platform</span>    <span class="o">=</span> <span class="s2">&quot;linux&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Running whoami…&quot;</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Running whoami&quot;</span><span class="p">):</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
@@ -1724,7 +1724,7 @@
 </code></pre></div>
 <hr />
 <h2 id="real-world-examples">Real-World Examples</h2>
-<h3 id="simple-linux-module-get_users">Simple Linux Module — get_users</h3>
+<h3 id="simple-linux-module-get_users">Simple Linux Module - get_users</h3>
 <p><code>get_users</code> is the simplest possible module: one <code>exec</code> call, parse stdout, display.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;cat /etc/passwd&quot;</span><span class="p">)</span>
@@ -1753,7 +1753,7 @@
 - Check <code>result.success</code> before processing output.
 - Use <code>self.raw_args</code> for simple on/off flags that don't need <code>argparse</code>.</p>
 <hr />
-<h3 id="cross-platform-module-get_processes">Cross-platform Module — get_processes</h3>
+<h3 id="cross-platform-module-get_processes">Cross-platform Module - get_processes</h3>
 <p><code>get_processes</code> demonstrates the standard cross-platform pattern: branch on <code>self.session.os_type</code>, use <code>_exec_clean</code> for Linux and <code>_win_query</code> for Windows.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">os_type</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span><span class="p">:</span>
@@ -1762,27 +1762,27 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_run_windows</span><span class="p">()</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_run_linux</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Collecting processes…&quot;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Collecting processes&quot;</span><span class="p">):</span>
         <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exec_clean</span><span class="p">(</span>
             <span class="s2">&quot;ps aux --no-headers 2&gt;/dev/null || ps aux 2&gt;/dev/null&quot;</span><span class="p">,</span>
             <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="n">procs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_linux</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-    <span class="c1"># … display with self.box(…)</span>
+    <span class="c1">#  display with self.box()</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_run_windows</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">ps_expr</span> <span class="o">=</span> <span class="s2">&quot;(tasklist /fo csv /nh /v) -join &#39;§&#39;&quot;</span>
-    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Collecting processes via tasklist…&quot;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Collecting processes via tasklist&quot;</span><span class="p">):</span>
         <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="n">ps_expr</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
     <span class="n">procs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_windows_tasklist</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-    <span class="c1"># … display with self.box(…)</span>
+    <span class="c1">#  display with self.box()</span>
 </code></pre></div>
 <p><strong>Key takeaways:</strong>
-- Use <code>_exec_clean</code> instead of <code>exec</code> when you need to parse the output programmatically — it gives you clean text free of prompt noise.
+- Use <code>_exec_clean</code> instead of <code>exec</code> when you need to parse the output programmatically - it gives you clean text free of prompt noise.
 - Use <code>_win_query</code> for all Windows queries; never use <code>exec</code> on a Windows session.
-- Wrap slow queries in <code>self.spinner(…)</code>.</p>
+- Wrap slow queries in <code>self.spinner()</code>.</p>
 <hr />
-<h3 id="file-transfer-module-download">File Transfer Module — download</h3>
+<h3 id="file-transfer-module-download">File Transfer Module - download</h3>
 <p><code>download</code> shows how to set up a local TCP listener and trigger the remote machine to connect and send a file.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 1. Open a local TCP listener</span>
 <span class="n">srv</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
@@ -1815,13 +1815,13 @@
 </code></pre></div>
 <p>This is essentially what <code>spawn_recv_server</code> wraps for you. Prefer <code>spawn_recv_server</code> in new modules unless you need a progress bar or custom logic during reception.</p>
 <hr />
-<h3 id="windows-upload-module-ligolo-sharphound-populate_win">Windows Upload Module — ligolo / sharphound / populate_win</h3>
+<h3 id="windows-upload-module-ligolo-sharphound-populate_win">Windows Upload Module - ligolo / sharphound / populate_win</h3>
 <p>All three upload modules follow the same pattern:</p>
 <ol>
 <li>Prepare the binary locally (download from GitHub, extract from zip, etc.)</li>
 <li>Call <code>spawn_send_server(raw, timeout=...)</code> to serve the bytes.</li>
 <li>Send a PowerShell TCP-read command to the target.</li>
-<li>Join the serving thread and verify the file landed with <code>_win_query("(Test-Path …)")</code>.</li>
+<li>Join the serving thread and verify the file landed with <code>_win_query("(Test-Path )")</code>.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.utils.tcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">spawn_send_server</span>
 
@@ -1864,7 +1864,7 @@
     <span class="c1"># Inline sentinel is fine</span>
     <span class="o">...</span>
 </code></pre></div>
-<p><code>_win_query</code> handles this transparently — you don't need the check there. You do need it when sending raw PowerShell that doesn't go through <code>_win_query</code>, for example when triggering a TCP upload:</p>
+<p><code>_win_query</code> handles this transparently - you don't need the check there. You do need it when sending raw PowerShell that doesn't go through <code>_win_query</code>, for example when triggering a TCP upload:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_send_ps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ps_cmd</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">upgraded</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">((</span><span class="n">ps_cmd</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">encoding</span><span class="p">))</span>
@@ -1880,18 +1880,18 @@
 <hr />
 <h2 id="error-handling-best-practices">Error Handling Best Practices</h2>
 <ul>
-<li>Always call <code>self.err(msg)</code> and then <strong><code>return</code></strong> immediately — don't continue after an error.</li>
+<li>Always call <code>self.err(msg)</code> and then <strong><code>return</code></strong> immediately - don't continue after an error.</li>
 <li>Wrap network calls (<code>urllib</code>, <code>socket</code>) in <code>try/except</code> blocks and surface the exception message with <code>self.err</code>.</li>
-<li>After an upload, always verify the file exists with <code>_win_query("(Test-Path …)")</code> or <code>exec("test -f …")</code> — AV/EDR may silently delete the binary.</li>
+<li>After an upload, always verify the file exists with <code>_win_query("(Test-Path )")</code> or <code>exec("test -f ")</code> - AV/EDR may silently delete the binary.</li>
 <li>If a module leaves behind a temporary workspace on the target (e.g. <code>C:\Windows\Temp\sh_xxxx</code>), implement a <code>_cleanup()</code> method and call it both on success and on early exit.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_upload</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;Upload failed.&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">work_dir</span><span class="p">)</span>   <span class="c1"># ← always clean up</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">work_dir</span><span class="p">)</span>   <span class="c1"># always clean up</span>
         <span class="k">return</span>
 
-    <span class="c1"># … rest of the logic …</span>
+    <span class="c1"># rest of the logic</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">work_dir</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
