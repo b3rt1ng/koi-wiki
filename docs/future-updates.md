@@ -48,6 +48,7 @@ Future work includes:
 
 - Cleaner log formatting
 - Smarter interaction tracking
+- logging of modules interractions
 
 The feature exists today, but it is far from its final form.
 
