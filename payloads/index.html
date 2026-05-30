@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/payloads/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../sessions/">
       
       
         <link rel="next" href="../upgrading-sessions/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Generate Payloads - Koi Documentation</title>
+        <title>Payloads & Obfuscation - Koi Documentation</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Generate Payloads
+              Payloads & Obfuscation
             
           </span>
         </div>
@@ -258,6 +258,138 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -277,7 +409,7 @@
   <span class="md-ellipsis">
     
   
-    Generate Payloads
+    Payloads & Obfuscation
   
 
     
@@ -295,7 +427,7 @@
   <span class="md-ellipsis">
     
   
-    Generate Payloads
+    Payloads & Obfuscation
   
 
     
@@ -532,9 +664,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -556,6 +689,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Built-in Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging & Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -885,7 +1082,7 @@
 <ul>
 <li><strong>How it works:</strong> Instead of leaving strings in cleartext (which antivirus software can easily flag), Koi replaces them with a dynamic .NET reflection call: <code>[System.Text.Encoding]::UTF8.GetString()</code>.</li>
 <li><strong>Before:</strong>
-    <div class="highlight"><pre><span></span><code><span class="s1">&#39;[http://malicious-domain.local/shell.exe](http://malicious-domain.local/shell.exe)&#39;</span>
+    <div class="highlight"><pre><span></span><code><span class="s1">&#39;http://malicious-domain.local/shell.exe&#39;</span>
 </code></pre></div></li>
 <li><strong>After:</strong>
     <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="no">[System.Text.Encoding]</span><span class="p">::</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="no">[byte[]]</span><span class="p">(</span><span class="n">0x68</span><span class="p">,</span><span class="n">0x74</span><span class="p">,</span><span class="n">0x74</span><span class="p">,</span><span class="n">0x70</span><span class="p">,</span><span class="n">0x3A</span><span class="p">,</span><span class="n">0x2F</span><span class="p">,</span><span class="n">0x2F</span><span class="p">...)))</span>
@@ -1000,7 +1197,7 @@ This payload is the classic common powershell reverse shell. Defender instantly 
 </code></pre></div>
 <p>That's pretty much all you need to know for windows.</p>
 <h3 id="for-linux">For Linux</h3>
-<p>The obfuscator for linux, is likely less useful for most usecases. But I wanted to implement it for personal researches and also because <strong>IT MIGHT</strong> be useful of a 1% of the users. </p>
+<p>Linux obfuscation is less commonly needed than Windows, but can be useful against WAFs, IDS rules, or bash history monitoring.</p>
 <p><img alt="windows menu" src="../assets/images/windows_obfuscator.png" /></p>
 <p>Like for Windows, let's explain what we have here.</p>
 <hr />

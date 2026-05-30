@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/getting-started/">
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/cli-reference/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../getting-started/">
       
       
-        <link rel="next" href="../cli-reference/">
+        <link rel="next" href="../sessions/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Getting Started - Koi Documentation</title>
+        <title>CLI Reference - Koi Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#cli-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              CLI Reference
             
           </span>
         </div>
@@ -258,6 +258,82 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
     
   
   
@@ -277,7 +353,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
+    CLI Reference
   
 
     
@@ -295,7 +371,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
+    CLI Reference
   
 
     
@@ -321,22 +397,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#listener-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        Listener commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installation">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#for-users" class="md-nav__link">
+  <a href="#go-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For users
+        go &lt;id&gt;
       
     </span>
   </a>
@@ -344,10 +442,76 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#for-developers" class="md-nav__link">
+  <a href="#upgrade-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For developers
+        upgrade &lt;id&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setshell-id-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setshell &lt;id&gt; &lt;type&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-module-id-args" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run &lt;module&gt; &lt;id&gt; [args...]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload-iface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        payload [iface]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obfuscator-iface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        obfuscator [iface]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop / start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        logs
       
     </span>
   </a>
@@ -360,46 +524,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installed-commands" class="md-nav__link">
+  <a href="#standalone-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installed commands
+        Standalone commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standalone commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#koi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        koi
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#starting-the-listener" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#koireview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Starting the listener
+        koireview
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-flags" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#koifuscator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI flags
+        koifuscator
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting help
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -407,80 +577,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Usage
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Usage
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cli-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI Reference
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -714,22 +810,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#listener-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        Listener commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installation">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#for-users" class="md-nav__link">
+  <a href="#go-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For users
+        go &lt;id&gt;
       
     </span>
   </a>
@@ -737,10 +855,76 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#for-developers" class="md-nav__link">
+  <a href="#upgrade-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For developers
+        upgrade &lt;id&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setshell-id-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setshell &lt;id&gt; &lt;type&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-module-id-args" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run &lt;module&gt; &lt;id&gt; [args...]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload-iface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        payload [iface]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obfuscator-iface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        obfuscator [iface]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop / start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        logs
       
     </span>
   </a>
@@ -753,46 +937,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installed-commands" class="md-nav__link">
+  <a href="#standalone-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installed commands
+        Standalone commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standalone commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#koi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        koi
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#starting-the-listener" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#koireview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Starting the listener
+        koireview
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-flags" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#koifuscator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI flags
+        koifuscator
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting help
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -813,108 +1003,253 @@
 
 
 
-<h1 id="getting-started">Getting Started</h1>
-<h2 id="installation">Installation</h2>
-<p>Koi is distributed as a Python package and managed with <code>pipx</code>, which keeps it isolated from the system Python.</p>
-<h3 id="for-users">For users</h3>
-<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>git+https://github.com/b3rt1ng/Koi
-</code></pre></div>
-<p>This pulls directly from the GitHub repository. To update later:</p>
-<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>upgrade<span class="w"> </span>koi-handler
-</code></pre></div>
-<h3 id="for-developers">For developers</h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/b3rt1ng/koi
-<span class="nb">cd</span><span class="w"> </span>koi
-pipx<span class="w"> </span>install<span class="w"> </span>--editable<span class="w"> </span>.
-</code></pre></div>
-<p>With <code>--editable</code>, changes to the source tree (including new modules added to <code>src/koi/modules/</code>) take effect immediately without reinstalling.</p>
-<div class="admonition note">
-<p class="admonition-title">PyPI</p>
-<p><code>pipx install koi-handler</code> also works but PyPI releases lag behind the GitHub repository. Use GitHub.</p>
-</div>
-<hr />
-<h2 id="installed-commands">Installed commands</h2>
-<p>After installation, three commands are available in the shell:</p>
+<h1 id="cli-reference">CLI Reference</h1>
+<h2 id="listener-commands">Listener commands</h2>
+<p>These commands are available from the main <code>koi</code> prompt.</p>
 <table>
 <thead>
 <tr>
 <th>Command</th>
+<th>Aliases</th>
+<th>Syntax</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>koi</code></td>
-<td>Start the listener</td>
+<td><code>ls</code></td>
+<td><code>l</code>, <code>list</code></td>
+<td><code>ls</code></td>
+<td>List all active sessions</td>
 </tr>
 <tr>
-<td><code>koireview [log]</code></td>
-<td>Review a recorded session log</td>
+<td><code>go</code></td>
+<td><code>g</code>, <code>interact</code></td>
+<td><code>go &lt;id&gt;</code></td>
+<td>Enter a session interactively</td>
 </tr>
 <tr>
-<td><code>koifuscator [iface]</code></td>
-<td>Open the standalone payload obfuscator</td>
+<td><code>upgrade</code></td>
+<td><code>u</code></td>
+<td><code>upgrade &lt;id&gt;</code></td>
+<td>Upgrade a session to a full PTY</td>
+</tr>
+<tr>
+<td><code>kill</code></td>
+<td>-</td>
+<td><code>kill &lt;id&gt;</code></td>
+<td>Terminate and remove a session</td>
+</tr>
+<tr>
+<td><code>setshell</code></td>
+<td><code>sh</code></td>
+<td><code>setshell &lt;id&gt; &lt;type&gt;</code></td>
+<td>Manually set the OS type of a session</td>
+</tr>
+<tr>
+<td><code>run</code></td>
+<td>-</td>
+<td><code>run &lt;module&gt; &lt;id&gt; [args...]</code></td>
+<td>Run a module against a session</td>
+</tr>
+<tr>
+<td><code>modules</code></td>
+<td><code>mdls</code>, <code>mods</code></td>
+<td><code>modules</code></td>
+<td>List available modules</td>
+</tr>
+<tr>
+<td><code>reload</code></td>
+<td><code>refresh</code>, <code>rl</code></td>
+<td><code>reload</code></td>
+<td>Reload modules from disk</td>
+</tr>
+<tr>
+<td><code>payload</code></td>
+<td><code>p</code></td>
+<td><code>payload [iface]</code></td>
+<td>Print reverse shell payloads</td>
+</tr>
+<tr>
+<td><code>obfuscator</code></td>
+<td><code>obs</code>, <code>cook</code></td>
+<td><code>obfuscator [iface]</code></td>
+<td>Open the interactive payload obfuscator</td>
+</tr>
+<tr>
+<td><code>logs</code></td>
+<td><code>log</code></td>
+<td><code>logs</code></td>
+<td>List recorded session logs</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>-</td>
+<td><code>start</code></td>
+<td>Resume accepting new connections</td>
+</tr>
+<tr>
+<td><code>stop</code></td>
+<td>-</td>
+<td><code>stop</code></td>
+<td>Pause the listener, refuse new connections</td>
+</tr>
+<tr>
+<td><code>help</code></td>
+<td><code>h</code>, <code>?</code></td>
+<td><code>help</code></td>
+<td>Show the command reference</td>
+</tr>
+<tr>
+<td><code>exit</code></td>
+<td><code>quit</code></td>
+<td><code>exit</code></td>
+<td>Shut down the listener cleanly</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="starting-the-listener">Starting the listener</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Default: bind 0.0.0.0:4010</span>
-koi
-
-<span class="c1"># Custom port</span>
-koi<span class="w"> </span>--port<span class="w"> </span><span class="m">4444</span>
-
-<span class="c1"># Custom bind address</span>
-koi<span class="w"> </span>--host<span class="w"> </span><span class="m">192</span>.168.1.10<span class="w"> </span>--port<span class="w"> </span><span class="m">9001</span>
-</code></pre></div>
-<p>On startup, Koi binds the TCP socket, prints the banner, then drops into the interactive prompt. Incoming connections are accepted in the background and announced in the prompt.</p>
-<div class="highlight"><pre><span></span><code>koi(0 sessions) ❯ 
-▶  New session #1  192.168.1.42:51234 [linux]
-koi(1 session) ❯ 
-</code></pre></div>
-<hr />
-<h2 id="cli-flags">CLI flags</h2>
+<h2 id="session-signals">Session signals</h2>
+<p>These key combinations work while inside an interactive session (<code>go &lt;id&gt;</code>):</p>
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Default</th>
+<th>Key</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+Z</code></td>
+<td>Background the session and return to the listener prompt</td>
+</tr>
+<tr>
+<td><code>Ctrl+C</code></td>
+<td>Send <code>SIGINT</code> to the remote process (keeps the session alive)</td>
+</tr>
+<tr>
+<td><code>Ctrl+T</code></td>
+<td>Toggle <strong>screenable mode</strong>, masks all IP addresses in output</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="command-details">Command details</h2>
+<h3 id="go-id"><code>go &lt;id&gt;</code></h3>
+<p>Enters a session. The behaviour depends on whether the session has been upgraded:</p>
+<ul>
+<li><strong>Upgraded (Linux PTY / ConPtyShell):</strong> raw terminal mode, every keystroke goes directly to the remote process.</li>
+<li><strong>Plain (not upgraded):</strong> line-by-line mode, input is buffered and sent on Enter. Output is decoded and printed as-is.</li>
+</ul>
+<p>Background with <code>Ctrl+Z</code> to return to the prompt without killing the session.</p>
+<hr />
+<h3 id="upgrade-id"><code>upgrade &lt;id&gt;</code></h3>
+<p>Promotes a raw shell to a fully interactive PTY. The method depends on the detected OS:</p>
+<ul>
+<li><strong>Linux:</strong> tries <code>script</code>, then <code>socat</code>, then falls back to <code>/bin/bash -i</code>.</li>
+<li><strong>Windows:</strong> fetches and executes <a href="https://github.com/antonioCoco/ConPtyShell">ConPtyShell</a> via a local HTTP staging server.</li>
+</ul>
+<p>The session logger is started at this point. See <a href="../logs/">Logging &amp; Review</a>.</p>
+<hr />
+<h3 id="setshell-id-type"><code>setshell &lt;id&gt; &lt;type&gt;</code></h3>
+<p>Manually overrides the OS type of a session when auto-detection fails. Valid types:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Alias</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>--port</code>, <code>-p</code></td>
-<td><code>4010</code></td>
-<td>TCP port to listen on</td>
-</tr>
-<tr>
-<td><code>--host</code></td>
-<td><code>0.0.0.0</code></td>
-<td>Bind address</td>
-</tr>
-<tr>
-<td><code>--payloads [IFACE]</code></td>
+<td><code>linux</code></td>
 <td>-</td>
-<td>Print payloads and exit</td>
+<td>Linux shell</td>
 </tr>
 <tr>
-<td><code>--obfuscator [IFACE]</code></td>
-<td>-</td>
-<td>Open the obfuscator UI and exit</td>
+<td><code>windows_ps</code></td>
+<td><code>ps</code>, <code>powershell</code></td>
+<td>Windows PowerShell</td>
 </tr>
 <tr>
-<td><code>--help</code>, <code>-h</code></td>
-<td>-</td>
-<td>Show help and exit</td>
+<td><code>windows_cmd</code></td>
+<td><code>cmd</code></td>
+<td>Windows cmd.exe</td>
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code>koi ❯ setshell 2 windows_ps
+</code></pre></div>
+<p>This also adjusts the session encoding (<code>utf-8</code> / <code>cp1252</code>) and line ending (<code>\n</code> / <code>\r\n</code>).</p>
 <hr />
-<h2 id="getting-help">Getting help</h2>
-<p>From inside the listener prompt, type <code>help</code> to see all available commands with their syntax.</p>
-<p>See <a href="../cli-reference/">CLI Reference</a> for the full command documentation.</p>
+<h3 id="run-module-id-args"><code>run &lt;module&gt; &lt;id&gt; [args...]</code></h3>
+<p>Runs a post-exploitation module against a session. The module must be compatible with the session's OS type. Example:</p>
+<div class="highlight"><pre><span></span><code>koi ❯ run sysinfo 1
+koi ❯ run network_enum 1 --no-scan
+koi ❯ run download 1 /etc/shadow -o shadow.txt
+</code></pre></div>
+<p>Type <code>modules</code> to see what is available. Each module's usage is shown if you omit the session id:</p>
+<div class="highlight"><pre><span></span><code>koi ❯ run download
+  ✖  Usage: run download &lt;id&gt; &lt;remote_path&gt; [-o &lt;local_path&gt;]
+</code></pre></div>
+<hr />
+<h3 id="payload-iface"><code>payload [iface]</code></h3>
+<p>Prints ready-to-use reverse shell payloads for the given interface (or all interfaces if omitted).</p>
+<div class="highlight"><pre><span></span><code>koi ❯ payload eth0
+koi ❯ payload          # all interfaces
+</code></pre></div>
+<hr />
+<h3 id="obfuscator-iface"><code>obfuscator [iface]</code></h3>
+<p>Opens the interactive TUI obfuscator to layer obfuscation techniques on a payload. Can also be launched as a standalone command: <code>koifuscator [iface]</code>.</p>
+<hr />
+<h3 id="stop-start"><code>stop</code> / <code>start</code></h3>
+<p><code>stop</code> pauses the listener: the socket stays open but incoming connections are refused (except ConPtyShell callbacks for in-progress upgrades). <code>start</code> resumes accepting connections. The current prompt indicates the paused state with a <code>[PAUSED]</code> tag.</p>
+<hr />
+<h3 id="logs"><code>logs</code></h3>
+<p>Lists all session log files stored in <code>~/.koi/logs/</code>. Use <code>koireview &lt;name&gt;</code> to read one. See <a href="../logs/">Logging &amp; Review</a>.</p>
+<hr />
+<h2 id="standalone-commands">Standalone commands</h2>
+<h3 id="koi"><code>koi</code></h3>
+<div class="highlight"><pre><span></span><code>koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]]
+</code></pre></div>
+<p><code>--payloads</code> and <code>--obfuscator</code> print output and exit without starting the listener.</p>
+<hr />
+<h3 id="koireview"><code>koireview</code></h3>
+<div class="highlight"><pre><span></span><code>koireview [log] [-c / --clear]
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Usage</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>koireview</code></td>
+<td>List all available log files</td>
+</tr>
+<tr>
+<td><code>koireview &lt;name&gt;</code></td>
+<td>Replay a session log with timestamps</td>
+</tr>
+<tr>
+<td><code>koireview -c</code></td>
+<td>Delete all log files</td>
+</tr>
+<tr>
+<td><code>koireview &lt;name&gt; -c</code></td>
+<td>Delete a specific log file</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="../logs/">Logging &amp; Review</a> for details.</p>
+<hr />
+<h3 id="koifuscator"><code>koifuscator</code></h3>
+<div class="highlight"><pre><span></span><code>koifuscator [iface] [--port PORT]
+</code></pre></div>
+<p>Standalone obfuscator UI. Equivalent to running <code>koi --obfuscator</code> but without starting the listener. See <a href="../payloads/">Payloads &amp; Obfuscation</a>.</p>
 
 
 

