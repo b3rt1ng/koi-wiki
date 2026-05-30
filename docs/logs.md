@@ -2,7 +2,12 @@
 
 ## How logging works
 
-A session log is created when a session is upgraded (`upgrade <id>`). Logs are stored in:
+A session log is created automatically the first time you interact with a session. The exact trigger depends on what you do:
+
+- **`upgrade <id>`** — log starts immediately when upgrade is initiated (Linux or Windows).
+- **`go <id>`** — if no log exists yet (e.g. you `go` directly without upgrading), one is created on entry.
+
+Logs are stored in:
 
 ```
 ~/.koi/logs/<timestamp>-<session_id>-<remote_ip>.log
@@ -10,7 +15,7 @@ A session log is created when a session is upgraded (`upgrade <id>`). Logs are s
 
 Example: `20250530-142301-1-192.168.1.42.log`
 
-Sessions that are never upgraded are not logged. Once a log is open, it stays attached to the session until it is removed (`kill`) or Koi exits.
+Once a log is open, it stays attached to the session until it is removed (`kill`) or Koi exits.
 
 ---
 

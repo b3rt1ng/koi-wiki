@@ -178,7 +178,7 @@ koi ❯ run download 2 "C:\Users\admin\Desktop\passwords.txt" -o passwords.txt
 **Platform:** Linux, Windows PowerShell  
 **Usage:** `run upload <id> <local_path> [-o REMOTE_PATH]`
 
-Uploads a local file to the target via a dedicated TCP connection. Shows a progress bar during transfer. Default remote destination is `/tmp/<filename>` (Linux) or `C:\Windows\Temp\<filename>` (Windows).
+Uploads a local file to the target via a dedicated TCP connection. Shows a progress bar during transfer. If no `-o` path is given, the file is placed in the **current working directory of the remote shell** (i.e. wherever the shell is when you run the module).
 
 | Flag | Description |
 |---|---|

