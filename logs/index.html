@@ -861,11 +861,16 @@
 
 <h1 id="logging-review">Logging &amp; Review</h1>
 <h2 id="how-logging-works">How logging works</h2>
-<p>A session log is created when a session is upgraded (<code>upgrade &lt;id&gt;</code>). Logs are stored in:</p>
+<p>A session log is created automatically the first time you interact with a session. The exact trigger depends on what you do:</p>
+<ul>
+<li><strong><code>upgrade &lt;id&gt;</code></strong> — log starts immediately when upgrade is initiated (Linux or Windows).</li>
+<li><strong><code>go &lt;id&gt;</code></strong> — if no log exists yet (e.g. you <code>go</code> directly without upgrading), one is created on entry.</li>
+</ul>
+<p>Logs are stored in:</p>
 <div class="highlight"><pre><span></span><code>~/.koi/logs/&lt;timestamp&gt;-&lt;session_id&gt;-&lt;remote_ip&gt;.log
 </code></pre></div>
 <p>Example: <code>20250530-142301-1-192.168.1.42.log</code></p>
-<p>Sessions that are never upgraded are not logged. Once a log is open, it stays attached to the session until it is removed (<code>kill</code>) or Koi exits.</p>
+<p>Once a log is open, it stays attached to the session until it is removed (<code>kill</code>) or Koi exits.</p>
 <hr />
 <h2 id="log-format">Log format</h2>
 <p>Each log file is a series of JSON lines, one entry per line. There are four entry types:</p>
