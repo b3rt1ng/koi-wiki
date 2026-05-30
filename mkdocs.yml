@@ -28,8 +28,14 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Generate Payloads: payloads.md
-  - Upgrading Sessions: upgrading-sessions.md
+  - Getting Started: getting-started.md
+  - Usage:
+    - CLI Reference: cli-reference.md
+    - Session Management: sessions.md
+    - Payloads & Obfuscation: payloads.md
+    - Upgrading Sessions: upgrading-sessions.md
+    - Built-in Modules: modules.md
+    - Logging & Review: logs.md
   - Module Development: make-your-modules.md
   - Future Updates: future-updates.md
 

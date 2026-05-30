@@ -34,7 +34,7 @@ This method hunts down all plain text strings enclosed in single quotes within y
 * **How it works:** Instead of leaving strings in cleartext (which antivirus software can easily flag), Koi replaces them with a dynamic .NET reflection call: `[System.Text.Encoding]::UTF8.GetString()`.
 * **Before:**
     ```powershell
-    '[http://malicious-domain.local/shell.exe](http://malicious-domain.local/shell.exe)'
+    'http://malicious-domain.local/shell.exe'
     ```
 * **After:**
     ```powershell
@@ -176,7 +176,7 @@ That's pretty much all you need to know for windows.
 
 ### For Linux
 
-The obfuscator for linux, is likely less useful for most usecases. But I wanted to implement it for personal researches and also because **IT MIGHT** be useful of a 1% of the users. 
+Linux obfuscation is less commonly needed than Windows, but can be useful against WAFs, IDS rules, or bash history monitoring.
 
 ![windows menu](assets/images/windows_obfuscator.png)
 
