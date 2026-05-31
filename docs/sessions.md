@@ -102,11 +102,14 @@ After a successful upgrade:
 - Session logging starts, a log file is created in `~/.koi/logs/`
 - The session is ready for module execution
 
+!!! note
+    If you use `go` without upgrading first, a log file is created at that point instead. Every session is logged from the moment you first interact with it.
+
 ---
 
 ## Screenable mode
 
-Screenable mode masks all IP addresses in the output, replacing them with `<REMOTE IP>` or `<LOCAL IP>`. Useful when sharing your screen during a CTF, live demo, or presentation.
+Screenable mode masks all IP addresses and MAC addresses in the output, replacing them with `<REMOTE IP>`, `<LOCAL IP>`, or `<MAC>`. Useful when sharing your screen during a CTF, live demo, or presentation.
 
 **Toggle:** `Ctrl+T` (or type `_koi_screenable_` and press Enter, the command is removed from history automatically).
 

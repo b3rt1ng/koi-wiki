@@ -135,7 +135,7 @@ koi ❯ run wifi_enum 1
 **Platform:** Windows PowerShell  
 **Usage:** `run sharphound <id> [-c COLLECTION] [-o LOCAL_ZIP]`
 
-Fetches the latest [SharpHound](https://github.com/SpecterOps/SharpHound) release from GitHub, uploads it to the target, runs it, and retrieves the BloodHound zip locally. Cleans up the remote workspace on completion.
+Fetches the latest [SharpHound](https://github.com/SpecterOps/SharpHound) release from GitHub, uploads it to the target, runs it, and retrieves the BloodHound zip locally. The remote workspace (`sh_<token>`) is created in the current working directory of the remote shell and cleaned up automatically on completion.
 
 | Flag | Description |
 |---|---|
@@ -201,7 +201,7 @@ koi ❯ run upload 2 /opt/tools/chisel.exe -o "C:\Temp\chisel.exe"
 
 Fetches the latest [ligolo-ng](https://github.com/nicocha30/ligolo-ng) agent release from GitHub for the target's architecture, and uploads it to the target. On Windows, adds a Defender exclusion for the destination directory before uploading.
 
-Architecture is detected automatically (`uname -m` on Linux, `$env:PROCESSOR_ARCHITECTURE` on Windows).
+Architecture is detected automatically (`uname -m` on Linux, `$env:PROCESSOR_ARCHITECTURE` on Windows). The agent is deployed in the current working directory of the remote shell (`./agent` on Linux, `.\agent.exe` on Windows) unless `-o` is specified.
 
 | Flag | Description |
 |---|---|
@@ -226,7 +226,7 @@ Downloads and uploads a collection of common exploitation tools to the target: R
 
 | Flag | Description |
 |---|---|
-| `-o DIR`, `--output-dir DIR` | Remote directory (default: `C:\Windows\Temp`) |
+| `-o DIR`, `--output-dir DIR` | Remote directory (default: current working directory of the remote shell) |
 
 ```
 koi ❯ run populate_win 2

@@ -178,7 +178,7 @@ Transfers `raw` bytes to `dest` on the target, handling Linux and Windows automa
 
 ```python
 bar = self.ui.ProgressBar(total=len(raw))
-ok  = self._upload_bytes(raw, "/tmp/agent", timeout=60, on_progress=bar.update)
+ok  = self._upload_bytes(raw, "./agent", timeout=60, on_progress=bar.update)
 bar.done()
 print()
 if not ok:
@@ -188,6 +188,7 @@ if not ok:
 
 - On **Linux** it uses `/dev/tcp/<ip>/<port>` via `cat`.
 - On **Windows** it sends a PowerShell TCP-read command via `_dispatch_ps`.
+- Relative paths (e.g. `./agent`, `.\agent.exe`) are resolved against the remote shell's current working directory.
 
 Post-transfer verification (e.g. `test -s`, `Test-Path`, `chmod +x`) is the caller's responsibility.
 
@@ -329,6 +330,47 @@ Write raw bytes directly to the session socket. Returns `False` if the session i
 #### `self.sendline(line: str, encoding="utf-8") -> bool`
 
 Encode `line + "\n"` and send it. Shorthand for `self.send((line + "\n").encode(encoding))`.
+
+---
+
+### Local Cache
+
+Koi provides a simple key-value file cache under `~/.koi/cache/`. Use it to avoid re-downloading large files (binaries, scripts) across runs.
+
+```python
+from koi.utils.cache import put_cache, get_cache, has_cache, cache_path
+```
+
+#### `put_cache(name, data) -> None`
+
+Store `data` (bytes) in the cache under `name`.
+
+```python
+put_cache("my_tool.exe", raw_bytes)
+```
+
+#### `get_cache(name) -> bytes | None`
+
+Return cached bytes for `name`, or `None` if not cached.
+
+```python
+raw = get_cache("my_tool.exe")
+if raw is None:
+    raw = download_from_github()
+    put_cache("my_tool.exe", raw)
+```
+
+#### `has_cache(name) -> bool`
+
+Return `True` if `name` exists in the cache.
+
+#### `cache_path(name) -> Path`
+
+Return the full path of the cached file. Useful for displaying the cache location in notifications.
+
+```python
+notify('warning', f"Using cached version ({cache_path('my_tool.exe')})")
+```
 
 ---
 
