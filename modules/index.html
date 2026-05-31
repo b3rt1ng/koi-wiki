@@ -1185,7 +1185,7 @@ koi ❯ run network_enum 1 -s 172.16.10.0/24 -t 2
 <h3 id="sharphound"><code>sharphound</code></h3>
 <p><strong>Platform:</strong> Windows PowerShell<br />
 <strong>Usage:</strong> <code>run sharphound &lt;id&gt; [-c COLLECTION] [-o LOCAL_ZIP]</code></p>
-<p>Fetches the latest <a href="https://github.com/SpecterOps/SharpHound">SharpHound</a> release from GitHub, uploads it to the target, runs it, and retrieves the BloodHound zip locally. Cleans up the remote workspace on completion.</p>
+<p>Fetches the latest <a href="https://github.com/SpecterOps/SharpHound">SharpHound</a> release from GitHub, uploads it to the target, runs it, and retrieves the BloodHound zip locally. The remote workspace (<code>sh_&lt;token&gt;</code>) is created in the current working directory of the remote shell and cleaned up automatically on completion.</p>
 <table>
 <thead>
 <tr>
@@ -1264,7 +1264,7 @@ koi ❯ run upload 2 /opt/tools/chisel.exe -o &quot;C:\Temp\chisel.exe&quot;
 <p><strong>Platform:</strong> Linux, Windows PowerShell<br />
 <strong>Usage:</strong> <code>run ligolo &lt;id&gt; [-o REMOTE_PATH]</code></p>
 <p>Fetches the latest <a href="https://github.com/nicocha30/ligolo-ng">ligolo-ng</a> agent release from GitHub for the target's architecture, and uploads it to the target. On Windows, adds a Defender exclusion for the destination directory before uploading.</p>
-<p>Architecture is detected automatically (<code>uname -m</code> on Linux, <code>$env:PROCESSOR_ARCHITECTURE</code> on Windows).</p>
+<p>Architecture is detected automatically (<code>uname -m</code> on Linux, <code>$env:PROCESSOR_ARCHITECTURE</code> on Windows). The agent is deployed in the current working directory of the remote shell (<code>./agent</code> on Linux, <code>.\agent.exe</code> on Windows) unless <code>-o</code> is specified.</p>
 <table>
 <thead>
 <tr>
@@ -1299,7 +1299,7 @@ koi ❯ run ligolo 2 -o &quot;C:\Temp\agent.exe&quot;
 <tbody>
 <tr>
 <td><code>-o DIR</code>, <code>--output-dir DIR</code></td>
-<td>Remote directory (default: <code>C:\Windows\Temp</code>)</td>
+<td>Remote directory (default: current working directory of the remote shell)</td>
 </tr>
 </tbody>
 </table>

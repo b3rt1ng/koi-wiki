@@ -1007,9 +1007,13 @@
 <li>Session logging starts, a log file is created in <code>~/.koi/logs/</code></li>
 <li>The session is ready for module execution</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use <code>go</code> without upgrading first, a log file is created at that point instead. Every session is logged from the moment you first interact with it.</p>
+</div>
 <hr />
 <h2 id="screenable-mode">Screenable mode</h2>
-<p>Screenable mode masks all IP addresses in the output, replacing them with <code>&lt;REMOTE IP&gt;</code> or <code>&lt;LOCAL IP&gt;</code>. Useful when sharing your screen during a CTF, live demo, or presentation.</p>
+<p>Screenable mode masks all IP addresses and MAC addresses in the output, replacing them with <code>&lt;REMOTE IP&gt;</code>, <code>&lt;LOCAL IP&gt;</code>, or <code>&lt;MAC&gt;</code>. Useful when sharing your screen during a CTF, live demo, or presentation.</p>
 <p><strong>Toggle:</strong> <code>Ctrl+T</code> (or type <code>_koi_screenable_</code> and press Enter, the command is removed from history automatically).</p>
 <p>The current state is shown in the prompt:</p>
 <div class="highlight"><pre><span></span><code>b3rt1ng@koi [ANON](1 session) ❯ 
