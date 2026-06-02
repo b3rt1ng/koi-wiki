@@ -36,7 +36,13 @@ nav:
     - Upgrading Sessions: upgrading-sessions.md
     - Built-in Modules: modules.md
     - Logging & Review: logs.md
-  - Module Development: make-your-modules.md
+  - Module Development:
+    - Overview: modules-overview.md
+    - Executing Commands: modules-commands.md
+    - File Transfer: modules-transfer.md
+    - UI & Output: modules-ui.md
+    - Best Practices: modules-best-practices.md
+  - Troubleshooting: troubleshooting.md
   - Future Updates: future-updates.md
 
 markdown_extensions:

@@ -66,4 +66,4 @@ Some module interactions still require boilerplate or involve edge cases that ar
 - Module argument schema validation with better error messages
 
 !!! note "Partially resolved"
-    `TCPReceiveServer` (added in `blueprint.py`) addresses the most common boilerplate for download-style modules. See [Module Development](make-your-modules.md#tcpreceiveserver).
+    `TCPReceiveServer` (added in `blueprint.py`) addresses the most common boilerplate for download-style modules. See [Module Development](modules-transfer.md#tcpreceiveserver).

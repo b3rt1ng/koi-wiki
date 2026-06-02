@@ -84,7 +84,7 @@ Runs a post-exploitation module against a session. The module must be compatible
 
 ```
 koi ❯ run sysinfo 1
-koi ❯ run network_enum 1 --no-scan
+koi ❯ run netscan 1 --no-scan
 koi ❯ run download 1 /etc/shadow -o shadow.txt
 ```
 
