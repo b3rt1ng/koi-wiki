@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/sessions/">
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/troubleshooting/">
       
       
-        <link rel="prev" href="../cli-reference/">
+        <link rel="prev" href="../modules-best-practices/">
       
       
-        <link rel="next" href="../payloads/">
+        <link rel="next" href="../future-updates/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Session Management - Koi Documentation</title>
+        <title>Troubleshooting - Koi Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#session-management" class="md-skip">
+        <a href="#troubleshooting" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Session Management
+              Troubleshooting
             
           </span>
         </div>
@@ -285,20 +285,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -319,7 +317,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -362,37 +360,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Session Management
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sessions/" class="md-nav__link">
         
   
   
@@ -408,153 +379,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#session-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#os-detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OS detection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#session-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session list
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interacting-with-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interacting with a session
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Interacting with a session">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#upgraded-sessions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgraded sessions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plain-non-upgraded-sessions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plain (non-upgraded) sessions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgrading a session
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#screenable-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Screenable mode
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manually-setting-the-os-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manually setting the OS type
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#killing-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Killing a session
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pausing-the-listener" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pausing the listener
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -877,10 +701,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../troubleshooting/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -896,6 +747,215 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sessions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#os-shows-after-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OS shows [?] after connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-dies-during-linux-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session dies during Linux upgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules-on-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules on Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modules on Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-returns-empty-output-_exec_clean-gets-nothing-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module returns empty output / _exec_clean gets nothing back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-ligolo-fails-with-unrecognised-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run ligolo fails with "Unrecognised architecture: ''"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules on Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modules on Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-commands-fail-you-are-in-cmd-instead-of-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module commands fail — you are in CMD instead of PowerShell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-shows-upload-complete-but-the-file-is-not-on-the-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload shows "Upload complete" but the file is not on the target
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uploaddownload-fails-with-transfer-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload/download fails with "Transfer failed"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-upgrade-times-out-conptyshell-did-not-connect-back-in-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows upgrade times out ("ConPtyShell did not connect back in time")
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-winscalate-run-sysinfo-queries-fail-with-ps-parse-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run winscalate / run sysinfo queries fail with PS parse errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#koireview-shows-garbled-or-missing-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        koireview shows garbled or missing output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-file-is-0-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log file is 0 bytes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -954,55 +1014,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#session-lifecycle" class="md-nav__link">
+  <a href="#sessions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Session lifecycle
+        Sessions
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#os-detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OS detection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#session-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session list
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interacting-with-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interacting with a session
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Interacting with a session">
+    <nav class="md-nav" aria-label="Sessions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#upgraded-sessions" class="md-nav__link">
+  <a href="#os-shows-after-connection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Upgraded sessions
+        OS shows [?] after connection
       
     </span>
   </a>
@@ -1010,10 +1037,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plain-non-upgraded-sessions" class="md-nav__link">
+  <a href="#session-dies-during-linux-upgrade" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Plain (non-upgraded) sessions
+        Session dies during Linux upgrade
       
     </span>
   </a>
@@ -1026,57 +1053,152 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#upgrading-a-session" class="md-nav__link">
+  <a href="#modules-on-linux" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Upgrading a session
+        Modules on Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modules on Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-returns-empty-output-_exec_clean-gets-nothing-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module returns empty output / _exec_clean gets nothing back
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#screenable-mode" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#run-ligolo-fails-with-unrecognised-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Screenable mode
+        run ligolo fails with "Unrecognised architecture: ''"
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#manually-setting-the-os-type" class="md-nav__link">
+  <a href="#modules-on-windows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manually setting the OS type
+        Modules on Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modules on Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-commands-fail-you-are-in-cmd-instead-of-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module commands fail — you are in CMD instead of PowerShell
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#killing-a-session" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#upload-shows-upload-complete-but-the-file-is-not-on-the-target" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Killing a session
+        Upload shows "Upload complete" but the file is not on the target
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#pausing-the-listener" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#uploaddownload-fails-with-transfer-failed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pausing the listener
+        Upload/download fails with "Transfer failed"
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-upgrade-times-out-conptyshell-did-not-connect-back-in-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows upgrade times out ("ConPtyShell did not connect back in time")
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-winscalate-run-sysinfo-queries-fail-with-ps-parse-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run winscalate / run sysinfo queries fail with PS parse errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#koireview-shows-garbled-or-missing-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        koireview shows garbled or missing output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-file-is-0-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log file is 0 bytes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1097,141 +1219,101 @@
 
 
 
-<h1 id="session-management">Session Management</h1>
-<h2 id="session-lifecycle">Session lifecycle</h2>
-<div class="highlight"><pre><span></span><code>TCP connection &gt; OS detection &gt; prompt notification &gt; interact / upgrade / run modules
-</code></pre></div>
-<p>When a client connects, Koi immediately spawns a detection thread. The thread probes the remote shell, determines the OS type, then notifies the prompt. The whole process is non-blocking: you can keep typing other commands while a new session is being detected in the background.</p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p>Common issues and how to fix them.</p>
 <hr />
-<h2 id="os-detection">OS detection</h2>
-<p>Koi sends a silent probe to every new connection to determine whether it is dealing with Linux, Windows PowerShell, or Windows cmd.</p>
-<p><strong>Probe sent:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nv">A</span><span class="o">=</span>&lt;token1&gt;<span class="w"> </span><span class="nv">B</span><span class="o">=</span>&lt;token2&gt;<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$A$B</span>
+<h2 id="sessions">Sessions</h2>
+<h3 id="os-shows-after-connection">OS shows <code>[?]</code> after connection</h3>
+<p>Auto-detection failed. Set the OS type manually:</p>
+<div class="highlight"><pre><span></span><code>koi ❯ setshell 1 linux
+koi ❯ setshell 2 windows_ps
+koi ❯ setshell 3 windows_cmd
 </code></pre></div>
-<p><strong>Detection logic:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Response contains</th>
-<th>Detected OS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>The concatenated token (<code>token1token2</code>)</td>
-<td><code>linux</code></td>
-</tr>
-<tr>
-<td><code>windows powershell</code>, <code>is not recognized as the name of a cmdlet</code></td>
-<td><code>windows_ps</code></td>
-</tr>
-<tr>
-<td><code>is not recognized as an internal or external command</code>, <code>Microsoft Windows</code>, <code>C:\</code></td>
-<td><code>windows_cmd</code></td>
-</tr>
-<tr>
-<td>None of the above</td>
-<td>Second attempt with <code>uname</code></td>
-</tr>
-</tbody>
-</table>
-<p>If detection succeeds, the session is tagged with:</p>
+<p>Valid values: <code>linux</code>, <code>windows_ps</code> (alias: <code>ps</code>, <code>powershell</code>), <code>windows_cmd</code> (alias: <code>cmd</code>).</p>
+<hr />
+<h3 id="session-dies-during-linux-upgrade">Session dies during Linux upgrade</h3>
+<p>The upgrade tries <code>script</code>, then <code>socat</code>, then falls back to <code>/bin/bash -i</code>. If all three fail the session may die. Common causes:</p>
 <ul>
-<li><code>os_type</code>: <code>"linux"</code>, <code>"windows_ps"</code>, or <code>"windows_cmd"</code></li>
-<li><code>encoding</code>: <code>"utf-8"</code> (Linux) or <code>"cp1252"</code> (Windows)</li>
-<li><code>eol</code>: <code>"\n"</code> (Linux) or <code>"\r\n"</code> (Windows)</li>
+<li>The shell is too restricted (<code>rbash</code>, jailed environment).</li>
+<li><code>script</code> is available but the shell exits immediately (some Docker containers).</li>
 </ul>
-<p>If detection fails, <code>os_type</code> stays <code>None</code> and the session is still usable. Set it manually with <a href="../cli-reference/#setshell-id-type"><code>setshell</code></a>.</p>
-<hr />
-<h2 id="session-list">Session list</h2>
-<p><code>ls</code> displays all active sessions:</p>
-<div class="highlight"><pre><span></span><code>╭─ Sessions ──────────────────────────────╮
-│  #1  ◆  192.168.1.42:51234 [powershell] │
-│  #2  ●  10.0.0.8:49201     [linux]      │
-│  #3  ○  10.0.0.9:50012     [?]          │
-╰─────────────────────────────────────────╯
+<p>Try upgrading again after spawning a more permissive shell:</p>
+<div class="highlight"><pre><span></span><code>/bin/bash<span class="w"> </span>-i
 </code></pre></div>
-<p><strong>Status indicators:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Dot</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>◆</code> (purple)</td>
-<td>Session upgraded to full PTY</td>
-</tr>
-<tr>
-<td><code>●</code> (red)</td>
-<td>Session alive, not upgraded</td>
-</tr>
-<tr>
-<td><code>○</code> (grey)</td>
-<td>Session dead (pruned on next <code>ls</code>)</td>
-</tr>
-</tbody>
-</table>
-<p>The OS label in brackets reflects <code>os_type</code>. <code>?</code> means detection failed or <code>os_type</code> is not set.</p>
+<p>Then background and <code>upgrade</code> again.</p>
 <hr />
-<h2 id="interacting-with-a-session">Interacting with a session</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ go 1
+<h2 id="modules-on-linux">Modules on Linux</h2>
+<h3 id="module-returns-empty-output-_exec_clean-gets-nothing-back">Module returns empty output / <code>_exec_clean</code> gets nothing back</h3>
+<p>The side-channel uses <code>/dev/tcp</code> redirection which is <strong>bash-only</strong>. If the current shell is <code>sh</code>, <code>dash</code>, or another POSIX shell, the redirect silently fails.</p>
+<p>Fix: spawn bash first.</p>
+<div class="highlight"><pre><span></span><code>bash
 </code></pre></div>
-<p>Koi enters the session. The behaviour depends on the upgrade state:</p>
-<h3 id="upgraded-sessions">Upgraded sessions</h3>
-<p>Raw terminal mode is engaged. Every byte typed goes directly to the remote process with no buffering. Arrow keys, tab completion, <code>Ctrl+C</code>, everything works as in a normal SSH session.</p>
-<ul>
-<li><strong><code>Ctrl+Z</code></strong>: background the session and return to the Koi prompt. The session stays alive.</li>
-<li><strong><code>Ctrl+C</code></strong>: sends <code>SIGINT</code> to the remote process. It does <strong>not</strong> kill the session.</li>
-</ul>
-<p>Terminal resize is handled automatically: when you resize your local terminal, Koi sends an <code>stty rows/cols</code> update to the remote (Linux) or a ConPtyShell resize signal (Windows).</p>
-<h3 id="plain-non-upgraded-sessions">Plain (non-upgraded) sessions</h3>
-<p>Line-by-line mode. Input is read with readline and sent on Enter with the appropriate line ending. Output is decoded and printed as text. <code>Ctrl+Z</code> backgrounds the session.</p>
-<p>This mode works without any PTY support on the remote end, useful when you have a minimal shell or a Windows cmd without ConPtyShell.</p>
+<p>Then background and rerun the module. This typically happens after exploiting a vulnerability that spawns a raw <code>/bin/sh</code> (e.g. SUID binaries, sudo exploits, kernel exploits).</p>
 <hr />
-<h2 id="upgrading-a-session">Upgrading a session</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ upgrade 1
+<h3 id="run-ligolo-fails-with-unrecognised-architecture"><code>run ligolo</code> fails with "Unrecognised architecture: ''"</h3>
+<p>Same root cause as above. The session is running <code>sh</code> (not bash), so <code>uname -m</code> output never reaches koi. Spawn bash first.</p>
+<hr />
+<h2 id="modules-on-windows">Modules on Windows</h2>
+<h3 id="module-commands-fail-you-are-in-cmd-instead-of-powershell">Module commands fail — you are in CMD instead of PowerShell</h3>
+<p>All Windows modules use PowerShell side-channel commands. When they fail with:</p>
+<div class="highlight"><pre><span></span><code>&#39;$_r&#39; is not recognized as an internal or external command
 </code></pre></div>
-<p>Promotes a raw shell to a full interactive PTY. See <a href="../upgrading-sessions/">Upgrading Sessions</a> for the full process.</p>
-<p>After a successful upgrade:</p>
-<ul>
-<li>The session dot changes from <code>●</code> to <code>◆</code></li>
-<li>Session logging starts, a log file is created in <code>~/.koi/logs/</code></li>
-<li>The session is ready for module execution</li>
-</ul>
+<p>it means the current foreground shell is <code>cmd.exe</code>, not PowerShell. Koi sends commands to whatever process is reading stdin — if that is CMD, the PS syntax is not understood.</p>
+<p><strong>This happens most often after privilege escalation.</strong> Many exploits (kernel CVEs, token impersonation, SUID-equivalent on Windows) spawn a raw <code>cmd.exe</code> as their payload. After running the exploit you are NT AUTHORITY\SYSTEM or Administrator, but inside CMD. All module commands (<code>download</code>, <code>sysinfo</code>, <code>winscalate</code>, etc.) will fail until you get back to PS.</p>
+<p>Fix: from inside the CMD prompt, simply launch PowerShell.</p>
+<div class="highlight"><pre><span></span><code>powershell -NoProfile -ExecutionPolicy Bypass
+</code></pre></div>
+<p>You should get a PS prompt:</p>
+<div class="highlight"><pre><span></span><code>PS C:\Windows\System32&gt;
+</code></pre></div>
+<p>Then <code>Ctrl+Z</code> and rerun your module. The session is still the same — you do not need to reconnect.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you use <code>go</code> without upgrading first, a log file is created at that point instead. Every session is logged from the moment you first interact with it.</p>
+<p>The same applies to any subprocess layering: if you run <code>cmd.exe</code> inside a PS session, or <code>bash</code> inside <code>sh</code>, module commands go to the innermost shell. Always make sure the foreground process is the shell koi expects before running a module.</p>
 </div>
 <hr />
-<h2 id="screenable-mode">Screenable mode</h2>
-<p>Screenable mode masks all IP addresses and MAC addresses in the output, replacing them with <code>&lt;REMOTE IP&gt;</code>, <code>&lt;LOCAL IP&gt;</code>, or <code>&lt;MAC&gt;</code>. Useful when sharing your screen during a CTF, live demo, or presentation.</p>
-<p><strong>Toggle:</strong> <code>Ctrl+T</code> (or type <code>_koi_screenable_</code> and press Enter, the command is removed from history automatically).</p>
-<p>The current state is shown in the prompt:</p>
-<div class="highlight"><pre><span></span><code>b3rt1ng@koi [ANON](1 session) ❯ 
-</code></pre></div>
-<p>Masking applies to both <code>stdout</code> and <code>stderr</code>, including session notifications and module output.</p>
+<h3 id="upload-shows-upload-complete-but-the-file-is-not-on-the-target">Upload shows "Upload complete" but the file is not on the target</h3>
+<p>The TCP transfer succeeded but the file write failed (usually a permission issue). The module now catches this and returns an error, but if you see this on older versions:</p>
+<ul>
+<li>Verify the current shell user has write access to the destination directory.</li>
+<li>Upload to a writable path explicitly: <code>run upload 2 file.exe -o C:\Windows\Temp\file.exe</code></li>
+</ul>
 <hr />
-<h2 id="manually-setting-the-os-type">Manually setting the OS type</h2>
-<p>When auto-detection fails or gives a wrong result, use <code>setshell</code>:</p>
-<div class="highlight"><pre><span></span><code>koi ❯ setshell 2 windows_ps
-koi ❯ setshell 3 linux
-</code></pre></div>
-<p>Valid values: <code>linux</code>, <code>windows_ps</code> (aliases: <code>ps</code>, <code>powershell</code>), <code>windows_cmd</code> (alias: <code>cmd</code>).</p>
-<p>This also updates the session encoding and line endings, which affects how commands are sent and output is decoded.</p>
+<h3 id="uploaddownload-fails-with-transfer-failed">Upload/download fails with "Transfer failed"</h3>
+<p>The side-channel TCP connection from the target back to your machine was blocked.</p>
+<ul>
+<li>Check that your firewall allows inbound connections on the port koi opens (it uses random ephemeral ports).</li>
+<li>If you are behind NAT or a VPN, ensure the IP shown in <code>payload</code> is the one reachable from the target.</li>
+</ul>
 <hr />
-<h2 id="killing-a-session">Killing a session</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ kill 1
-</code></pre></div>
-<p>Sends <code>exit\n</code> to the remote (if upgraded), closes the socket, and removes the session. If the session was logged, the log is closed cleanly.</p>
+<h3 id="windows-upgrade-times-out-conptyshell-did-not-connect-back-in-time">Windows upgrade times out ("ConPtyShell did not connect back in time")</h3>
+<p>The target failed to connect back after the IEX invocation. Common causes:</p>
+<ul>
+<li><strong>Outbound HTTP blocked</strong>: the target could not reach your HTTP server to download the PS1. Check that port <code>koi</code> opened for the HTTP server is reachable from the target.</li>
+<li><strong>PowerShell execution policy</strong>: try running <code>Set-ExecutionPolicy Bypass -Scope Process</code> in the session first.</li>
+<li><strong>AV/EDR blocked the execution</strong>: the obfuscation may not have been sufficient. Try running <code>upgrade</code> again (random obfuscation is regenerated each time).</li>
+<li><strong>Wrong IP</strong>: koi uses the socket's local address to determine the IP to serve from. If this is <code>0.0.0.0</code> or wrong, the target connects to the wrong address. You may need to ensure the correct interface is used.</li>
+</ul>
 <hr />
-<h2 id="pausing-the-listener">Pausing the listener</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ stop    # refuse new connections
-koi ❯ start   # resume
+<h3 id="run-winscalate-run-sysinfo-queries-fail-with-ps-parse-errors"><code>run winscalate</code> / <code>run sysinfo</code> queries fail with PS parse errors</h3>
+<p>Expressions passed to <code>_win_query</code> must be <strong>single expressions</strong> (no top-level <code>;</code>). If you write a custom module and get <code>Missing closing ')' in expression</code>, you likely have a variable assignment followed by a semicolon at the top level of your expression.</p>
+<p>Fix: replace <code>$var=...; expr</code> with a pipe:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Wrong</span>
+<span class="s2">&quot;$u=(Get-Date)-(gcim Win32_OperatingSystem).LastBootUpTime; </span><span class="se">\&quot;</span><span class="s2">$($u.Days)d</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+
+<span class="c1"># Correct</span>
+<span class="s2">&quot;(Get-Date)-(gcim Win32_OperatingSystem).LastBootUpTime | ForEach-Object { </span><span class="se">\&quot;</span><span class="s2">$($_.Days)d</span><span class="se">\&quot;</span><span class="s2"> }&quot;</span>
 </code></pre></div>
-<p>The listening socket stays bound. Active sessions are unaffected. While paused, a <code>[PAUSED]</code> tag appears in the prompt. ConPtyShell callbacks (for in-progress Windows upgrades) bypass the pause and are still accepted.</p>
+<hr />
+<h2 id="logging">Logging</h2>
+<h3 id="koireview-shows-garbled-or-missing-output"><code>koireview</code> shows garbled or missing output</h3>
+<ul>
+<li><strong>Garbled characters</strong>: the log was recorded with <code>cp1252</code> encoding (Windows) but reviewed with a different locale. <code>koireview</code> handles this automatically, but terminal font support varies.</li>
+<li><strong>Missing module commands</strong>: module commands on upgraded sessions are logged via <code>Session.send()</code>. If commands are missing, the session logger may not have been attached before the module ran (check that <code>upgrade</code> or <code>go</code> was called before <code>run</code>).</li>
+</ul>
+<hr />
+<h3 id="log-file-is-0-bytes">Log file is 0 bytes</h3>
+<p>The session was killed or crashed before any data was written. This is expected for very short-lived connections.</p>
 
 
 

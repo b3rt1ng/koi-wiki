@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/sessions/">
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/modules-best-practices/">
       
       
-        <link rel="prev" href="../cli-reference/">
+        <link rel="prev" href="../modules-ui/">
       
       
-        <link rel="next" href="../payloads/">
+        <link rel="next" href="../troubleshooting/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Session Management - Koi Documentation</title>
+        <title>Best Practices - Koi Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#session-management" class="md-skip">
+        <a href="#module-development-best-practices" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Session Management
+              Best Practices
             
           </span>
         </div>
@@ -285,20 +285,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -319,7 +317,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -362,37 +360,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Session Management
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sessions/" class="md-nav__link">
         
   
   
@@ -408,153 +379,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#session-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#os-detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OS detection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#session-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session list
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interacting-with-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interacting with a session
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Interacting with a session">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#upgraded-sessions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgraded sessions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plain-non-upgraded-sessions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plain (non-upgraded) sessions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgrading a session
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#screenable-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Screenable mode
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manually-setting-the-os-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manually setting the OS type
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#killing-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Killing a session
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pausing-the-listener" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pausing the listener
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -683,18 +507,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -715,7 +541,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -842,10 +668,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../modules-best-practices/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -861,6 +714,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-upload-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-upload Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-workspace-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Workspace Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows Sessions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -954,10 +882,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#session-lifecycle" class="md-nav__link">
+  <a href="#error-handling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Session lifecycle
+        Error Handling
       
     </span>
   </a>
@@ -965,10 +893,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#os-detection" class="md-nav__link">
+  <a href="#post-upload-verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OS detection
+        Post-upload Verification
       
     </span>
   </a>
@@ -976,10 +904,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#session-list" class="md-nav__link">
+  <a href="#remote-workspace-cleanup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Session list
+        Remote Workspace Cleanup
       
     </span>
   </a>
@@ -987,49 +915,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interacting-with-a-session" class="md-nav__link">
+  <a href="#windows-sessions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Interacting with a session
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Interacting with a session">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#upgraded-sessions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgraded sessions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plain-non-upgraded-sessions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plain (non-upgraded) sessions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgrading a session
+        Windows Sessions
       
     </span>
   </a>
@@ -1037,43 +926,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#screenable-mode" class="md-nav__link">
+  <a href="#checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Screenable mode
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manually-setting-the-os-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manually setting the OS type
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#killing-a-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Killing a session
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pausing-the-listener" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pausing the listener
+        Checklist
       
     </span>
   </a>
@@ -1097,141 +953,87 @@
 
 
 
-<h1 id="session-management">Session Management</h1>
-<h2 id="session-lifecycle">Session lifecycle</h2>
-<div class="highlight"><pre><span></span><code>TCP connection &gt; OS detection &gt; prompt notification &gt; interact / upgrade / run modules
-</code></pre></div>
-<p>When a client connects, Koi immediately spawns a detection thread. The thread probes the remote shell, determines the OS type, then notifies the prompt. The whole process is non-blocking: you can keep typing other commands while a new session is being detected in the background.</p>
+<h1 id="module-development-best-practices">Module Development - Best Practices</h1>
 <hr />
-<h2 id="os-detection">OS detection</h2>
-<p>Koi sends a silent probe to every new connection to determine whether it is dealing with Linux, Windows PowerShell, or Windows cmd.</p>
-<p><strong>Probe sent:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nv">A</span><span class="o">=</span>&lt;token1&gt;<span class="w"> </span><span class="nv">B</span><span class="o">=</span>&lt;token2&gt;<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$A$B</span>
+<h2 id="error-handling">Error Handling</h2>
+<p>Always call <code>self.err(msg)</code> and <strong><code>return</code> immediately</strong> - never continue after an error.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;cat /etc/shadow&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not read /etc/shadow (rc=</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
 </code></pre></div>
-<p><strong>Detection logic:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Response contains</th>
-<th>Detected OS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>The concatenated token (<code>token1token2</code>)</td>
-<td><code>linux</code></td>
-</tr>
-<tr>
-<td><code>windows powershell</code>, <code>is not recognized as the name of a cmdlet</code></td>
-<td><code>windows_ps</code></td>
-</tr>
-<tr>
-<td><code>is not recognized as an internal or external command</code>, <code>Microsoft Windows</code>, <code>C:\</code></td>
-<td><code>windows_cmd</code></td>
-</tr>
-<tr>
-<td>None of the above</td>
-<td>Second attempt with <code>uname</code></td>
-</tr>
-</tbody>
-</table>
-<p>If detection succeeds, the session is tagged with:</p>
+<p>Wrap network calls in <code>try/except</code> and surface the exception:</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Fetching release info...&quot;</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Download failed: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+</code></pre></div>
+<hr />
+<h2 id="post-upload-verification">Post-upload Verification</h2>
+<p>AV/EDR may silently delete a binary after it lands on disk. Always verify.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Linux</span>
+<span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test -s </span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2"> &amp;&amp; echo OK || echo MISS&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s2">&quot;OK&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;File missing after upload.&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;chmod +x </span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Windows</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>   <span class="c1"># give AV time to act</span>
+<span class="n">check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(Test-Path &#39;</span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2">&#39;).ToString()&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">check</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;File not present after upload, likely removed by AV.&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+</code></pre></div>
+<hr />
+<h2 id="remote-workspace-cleanup">Remote Workspace Cleanup</h2>
+<p>If your module creates a temporary directory on the target, implement <code>_cleanup()</code> and call it on both success and early exit.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">work</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;.</span><span class="se">\\</span><span class="s2">sh_</span><span class="si">{</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New-Item -ItemType Directory -Path &#39;</span><span class="si">{</span><span class="n">work</span><span class="si">}</span><span class="s2">&#39; -Force | Out-Null&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_upload_bytes</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">work</span><span class="si">}</span><span class="se">\\</span><span class="s2">tool.exe&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;Upload failed.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">work</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># ... rest of the logic ...</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">work</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">work_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Remove-Item -Recurse -Force &#39;</span><span class="si">{</span><span class="n">work_dir</span><span class="si">}</span><span class="s2">&#39; -ErrorAction SilentlyContinue&quot;</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">pass</span>
+</code></pre></div>
+<hr />
+<h2 id="windows-sessions">Windows Sessions</h2>
 <ul>
-<li><code>os_type</code>: <code>"linux"</code>, <code>"windows_ps"</code>, or <code>"windows_cmd"</code></li>
-<li><code>encoding</code>: <code>"utf-8"</code> (Linux) or <code>"cp1252"</code> (Windows)</li>
-<li><code>eol</code>: <code>"\n"</code> (Linux) or <code>"\r\n"</code> (Windows)</li>
+<li>Always use <code>_win_query</code> for commands that return output. Never use <code>exec</code> on Windows.</li>
+<li>Always use <code>_dispatch_ps</code> to send fire-and-forget PS commands. Never call <code>session.conn.sendall()</code> directly.</li>
+<li>Always use <code>_upload_bytes</code> for uploads. Never reimplement the TCP transfer.</li>
+<li><code>_win_query</code> expressions must be <strong>single expressions</strong> with no top-level <code>;</code>. Use pipes instead of variable assignments at the outer level.</li>
+<li>Upgraded (ConPtyShell) sessions return larger, more reliable results. Warn users if accuracy matters and the session is not upgraded.</li>
 </ul>
-<p>If detection fails, <code>os_type</code> stays <code>None</code> and the session is still usable. Set it manually with <a href="../cli-reference/#setshell-id-type"><code>setshell</code></a>.</p>
 <hr />
-<h2 id="session-list">Session list</h2>
-<p><code>ls</code> displays all active sessions:</p>
-<div class="highlight"><pre><span></span><code>╭─ Sessions ──────────────────────────────╮
-│  #1  ◆  192.168.1.42:51234 [powershell] │
-│  #2  ●  10.0.0.8:49201     [linux]      │
-│  #3  ○  10.0.0.9:50012     [?]          │
-╰─────────────────────────────────────────╯
-</code></pre></div>
-<p><strong>Status indicators:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Dot</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>◆</code> (purple)</td>
-<td>Session upgraded to full PTY</td>
-</tr>
-<tr>
-<td><code>●</code> (red)</td>
-<td>Session alive, not upgraded</td>
-</tr>
-<tr>
-<td><code>○</code> (grey)</td>
-<td>Session dead (pruned on next <code>ls</code>)</td>
-</tr>
-</tbody>
-</table>
-<p>The OS label in brackets reflects <code>os_type</code>. <code>?</code> means detection failed or <code>os_type</code> is not set.</p>
-<hr />
-<h2 id="interacting-with-a-session">Interacting with a session</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ go 1
-</code></pre></div>
-<p>Koi enters the session. The behaviour depends on the upgrade state:</p>
-<h3 id="upgraded-sessions">Upgraded sessions</h3>
-<p>Raw terminal mode is engaged. Every byte typed goes directly to the remote process with no buffering. Arrow keys, tab completion, <code>Ctrl+C</code>, everything works as in a normal SSH session.</p>
+<h2 id="checklist">Checklist</h2>
 <ul>
-<li><strong><code>Ctrl+Z</code></strong>: background the session and return to the Koi prompt. The session stays alive.</li>
-<li><strong><code>Ctrl+C</code></strong>: sends <code>SIGINT</code> to the remote process. It does <strong>not</strong> kill the session.</li>
+<li>[ ] Class inherits from <code>KoiModule</code>, file is in <code>src/koi/modules/</code></li>
+<li>[ ] <code>name</code>, <code>description</code>, and <code>platform</code> are set correctly</li>
+<li>[ ] <code>run()</code> is implemented, no logic in <code>__init__</code></li>
+<li>[ ] <code>exec()</code> only called on Linux; <code>_win_query()</code> for Windows</li>
+<li>[ ] File uploads use <code>self._upload_bytes()</code> - not a manual reimplementation</li>
+<li>[ ] Arbitrary PS commands use <code>self._dispatch_ps()</code></li>
+<li>[ ] Every error path calls <code>self.err()</code> and <code>return</code></li>
+<li>[ ] Remote temp workspaces are cleaned up on both success and failure</li>
+<li>[ ] Post-upload file existence is verified before continuing</li>
 </ul>
-<p>Terminal resize is handled automatically: when you resize your local terminal, Koi sends an <code>stty rows/cols</code> update to the remote (Linux) or a ConPtyShell resize signal (Windows).</p>
-<h3 id="plain-non-upgraded-sessions">Plain (non-upgraded) sessions</h3>
-<p>Line-by-line mode. Input is read with readline and sent on Enter with the appropriate line ending. Output is decoded and printed as text. <code>Ctrl+Z</code> backgrounds the session.</p>
-<p>This mode works without any PTY support on the remote end, useful when you have a minimal shell or a Windows cmd without ConPtyShell.</p>
-<hr />
-<h2 id="upgrading-a-session">Upgrading a session</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ upgrade 1
-</code></pre></div>
-<p>Promotes a raw shell to a full interactive PTY. See <a href="../upgrading-sessions/">Upgrading Sessions</a> for the full process.</p>
-<p>After a successful upgrade:</p>
-<ul>
-<li>The session dot changes from <code>●</code> to <code>◆</code></li>
-<li>Session logging starts, a log file is created in <code>~/.koi/logs/</code></li>
-<li>The session is ready for module execution</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you use <code>go</code> without upgrading first, a log file is created at that point instead. Every session is logged from the moment you first interact with it.</p>
-</div>
-<hr />
-<h2 id="screenable-mode">Screenable mode</h2>
-<p>Screenable mode masks all IP addresses and MAC addresses in the output, replacing them with <code>&lt;REMOTE IP&gt;</code>, <code>&lt;LOCAL IP&gt;</code>, or <code>&lt;MAC&gt;</code>. Useful when sharing your screen during a CTF, live demo, or presentation.</p>
-<p><strong>Toggle:</strong> <code>Ctrl+T</code> (or type <code>_koi_screenable_</code> and press Enter, the command is removed from history automatically).</p>
-<p>The current state is shown in the prompt:</p>
-<div class="highlight"><pre><span></span><code>b3rt1ng@koi [ANON](1 session) ❯ 
-</code></pre></div>
-<p>Masking applies to both <code>stdout</code> and <code>stderr</code>, including session notifications and module output.</p>
-<hr />
-<h2 id="manually-setting-the-os-type">Manually setting the OS type</h2>
-<p>When auto-detection fails or gives a wrong result, use <code>setshell</code>:</p>
-<div class="highlight"><pre><span></span><code>koi ❯ setshell 2 windows_ps
-koi ❯ setshell 3 linux
-</code></pre></div>
-<p>Valid values: <code>linux</code>, <code>windows_ps</code> (aliases: <code>ps</code>, <code>powershell</code>), <code>windows_cmd</code> (alias: <code>cmd</code>).</p>
-<p>This also updates the session encoding and line endings, which affects how commands are sent and output is decoded.</p>
-<hr />
-<h2 id="killing-a-session">Killing a session</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ kill 1
-</code></pre></div>
-<p>Sends <code>exit\n</code> to the remote (if upgraded), closes the socket, and removes the session. If the session was logged, the log is closed cleanly.</p>
-<hr />
-<h2 id="pausing-the-listener">Pausing the listener</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ stop    # refuse new connections
-koi ❯ start   # resume
-</code></pre></div>
-<p>The listening socket stays bound. Active sessions are unaffected. While paused, a <code>[PAUSED]</code> tag appears in the prompt. ConPtyShell callbacks (for in-progress Windows upgrades) bypass the pause and are still accepted.</p>
 
 
 
