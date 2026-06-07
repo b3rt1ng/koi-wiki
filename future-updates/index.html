@@ -361,6 +361,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sessions/" class="md-nav__link">
         
   
@@ -821,28 +849,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#linux-pty-improvements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Linux PTY improvements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#module-system-improvements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Module system improvements
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -910,28 +916,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#linux-pty-improvements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Linux PTY improvements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#module-system-improvements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Module system improvements
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -969,7 +953,7 @@
 <li>TLS-encrypted communications</li>
 <li>HTTP/S transport support</li>
 <li>Better in-memory execution</li>
-<li>Alternative payload delivery methods</li>
+<li>Alternative payload delivery methods (using a CVE POC support maybe ?)</li>
 <li>Obfuscation applied to all outgoing PowerShell commands, not just payloads (currently obfuscation is only used during the ConPtyShell upgrade)</li>
 </ul>
 <hr />
@@ -979,30 +963,8 @@
 <ul>
 <li>Smarter interaction tracking</li>
 <li>Module output logged separately from raw I/O</li>
-<li>Cleaner <code>koireview</code> rendering</li>
+<li>better <code>koireview</code> rendering</li>
 </ul>
-<hr />
-<h2 id="linux-pty-improvements">Linux PTY improvements</h2>
-<p>The current Linux upgrade tries <code>script</code>, then <code>socat</code>, then falls back to a plain interactive shell. This covers most cases, but has limits against restricted environments or EDRs that monitor common shell spawning patterns.</p>
-<p>Planned improvements:</p>
-<ul>
-<li>Python-less upgrade methods</li>
-<li>Alternative shell support</li>
-<li>More stealthy PTY spawning techniques</li>
-<li>Better compatibility across minimal environments</li>
-</ul>
-<hr />
-<h2 id="module-system-improvements">Module system improvements</h2>
-<p>Some module interactions still require boilerplate or involve edge cases that are the module author's responsibility. Planned work focuses on reducing that friction:</p>
-<ul>
-<li>Unified <code>_send_ps</code> helper extracted to <code>KoiModule</code> base class so it doesn't need to be copied per module</li>
-<li>Broader test coverage for cross-platform modules</li>
-<li>Module argument schema validation with better error messages</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Partially resolved</p>
-<p><code>TCPReceiveServer</code> (added in <code>blueprint.py</code>) addresses the most common boilerplate for download-style modules. See <a href="../modules-transfer/#tcpreceiveserver">Module Development</a>.</p>
-</div>
 
 
 
