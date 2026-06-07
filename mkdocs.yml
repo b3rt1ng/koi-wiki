@@ -31,6 +31,7 @@ nav:
   - Getting Started: getting-started.md
   - Usage:
     - CLI Reference: cli-reference.md
+    - Configuration: configuration.md
     - Session Management: sessions.md
     - Payloads & Obfuscation: payloads.md
     - Upgrading Sessions: upgrading-sessions.md

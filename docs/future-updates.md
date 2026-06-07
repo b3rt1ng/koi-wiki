@@ -27,7 +27,7 @@ Planned improvements:
 - TLS-encrypted communications
 - HTTP/S transport support
 - Better in-memory execution
-- Alternative payload delivery methods
+- Alternative payload delivery methods (using a CVE POC support maybe ?)
 - Obfuscation applied to all outgoing PowerShell commands, not just payloads (currently obfuscation is only used during the ConPtyShell upgrade)
 
 ---
@@ -40,30 +40,4 @@ Planned work:
 
 - Smarter interaction tracking
 - Module output logged separately from raw I/O
-- Cleaner `koireview` rendering
-
----
-
-## Linux PTY improvements
-
-The current Linux upgrade tries `script`, then `socat`, then falls back to a plain interactive shell. This covers most cases, but has limits against restricted environments or EDRs that monitor common shell spawning patterns.
-
-Planned improvements:
-
-- Python-less upgrade methods
-- Alternative shell support
-- More stealthy PTY spawning techniques
-- Better compatibility across minimal environments
-
----
-
-## Module system improvements
-
-Some module interactions still require boilerplate or involve edge cases that are the module author's responsibility. Planned work focuses on reducing that friction:
-
-- Unified `_send_ps` helper extracted to `KoiModule` base class so it doesn't need to be copied per module
-- Broader test coverage for cross-platform modules
-- Module argument schema validation with better error messages
-
-!!! note "Partially resolved"
-    `TCPReceiveServer` (added in `blueprint.py`) addresses the most common boilerplate for download-style modules. See [Module Development](modules-transfer.md#tcpreceiveserver).
+- better `koireview` rendering
