@@ -874,6 +874,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../known-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known Issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../future-updates/" class="md-nav__link">
         
   
@@ -1020,6 +1047,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running as: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Save it as <code>src/koi/modules/my_module.py</code>. The framework auto-discovers it on startup, or immediately with <code>reload</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Filename vs Module Name</p>
+<p>The <strong>filename</strong> doesn't have to match the module's <code>name</code> attribute. The framework uses dynamic module discovery (<code>pkgutil</code>) to find all Python files, then inspects each one for <code>KoiModule</code> subclasses. The <code>name</code> attribute is what matters - that's the CLI identifier (<code>run &lt;name&gt; &lt;id&gt;</code>). For example, <code>get_users.py</code> defines a module with <code>name = "users"</code>, called as <code>run users &lt;id&gt;</code>.</p>
+</div>
 <hr />
 <h2 id="class-attributes">Class Attributes</h2>
 <p>Declared at class level, these define the module's identity and behaviour in the CLI:</p>

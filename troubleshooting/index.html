@@ -14,7 +14,7 @@
         <link rel="prev" href="../modules-best-practices/">
       
       
-        <link rel="next" href="../future-updates/">
+        <link rel="next" href="../known-issues/">
       
       
         
@@ -885,7 +885,7 @@
   <a href="#module-commands-fail-you-are-in-cmd-instead-of-powershell" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Module commands fail — you are in CMD instead of PowerShell
+        Module commands fail - you are in CMD instead of PowerShell
       
     </span>
   </a>
@@ -984,6 +984,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../known-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known Issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1135,7 +1162,7 @@
   <a href="#module-commands-fail-you-are-in-cmd-instead-of-powershell" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Module commands fail — you are in CMD instead of PowerShell
+        Module commands fail - you are in CMD instead of PowerShell
       
     </span>
   </a>
@@ -1282,11 +1309,11 @@ koi ❯ setshell 3 windows_cmd
 <p>Same root cause as above. The session is running <code>sh</code> (not bash), so <code>uname -m</code> output never reaches koi. Spawn bash first.</p>
 <hr />
 <h2 id="modules-on-windows">Modules on Windows</h2>
-<h3 id="module-commands-fail-you-are-in-cmd-instead-of-powershell">Module commands fail — you are in CMD instead of PowerShell</h3>
+<h3 id="module-commands-fail-you-are-in-cmd-instead-of-powershell">Module commands fail - you are in CMD instead of PowerShell</h3>
 <p>All Windows modules use PowerShell side-channel commands. When they fail with:</p>
 <div class="highlight"><pre><span></span><code>&#39;$_r&#39; is not recognized as an internal or external command
 </code></pre></div>
-<p>it means the current foreground shell is <code>cmd.exe</code>, not PowerShell. Koi sends commands to whatever process is reading stdin — if that is CMD, the PS syntax is not understood.</p>
+<p>it means the current foreground shell is <code>cmd.exe</code>, not PowerShell. Koi sends commands to whatever process is reading stdin - if that is CMD, the PS syntax is not understood.</p>
 <p><strong>This happens most often after privilege escalation.</strong> Many exploits (kernel CVEs, token impersonation, SUID-equivalent on Windows) spawn a raw <code>cmd.exe</code> as their payload. After running the exploit you are NT AUTHORITY\SYSTEM or Administrator, but inside CMD. All module commands (<code>download</code>, <code>sysinfo</code>, <code>winscalate</code>, etc.) will fail until you get back to PS.</p>
 <p>Fix: from inside the CMD prompt, simply launch PowerShell.</p>
 <div class="highlight"><pre><span></span><code>powershell -NoProfile -ExecutionPolicy Bypass
@@ -1294,7 +1321,7 @@ koi ❯ setshell 3 windows_cmd
 <p>You should get a PS prompt:</p>
 <div class="highlight"><pre><span></span><code>PS C:\Windows\System32&gt;
 </code></pre></div>
-<p>Then <code>Ctrl+Z</code> and rerun your module. The session is still the same — you do not need to reconnect.</p>
+<p>Then <code>Ctrl+Z</code> and rerun your module. The session is still the same - you do not need to reconnect.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The same applies to any subprocess layering: if you run <code>cmd.exe</code> inside a PS session, or <code>bash</code> inside <code>sh</code>, module commands go to the innermost shell. Always make sure the foreground process is the shell koi expects before running a module.</p>

@@ -902,6 +902,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../known-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known Issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../future-updates/" class="md-nav__link">
         
   
@@ -1064,7 +1091,7 @@
 <h2 id="location">Location</h2>
 <div class="highlight"><pre><span></span><code>~/.koi/config.json
 </code></pre></div>
-<p>If the file doesn't exist yet, Koi creates it on startup, pre-filled with the built-in defaults shown below. You can then edit it to override only the values you care about — anything you omit falls back to its default.</p>
+<p>If the file doesn't exist yet, Koi creates it on startup, pre-filled with the built-in defaults shown below. You can then edit it to override only the values you care about - anything you omit falls back to its default.</p>
 <h2 id="default-values">Default values</h2>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
@@ -1093,11 +1120,11 @@
 </code></pre></div>
 <h2 id="what-each-setting-controls">What each setting controls</h2>
 <h3 id="host-port"><code>host</code> / <code>port</code></h3>
-<p>Default bind address and port for the listener. These become the defaults for <code>--host</code> and <code>-p/--port</code> on the command line — pass the flag to override them for a single run, or edit the config to change them permanently.</p>
+<p>Default bind address and port for the listener. These become the defaults for <code>--host</code> and <code>-p/--port</code> on the command line - pass the flag to override them for a single run, or edit the config to change them permanently.</p>
 <h3 id="display_art"><code>display_art</code></h3>
 <p>Whether the ASCII banner is printed when the listener starts. Set to <code>false</code> to skip it (useful in scripted setups or narrow terminals).</p>
 <h3 id="colors"><code>colors</code></h3>
-<p>The RGB palette used throughout the UI (prompts, banners, status messages). Each entry is a 3-value <code>[r, g, b]</code> array. You can override any subset to retheme the interface — colors you don't override keep their default values.</p>
+<p>The RGB palette used throughout the UI (prompts, banners, status messages). Each entry is a 3-value <code>[r, g, b]</code> array. You can override any subset to retheme the interface - colors you don't override keep their default values.</p>
 <h3 id="timeouts"><code>timeouts</code></h3>
 <p>Controls how long Koi waits before giving up on various operations, in seconds:</p>
 <table>
@@ -1112,7 +1139,7 @@
 <tr>
 <td><code>exec_command</code></td>
 <td><code>30</code></td>
-<td><code>exec</code> / <code>exec_stream</code> — running a full command on the remote session</td>
+<td><code>exec</code> / <code>exec_stream</code> - running a full command on the remote session</td>
 </tr>
 <tr>
 <td><code>exec_query</code></td>
@@ -1146,7 +1173,7 @@
 <p>Just open the file in any editor and change the values you need:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$EDITOR</span><span class="w"> </span>~/.koi/config.json
 </code></pre></div>
-<p>Only override what you need to change — the rest is merged with the defaults automatically. Restart Koi for changes to take effect.</p>
+<p>Only override what you need to change - the rest is merged with the defaults automatically. Restart Koi for changes to take effect.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If a value in the file is malformed (wrong type, corrupted JSON...), Koi silently falls back to the built-in default for that value rather than failing to start.</p>

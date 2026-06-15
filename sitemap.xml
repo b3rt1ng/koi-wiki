@@ -2,66 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/cli-reference/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/configuration/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/future-updates/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/getting-started/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
+    </url>
+    <url>
+         <loc>https://b3rt1ng.github.io/koi-wiki/known-issues/</loc>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/logs/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/modules-best-practices/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/modules-commands/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/modules-overview/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/modules-transfer/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/modules-ui/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/modules/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/payloads/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/sessions/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/troubleshooting/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
     <url>
          <loc>https://b3rt1ng.github.io/koi-wiki/upgrading-sessions/</loc>
-         <lastmod>2026-06-07</lastmod>
+         <lastmod>2026-06-15</lastmod>
     </url>
 </urlset>
