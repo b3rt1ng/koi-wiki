@@ -86,8 +86,8 @@ Some EDRs may still detect:
 
 Koi mitigates this through several layers:
 
-- **`-EncodedCommand` base64 wrapping** — `IEX`, `IWR`, the URL, and the function name are invisible on the command line.
-- **Randomised cmdlet obfuscation** — `Invoke-Expression` and `Invoke-WebRequest` are rewritten at runtime using one of three techniques (string concatenation, `-f` format string, or char-array join), chosen randomly each time.
-- **Function and symbol renaming** — the ConPtyShell PS1 script has all class names, method names, and the entry-point function renamed to random identifiers.
-- **C# string literal replacement** — known signal strings in the embedded C# source are replaced with char-array construction expressions.
-- **In-memory execution** — the script is never written to disk; it is fetched and executed directly via `IEX`.
+- **`-EncodedCommand` base64 wrapping** - `IEX`, `IWR`, the URL, and the function name are invisible on the command line.
+- **Randomised cmdlet obfuscation** - `Invoke-Expression` and `Invoke-WebRequest` are rewritten at runtime using one of three techniques (string concatenation, `-f` format string, or char-array join), chosen randomly each time.
+- **Function and symbol renaming** - the ConPtyShell PS1 script has all class names, method names, and the entry-point function renamed to random identifiers.
+- **C# string literal replacement** - known signal strings in the embedded C# source are replaced with char-array construction expressions.
+- **In-memory execution** - the script is never written to disk; it is fetched and executed directly via `IEX`.

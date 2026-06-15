@@ -4,8 +4,8 @@
 
 A session log is created automatically the first time you interact with a session. The exact trigger depends on what you do:
 
-- **`upgrade <id>`** — log starts immediately when upgrade is initiated (Linux or Windows).
-- **`go <id>`** — if no log exists yet (e.g. you `go` directly without upgrading), one is created on entry.
+- **`upgrade <id>`** - log starts immediately when upgrade is initiated (Linux or Windows).
+- **`go <id>`** - if no log exists yet (e.g. you `go` directly without upgrading), one is created on entry.
 
 Logs are stored in:
 

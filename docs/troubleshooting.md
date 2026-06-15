@@ -61,7 +61,7 @@ Same root cause as above. The session is running `sh` (not bash), so `uname -m` 
 
 ## Modules on Windows
 
-### Module commands fail — you are in CMD instead of PowerShell
+### Module commands fail - you are in CMD instead of PowerShell
 
 All Windows modules use PowerShell side-channel commands. When they fail with:
 
@@ -69,7 +69,7 @@ All Windows modules use PowerShell side-channel commands. When they fail with:
 '$_r' is not recognized as an internal or external command
 ```
 
-it means the current foreground shell is `cmd.exe`, not PowerShell. Koi sends commands to whatever process is reading stdin — if that is CMD, the PS syntax is not understood.
+it means the current foreground shell is `cmd.exe`, not PowerShell. Koi sends commands to whatever process is reading stdin - if that is CMD, the PS syntax is not understood.
 
 **This happens most often after privilege escalation.** Many exploits (kernel CVEs, token impersonation, SUID-equivalent on Windows) spawn a raw `cmd.exe` as their payload. After running the exploit you are NT AUTHORITY\SYSTEM or Administrator, but inside CMD. All module commands (`download`, `sysinfo`, `winscalate`, etc.) will fail until you get back to PS.
 
@@ -85,7 +85,7 @@ You should get a PS prompt:
 PS C:\Windows\System32>
 ```
 
-Then `Ctrl+Z` and rerun your module. The session is still the same — you do not need to reconnect.
+Then `Ctrl+Z` and rerun your module. The session is still the same - you do not need to reconnect.
 
 !!! note
     The same applies to any subprocess layering: if you run `cmd.exe` inside a PS session, or `bash` inside `sh`, module commands go to the innermost shell. Always make sure the foreground process is the shell koi expects before running a module.
