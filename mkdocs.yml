@@ -44,6 +44,7 @@ nav:
     - UI & Output: modules-ui.md
     - Best Practices: modules-best-practices.md
   - Troubleshooting: troubleshooting.md
+  - Known Issues: known-issues.md
   - Future Updates: future-updates.md
 
 markdown_extensions:
