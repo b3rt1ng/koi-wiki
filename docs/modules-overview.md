@@ -24,6 +24,9 @@ class MyModule(KoiModule):
 
 Save it as `src/koi/modules/my_module.py`. The framework auto-discovers it on startup, or immediately with `reload`.
 
+!!! note "Filename vs Module Name"
+    The **filename** doesn't have to match the module's `name` attribute. The framework uses dynamic module discovery (`pkgutil`) to find all Python files, then inspects each one for `KoiModule` subclasses. The `name` attribute is what matters — that's the CLI identifier (`run <name> <id>`). For example, `get_users.py` defines a module with `name = "users"`, called as `run users <id>`.
+
 ---
 
 ## Class Attributes

@@ -246,6 +246,25 @@ koi ❯ run winscalate 2
 
 ---
 
+### `peas`
+
+**Platform:** Linux, Windows PowerShell  
+**Usage:** `run peas <id> [-o REMOTE_PATH]`
+
+Fetches the latest [LinPEAS](https://github.com/peass-ng/PEASS-ng) or [winPEAS](https://github.com/peass-ng/PEASS-ng) release from GitHub, caches it locally for offline reuse, and uploads it to the target. The script is automatically made executable on Linux.
+
+| Flag | Description |
+|---|---|
+| `-o PATH`, `--output PATH` | Remote destination path (default: `./linpeas.sh` on Linux, `.\winPEASx64.exe` on Windows) |
+
+```
+koi ❯ run peas 1
+koi ❯ run peas 1 -o /tmp/enum.sh
+koi ❯ run peas 2 -o "C:\Temp\peas.exe"
+```
+
+---
+
 ## Post-Exploitation
 
 ### `armory`
