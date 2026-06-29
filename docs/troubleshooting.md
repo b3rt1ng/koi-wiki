@@ -39,23 +39,19 @@ Then background and `upgrade` again.
 
 ## Modules on Linux
 
-### Module returns empty output / `_exec_clean` gets nothing back
+### Module returns empty output / `_exec_clean` raises an error
 
-The side-channel uses `/dev/tcp` redirection which is **bash-only**. If the current shell is `sh`, `dash`, or another POSIX shell, the redirect silently fails.
+`_exec_clean` wraps the command between unique echo markers and reads them back from the shell stream. This can fail in two situations:
 
-Fix: spawn bash first.
+**The session is a very restricted shell** (no subshell support, no `echo`, jailed environment). In that case the markers are never printed and `_exec_clean` raises `ValueError`. Use `exec` directly and parse the raw output instead.
 
-```sh
-bash
-```
-
-Then background and rerun the module. This typically happens after exploiting a vulnerability that spawns a raw `/bin/sh` (e.g. SUID binaries, sudo exploits, kernel exploits).
+**The session died or the socket timed out.** Check that the session is still alive with `ls` before rerunning the module.
 
 ---
 
 ### `run ligolo` fails with "Unrecognised architecture: ''"
 
-Same root cause as above. The session is running `sh` (not bash), so `uname -m` output never reaches koi. Spawn bash first.
+`uname -m` returned nothing, usually because the session is dead or the shell is so restricted that even basic commands produce no output. Check session state with `ls` and try running `uname -m` manually in the session first.
 
 ---
 

@@ -7,11 +7,12 @@ These commands are available from the main `koi` prompt.
 | Command | Aliases | Syntax | Description |
 |---|---|---|---|
 | `ls` | `l`, `list` | `ls` | List all active sessions |
-| `go` | `g`, `interact` | `go <id>` | Enter a session interactively |
-| `upgrade` | `u` | `upgrade <id>` | Upgrade a session to a full PTY |
-| `kill` | - | `kill <id>` | Terminate and remove a session |
-| `setshell` | `sh` | `setshell <id> <type>` | Manually set the OS type of a session |
-| `run` | - | `run <module> <id> [args...]` | Run a module against a session |
+| `go` | `g`, `interact` | `go <id\|tag>` | Enter a session interactively |
+| `upgrade` | `u` | `upgrade <id\|tag>` | Upgrade a session to a full PTY |
+| `kill` | - | `kill <id\|tag>` | Terminate and remove a session |
+| `tag` | - | `tag <id\|tag> [name]` | Assign or clear a tag on a session |
+| `setshell` | `sh` | `setshell <id\|tag> <type>` | Manually set the OS type of a session |
+| `run` | - | `run <module> <id\|tag> [args...]` | Run a module against a session |
 | `modules` | `mdls`, `mods` | `modules` | List available modules |
 | `reload` | `refresh`, `rl` | `reload` | Reload modules from disk |
 | `payload` | `p` | `payload [iface]` | Print reverse shell payloads |
@@ -33,12 +34,13 @@ These key combinations work while inside an interactive session (`go <id>`):
 | `Ctrl+Z` | Background the session and return to the listener prompt |
 | `Ctrl+C` | Send `SIGINT` to the remote process (keeps the session alive) |
 | `Ctrl+T` | Toggle **screenable mode**, masks all IP addresses in output |
+| `Ctrl+W` | Toggle the listener on/off (pause or resume accepting new connections) |
 
 ---
 
 ## Command details
 
-### `go <id>`
+### `go <id|tag>`
 
 Enters a session. The behaviour depends on whether the session has been upgraded:
 
@@ -49,7 +51,7 @@ Background with `Ctrl+Z` to return to the prompt without killing the session.
 
 ---
 
-### `upgrade <id>`
+### `upgrade <id|tag>`
 
 Promotes a raw shell to a fully interactive PTY. The method depends on the detected OS:
 
@@ -60,7 +62,21 @@ The session logger is started at this point. See [Logging & Review](logs.md).
 
 ---
 
-### `setshell <id> <type>`
+### `tag <id|tag> [name]`
+
+Assigns a short name to a session so you can reference it by tag instead of numeric ID. Omitting `name` clears the tag.
+
+```
+koi ❯ tag 1 dc01
+koi ❯ go dc01
+koi ❯ tag dc01          # clears the tag
+```
+
+Tags must be unique across active sessions. Once set, the tag appears in `ls` next to the session ID and is accepted anywhere an `<id>` is expected.
+
+---
+
+### `setshell <id|tag> <type>`
 
 Manually overrides the OS type of a session when auto-detection fails. Valid types:
 
@@ -72,13 +88,14 @@ Manually overrides the OS type of a session when auto-detection fails. Valid typ
 
 ```
 koi ❯ setshell 2 windows_ps
+koi ❯ setshell dc01 linux
 ```
 
 This also adjusts the session encoding (`utf-8` / `cp1252`) and line ending (`\n` / `\r\n`).
 
 ---
 
-### `run <module> <id> [args...]`
+### `run <module> <id|tag> [args...]`
 
 Runs a post-exploitation module against a session. The module must be compatible with the session's OS type. Example:
 
@@ -131,10 +148,10 @@ Lists all session log files stored in `~/.koi/logs/`. Use `koireview <name>` to 
 ### `koi`
 
 ```
-koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]]
+koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]] [--purge-cache]
 ```
 
-`--payloads` and `--obfuscator` print output and exit without starting the listener.
+`--payloads` and `--obfuscator` print output and exit without starting the listener. `--purge-cache` (`-pc`) deletes all files stored in `~/.koi/cache/` and exits.
 
 ---
 

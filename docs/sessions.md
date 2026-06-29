@@ -41,14 +41,14 @@ If detection fails, `os_type` stays `None` and the session is still usable. Set 
 
 ## Session list
 
-`ls` displays all active sessions:
+`ls` displays all active sessions with their uptime on the right:
 
 ```
-╭─ Sessions ──────────────────────────────╮
-│  #1  ◆  192.168.1.42:51234 [powershell] │
-│  #2  ●  10.0.0.8:49201     [linux]      │
-│  #3  ○  10.0.0.9:50012     [?]          │
-╰─────────────────────────────────────────╯
+╭─ Sessions ────────────────────────────────────────────────╮
+│  #1 [dc01]  ◆  192.168.1.42:51234 [powershell]  00:12:43  │
+│  #2          ●  10.0.0.8:49201     [linux]      00:01:05  │
+│  #3          ○  10.0.0.9:50012     [?]          00:00:08  │
+╰───────────────────────────────────────────────────────────╯
 ```
 
 **Status indicators:**
@@ -59,7 +59,7 @@ If detection fails, `os_type` stays `None` and the session is still usable. Set 
 | `●` (red) | Session alive, not upgraded |
 | `○` (grey) | Session dead (pruned on next `ls`) |
 
-The OS label in brackets reflects `os_type`. `?` means detection failed or `os_type` is not set.
+The OS label in brackets reflects `os_type`. `?` means detection failed or `os_type` is not set. If a session has a tag (set with `tag`), it appears next to the session ID.
 
 ---
 
@@ -67,6 +67,7 @@ The OS label in brackets reflects `os_type`. `?` means detection failed or `os_t
 
 ```
 koi ❯ go 1
+koi ❯ go dc01
 ```
 
 Koi enters the session. The behaviour depends on the upgrade state:
@@ -88,10 +89,31 @@ This mode works without any PTY support on the remote end, useful when you have 
 
 ---
 
+## Tagging a session
+
+Sessions can be given a short name to make them easier to reference:
+
+```
+koi ❯ tag 1 dc01
+koi ❯ go dc01
+koi ❯ run sysinfo dc01
+```
+
+Omitting the name clears the tag:
+
+```
+koi ❯ tag dc01
+```
+
+Tags must be unique across active sessions and are accepted anywhere an `<id>` is expected.
+
+---
+
 ## Upgrading a session
 
 ```
 koi ❯ upgrade 1
+koi ❯ upgrade dc01
 ```
 
 Promotes a raw shell to a full interactive PTY. See [Upgrading Sessions](upgrading-sessions.md) for the full process.
@@ -142,6 +164,7 @@ This also updates the session encoding and line endings, which affects how comma
 
 ```
 koi ❯ kill 1
+koi ❯ kill dc01
 ```
 
 Sends `exit\n` to the remote (if upgraded), closes the socket, and removes the session. If the session was logged, the log is closed cleanly.

@@ -43,17 +43,14 @@ for line in self.exec_stream("find / -name '*.conf' 2>/dev/null"):
 
 ### `self._exec_clean(cmd, timeout=10.0) -> str`
 
-Runs a Linux command and collects output via a **side TCP channel** instead of reading from the shell stream. Use this when you need to parse output programmatically, it bypasses prompt noise and ANSI codes.
+Runs a Linux command and extracts its output cleanly from the shell stream using sentinel markers. Use this when you need to parse output programmatically: it strips prompt noise, ANSI codes, and command echoes automatically.
 
 ```python
 arch = self._exec_clean("uname -m")
 size = self._exec_clean(f"wc -c < {quoted_path}")
 ```
 
-Internally it redirects stdout to `/dev/tcp/<local_ip>/<port>` and collects bytes on a local socket.
-
-!!! note
-    `/dev/tcp` is bash-only. If the remote shell is `sh` or `dash`, `_exec_clean` will return empty. Spawn bash first or use `exec` instead.
+Internally it wraps the command between unique `echo` markers and reads the region between them from the response, so the result is always clean and unambiguous. Raises `ValueError` if the markers are not found in the output (e.g. the shell ate them or the session is dead).
 
 ---
 
