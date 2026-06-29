@@ -525,6 +525,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tagging-a-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tagging a session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upgrading-a-session" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1081,6 +1092,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tagging-a-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tagging a session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upgrading-a-session" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1199,12 +1221,12 @@
 <p>If detection fails, <code>os_type</code> stays <code>None</code> and the session is still usable. Set it manually with <a href="../cli-reference/#setshell-id-type"><code>setshell</code></a>.</p>
 <hr />
 <h2 id="session-list">Session list</h2>
-<p><code>ls</code> displays all active sessions:</p>
-<div class="highlight"><pre><span></span><code>╭─ Sessions ──────────────────────────────╮
-│  #1  ◆  192.168.1.42:51234 [powershell] │
-│  #2  ●  10.0.0.8:49201     [linux]      │
-│  #3  ○  10.0.0.9:50012     [?]          │
-╰─────────────────────────────────────────╯
+<p><code>ls</code> displays all active sessions with their uptime on the right:</p>
+<div class="highlight"><pre><span></span><code>╭─ Sessions ────────────────────────────────────────────────╮
+│  #1 [dc01]  ◆  192.168.1.42:51234 [powershell]  00:12:43  │
+│  #2          ●  10.0.0.8:49201     [linux]      00:01:05  │
+│  #3          ○  10.0.0.9:50012     [?]          00:00:08  │
+╰───────────────────────────────────────────────────────────╯
 </code></pre></div>
 <p><strong>Status indicators:</strong></p>
 <table>
@@ -1229,10 +1251,11 @@
 </tr>
 </tbody>
 </table>
-<p>The OS label in brackets reflects <code>os_type</code>. <code>?</code> means detection failed or <code>os_type</code> is not set.</p>
+<p>The OS label in brackets reflects <code>os_type</code>. <code>?</code> means detection failed or <code>os_type</code> is not set. If a session has a tag (set with <code>tag</code>), it appears next to the session ID.</p>
 <hr />
 <h2 id="interacting-with-a-session">Interacting with a session</h2>
 <div class="highlight"><pre><span></span><code>koi ❯ go 1
+koi ❯ go dc01
 </code></pre></div>
 <p>Koi enters the session. The behaviour depends on the upgrade state:</p>
 <h3 id="upgraded-sessions">Upgraded sessions</h3>
@@ -1246,8 +1269,20 @@
 <p>Line-by-line mode. Input is read with readline and sent on Enter with the appropriate line ending. Output is decoded and printed as text. <code>Ctrl+Z</code> backgrounds the session.</p>
 <p>This mode works without any PTY support on the remote end, useful when you have a minimal shell or a Windows cmd without ConPtyShell.</p>
 <hr />
+<h2 id="tagging-a-session">Tagging a session</h2>
+<p>Sessions can be given a short name to make them easier to reference:</p>
+<div class="highlight"><pre><span></span><code>koi ❯ tag 1 dc01
+koi ❯ go dc01
+koi ❯ run sysinfo dc01
+</code></pre></div>
+<p>Omitting the name clears the tag:</p>
+<div class="highlight"><pre><span></span><code>koi ❯ tag dc01
+</code></pre></div>
+<p>Tags must be unique across active sessions and are accepted anywhere an <code>&lt;id&gt;</code> is expected.</p>
+<hr />
 <h2 id="upgrading-a-session">Upgrading a session</h2>
 <div class="highlight"><pre><span></span><code>koi ❯ upgrade 1
+koi ❯ upgrade dc01
 </code></pre></div>
 <p>Promotes a raw shell to a full interactive PTY. See <a href="../upgrading-sessions/">Upgrading Sessions</a> for the full process.</p>
 <p>After a successful upgrade:</p>
@@ -1279,6 +1314,7 @@ koi ❯ setshell 3 linux
 <hr />
 <h2 id="killing-a-session">Killing a session</h2>
 <div class="highlight"><pre><span></span><code>koi ❯ kill 1
+koi ❯ kill dc01
 </code></pre></div>
 <p>Sends <code>exit\n</code> to the remote (if upgraded), closes the socket, and removes the session. If the session was logged, the log is closed cleanly.</p>
 <hr />

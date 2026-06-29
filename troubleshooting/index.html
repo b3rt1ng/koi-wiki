@@ -843,10 +843,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#module-returns-empty-output-_exec_clean-gets-nothing-back" class="md-nav__link">
+  <a href="#module-returns-empty-output-_exec_clean-raises-an-error" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Module returns empty output / _exec_clean gets nothing back
+        Module returns empty output / _exec_clean raises an error
       
     </span>
   </a>
@@ -1120,10 +1120,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#module-returns-empty-output-_exec_clean-gets-nothing-back" class="md-nav__link">
+  <a href="#module-returns-empty-output-_exec_clean-raises-an-error" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Module returns empty output / _exec_clean gets nothing back
+        Module returns empty output / _exec_clean raises an error
       
     </span>
   </a>
@@ -1298,15 +1298,13 @@ koi ❯ setshell 3 windows_cmd
 <p>Then background and <code>upgrade</code> again.</p>
 <hr />
 <h2 id="modules-on-linux">Modules on Linux</h2>
-<h3 id="module-returns-empty-output-_exec_clean-gets-nothing-back">Module returns empty output / <code>_exec_clean</code> gets nothing back</h3>
-<p>The side-channel uses <code>/dev/tcp</code> redirection which is <strong>bash-only</strong>. If the current shell is <code>sh</code>, <code>dash</code>, or another POSIX shell, the redirect silently fails.</p>
-<p>Fix: spawn bash first.</p>
-<div class="highlight"><pre><span></span><code>bash
-</code></pre></div>
-<p>Then background and rerun the module. This typically happens after exploiting a vulnerability that spawns a raw <code>/bin/sh</code> (e.g. SUID binaries, sudo exploits, kernel exploits).</p>
+<h3 id="module-returns-empty-output-_exec_clean-raises-an-error">Module returns empty output / <code>_exec_clean</code> raises an error</h3>
+<p><code>_exec_clean</code> wraps the command between unique echo markers and reads them back from the shell stream. This can fail in two situations:</p>
+<p><strong>The session is a very restricted shell</strong> (no subshell support, no <code>echo</code>, jailed environment). In that case the markers are never printed and <code>_exec_clean</code> raises <code>ValueError</code>. Use <code>exec</code> directly and parse the raw output instead.</p>
+<p><strong>The session died or the socket timed out.</strong> Check that the session is still alive with <code>ls</code> before rerunning the module.</p>
 <hr />
 <h3 id="run-ligolo-fails-with-unrecognised-architecture"><code>run ligolo</code> fails with "Unrecognised architecture: ''"</h3>
-<p>Same root cause as above. The session is running <code>sh</code> (not bash), so <code>uname -m</code> output never reaches koi. Spawn bash first.</p>
+<p><code>uname -m</code> returned nothing, usually because the session is dead or the shell is so restricted that even basic commands produce no output. Check session state with <code>ls</code> and try running <code>uname -m</code> manually in the session first.</p>
 <hr />
 <h2 id="modules-on-windows">Modules on Windows</h2>
 <h3 id="module-commands-fail-you-are-in-cmd-instead-of-powershell">Module commands fail - you are in CMD instead of PowerShell</h3>

@@ -431,10 +431,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#go-id" class="md-nav__link">
+  <a href="#go-idtag" class="md-nav__link">
     <span class="md-ellipsis">
       
-        go &lt;id&gt;
+        go &lt;id|tag&gt;
       
     </span>
   </a>
@@ -442,10 +442,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#upgrade-id" class="md-nav__link">
+  <a href="#upgrade-idtag" class="md-nav__link">
     <span class="md-ellipsis">
       
-        upgrade &lt;id&gt;
+        upgrade &lt;id|tag&gt;
       
     </span>
   </a>
@@ -453,10 +453,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setshell-id-type" class="md-nav__link">
+  <a href="#tag-idtag-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        setshell &lt;id&gt; &lt;type&gt;
+        tag &lt;id|tag&gt; [name]
       
     </span>
   </a>
@@ -464,10 +464,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-module-id-args" class="md-nav__link">
+  <a href="#setshell-idtag-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        run &lt;module&gt; &lt;id&gt; [args...]
+        setshell &lt;id|tag&gt; &lt;type&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-module-idtag-args" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run &lt;module&gt; &lt;id|tag&gt; [args...]
       
     </span>
   </a>
@@ -1093,10 +1104,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#go-id" class="md-nav__link">
+  <a href="#go-idtag" class="md-nav__link">
     <span class="md-ellipsis">
       
-        go &lt;id&gt;
+        go &lt;id|tag&gt;
       
     </span>
   </a>
@@ -1104,10 +1115,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#upgrade-id" class="md-nav__link">
+  <a href="#upgrade-idtag" class="md-nav__link">
     <span class="md-ellipsis">
       
-        upgrade &lt;id&gt;
+        upgrade &lt;id|tag&gt;
       
     </span>
   </a>
@@ -1115,10 +1126,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setshell-id-type" class="md-nav__link">
+  <a href="#tag-idtag-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        setshell &lt;id&gt; &lt;type&gt;
+        tag &lt;id|tag&gt; [name]
       
     </span>
   </a>
@@ -1126,10 +1137,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-module-id-args" class="md-nav__link">
+  <a href="#setshell-idtag-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        run &lt;module&gt; &lt;id&gt; [args...]
+        setshell &lt;id|tag&gt; &lt;type&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-module-idtag-args" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run &lt;module&gt; &lt;id|tag&gt; [args...]
       
     </span>
   </a>
@@ -1274,31 +1296,37 @@
 <tr>
 <td><code>go</code></td>
 <td><code>g</code>, <code>interact</code></td>
-<td><code>go &lt;id&gt;</code></td>
+<td><code>go &lt;id\|tag&gt;</code></td>
 <td>Enter a session interactively</td>
 </tr>
 <tr>
 <td><code>upgrade</code></td>
 <td><code>u</code></td>
-<td><code>upgrade &lt;id&gt;</code></td>
+<td><code>upgrade &lt;id\|tag&gt;</code></td>
 <td>Upgrade a session to a full PTY</td>
 </tr>
 <tr>
 <td><code>kill</code></td>
 <td>-</td>
-<td><code>kill &lt;id&gt;</code></td>
+<td><code>kill &lt;id\|tag&gt;</code></td>
 <td>Terminate and remove a session</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>-</td>
+<td><code>tag &lt;id\|tag&gt; [name]</code></td>
+<td>Assign or clear a tag on a session</td>
 </tr>
 <tr>
 <td><code>setshell</code></td>
 <td><code>sh</code></td>
-<td><code>setshell &lt;id&gt; &lt;type&gt;</code></td>
+<td><code>setshell &lt;id\|tag&gt; &lt;type&gt;</code></td>
 <td>Manually set the OS type of a session</td>
 </tr>
 <tr>
 <td><code>run</code></td>
 <td>-</td>
-<td><code>run &lt;module&gt; &lt;id&gt; [args...]</code></td>
+<td><code>run &lt;module&gt; &lt;id\|tag&gt; [args...]</code></td>
 <td>Run a module against a session</td>
 </tr>
 <tr>
@@ -1380,11 +1408,15 @@
 <td><code>Ctrl+T</code></td>
 <td>Toggle <strong>screenable mode</strong>, masks all IP addresses in output</td>
 </tr>
+<tr>
+<td><code>Ctrl+W</code></td>
+<td>Toggle the listener on/off (pause or resume accepting new connections)</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <h2 id="command-details">Command details</h2>
-<h3 id="go-id"><code>go &lt;id&gt;</code></h3>
+<h3 id="go-idtag"><code>go &lt;id|tag&gt;</code></h3>
 <p>Enters a session. The behaviour depends on whether the session has been upgraded:</p>
 <ul>
 <li><strong>Upgraded (Linux PTY / ConPtyShell):</strong> raw terminal mode, every keystroke goes directly to the remote process.</li>
@@ -1392,7 +1424,7 @@
 </ul>
 <p>Background with <code>Ctrl+Z</code> to return to the prompt without killing the session.</p>
 <hr />
-<h3 id="upgrade-id"><code>upgrade &lt;id&gt;</code></h3>
+<h3 id="upgrade-idtag"><code>upgrade &lt;id|tag&gt;</code></h3>
 <p>Promotes a raw shell to a fully interactive PTY. The method depends on the detected OS:</p>
 <ul>
 <li><strong>Linux:</strong> tries <code>script</code>, then <code>socat</code>, then falls back to <code>/bin/bash -i</code>.</li>
@@ -1400,7 +1432,15 @@
 </ul>
 <p>The session logger is started at this point. See <a href="../logs/">Logging &amp; Review</a>.</p>
 <hr />
-<h3 id="setshell-id-type"><code>setshell &lt;id&gt; &lt;type&gt;</code></h3>
+<h3 id="tag-idtag-name"><code>tag &lt;id|tag&gt; [name]</code></h3>
+<p>Assigns a short name to a session so you can reference it by tag instead of numeric ID. Omitting <code>name</code> clears the tag.</p>
+<div class="highlight"><pre><span></span><code>koi ❯ tag 1 dc01
+koi ❯ go dc01
+koi ❯ tag dc01          # clears the tag
+</code></pre></div>
+<p>Tags must be unique across active sessions. Once set, the tag appears in <code>ls</code> next to the session ID and is accepted anywhere an <code>&lt;id&gt;</code> is expected.</p>
+<hr />
+<h3 id="setshell-idtag-type"><code>setshell &lt;id|tag&gt; &lt;type&gt;</code></h3>
 <p>Manually overrides the OS type of a session when auto-detection fails. Valid types:</p>
 <table>
 <thead>
@@ -1429,10 +1469,11 @@
 </tbody>
 </table>
 <div class="highlight"><pre><span></span><code>koi ❯ setshell 2 windows_ps
+koi ❯ setshell dc01 linux
 </code></pre></div>
 <p>This also adjusts the session encoding (<code>utf-8</code> / <code>cp1252</code>) and line ending (<code>\n</code> / <code>\r\n</code>).</p>
 <hr />
-<h3 id="run-module-id-args"><code>run &lt;module&gt; &lt;id&gt; [args...]</code></h3>
+<h3 id="run-module-idtag-args"><code>run &lt;module&gt; &lt;id|tag&gt; [args...]</code></h3>
 <p>Runs a post-exploitation module against a session. The module must be compatible with the session's OS type. Example:</p>
 <div class="highlight"><pre><span></span><code>koi ❯ run sysinfo 1
 koi ❯ run netscan 1 --no-scan
@@ -1460,9 +1501,9 @@ koi ❯ payload          # all interfaces
 <hr />
 <h2 id="standalone-commands">Standalone commands</h2>
 <h3 id="koi"><code>koi</code></h3>
-<div class="highlight"><pre><span></span><code>koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]]
+<div class="highlight"><pre><span></span><code>koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]] [--purge-cache]
 </code></pre></div>
-<p><code>--payloads</code> and <code>--obfuscator</code> print output and exit without starting the listener.</p>
+<p><code>--payloads</code> and <code>--obfuscator</code> print output and exit without starting the listener. <code>--purge-cache</code> (<code>-pc</code>) deletes all files stored in <code>~/.koi/cache/</code> and exits.</p>
 <hr />
 <h3 id="koireview"><code>koireview</code></h3>
 <div class="highlight"><pre><span></span><code>koireview [log] [-c / --clear]

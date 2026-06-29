@@ -1251,15 +1251,11 @@
 </code></pre></div>
 <hr />
 <h3 id="self_exec_cleancmd-timeout100-str"><code>self._exec_clean(cmd, timeout=10.0) -&gt; str</code></h3>
-<p>Runs a Linux command and collects output via a <strong>side TCP channel</strong> instead of reading from the shell stream. Use this when you need to parse output programmatically, it bypasses prompt noise and ANSI codes.</p>
+<p>Runs a Linux command and extracts its output cleanly from the shell stream using sentinel markers. Use this when you need to parse output programmatically: it strips prompt noise, ANSI codes, and command echoes automatically.</p>
 <div class="highlight"><pre><span></span><code><span class="n">arch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exec_clean</span><span class="p">(</span><span class="s2">&quot;uname -m&quot;</span><span class="p">)</span>
 <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exec_clean</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wc -c &lt; </span><span class="si">{</span><span class="n">quoted_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>Internally it redirects stdout to <code>/dev/tcp/&lt;local_ip&gt;/&lt;port&gt;</code> and collects bytes on a local socket.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>/dev/tcp</code> is bash-only. If the remote shell is <code>sh</code> or <code>dash</code>, <code>_exec_clean</code> will return empty. Spawn bash first or use <code>exec</code> instead.</p>
-</div>
+<p>Internally it wraps the command between unique <code>echo</code> markers and reads the region between them from the response, so the result is always clean and unambiguous. Raises <code>ValueError</code> if the markers are not found in the output (e.g. the shell ate them or the session is dead).</p>
 <hr />
 <h3 id="self_try_execcmd-timeout100-str"><code>self._try_exec(cmd, timeout=10.0) -&gt; str</code></h3>
 <p>Like <code>_exec_clean</code> but silently returns an empty string on any error instead of raising. Use for optional or best-effort commands where a missing tool or empty result is acceptable.</p>
