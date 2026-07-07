@@ -43,6 +43,7 @@ nav:
     - File Transfer: modules-transfer.md
     - UI & Output: modules-ui.md
     - Best Practices: modules-best-practices.md
+  - Going Online (Torii): go-online.md
   - Troubleshooting: troubleshooting.md
   - Known Issues: known-issues.md
   - Future Updates: future-updates.md
