@@ -502,6 +502,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sidetcps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sidetcps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcp_token
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1107,6 +1129,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sidetcps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sidetcps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcp_token
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1169,7 +1213,11 @@
 <span class="w">        </span><span class="nt">&quot;download&quot;</span><span class="p">:</span><span class="w">       </span><span class="mi">300</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;http_fetch&quot;</span><span class="p">:</span><span class="w">     </span><span class="mi">60</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;session_detect&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;sidetcps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5985</span><span class="p">,</span><span class="w"> </span><span class="mi">5986</span><span class="p">,</span><span class="w"> </span><span class="mi">445</span><span class="p">,</span><span class="w"> </span><span class="mi">3389</span><span class="p">],</span>
+
+<span class="w">    </span><span class="nt">&quot;mcp_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="what-each-setting-controls">What each setting controls</h2>
@@ -1223,6 +1271,40 @@
 </tbody>
 </table>
 <p>If a session is slow or the link is laggy, raising <code>exec_command</code> or <code>download</code> can help avoid premature timeouts.</p>
+<h3 id="sidetcps"><code>sidetcps</code></h3>
+<p>The ports Koi opens on your side for file transfers and module side-channels. A transfer does not go through the shell, Koi asks the target to connect back on one of these and streams the data over that socket.</p>
+<p>The defaults are chosen to look boring on the wire:</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Normally</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>5985</code></td>
+<td>WinRM (HTTP)</td>
+</tr>
+<tr>
+<td><code>5986</code></td>
+<td>WinRM (HTTPS)</td>
+</tr>
+<tr>
+<td><code>445</code></td>
+<td>SMB</td>
+</tr>
+<tr>
+<td><code>3389</code></td>
+<td>RDP</td>
+</tr>
+</tbody>
+</table>
+<p>A target dialing back on 445 or 3389 blends into normal Windows traffic far better than a random high port would. Koi tries them in order and uses the first one it can bind.</p>
+<p>Change them if something else on your machine already owns those ports, or if the target network blocks them outbound. Remember that they need to be reachable from the target, which is exactly the problem <a href="../go-online/">Torii</a> solves by multiplexing everything through a single port.</p>
+<h3 id="mcp_token"><code>mcp_token</code></h3>
+<p>Bearer token for the <a href="../mcp/">MCP server</a>. Starts as <code>null</code>, and Koi generates one the first time you run <code>koi --mcp</code>, then writes it here so it survives restarts.</p>
+<p>The file is chmod'd to <code>600</code> when this key is written, since the token grants full control of the MCP endpoint. Delete the key and restart to revoke every registered client at once. <code>$KOI_MCP_TOKEN</code> and <code>--mcp-token</code> both take precedence over the saved value.</p>
 <h2 id="editing-the-config">Editing the config</h2>
 <p>Just open the file in any editor and change the values you need:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$EDITOR</span><span class="w"> </span>~/.koi/config.json

@@ -1555,9 +1555,12 @@ koi ❯ payload          # all interfaces
 <hr />
 <h2 id="standalone-commands">Standalone commands</h2>
 <h3 id="koi"><code>koi</code></h3>
-<div class="highlight"><pre><span></span><code>koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]] [--purge-cache]
+<div class="highlight"><pre><span></span><code>koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]]
+    [--local] [--local-prepare] [--purge-cache]
+    [--mcp] [--mcp-port PORT] [--mcp-allow-exec] [--mcp-token TOKEN]
 </code></pre></div>
-<p><code>--payloads</code> and <code>--obfuscator</code> print output and exit without starting the listener. <code>--purge-cache</code> (<code>-pc</code>) deletes all files stored in <code>~/.koi/cache/</code> and exits.</p>
+<p><code>--payloads</code> and <code>--obfuscator</code> print output and exit without starting the listener. <code>--purge-cache</code> (<code>-pc</code>) deletes all files stored in <code>~/.koi/cache/</code> and exits, <code>--local-prepare</code> (<code>-lp</code>) fills that same cache and exits, and <code>--local</code> (<code>-l</code>) then runs entirely from it with no external network calls.</p>
+<p>The <code>--mcp</code> flags expose sessions and modules to an LLM client and are covered in <a href="../mcp/">MCP Server</a>. Full flag table in <a href="../getting-started/#cli-flags">Getting Started</a>.</p>
 <hr />
 <h3 id="koireview"><code>koireview</code></h3>
 <div class="highlight"><pre><span></span><code>koireview [log] [-c / --clear]

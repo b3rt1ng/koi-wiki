@@ -1293,6 +1293,7 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Command failed (rc=</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Raises <code>CommandTimeout</code> if the command exceeds <code>timeout</code> seconds.</p>
+<p><code>.stdout</code> holds what the command printed, and nothing else. On a PTY-upgraded session the shell echoes the whole wrapped command back and paints its prompt first, so <code>exec</code> drops everything up to and including that echo before returning. What is left is still raw terminal output: ANSI colour codes and cursor sequences from tools that emit them are yours to deal with, which is what <code>_exec_clean</code> below is for.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><code>exec</code> uses a sentinel marker appended to the command. <strong>Never use it on Windows sessions</strong> - use <code>_win_query</code> instead.</p>
@@ -1305,7 +1306,7 @@
 </code></pre></div>
 <hr />
 <h3 id="self_exec_cleancmd-timeout100-str"><code>self._exec_clean(cmd, timeout=10.0) -&gt; str</code></h3>
-<p>Runs a Linux command and extracts its output cleanly from the shell stream using sentinel markers. Use this when you need to parse output programmatically: it strips prompt noise, ANSI codes, and command echoes automatically.</p>
+<p>Runs a Linux command and extracts its output cleanly from the shell stream using its own pair of sentinel markers. Use this whenever you intend to parse the output: on top of what <code>exec</code> already removes, it delimits the exact region the command produced and strips ANSI codes.</p>
 <div class="highlight"><pre><span></span><code><span class="n">arch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exec_clean</span><span class="p">(</span><span class="s2">&quot;uname -m&quot;</span><span class="p">)</span>
 <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exec_clean</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wc -c &lt; </span><span class="si">{</span><span class="n">quoted_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>

