@@ -17,6 +17,8 @@
 | **Module system** | Extensible post-exploitation modules, auto-discovered from disk |
 | **Session logging** | Every upgraded session logged to `~/.koi/logs/`, reviewable with `koireview` |
 | **Screenable mode** | Mask all IPs in output for screenshots and live demos |
+| **Offline mode** | Cache every external tool up front, then run with no outbound traffic |
+| **MCP server** | Expose sessions and modules to an LLM client, read-only by default |
 
 ---
 

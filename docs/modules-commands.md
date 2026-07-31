@@ -25,6 +25,8 @@ else:
 
 Raises `CommandTimeout` if the command exceeds `timeout` seconds.
 
+`.stdout` holds what the command printed, and nothing else. On a PTY-upgraded session the shell echoes the whole wrapped command back and paints its prompt first, so `exec` drops everything up to and including that echo before returning. What is left is still raw terminal output: ANSI colour codes and cursor sequences from tools that emit them are yours to deal with, which is what `_exec_clean` below is for.
+
 !!! warning
     `exec` uses a sentinel marker appended to the command. **Never use it on Windows sessions** - use `_win_query` instead.
 
@@ -43,7 +45,7 @@ for line in self.exec_stream("find / -name '*.conf' 2>/dev/null"):
 
 ### `self._exec_clean(cmd, timeout=10.0) -> str`
 
-Runs a Linux command and extracts its output cleanly from the shell stream using sentinel markers. Use this when you need to parse output programmatically: it strips prompt noise, ANSI codes, and command echoes automatically.
+Runs a Linux command and extracts its output cleanly from the shell stream using its own pair of sentinel markers. Use this whenever you intend to parse the output: on top of what `exec` already removes, it delimits the exact region the command produced and strips ANSI codes.
 
 ```python
 arch = self._exec_clean("uname -m")

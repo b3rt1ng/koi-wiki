@@ -73,8 +73,18 @@ koi(1 session) ❯
 | `--port`, `-p` | `4010` | TCP port to listen on |
 | `--host` | `0.0.0.0` | Bind address |
 | `--payloads [IFACE]` | - | Print payloads and exit |
-| `--obfuscator [IFACE]` | - | Open the obfuscator UI and exit |
+| `--obfuscator [IFACE]`, `--cook` | - | Open the obfuscator UI and exit |
+| `--local`, `-l` | off | Offline mode: use the cache only, no external network calls |
+| `--local-prepare`, `-lp` | - | Download and cache everything modules need, then exit |
+| `--purge-cache`, `-pc` | - | Empty `~/.koi/cache/` and exit |
+| `--mcp` | off | Start the [MCP server](mcp.md) alongside the listener |
+| `--mcp-port PORT` | `7331` | Port for the MCP server |
+| `--mcp-allow-exec` | off | Let MCP clients run commands and modules |
+| `--mcp-token TOKEN` | saved value | Bearer token for the MCP server |
 | `--help`, `-h` | - | Show help and exit |
+
+!!! tip "Going offline"
+    `--local-prepare` fetches every external tool the modules use (ligolo, PEAS, SharpHound...) into the cache. After that, `--local` runs Koi without touching the network at all, which is what you want on an engagement where outbound traffic from your box is noticed.
 
 ---
 

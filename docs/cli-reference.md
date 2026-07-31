@@ -148,10 +148,14 @@ Lists all session log files stored in `~/.koi/logs/`. Use `koireview <name>` to 
 ### `koi`
 
 ```
-koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]] [--purge-cache]
+koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]]
+    [--local] [--local-prepare] [--purge-cache]
+    [--mcp] [--mcp-port PORT] [--mcp-allow-exec] [--mcp-token TOKEN]
 ```
 
-`--payloads` and `--obfuscator` print output and exit without starting the listener. `--purge-cache` (`-pc`) deletes all files stored in `~/.koi/cache/` and exits.
+`--payloads` and `--obfuscator` print output and exit without starting the listener. `--purge-cache` (`-pc`) deletes all files stored in `~/.koi/cache/` and exits, `--local-prepare` (`-lp`) fills that same cache and exits, and `--local` (`-l`) then runs entirely from it with no external network calls.
+
+The `--mcp` flags expose sessions and modules to an LLM client and are covered in [MCP Server](mcp.md). Full flag table in [Getting Started](getting-started.md#cli-flags).
 
 ---
 
