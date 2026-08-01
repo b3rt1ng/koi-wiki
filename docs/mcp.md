@@ -110,6 +110,7 @@ Do not put a C2 control plane on a public interface just because it has a token 
 
 | Tool | What it does |
 |---|---|
+| `koi_status` | The listener itself: version, bind address, port, local interfaces, uptime, modes, transfer ports |
 | `koi_list_sessions` | Every session with OS, PTY state, uptime, tag, and whether it is busy |
 | `koi_list_modules` | Available modules, their arguments and supported platforms |
 | `koi_tag` | Set or clear a tag on a session |
@@ -145,7 +146,46 @@ One tool per module, generated from the module's own `arguments` spec. Drop a ne
 | `koi_module_wifi` | linux |
 | `koi_module_winscalate` | windows_ps |
 
-That is 19 tools total with exec enabled, 3 without.
+That is 20 tools total with exec enabled, 4 without.
+
+### Server context
+
+Two things give the model its bearings without the operator having to explain the setup in every conversation.
+
+The first is the `instructions` string sent at `initialize`. It says what Koi is, whether this connection can execute anything, and the two rules that matter in practice: one command per session at a time, and prefer a module over a hand-written command. Clients surface it as system context, so it costs nothing per call.
+
+The second is `koi_status`, for everything that changes while the listener runs:
+
+```json
+{
+  "koi_version": "0.10.2",
+  "listener": {
+    "bind_host": "0.0.0.0",
+    "port": 4010,
+    "uptime": "01:02:05",
+    "accepting": true,
+    "interfaces": {"wlan0": "192.168.1.134", "docker0": "172.17.0.1"},
+    "callback_hint": "payload must connect back to one of interfaces:port"
+  },
+  "sessions": {"alive": 2, "total": 3, "by_os": {"linux": 1, "windows_ps": 1}},
+  "modes": {"local_offline": false, "screenable": false},
+  "transfers": {"side_channel_ports": [5985, 5986, 445, 3389]},
+  "mcp": {"url": "http://127.0.0.1:7331/mcp", "allow_exec": true,
+          "io_timeout": 10.0, "max_exec_timeout": 600.0},
+  "logs": {"dir": "/home/you/.koi/logs", "count": 23}
+}
+```
+
+Why each block is there:
+
+- `interfaces` plus `port` is what a model needs to write a working callback payload. Bound to `0.0.0.0` the listener does not know which address the target can reach, so it hands over all of them and says so in `callback_hint`.
+- `accepting` reflects the `stop` and `start` REPL commands. A model that knows the listener is paused will not tell you to wait for a shell that cannot land.
+- `local_offline` is `--local`. Modules serve their external tooling from the cache only, so a model can stop suggesting things that need a download.
+- `side_channel_ports` are the ports `upload` and `download` open on your side. The target has to reach you on one of them, which is a common reason a transfer hangs.
+- `max_exec_timeout` and `io_timeout` are the actual ceilings applied to `koi_exec`, not the defaults documented anywhere else.
+
+!!! note
+    Screenable mode applies here too. With it on, `koi_status` returns `<LOCAL IP>` for every interface, the same masking the REPL uses.
 
 ### Resources
 
