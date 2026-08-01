@@ -925,6 +925,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#server-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1245,6 +1256,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#server-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1469,6 +1491,10 @@ koi<span class="w"> </span>--mcp<span class="w"> </span>--mcp-port<span class="w
 </thead>
 <tbody>
 <tr>
+<td><code>koi_status</code></td>
+<td>The listener itself: version, bind address, port, local interfaces, uptime, modes, transfer ports</td>
+</tr>
+<tr>
 <td><code>koi_list_sessions</code></td>
 <td>Every session with OS, PTY state, uptime, tag, and whether it is busy</td>
 </tr>
@@ -1574,7 +1600,41 @@ koi<span class="w"> </span>--mcp<span class="w"> </span>--mcp-port<span class="w
 </tr>
 </tbody>
 </table>
-<p>That is 19 tools total with exec enabled, 3 without.</p>
+<p>That is 20 tools total with exec enabled, 4 without.</p>
+<h3 id="server-context">Server context</h3>
+<p>Two things give the model its bearings without the operator having to explain the setup in every conversation.</p>
+<p>The first is the <code>instructions</code> string sent at <code>initialize</code>. It says what Koi is, whether this connection can execute anything, and the two rules that matter in practice: one command per session at a time, and prefer a module over a hand-written command. Clients surface it as system context, so it costs nothing per call.</p>
+<p>The second is <code>koi_status</code>, for everything that changes while the listener runs:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;koi_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.10.2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;listener&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;bind_host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4010</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uptime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01:02:05&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;accepting&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;interfaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;wlan0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.134&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;docker0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;172.17.0.1&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;callback_hint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;payload must connect back to one of interfaces:port&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;sessions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;alive&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;by_os&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;windows_ps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">&quot;modes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;local_offline&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;screenable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;transfers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;side_channel_ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5985</span><span class="p">,</span><span class="w"> </span><span class="mi">5986</span><span class="p">,</span><span class="w"> </span><span class="mi">445</span><span class="p">,</span><span class="w"> </span><span class="mi">3389</span><span class="p">]},</span>
+<span class="w">  </span><span class="nt">&quot;mcp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://127.0.0.1:7331/mcp&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;allow_exec&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;io_timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;max_exec_timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">600.0</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;logs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/home/you/.koi/logs&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Why each block is there:</p>
+<ul>
+<li><code>interfaces</code> plus <code>port</code> is what a model needs to write a working callback payload. Bound to <code>0.0.0.0</code> the listener does not know which address the target can reach, so it hands over all of them and says so in <code>callback_hint</code>.</li>
+<li><code>accepting</code> reflects the <code>stop</code> and <code>start</code> REPL commands. A model that knows the listener is paused will not tell you to wait for a shell that cannot land.</li>
+<li><code>local_offline</code> is <code>--local</code>. Modules serve their external tooling from the cache only, so a model can stop suggesting things that need a download.</li>
+<li><code>side_channel_ports</code> are the ports <code>upload</code> and <code>download</code> open on your side. The target has to reach you on one of them, which is a common reason a transfer hangs.</li>
+<li><code>max_exec_timeout</code> and <code>io_timeout</code> are the actual ceilings applied to <code>koi_exec</code>, not the defaults documented anywhere else.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Screenable mode applies here too. With it on, <code>koi_status</code> returns <code>&lt;LOCAL IP&gt;</code> for every interface, the same masking the REPL uses.</p>
+</div>
 <h3 id="resources">Resources</h3>
 <p>Session logs are exposed as MCP resources:</p>
 <div class="highlight"><pre><span></span><code>koi://logs/20260731-032144-1-127.0.0.1.log
