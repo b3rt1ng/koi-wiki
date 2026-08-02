@@ -26,7 +26,7 @@
 
 ```bash
 # Install
-pipx install git+https://github.com/b3rt1ng/Koi
+pipx install koi-handler
 
 # Start the listener
 koi --port 4444

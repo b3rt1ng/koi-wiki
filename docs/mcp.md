@@ -26,7 +26,10 @@ And it answers from the live listener.
 MCP support is an optional extra. Koi's core stays dependency-free, and the MCP stack pulls about 28 packages (pydantic, cryptography, httpx and friends) that most users never need.
 
 ```bash
-# From GitHub
+# From PyPI
+pipx install "koi-handler[mcp]"
+
+# From GitHub, for changes that are not released yet
 pipx install "koi-handler[mcp] @ git+https://github.com/b3rt1ng/Koi"
 
 # From a clone, for development

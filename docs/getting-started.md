@@ -7,13 +7,21 @@ Koi is distributed as a Python package and managed with `pipx`, which keeps it i
 ### For users
 
 ```bash
-pipx install git+https://github.com/b3rt1ng/Koi
+pipx install koi-handler
 ```
 
-This pulls directly from the GitHub repository. To update later:
+To update later:
 
 ```bash
 pipx upgrade koi-handler
+```
+
+### With MCP support
+
+MCP is an optional extra and is not needed to run Koi. See [MCP](mcp.md).
+
+```bash
+pipx install "koi-handler[mcp]"
 ```
 
 ### For developers
@@ -26,8 +34,12 @@ pipx install --editable .
 
 With `--editable`, changes to the source tree (including new modules added to `src/koi/modules/`) take effect immediately without reinstalling.
 
-!!! note "PyPI"
-    `pipx install koi-handler` also works but PyPI releases lag behind the GitHub repository. Use GitHub.
+!!! note "Unreleased changes"
+    PyPI carries every tagged release. If you want changes that have not been released yet, install from the repository instead:
+
+    ```bash
+    pipx install git+https://github.com/b3rt1ng/Koi
+    ```
 
 ---
 
