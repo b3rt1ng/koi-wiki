@@ -344,6 +344,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#with-mcp-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With MCP support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#for-developers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1040,6 +1051,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#with-mcp-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With MCP support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#for-developers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1120,10 +1142,14 @@
 <h2 id="installation">Installation</h2>
 <p>Koi is distributed as a Python package and managed with <code>pipx</code>, which keeps it isolated from the system Python.</p>
 <h3 id="for-users">For users</h3>
-<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>git+https://github.com/b3rt1ng/Koi
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>koi-handler
 </code></pre></div>
-<p>This pulls directly from the GitHub repository. To update later:</p>
+<p>To update later:</p>
 <div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>upgrade<span class="w"> </span>koi-handler
+</code></pre></div>
+<h3 id="with-mcp-support">With MCP support</h3>
+<p>MCP is an optional extra and is not needed to run Koi. See <a href="../mcp/">MCP</a>.</p>
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;koi-handler[mcp]&quot;</span>
 </code></pre></div>
 <h3 id="for-developers">For developers</h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/b3rt1ng/koi
@@ -1132,8 +1158,10 @@ pipx<span class="w"> </span>install<span class="w"> </span>--editable<span class
 </code></pre></div>
 <p>With <code>--editable</code>, changes to the source tree (including new modules added to <code>src/koi/modules/</code>) take effect immediately without reinstalling.</p>
 <div class="admonition note">
-<p class="admonition-title">PyPI</p>
-<p><code>pipx install koi-handler</code> also works but PyPI releases lag behind the GitHub repository. Use GitHub.</p>
+<p class="admonition-title">Unreleased changes</p>
+<p>PyPI carries every tagged release. If you want changes that have not been released yet, install from the repository instead:</p>
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>git+https://github.com/b3rt1ng/Koi
+</code></pre></div>
 </div>
 <hr />
 <h2 id="installed-commands">Installed commands</h2>

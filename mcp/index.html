@@ -1399,7 +1399,10 @@
 <hr />
 <h2 id="installation">Installation</h2>
 <p>MCP support is an optional extra. Koi's core stays dependency-free, and the MCP stack pulls about 28 packages (pydantic, cryptography, httpx and friends) that most users never need.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># From GitHub</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># From PyPI</span>
+pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;koi-handler[mcp]&quot;</span>
+
+<span class="c1"># From GitHub, for changes that are not released yet</span>
 pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;koi-handler[mcp] @ git+https://github.com/b3rt1ng/Koi&quot;</span>
 
 <span class="c1"># From a clone, for development</span>
