@@ -447,6 +447,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrading-sessions/" class="md-nav__link">
         
   
@@ -695,6 +723,17 @@
     <span class="md-ellipsis">
       
         Platform Targeting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Resources
       
     </span>
   </a>
@@ -1057,6 +1096,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#external-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#your-first-module" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1086,7 +1136,7 @@
 
 <h1 id="module-development-overview">Module Development - Overview</h1>
 <p>Koi modules are self-contained Python classes that extend <code>KoiModule</code>. Each module represents one capability (enumeration, file transfer, pivoting, etc.) and is automatically discovered by the framework when placed in <code>src/koi/modules/</code>.</p>
-<p>A module gets a live <code>Session</code> object injected at construction time. Through the base class it has access to helpers for executing remote commands, transferring files, printing output, and managing the connection - without ever touching the raw socket directly.</p>
+<p>A module gets a live <code>Session</code> object injected at construction time. Through the base class it has access to helpers for executing remote commands, transferring files, printing output, and managing the connection, without ever touching the raw socket directly.</p>
 <hr />
 <h2 id="the-blueprint">The Blueprint</h2>
 <p><code>KoiModule</code> (defined in <code>blueprint.py</code>) is the abstract base class every module must inherit from. It handles argument parsing, provides all helpers, and enforces the single entry point <code>run()</code>.</p>
@@ -1103,7 +1153,7 @@
 <p>Save it as <code>src/koi/modules/my_module.py</code>. The framework auto-discovers it on startup, or immediately with <code>reload</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Filename vs Module Name</p>
-<p>The <strong>filename</strong> doesn't have to match the module's <code>name</code> attribute. The framework uses dynamic module discovery (<code>pkgutil</code>) to find all Python files, then inspects each one for <code>KoiModule</code> subclasses. The <code>name</code> attribute is what matters - that's the CLI identifier (<code>run &lt;name&gt; &lt;id&gt;</code>). For example, <code>get_users.py</code> defines a module with <code>name = "users"</code>, called as <code>run users &lt;id&gt;</code>.</p>
+<p>The <strong>filename</strong> doesn't have to match the module's <code>name</code> attribute. The framework uses dynamic module discovery (<code>pkgutil</code>) to find all Python files, then inspects each one for <code>KoiModule</code> subclasses. The <code>name</code> attribute is what matters, that's the CLI identifier (<code>run &lt;name&gt; &lt;id&gt;</code>). For example, <code>get_users.py</code> defines a module with <code>name = "users"</code>, called as <code>run users &lt;id&gt;</code>.</p>
 </div>
 <hr />
 <h2 id="class-attributes">Class Attributes</h2>
@@ -1140,19 +1190,25 @@
 <td><code>category</code></td>
 <td><code>str</code></td>
 <td>No</td>
-<td>Grouping label in the UI (<code>"Enumeration"</code>, <code>"Pivoting"</code>, …)</td>
+<td>Grouping label in the UI (<code>"Enumeration"</code>, <code>"Pivoting"</code>)</td>
 </tr>
 <tr>
 <td><code>platform</code></td>
 <td><code>str</code> or <code>list[str]</code></td>
 <td>No</td>
-<td>Supported OS types - see <a href="#platform-targeting">Platform Targeting</a></td>
+<td>Supported OS types, see <a href="#platform-targeting">Platform Targeting</a></td>
 </tr>
 <tr>
 <td><code>arguments</code></td>
 <td><code>list[dict]</code></td>
 <td>No</td>
-<td>Argument definitions - see <a href="#argument-parsing">Argument Parsing</a></td>
+<td>Argument definitions, see <a href="#argument-parsing">Argument Parsing</a></td>
+</tr>
+<tr>
+<td><code>external_resources</code></td>
+<td><code>list[dict]</code></td>
+<td>No</td>
+<td>External files the module fetches, see <a href="#external-resources">External Resources</a></td>
 </tr>
 </tbody>
 </table>
@@ -1235,6 +1291,19 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_run_windows</span><span class="p">()</span>
 </code></pre></div>
+<hr />
+<h2 id="external-resources">External Resources</h2>
+<p>If your module fetches files from the internet (a tool binary, a script, a GitHub release), declare them under <code>external_resources</code>. Each entry is a dict with <code>name</code>, <code>url</code>, and <code>cache_key</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">external_resources</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span>      <span class="s2">&quot;linpeas.sh&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;url&quot;</span><span class="p">:</span>       <span class="s2">&quot;https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cache_key&quot;</span><span class="p">:</span> <span class="s2">&quot;linpeas.sh&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+<p><code>koi --local-prepare</code> walks every module's <code>external_resources</code> and downloads each one into <code>~/.koi/cache/</code> under its <code>cache_key</code>. After that, <code>koi --local</code> runs the module entirely from the cache with no outbound traffic. Modules that never fetch anything can leave this attribute out.</p>
+<p>Fetch the file at runtime with <code>fetch_or_cache(url, cache_key)</code> (see <a href="../modules-transfer/#local-cache">File Transfer</a>) so it uses the cached copy when present and downloads it otherwise.</p>
 <hr />
 <h2 id="your-first-module">Your First Module</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">koi.modules.blueprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">KoiModule</span>

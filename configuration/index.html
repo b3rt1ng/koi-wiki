@@ -481,6 +481,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keep_history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        local_mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#colors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -507,6 +540,39 @@
     <span class="md-ellipsis">
       
         sidetcps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_activate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcp_activate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_exec_allow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcp_exec_allow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcp_port
       
     </span>
   </a>
@@ -592,6 +658,34 @@
     
   
     Payloads & Obfuscation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
   
 
     
@@ -1108,6 +1202,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keep_history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        local_mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#colors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1134,6 +1261,39 @@
     <span class="md-ellipsis">
       
         sidetcps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_activate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcp_activate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_exec_allow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcp_exec_allow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcp_port
       
     </span>
   </a>
@@ -1189,13 +1349,17 @@
 <h2 id="location">Location</h2>
 <div class="highlight"><pre><span></span><code>~/.koi/config.json
 </code></pre></div>
-<p>If the file doesn't exist yet, Koi creates it on startup, pre-filled with the built-in defaults shown below. You can then edit it to override only the values you care about - anything you omit falls back to its default.</p>
+<p>If the file doesn't exist yet, Koi creates it on startup, pre-filled with the built-in defaults shown below. You can then edit it to override only the values you care about. Anything you omit falls back to its default.</p>
 <h2 id="default-values">Default values</h2>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4010</span><span class="p">,</span>
 
 <span class="w">    </span><span class="nt">&quot;display_art&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">&quot;logging&quot;</span><span class="p">:</span><span class="w">      </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;keep_history&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;local_mode&quot;</span><span class="p">:</span><span class="w">   </span><span class="kc">false</span><span class="p">,</span>
 
 <span class="w">    </span><span class="nt">&quot;colors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;pumpkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">248</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">70</span><span class="p">],</span>
@@ -1217,16 +1381,25 @@
 
 <span class="w">    </span><span class="nt">&quot;sidetcps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5985</span><span class="p">,</span><span class="w"> </span><span class="mi">5986</span><span class="p">,</span><span class="w"> </span><span class="mi">445</span><span class="p">,</span><span class="w"> </span><span class="mi">3389</span><span class="p">],</span>
 
-<span class="w">    </span><span class="nt">&quot;mcp_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="nt">&quot;mcp_activate&quot;</span><span class="p">:</span><span class="w">   </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mcp_exec_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mcp_port&quot;</span><span class="p">:</span><span class="w">       </span><span class="mi">7331</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mcp_token&quot;</span><span class="p">:</span><span class="w">      </span><span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="what-each-setting-controls">What each setting controls</h2>
 <h3 id="host-port"><code>host</code> / <code>port</code></h3>
-<p>Default bind address and port for the listener. These become the defaults for <code>--host</code> and <code>-p/--port</code> on the command line - pass the flag to override them for a single run, or edit the config to change them permanently.</p>
+<p>Default bind address and port for the listener. These become the defaults for <code>--host</code> and <code>-p/--port</code> on the command line. Pass the flag to override them for a single run, or edit the config to change them permanently.</p>
 <h3 id="display_art"><code>display_art</code></h3>
 <p>Whether the ASCII banner is printed when the listener starts. Set to <code>false</code> to skip it (useful in scripted setups or narrow terminals).</p>
+<h3 id="logging"><code>logging</code></h3>
+<p>Whether sessions are recorded to <code>~/.koi/logs/</code>. Default is <code>true</code>. This is the default for the <code>--log</code> / <code>--no-log</code> (<code>-nl</code>) flags: set it to <code>false</code> here to run without logging by default, and pass <code>--log</code> to record a single run.</p>
+<h3 id="keep_history"><code>keep_history</code></h3>
+<p>Whether the target's shell history is kept when a session is upgraded to a PTY. Default is <code>false</code>, meaning history is wiped on upgrade for cleaner opsec. This is the default for the <code>--keep-history</code> (<code>-kh</code>) / <code>--strip-history</code> flags.</p>
+<h3 id="local_mode"><code>local_mode</code></h3>
+<p>Offline mode. When <code>true</code>, modules serve their external tooling from the local cache only and never make outbound network calls. Default is <code>false</code>. This is the default for the <code>--local</code> (<code>-l</code>) / <code>--no-local</code> flags. Fill the cache first with <code>--local-prepare</code> (<code>-lp</code>).</p>
 <h3 id="colors"><code>colors</code></h3>
-<p>The RGB palette used throughout the UI (prompts, banners, status messages). Each entry is a 3-value <code>[r, g, b]</code> array. You can override any subset to retheme the interface - colors you don't override keep their default values.</p>
+<p>The RGB palette used throughout the UI (prompts, banners, status messages). Each entry is a 3-value <code>[r, g, b]</code> array. You can override any subset to retheme the interface. Colors you don't override keep their default values.</p>
 <h3 id="timeouts"><code>timeouts</code></h3>
 <p>Controls how long Koi waits before giving up on various operations, in seconds:</p>
 <table>
@@ -1241,7 +1414,7 @@
 <tr>
 <td><code>exec_command</code></td>
 <td><code>30</code></td>
-<td><code>exec</code> / <code>exec_stream</code> - running a full command on the remote session</td>
+<td><code>exec</code> / <code>exec_stream</code>, running a full command on the remote session</td>
 </tr>
 <tr>
 <td><code>exec_query</code></td>
@@ -1302,14 +1475,20 @@
 </table>
 <p>A target dialing back on 445 or 3389 blends into normal Windows traffic far better than a random high port would. Koi tries them in order and uses the first one it can bind.</p>
 <p>Change them if something else on your machine already owns those ports, or if the target network blocks them outbound. Remember that they need to be reachable from the target, which is exactly the problem <a href="../go-online/">Torii</a> solves by multiplexing everything through a single port.</p>
+<h3 id="mcp_activate"><code>mcp_activate</code></h3>
+<p>Whether the <a href="../mcp/">MCP server</a> starts alongside the listener. Default is <code>false</code>. Set it to <code>true</code> to start MCP on every run without passing <code>--mcp</code>. The <code>--mcp</code> flag still works and takes precedence.</p>
+<h3 id="mcp_exec_allow"><code>mcp_exec_allow</code></h3>
+<p>Whether MCP clients can run commands and modules on live sessions. Default is <code>false</code> (read-only). Set it to <code>true</code> to grant exec by default without passing <code>--mcp-allow-exec</code>. Read the warning on the <a href="../mcp/">MCP page</a> before enabling this: an LLM can then run commands on every machine you hold a shell on.</p>
+<h3 id="mcp_port"><code>mcp_port</code></h3>
+<p>Port the MCP server binds on loopback. Default is <code>7331</code>. This is the default for the <code>--mcp-port</code> flag.</p>
 <h3 id="mcp_token"><code>mcp_token</code></h3>
-<p>Bearer token for the <a href="../mcp/">MCP server</a>. Starts as <code>null</code>, and Koi generates one the first time you run <code>koi --mcp</code>, then writes it here so it survives restarts.</p>
+<p>Bearer token for the <a href="../mcp/">MCP server</a>. Starts as <code>null</code>, and Koi generates one the first time the server runs, then writes it here so it survives restarts.</p>
 <p>The file is chmod'd to <code>600</code> when this key is written, since the token grants full control of the MCP endpoint. Delete the key and restart to revoke every registered client at once. <code>$KOI_MCP_TOKEN</code> and <code>--mcp-token</code> both take precedence over the saved value.</p>
 <h2 id="editing-the-config">Editing the config</h2>
 <p>Just open the file in any editor and change the values you need:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$EDITOR</span><span class="w"> </span>~/.koi/config.json
 </code></pre></div>
-<p>Only override what you need to change - the rest is merged with the defaults automatically. Restart Koi for changes to take effect.</p>
+<p>Only override what you need to change, the rest is merged with the defaults automatically. Restart Koi for changes to take effect.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If a value in the file is malformed (wrong type, corrupted JSON...), Koi silently falls back to the built-in default for that value rather than failing to start.</p>

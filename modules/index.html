@@ -449,6 +449,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrading-sessions/" class="md-nav__link">
         
   
@@ -1432,7 +1460,7 @@
 
 <h1 id="built-in-modules">Built-in Modules</h1>
 <h2 id="running-a-module">Running a module</h2>
-<div class="highlight"><pre><span></span><code>koi ❯ run &lt;module&gt; &lt;id&gt; [args…]
+<div class="highlight"><pre><span></span><code>koi ❯ run &lt;module&gt; &lt;id&gt; [args...]
 </code></pre></div>
 <p>Modules are only offered for sessions whose OS matches the module's declared <code>platform</code>. If the OS doesn't match, the run is rejected with an error.</p>
 <p>Type <code>modules</code> (or <code>mdls</code>) to list everything currently loaded:</p>
@@ -1452,9 +1480,9 @@ koi ❯ run sysinfo 2
 </code></pre></div>
 <hr />
 <h3 id="users"><code>users</code></h3>
-<p><strong>Platform:</strong> Linux<br />
+<p><strong>Platform:</strong> Linux, Windows PowerShell<br />
 <strong>Usage:</strong> <code>run users &lt;id&gt; [-a]</code></p>
-<p>Reads <code>/etc/passwd</code> and lists users. By default, only users with an interactive shell (<code>/bin/bash</code>, <code>/bin/sh</code>, <code>/bin/zsh</code>, <code>/bin/dash</code>) are shown.</p>
+<p>Lists local users. On Linux it reads <code>/etc/passwd</code> and, by default, shows only users with an interactive shell (<code>/bin/bash</code>, <code>/bin/sh</code>, <code>/bin/zsh</code>, <code>/bin/dash</code>). On Windows it calls <code>Get-LocalUser</code> and shows username, SID, enabled state, and last logon, defaulting to enabled accounts only.</p>
 <table>
 <thead>
 <tr>
@@ -1465,7 +1493,7 @@ koi ❯ run sysinfo 2
 <tbody>
 <tr>
 <td><code>-a</code>, <code>--all</code></td>
-<td>Show all users, not just those with a login shell</td>
+<td>Show all users, not just the interesting ones (login shell on Linux, enabled on Windows)</td>
 </tr>
 </tbody>
 </table>
@@ -1503,7 +1531,7 @@ koi ❯ run ps 2 -a
 <h3 id="env"><code>env</code></h3>
 <p><strong>Platform:</strong> Linux, Windows PowerShell<br />
 <strong>Usage:</strong> <code>run env &lt;id&gt; [-a]</code></p>
-<p>Dumps environment variables and automatically highlights credentials, tokens, and keys based on variable name patterns (<code>pass</code>, <code>token</code>, <code>api</code>, <code>secret</code>, <code>aws</code>, …) and value patterns (JWT, GitHub PAT, AWS keys, DB connection strings, …).</p>
+<p>Dumps environment variables and automatically highlights credentials, tokens, and keys based on variable name patterns (<code>pass</code>, <code>token</code>, <code>api</code>, <code>secret</code>, <code>aws</code>, ...) and value patterns (JWT, GitHub PAT, AWS keys, DB connection strings, ...).</p>
 <table>
 <thead>
 <tr>
@@ -1598,7 +1626,7 @@ koi ❯ run sharphound 2 -c All -o bh_corp.zip
 <h3 id="download"><code>download</code></h3>
 <p><strong>Platform:</strong> Linux, Windows PowerShell<br />
 <strong>Usage:</strong> <code>run download &lt;id&gt; &lt;remote_path&gt; [-o LOCAL_PATH]</code></p>
-<p>Downloads a file from the target via a dedicated TCP connection. Shows a progress bar during transfer. The remote path can contain spaces (pass without quotes).</p>
+<p>Downloads a file from the target via a dedicated TCP connection. Shows a progress bar during transfer. Paths that contain spaces can be wrapped in quotes (<code>"C:\Users\John Doe\file.txt"</code>), backslashes are preserved.</p>
 <table>
 <thead>
 <tr>
@@ -1621,7 +1649,7 @@ koi ❯ run download 2 &quot;C:\Users\admin\Desktop\passwords.txt&quot; -o passw
 <h3 id="upload"><code>upload</code></h3>
 <p><strong>Platform:</strong> Linux, Windows PowerShell<br />
 <strong>Usage:</strong> <code>run upload &lt;id&gt; &lt;local_path&gt; [-o REMOTE_PATH]</code></p>
-<p>Uploads a local file to the target via a dedicated TCP connection. Shows a progress bar during transfer. If no <code>-o</code> path is given, the file is placed in the <strong>current working directory of the remote shell</strong> (i.e. wherever the shell is when you run the module).</p>
+<p>Uploads a local file to the target via a dedicated TCP connection. Shows a progress bar during transfer. If no <code>-o</code> path is given, the file is placed in the <strong>current working directory of the remote shell</strong> (i.e. wherever the shell is when you run the module). Wrap paths that contain spaces in quotes on both sides (<code>"/opt/my tools/x.sh"</code>, <code>-o "C:\Temp\my dir\x.exe"</code>).</p>
 <table>
 <thead>
 <tr>

@@ -447,6 +447,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrading-sessions/" class="md-nav__link">
         
   
@@ -752,6 +780,17 @@
     <span class="md-ellipsis">
       
         self._win_query(ps_expr, timeout=10.0) -&gt; str
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returning-structured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Returning structured data
       
     </span>
   </a>
@@ -1181,6 +1220,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#returning-structured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Returning structured data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#self_dispatch_psps_cmd-none" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1281,10 +1331,10 @@
 <h3 id="selfexeccommand-timeout300-commandresult"><code>self.exec(command, timeout=30.0) -&gt; CommandResult</code></h3>
 <p>Runs a shell command on the remote Linux session and blocks until completion. Returns a <code>CommandResult</code>:</p>
 <ul>
-<li><code>.stdout</code> - full output as a string</li>
-<li><code>.returncode</code> - exit code</li>
-<li><code>.success</code> - <code>True</code> if <code>returncode == 0</code></li>
-<li><code>.duration</code> - elapsed time in seconds</li>
+<li><code>.stdout</code>: full output as a string</li>
+<li><code>.returncode</code>: exit code</li>
+<li><code>.success</code>: <code>True</code> if <code>returncode == 0</code></li>
+<li><code>.duration</code>: elapsed time in seconds</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
@@ -1296,7 +1346,7 @@
 <p><code>.stdout</code> holds what the command printed, and nothing else. On a PTY-upgraded session the shell echoes the whole wrapped command back and paints its prompt first, so <code>exec</code> drops everything up to and including that echo before returning. What is left is still raw terminal output: ANSI colour codes and cursor sequences from tools that emit them are yours to deal with, which is what <code>_exec_clean</code> below is for.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>exec</code> uses a sentinel marker appended to the command. <strong>Never use it on Windows sessions</strong> - use <code>_win_query</code> instead.</p>
+<p><code>exec</code> uses a sentinel marker appended to the command. <strong>Never use it on Windows sessions</strong>, use <code>_win_query</code> instead.</p>
 </div>
 <hr />
 <h3 id="selfexec_streamcommand-timeout300-iteratorstreamline"><code>self.exec_stream(command, timeout=30.0) -&gt; Iterator[StreamLine]</code></h3>
@@ -1332,8 +1382,8 @@
 <span class="c1"># Get a value</span>
 <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(Get-Item &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;).Length&quot;</span><span class="p">)</span>
 
-<span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="s2">&quot;(Get-LocalUser | Select-Object -ExpandProperty Name) -join &#39;§&#39;&quot;</span><span class="p">)</span>
-<span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;§&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(Get-LocalUser | Select-Object -ExpandProperty Name) -join &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">REC_SEP</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">REC_SEP</span><span class="p">)</span> <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1341,7 +1391,46 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Expressions passed to <code>_win_query</code> must be <strong>single expressions</strong> with no top-level semicolons. Replace <code>$var=...; expr</code> with a pipe: <code>... | ForEach-Object { ... }</code>.</p>
+<p>For a single value, keep the expression simple: a bare pipeline whose last statement produces the output. When you need several statements (assign a variable, then use it), wrap the whole thing in a script block <code>&amp;{ $x = ...; ... }</code> so the block is one expression as far as the marker logic is concerned. Avoid a dangling <code>$var = ...;</code> at the very top level with nothing after it.</p>
+</div>
+<h3 id="returning-structured-data">Returning structured data</h3>
+<p>A remote shell hands you flat text, so to return a list or a table you join the values with a delimiter and split them back on this side. Use the constants defined on <code>KoiModule</code> for this, never invent your own:</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Separates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>self.REC_SEP</code></td>
+<td><code>KOISEP</code></td>
+<td>records of a list</td>
+</tr>
+<tr>
+<td><code>self.SEC_SEP</code></td>
+<td><code>KOISEC</code></td>
+<td>top-level sections</td>
+</tr>
+<tr>
+<td><code>self.FIELD_SEP</code></td>
+<td><code>\|\|\|</code></td>
+<td>fields within one record</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;(Get-LocalUser | ForEach-Object </span><span class="se">{{</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">$($_.Name)</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">FIELD_SEP</span><span class="si">}</span><span class="s2">$($_.Enabled)</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">}}</span><span class="s2">) -join &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">REC_SEP</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">REC_SEP</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">FIELD_SEP</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">enabled</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FIELD_SEP</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These delimiters <strong>must</strong> stay ASCII. A non-ASCII token (like <code>§</code>) does not survive the cp1252 to UTF-8 console round-trip of an upgraded ConPtyShell, which collapses the whole joined output into a single record. That is why the constants are <code>KOISEP</code> / <code>KOISEC</code> / <code>|||</code> and not fancy symbols.</p>
 </div>
 <hr />
 <h3 id="self_dispatch_psps_cmd-none"><code>self._dispatch_ps(ps_cmd) -&gt; None</code></h3>
@@ -1378,12 +1467,12 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_run_windows</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Collecting processes...&quot;</span><span class="p">):</span>
-        <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="s2">&quot;(tasklist /fo csv /nh /v) -join &#39;§&#39;&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_win_query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(tasklist /fo csv /nh /v) -join &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">REC_SEP</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
     <span class="c1"># parse raw and display</span>
 </code></pre></div>
 <p><strong>Key points:</strong>
 - <code>_exec_clean</code> for Linux when you need clean parseable output.
-- <code>_win_query</code> for Windows - never <code>exec</code>.
+- <code>_win_query</code> for Windows, never <code>exec</code>.
 - Wrap slow operations in <code>self.spinner()</code>.</p>
 
 

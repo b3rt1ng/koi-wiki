@@ -344,17 +344,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-mcp-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        With MCP support
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#for-developers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -568,6 +557,34 @@
     
   
     Payloads & Obfuscation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
   
 
     
@@ -1051,17 +1068,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-mcp-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        With MCP support
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#for-developers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1147,10 +1153,6 @@
 <p>To update later:</p>
 <div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>upgrade<span class="w"> </span>koi-handler
 </code></pre></div>
-<h3 id="with-mcp-support">With MCP support</h3>
-<p>MCP is an optional extra and is not needed to run Koi. See <a href="../mcp/">MCP</a>.</p>
-<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;koi-handler[mcp]&quot;</span>
-</code></pre></div>
 <h3 id="for-developers">For developers</h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/b3rt1ng/koi
 <span class="nb">cd</span><span class="w"> </span>koi
@@ -1206,6 +1208,7 @@ koi(1 session) ❯
 </code></pre></div>
 <hr />
 <h2 id="cli-flags">CLI flags</h2>
+<p>Defaults marked "config" are read from <code>~/.koi/config.json</code> and can be changed there. See <a href="../configuration/">Configuration</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1227,42 +1230,67 @@ koi(1 session) ❯
 </tr>
 <tr>
 <td><code>--payloads [IFACE]</code></td>
-<td>-</td>
+<td>off</td>
 <td>Print payloads and exit</td>
 </tr>
 <tr>
 <td><code>--obfuscator [IFACE]</code>, <code>--cook</code></td>
-<td>-</td>
+<td>off</td>
 <td>Open the obfuscator UI and exit</td>
 </tr>
 <tr>
+<td><code>--keep-history</code>, <code>-kh</code></td>
+<td>config</td>
+<td>Keep the target's shell history on upgraded sessions</td>
+</tr>
+<tr>
+<td><code>--strip-history</code></td>
+<td>config</td>
+<td>Wipe the target's shell history on upgraded sessions</td>
+</tr>
+<tr>
+<td><code>--log</code></td>
+<td>config</td>
+<td>Record sessions to <code>~/.koi/logs/</code></td>
+</tr>
+<tr>
+<td><code>--no-log</code>, <code>-nl</code></td>
+<td>config</td>
+<td>Do not record sessions</td>
+</tr>
+<tr>
 <td><code>--local</code>, <code>-l</code></td>
-<td>off</td>
+<td>config</td>
 <td>Offline mode: use the cache only, no external network calls</td>
 </tr>
 <tr>
+<td><code>--no-local</code></td>
+<td>config</td>
+<td>Allow external network calls</td>
+</tr>
+<tr>
 <td><code>--local-prepare</code>, <code>-lp</code></td>
-<td>-</td>
+<td>off</td>
 <td>Download and cache everything modules need, then exit</td>
 </tr>
 <tr>
 <td><code>--purge-cache</code>, <code>-pc</code></td>
-<td>-</td>
+<td>off</td>
 <td>Empty <code>~/.koi/cache/</code> and exit</td>
 </tr>
 <tr>
 <td><code>--mcp</code></td>
-<td>off</td>
+<td>config</td>
 <td>Start the <a href="../mcp/">MCP server</a> alongside the listener</td>
 </tr>
 <tr>
 <td><code>--mcp-port PORT</code></td>
-<td><code>7331</code></td>
-<td>Port for the MCP server</td>
+<td>config</td>
+<td>Port for the MCP server (default <code>7331</code>)</td>
 </tr>
 <tr>
 <td><code>--mcp-allow-exec</code></td>
-<td>off</td>
+<td>config</td>
 <td>Let MCP clients run commands and modules</td>
 </tr>
 <tr>
@@ -1271,8 +1299,13 @@ koi(1 session) ❯
 <td>Bearer token for the MCP server</td>
 </tr>
 <tr>
+<td><code>--version</code>, <code>-v</code></td>
+<td>off</td>
+<td>Show the Koi version and exit</td>
+</tr>
+<tr>
 <td><code>--help</code>, <code>-h</code></td>
-<td>-</td>
+<td>off</td>
 <td>Show help and exit</td>
 </tr>
 </tbody>

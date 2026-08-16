@@ -447,6 +447,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrading-sessions/" class="md-nav__link">
         
   
@@ -1065,7 +1093,7 @@
 <h1 id="module-development-best-practices">Module Development - Best Practices</h1>
 <hr />
 <h2 id="error-handling">Error Handling</h2>
-<p>Always call <code>self.err(msg)</code> and <strong><code>return</code> immediately</strong> - never continue after an error.</p>
+<p>Always call <code>self.err(msg)</code> and <strong><code>return</code> immediately</strong>, never continue after an error.</p>
 <div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;cat /etc/shadow&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not read /etc/shadow (rc=</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
@@ -1137,7 +1165,7 @@
 <li>[ ] <code>name</code>, <code>description</code>, and <code>platform</code> are set correctly</li>
 <li>[ ] <code>run()</code> is implemented, no logic in <code>__init__</code></li>
 <li>[ ] <code>exec()</code> only called on Linux; <code>_win_query()</code> for Windows</li>
-<li>[ ] File uploads use <code>self._upload_bytes()</code> - not a manual reimplementation</li>
+<li>[ ] File uploads use <code>self._upload_bytes()</code>, not a manual reimplementation</li>
 <li>[ ] Arbitrary PS commands use <code>self._dispatch_ps()</code></li>
 <li>[ ] Every error path calls <code>self.err()</code> and <code>return</code></li>
 <li>[ ] Remote temp workspaces are cleaned up on both success and failure</li>

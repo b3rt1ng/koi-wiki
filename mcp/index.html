@@ -447,6 +447,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting Out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrading-sessions/" class="md-nav__link">
         
   
@@ -830,17 +858,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#starting-it" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -851,6 +868,17 @@
   
     <nav class="md-nav" aria-label="Starting It">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enabling-it-from-the-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling it from the config
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#the-token" class="md-nav__link">
@@ -1161,17 +1189,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#starting-it" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1182,6 +1199,17 @@
   
     <nav class="md-nav" aria-label="Starting It">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enabling-it-from-the-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling it from the config
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#the-token" class="md-nav__link">
@@ -1397,28 +1425,6 @@
 <p>With <code>--mcp-allow-exec</code>, an LLM can run commands and modules on every machine you have a shell on. Session logs contain output from compromised hosts, which is attacker-controlled text. Treat the whole thing as untrusted input to the model. Default mode is read-only for that reason.</p>
 </div>
 <hr />
-<h2 id="installation">Installation</h2>
-<p>MCP support is an optional extra. Koi's core stays dependency-free, and the MCP stack pulls about 28 packages (pydantic, cryptography, httpx and friends) that most users never need.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># From PyPI</span>
-pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;koi-handler[mcp]&quot;</span>
-
-<span class="c1"># From GitHub, for changes that are not released yet</span>
-pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;koi-handler[mcp] @ git+https://github.com/b3rt1ng/Koi&quot;</span>
-
-<span class="c1"># From a clone, for development</span>
-pipx<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[mcp]&#39;</span>
-</code></pre></div>
-<p>If you already have Koi installed without the extra, reinstall with it. Starting <code>koi --mcp</code> without the dependencies exits with:</p>
-<div class="highlight"><pre><span></span><code>X  MCP support needs: mcp, uvicorn, starlette
-~  Install with:  pipx install &#39;koi-handler[mcp]&#39;
-~  From a clone:  pipx install -e &#39;.[mcp]&#39;
-</code></pre></div>
-<p>The check runs before the listener binds its socket, so you find out immediately and not once the server thread is already up.</p>
-<div class="admonition note">
-<p class="admonition-title">Version pin</p>
-<p>Koi targets the <code>mcp</code> 2.x SDK. Version 2.0 replaced the low-level <code>Server</code> decorators with <code>on_*</code> callbacks and renamed the fields to snake_case, so 1.x does not work.</p>
-</div>
-<hr />
 <h2 id="starting-it">Starting It</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Read-only: sessions, modules and logs, nothing that touches a target</span>
 koi<span class="w"> </span>--mcp
@@ -1440,17 +1446,17 @@ koi<span class="w"> </span>--mcp<span class="w"> </span>--mcp-port<span class="w
 <tbody>
 <tr>
 <td><code>--mcp</code></td>
-<td>off</td>
+<td><code>mcp_activate</code> in config</td>
 <td>Start the MCP server alongside the listener</td>
 </tr>
 <tr>
 <td><code>--mcp-port PORT</code></td>
-<td><code>7331</code></td>
+<td><code>mcp_port</code> in config (<code>7331</code>)</td>
 <td>Port for the MCP server</td>
 </tr>
 <tr>
 <td><code>--mcp-allow-exec</code></td>
-<td>off</td>
+<td><code>mcp_exec_allow</code> in config</td>
 <td>Allow <code>koi_exec</code> and module tools</td>
 </tr>
 <tr>
@@ -1460,6 +1466,15 @@ koi<span class="w"> </span>--mcp<span class="w"> </span>--mcp-port<span class="w
 </tr>
 </tbody>
 </table>
+<h3 id="enabling-it-from-the-config">Enabling it from the config</h3>
+<p>All three switches take their default from <code>~/.koi/config.json</code>, so you can enable MCP permanently without passing any flag:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;mcp_activate&quot;</span><span class="p">:</span><span class="w">   </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mcp_exec_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mcp_port&quot;</span><span class="p">:</span><span class="w">       </span><span class="mi">7331</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>With <code>mcp_activate</code> set to <code>true</code>, the server starts on every launch. The flags above still work and take precedence for a single run. See <a href="../configuration/">Configuration</a>.</p>
 <p>On startup you get the URL and the token:</p>
 <div class="highlight"><pre><span></span><code>koi ❯
 ?  MCP server on http://127.0.0.1:7331/mcp
@@ -1609,7 +1624,7 @@ koi<span class="w"> </span>--mcp<span class="w"> </span>--mcp-port<span class="w
 <p>The first is the <code>instructions</code> string sent at <code>initialize</code>. It says what Koi is, whether this connection can execute anything, and the two rules that matter in practice: one command per session at a time, and prefer a module over a hand-written command. Clients surface it as system context, so it costs nothing per call.</p>
 <p>The second is <code>koi_status</code>, for everything that changes while the listener runs:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;koi_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.10.2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;koi_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x.x.x&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;listener&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;bind_host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4010</span><span class="p">,</span>
@@ -1693,10 +1708,10 @@ curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>
 <p>Module output goes back to the client as the tool result rather than to your terminal, so an LLM running <code>peas</code> does not scribble over your prompt. Your own REPL output is unaffected while it runs.</p>
 <hr />
 <h2 id="troubleshooting">Troubleshooting</h2>
-<p><strong>Client says it cannot connect.</strong> Check the server is actually up. <code>--mcp</code> is not remembered between runs, and it is easy to restart Koi without it:</p>
+<p><strong>Client says it cannot connect.</strong> Check the server is actually up. Unless <code>mcp_activate</code> is set to <code>true</code> in <code>~/.koi/config.json</code>, <code>--mcp</code> has to be passed on every launch, and it is easy to restart Koi without it:</p>
 <div class="highlight"><pre><span></span><code>ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">7331</span>
 </code></pre></div>
-<p>Nothing listening means no <code>--mcp</code> on the command line.</p>
+<p>Nothing listening means MCP was not started: either pass <code>--mcp</code> or set <code>mcp_activate</code> in the config.</p>
 <p><strong><code>401 unauthorized</code>.</strong> The token in your client config does not match <code>mcp_token</code> in <code>~/.koi/config.json</code>. Restart Koi and read the token off the startup line.</p>
 <p><strong>Tools are missing.</strong> If <code>koi_exec</code> and the module tools are absent, the listener was started without <code>--mcp-allow-exec</code>. This is by design, see above.</p>
 <p><strong>A tool call fails with <code>Session is busy</code>.</strong> You are inside that session with <code>go</code>. Background it with <code>Ctrl+Z</code>.</p>
