@@ -178,4 +178,6 @@ koi ❯ stop    # refuse new connections
 koi ❯ start   # resume
 ```
 
+**Toggle:** `Ctrl+O` (or type `_koi_toggle_` and press Enter).
+
 The listening socket stays bound. Active sessions are unaffected. While paused, a `[PAUSED]` tag appears in the prompt. ConPtyShell callbacks (for in-progress Windows upgrades) bypass the pause and are still accepted.

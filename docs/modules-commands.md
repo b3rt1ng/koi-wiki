@@ -10,10 +10,10 @@ All helpers are available as `self.<method>` inside `run()`.
 
 Runs a shell command on the remote Linux session and blocks until completion. Returns a `CommandResult`:
 
-- `.stdout` - full output as a string
-- `.returncode` - exit code
-- `.success` - `True` if `returncode == 0`
-- `.duration` - elapsed time in seconds
+- `.stdout`: full output as a string
+- `.returncode`: exit code
+- `.success`: `True` if `returncode == 0`
+- `.duration`: elapsed time in seconds
 
 ```python
 result = self.exec("id")
@@ -28,7 +28,7 @@ Raises `CommandTimeout` if the command exceeds `timeout` seconds.
 `.stdout` holds what the command printed, and nothing else. On a PTY-upgraded session the shell echoes the whole wrapped command back and paints its prompt first, so `exec` drops everything up to and including that echo before returning. What is left is still raw terminal output: ANSI colour codes and cursor sequences from tools that emit them are yours to deal with, which is what `_exec_clean` below is for.
 
 !!! warning
-    `exec` uses a sentinel marker appended to the command. **Never use it on Windows sessions** - use `_win_query` instead.
+    `exec` uses a sentinel marker appended to the command. **Never use it on Windows sessions**, use `_win_query` instead.
 
 ---
 
@@ -84,15 +84,37 @@ exists = self._win_query(f"(Test-Path '{path}').ToString()")
 # Get a value
 size = self._win_query(f"(Get-Item '{path}').Length")
 
-raw = self._win_query("(Get-LocalUser | Select-Object -ExpandProperty Name) -join '§'")
-users = [u for u in raw.split("§") if u.strip()]
+raw = self._win_query(f"(Get-LocalUser | Select-Object -ExpandProperty Name) -join '{self.REC_SEP}'")
+users = [u for u in raw.split(self.REC_SEP) if u.strip()]
 ```
 
 !!! warning
     Always use `_win_query` instead of `exec` on Windows sessions.
 
 !!! tip
-    Expressions passed to `_win_query` must be **single expressions** with no top-level semicolons. Replace `$var=...; expr` with a pipe: `... | ForEach-Object { ... }`.
+    For a single value, keep the expression simple: a bare pipeline whose last statement produces the output. When you need several statements (assign a variable, then use it), wrap the whole thing in a script block `&{ $x = ...; ... }` so the block is one expression as far as the marker logic is concerned. Avoid a dangling `$var = ...;` at the very top level with nothing after it.
+
+### Returning structured data
+
+A remote shell hands you flat text, so to return a list or a table you join the values with a delimiter and split them back on this side. Use the constants defined on `KoiModule` for this, never invent your own:
+
+| Constant | Value | Separates |
+|---|---|---|
+| `self.REC_SEP` | `KOISEP` | records of a list |
+| `self.SEC_SEP` | `KOISEC` | top-level sections |
+| `self.FIELD_SEP` | `\|\|\|` | fields within one record |
+
+```python
+raw = self._win_query(
+    f"(Get-LocalUser | ForEach-Object {{ \"$($_.Name){self.FIELD_SEP}$($_.Enabled)\" }}) -join '{self.REC_SEP}'"
+)
+for entry in raw.split(self.REC_SEP):
+    if self.FIELD_SEP in entry:
+        name, enabled = entry.split(self.FIELD_SEP, 1)
+```
+
+!!! warning
+    These delimiters **must** stay ASCII. A non-ASCII token (like `§`) does not survive the cp1252 to UTF-8 console round-trip of an upgraded ConPtyShell, which collapses the whole joined output into a single record. That is why the constants are `KOISEP` / `KOISEC` / `|||` and not fancy symbols.
 
 ---
 
@@ -149,11 +171,11 @@ def _run_linux(self) -> None:
 
 def _run_windows(self) -> None:
     with self.spinner("Collecting processes..."):
-        raw = self._win_query("(tasklist /fo csv /nh /v) -join '§'", timeout=30)
+        raw = self._win_query(f"(tasklist /fo csv /nh /v) -join '{self.REC_SEP}'", timeout=30)
     # parse raw and display
 ```
 
 **Key points:**
 - `_exec_clean` for Linux when you need clean parseable output.
-- `_win_query` for Windows - never `exec`.
+- `_win_query` for Windows, never `exec`.
 - Wrap slow operations in `self.spinner()`.

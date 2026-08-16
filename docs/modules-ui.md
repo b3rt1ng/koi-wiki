@@ -16,7 +16,7 @@ Print a styled one-line notification. Pick the level that matches the meaning:
 | `status` | `⚡` | Ongoing progress step |
 | `success` | `✔` | Operation completed successfully |
 | `warn` | `!` | Non-fatal issue worth noting |
-| `err` | `✖` | Error - always followed by `return` |
+| `err` | `✖` | Error, always followed by `return` |
 
 ```python
 self.status("Checking target architecture...")
@@ -111,7 +111,7 @@ bar.done()
 print()
 ```
 
-The `prefix` string is shown to the right of the bar - useful when uploading multiple files.
+The `prefix` string is shown to the right of the bar, useful when uploading multiple files.
 
 ---
 

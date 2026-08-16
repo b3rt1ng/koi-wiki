@@ -15,6 +15,7 @@ These commands are available from the main `koi` prompt.
 | `run` | - | `run <module> <id\|tag> [args...]` | Run a module against a session |
 | `modules` | `mdls`, `mods` | `modules` | List available modules |
 | `reload` | `refresh`, `rl` | `reload` | Reload modules from disk |
+| `connect` | `conn` | `connect <transport> <target> [args...]` | Deliver a payload over a channel you already own |
 | `payload` | `p` | `payload [iface]` | Print reverse shell payloads |
 | `obfuscator` | `obs`, `cook` | `obfuscator [iface]` | Open the interactive payload obfuscator |
 | `logs` | `log` | `logs` | List recorded session logs |
@@ -34,7 +35,7 @@ These key combinations work while inside an interactive session (`go <id>`):
 | `Ctrl+Z` | Background the session and return to the listener prompt |
 | `Ctrl+C` | Send `SIGINT` to the remote process (keeps the session alive) |
 | `Ctrl+T` | Toggle **screenable mode**, masks all IP addresses in output |
-| `Ctrl+W` | Toggle the listener on/off (pause or resume accepting new connections) |
+| `Ctrl+O` | Toggle the listener on/off (pause or resume accepting new connections) |
 
 ---
 
@@ -114,6 +115,20 @@ koi ❯ run download
 
 ---
 
+### `connect <transport> <target> [args...]`
+
+Turns credentials you already own into a session. Koi delivers a reverse shell payload over the given transport, the target calls back, and the result registers as an ordinary session.
+
+```
+koi ❯ connect ssh root@10.10.14.7
+koi ❯ connect ssh root:hunter2@10.10.14.7
+koi ❯ connect ssh -p 2222 -i ~/.ssh/id_ed25519 deploy@10.10.14.7
+```
+
+`ssh` is currently the only transport. Extra arguments are passed through to it untouched. The callback address is derived from your routing table, and the session survives the `ssh` process exiting. See [Connecting Out](connect.md) for the full picture.
+
+---
+
 ### `payload [iface]`
 
 Prints ready-to-use reverse shell payloads for the given interface (or all interfaces if omitted).
@@ -148,14 +163,15 @@ Lists all session log files stored in `~/.koi/logs/`. Use `koireview <name>` to 
 ### `koi`
 
 ```
-koi [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]]
-    [--local] [--local-prepare] [--purge-cache]
+koi [-h] [-v] [--host HOST] [--port PORT] [--payloads [IFACE]] [--obfuscator [IFACE]]
+    [--keep-history | --strip-history] [--log | --no-log]
+    [--local | --no-local] [--local-prepare] [--purge-cache]
     [--mcp] [--mcp-port PORT] [--mcp-allow-exec] [--mcp-token TOKEN]
 ```
 
 `--payloads` and `--obfuscator` print output and exit without starting the listener. `--purge-cache` (`-pc`) deletes all files stored in `~/.koi/cache/` and exits, `--local-prepare` (`-lp`) fills that same cache and exits, and `--local` (`-l`) then runs entirely from it with no external network calls.
 
-The `--mcp` flags expose sessions and modules to an LLM client and are covered in [MCP Server](mcp.md). Full flag table in [Getting Started](getting-started.md#cli-flags).
+The opsec flags (`--keep-history` / `--strip-history`, `--log` / `--no-log`) and the mode flags (`--local` / `--no-local`, `--mcp`) take their default from `~/.koi/config.json`, so each has a counter-flag to override the config for a single run. The `--mcp` flags expose sessions and modules to an LLM client and are covered in [MCP Server](mcp.md). Full flag table in [Getting Started](getting-started.md#cli-flags).
 
 ---
 

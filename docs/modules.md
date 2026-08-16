@@ -3,7 +3,7 @@
 ## Running a module
 
 ```
-koi ❯ run <module> <id> [args…]
+koi ❯ run <module> <id> [args...]
 ```
 
 Modules are only offered for sessions whose OS matches the module's declared `platform`. If the OS doesn't match, the run is rejected with an error.
@@ -40,14 +40,14 @@ koi ❯ run sysinfo 2
 
 ### `users`
 
-**Platform:** Linux  
+**Platform:** Linux, Windows PowerShell  
 **Usage:** `run users <id> [-a]`
 
-Reads `/etc/passwd` and lists users. By default, only users with an interactive shell (`/bin/bash`, `/bin/sh`, `/bin/zsh`, `/bin/dash`) are shown.
+Lists local users. On Linux it reads `/etc/passwd` and, by default, shows only users with an interactive shell (`/bin/bash`, `/bin/sh`, `/bin/zsh`, `/bin/dash`). On Windows it calls `Get-LocalUser` and shows username, SID, enabled state, and last logon, defaulting to enabled accounts only.
 
 | Flag | Description |
 |---|---|
-| `-a`, `--all` | Show all users, not just those with a login shell |
+| `-a`, `--all` | Show all users, not just the interesting ones (login shell on Linux, enabled on Windows) |
 
 ```
 koi ❯ run users 1
@@ -81,7 +81,7 @@ koi ❯ run ps 2 -a
 **Platform:** Linux, Windows PowerShell  
 **Usage:** `run env <id> [-a]`
 
-Dumps environment variables and automatically highlights credentials, tokens, and keys based on variable name patterns (`pass`, `token`, `api`, `secret`, `aws`, …) and value patterns (JWT, GitHub PAT, AWS keys, DB connection strings, …).
+Dumps environment variables and automatically highlights credentials, tokens, and keys based on variable name patterns (`pass`, `token`, `api`, `secret`, `aws`, ...) and value patterns (JWT, GitHub PAT, AWS keys, DB connection strings, ...).
 
 | Flag | Description |
 |---|---|
@@ -160,7 +160,7 @@ koi ❯ run sharphound 2 -c All -o bh_corp.zip
 **Platform:** Linux, Windows PowerShell  
 **Usage:** `run download <id> <remote_path> [-o LOCAL_PATH]`
 
-Downloads a file from the target via a dedicated TCP connection. Shows a progress bar during transfer. The remote path can contain spaces (pass without quotes).
+Downloads a file from the target via a dedicated TCP connection. Shows a progress bar during transfer. Paths that contain spaces can be wrapped in quotes (`"C:\Users\John Doe\file.txt"`), backslashes are preserved.
 
 | Flag | Description |
 |---|---|
@@ -179,7 +179,7 @@ koi ❯ run download 2 "C:\Users\admin\Desktop\passwords.txt" -o passwords.txt
 **Platform:** Linux, Windows PowerShell  
 **Usage:** `run upload <id> <local_path> [-o REMOTE_PATH]`
 
-Uploads a local file to the target via a dedicated TCP connection. Shows a progress bar during transfer. If no `-o` path is given, the file is placed in the **current working directory of the remote shell** (i.e. wherever the shell is when you run the module).
+Uploads a local file to the target via a dedicated TCP connection. Shows a progress bar during transfer. If no `-o` path is given, the file is placed in the **current working directory of the remote shell** (i.e. wherever the shell is when you run the module). Wrap paths that contain spaces in quotes on both sides (`"/opt/my tools/x.sh"`, `-o "C:\Temp\my dir\x.exe"`).
 
 | Flag | Description |
 |---|---|

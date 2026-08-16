@@ -21,36 +21,6 @@ And it answers from the live listener.
 
 ---
 
-## Installation
-
-MCP support is an optional extra. Koi's core stays dependency-free, and the MCP stack pulls about 28 packages (pydantic, cryptography, httpx and friends) that most users never need.
-
-```bash
-# From PyPI
-pipx install "koi-handler[mcp]"
-
-# From GitHub, for changes that are not released yet
-pipx install "koi-handler[mcp] @ git+https://github.com/b3rt1ng/Koi"
-
-# From a clone, for development
-pipx install -e '.[mcp]'
-```
-
-If you already have Koi installed without the extra, reinstall with it. Starting `koi --mcp` without the dependencies exits with:
-
-```
-X  MCP support needs: mcp, uvicorn, starlette
-~  Install with:  pipx install 'koi-handler[mcp]'
-~  From a clone:  pipx install -e '.[mcp]'
-```
-
-The check runs before the listener binds its socket, so you find out immediately and not once the server thread is already up.
-
-!!! note "Version pin"
-    Koi targets the `mcp` 2.x SDK. Version 2.0 replaced the low-level `Server` decorators with `on_*` callbacks and renamed the fields to snake_case, so 1.x does not work.
-
----
-
 ## Starting It
 
 ```bash
@@ -66,10 +36,24 @@ koi --mcp --mcp-port 9331
 
 | Flag | Default | Description |
 |---|---|---|
-| `--mcp` | off | Start the MCP server alongside the listener |
-| `--mcp-port PORT` | `7331` | Port for the MCP server |
-| `--mcp-allow-exec` | off | Allow `koi_exec` and module tools |
+| `--mcp` | `mcp_activate` in config | Start the MCP server alongside the listener |
+| `--mcp-port PORT` | `mcp_port` in config (`7331`) | Port for the MCP server |
+| `--mcp-allow-exec` | `mcp_exec_allow` in config | Allow `koi_exec` and module tools |
 | `--mcp-token TOKEN` | saved value | Bearer token for the server |
+
+### Enabling it from the config
+
+All three switches take their default from `~/.koi/config.json`, so you can enable MCP permanently without passing any flag:
+
+```json
+{
+    "mcp_activate":   true,
+    "mcp_exec_allow": false,
+    "mcp_port":       7331
+}
+```
+
+With `mcp_activate` set to `true`, the server starts on every launch. The flags above still work and take precedence for a single run. See [Configuration](configuration.md).
 
 On startup you get the URL and the token:
 
@@ -161,7 +145,7 @@ The second is `koi_status`, for everything that changes while the listener runs:
 
 ```json
 {
-  "koi_version": "0.10.2",
+  "koi_version": "x.x.x",
   "listener": {
     "bind_host": "0.0.0.0",
     "port": 4010,
@@ -277,13 +261,13 @@ Module output goes back to the client as the tool result rather than to your ter
 
 ## Troubleshooting
 
-**Client says it cannot connect.** Check the server is actually up. `--mcp` is not remembered between runs, and it is easy to restart Koi without it:
+**Client says it cannot connect.** Check the server is actually up. Unless `mcp_activate` is set to `true` in `~/.koi/config.json`, `--mcp` has to be passed on every launch, and it is easy to restart Koi without it:
 
 ```bash
 ss -tlnp | grep 7331
 ```
 
-Nothing listening means no `--mcp` on the command line.
+Nothing listening means MCP was not started: either pass `--mcp` or set `mcp_activate` in the config.
 
 **`401 unauthorized`.** The token in your client config does not match `mcp_token` in `~/.koi/config.json`. Restart Koi and read the token off the startup line.
 

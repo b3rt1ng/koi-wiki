@@ -16,14 +16,6 @@ To update later:
 pipx upgrade koi-handler
 ```
 
-### With MCP support
-
-MCP is an optional extra and is not needed to run Koi. See [MCP](mcp.md).
-
-```bash
-pipx install "koi-handler[mcp]"
-```
-
 ### For developers
 
 ```bash
@@ -80,20 +72,28 @@ koi(1 session) ❯
 
 ## CLI flags
 
+Defaults marked "config" are read from `~/.koi/config.json` and can be changed there. See [Configuration](configuration.md).
+
 | Flag | Default | Description |
 |---|---|---|
 | `--port`, `-p` | `4010` | TCP port to listen on |
 | `--host` | `0.0.0.0` | Bind address |
-| `--payloads [IFACE]` | - | Print payloads and exit |
-| `--obfuscator [IFACE]`, `--cook` | - | Open the obfuscator UI and exit |
-| `--local`, `-l` | off | Offline mode: use the cache only, no external network calls |
-| `--local-prepare`, `-lp` | - | Download and cache everything modules need, then exit |
-| `--purge-cache`, `-pc` | - | Empty `~/.koi/cache/` and exit |
-| `--mcp` | off | Start the [MCP server](mcp.md) alongside the listener |
-| `--mcp-port PORT` | `7331` | Port for the MCP server |
-| `--mcp-allow-exec` | off | Let MCP clients run commands and modules |
+| `--payloads [IFACE]` | off | Print payloads and exit |
+| `--obfuscator [IFACE]`, `--cook` | off | Open the obfuscator UI and exit |
+| `--keep-history`, `-kh` | config | Keep the target's shell history on upgraded sessions |
+| `--strip-history` | config | Wipe the target's shell history on upgraded sessions |
+| `--log` | config | Record sessions to `~/.koi/logs/` |
+| `--no-log`, `-nl` | config | Do not record sessions |
+| `--local`, `-l` | config | Offline mode: use the cache only, no external network calls |
+| `--no-local` | config | Allow external network calls |
+| `--local-prepare`, `-lp` | off | Download and cache everything modules need, then exit |
+| `--purge-cache`, `-pc` | off | Empty `~/.koi/cache/` and exit |
+| `--mcp` | config | Start the [MCP server](mcp.md) alongside the listener |
+| `--mcp-port PORT` | config | Port for the MCP server (default `7331`) |
+| `--mcp-allow-exec` | config | Let MCP clients run commands and modules |
 | `--mcp-token TOKEN` | saved value | Bearer token for the MCP server |
-| `--help`, `-h` | - | Show help and exit |
+| `--version`, `-v` | off | Show the Koi version and exit |
+| `--help`, `-h` | off | Show help and exit |
 
 !!! tip "Going offline"
     `--local-prepare` fetches every external tool the modules use (ligolo, PEAS, SharpHound...) into the cache. After that, `--local` runs Koi without touching the network at all, which is what you want on an engagement where outbound traffic from your box is noticed.

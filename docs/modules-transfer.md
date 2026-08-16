@@ -150,6 +150,20 @@ Return the full path of the cached file, useful for notifications.
 self.warn(f"Using cached version ({cache_path('my_tool.exe')})")
 ```
 
+### `fetch_or_cache(url, name, headers=None) -> tuple[bytes, str]`
+
+The helper most modules actually use. It returns the cached bytes when `name` is present in the cache, otherwise downloads `url`, stores it under `name`, and returns it. The second value is the source, `"cache"` or `"remote"`, so you can tell the operator where the data came from.
+
+```python
+from koi.utils.cache import fetch_or_cache, cache_path
+
+raw, source = fetch_or_cache(url, "linpeas.sh", headers={"User-Agent": "koi"})
+if source == "cache":
+    self.ok(f"Using cached copy ({cache_path('linpeas.sh')})")
+```
+
+Anything a module fetches this way should also be declared in `external_resources` so `koi --local-prepare` can warm the cache ahead of an offline run. See [External Resources](modules-overview.md#external-resources).
+
 ---
 
 ## Example - Windows upload with AV check

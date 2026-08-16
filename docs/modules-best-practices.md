@@ -4,7 +4,7 @@
 
 ## Error Handling
 
-Always call `self.err(msg)` and **`return` immediately** - never continue after an error.
+Always call `self.err(msg)` and **`return` immediately**, never continue after an error.
 
 ```python
 result = self.exec("cat /etc/shadow")
@@ -94,7 +94,7 @@ def _cleanup(self, work_dir: str) -> None:
 - [ ] `name`, `description`, and `platform` are set correctly
 - [ ] `run()` is implemented, no logic in `__init__`
 - [ ] `exec()` only called on Linux; `_win_query()` for Windows
-- [ ] File uploads use `self._upload_bytes()` - not a manual reimplementation
+- [ ] File uploads use `self._upload_bytes()`, not a manual reimplementation
 - [ ] Arbitrary PS commands use `self._dispatch_ps()`
 - [ ] Every error path calls `self.err()` and `return`
 - [ ] Remote temp workspaces are cleaned up on both success and failure

@@ -34,6 +34,7 @@ nav:
     - Configuration: configuration.md
     - Session Management: sessions.md
     - Payloads & Obfuscation: payloads.md
+    - Connecting Out: connect.md
     - Upgrading Sessions: upgrading-sessions.md
     - Built-in Modules: modules.md
     - Logging & Review: logs.md

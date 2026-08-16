@@ -2,7 +2,7 @@
 
 Koi modules are self-contained Python classes that extend `KoiModule`. Each module represents one capability (enumeration, file transfer, pivoting, etc.) and is automatically discovered by the framework when placed in `src/koi/modules/`.
 
-A module gets a live `Session` object injected at construction time. Through the base class it has access to helpers for executing remote commands, transferring files, printing output, and managing the connection - without ever touching the raw socket directly.
+A module gets a live `Session` object injected at construction time. Through the base class it has access to helpers for executing remote commands, transferring files, printing output, and managing the connection, without ever touching the raw socket directly.
 
 ---
 
@@ -25,7 +25,7 @@ class MyModule(KoiModule):
 Save it as `src/koi/modules/my_module.py`. The framework auto-discovers it on startup, or immediately with `reload`.
 
 !!! note "Filename vs Module Name"
-    The **filename** doesn't have to match the module's `name` attribute. The framework uses dynamic module discovery (`pkgutil`) to find all Python files, then inspects each one for `KoiModule` subclasses. The `name` attribute is what matters - that's the CLI identifier (`run <name> <id>`). For example, `get_users.py` defines a module with `name = "users"`, called as `run users <id>`.
+    The **filename** doesn't have to match the module's `name` attribute. The framework uses dynamic module discovery (`pkgutil`) to find all Python files, then inspects each one for `KoiModule` subclasses. The `name` attribute is what matters, that's the CLI identifier (`run <name> <id>`). For example, `get_users.py` defines a module with `name = "users"`, called as `run users <id>`.
 
 ---
 
@@ -38,9 +38,10 @@ Declared at class level, these define the module's identity and behaviour in the
 | `name` | `str` | Yes | Identifier used to call the module (`run <name> <id>`) |
 | `description` | `str` | Yes | One-line summary shown in `modules` |
 | `usage` | `str` | No | Longer help shown when the module is called incorrectly |
-| `category` | `str` | No | Grouping label in the UI (`"Enumeration"`, `"Pivoting"`, …) |
-| `platform` | `str` or `list[str]` | No | Supported OS types - see [Platform Targeting](#platform-targeting) |
-| `arguments` | `list[dict]` | No | Argument definitions - see [Argument Parsing](#argument-parsing) |
+| `category` | `str` | No | Grouping label in the UI (`"Enumeration"`, `"Pivoting"`) |
+| `platform` | `str` or `list[str]` | No | Supported OS types, see [Platform Targeting](#platform-targeting) |
+| `arguments` | `list[dict]` | No | Argument definitions, see [Argument Parsing](#argument-parsing) |
+| `external_resources` | `list[dict]` | No | External files the module fetches, see [External Resources](#external-resources) |
 
 ---
 
@@ -118,6 +119,26 @@ def run(self) -> None:
     else:
         self._run_windows()
 ```
+
+---
+
+## External Resources
+
+If your module fetches files from the internet (a tool binary, a script, a GitHub release), declare them under `external_resources`. Each entry is a dict with `name`, `url`, and `cache_key`:
+
+```python
+external_resources = [
+    {
+        "name":      "linpeas.sh",
+        "url":       "https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh",
+        "cache_key": "linpeas.sh",
+    },
+]
+```
+
+`koi --local-prepare` walks every module's `external_resources` and downloads each one into `~/.koi/cache/` under its `cache_key`. After that, `koi --local` runs the module entirely from the cache with no outbound traffic. Modules that never fetch anything can leave this attribute out.
+
+Fetch the file at runtime with `fetch_or_cache(url, cache_key)` (see [File Transfer](modules-transfer.md#local-cache)) so it uses the cached copy when present and downloads it otherwise.
 
 ---
 

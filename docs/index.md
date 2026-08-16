@@ -13,9 +13,10 @@
 | **OS auto-detection** | Probes each incoming connection and tags it on arrival |
 | **PTY upgrade** | One command to get a full interactive terminal (Linux: `script`/`socat`, Windows: ConPtyShell) |
 | **Payload generator** | Ready-to-paste payloads for every local interface |
+| **Connect out** | Turn credentials you already own into a session, `connect ssh user@host` |
 | **Obfuscator** | Chain obfuscation layers to bypass AV/AMSI (`hex`, `syntax`, `format`, `xor`, ...) |
 | **Module system** | Extensible post-exploitation modules, auto-discovered from disk |
-| **Session logging** | Every upgraded session logged to `~/.koi/logs/`, reviewable with `koireview` |
+| **Session logging** | Every session logged to `~/.koi/logs/` from first interaction, reviewable with `koireview` |
 | **Screenable mode** | Mask all IPs in output for screenshots and live demos |
 | **Offline mode** | Cache every external tool up front, then run with no outbound traffic |
 | **MCP server** | Expose sessions and modules to an LLM client, read-only by default |
