@@ -475,6 +475,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../tunnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tunneling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrading-sessions/" class="md-nav__link">
         
   
@@ -1524,6 +1552,14 @@ koi<span class="w"> </span>--mcp<span class="w"> </span>--mcp-port<span class="w
 <td><code>koi_tag</code></td>
 <td>Set or clear a tag on a session</td>
 </tr>
+<tr>
+<td><code>koi_tunnel_list</code></td>
+<td>Every active L3 pivot tunnel: interface, routed CIDRs, agent state, packet counts</td>
+</tr>
+<tr>
+<td><code>koi_tunnel_status</code></td>
+<td>One session's tunnel: state, routes, agent connection, packets, uptime</td>
+</tr>
 </tbody>
 </table>
 <h3 id="only-with-mcp-allow-exec">Only with <code>--mcp-allow-exec</code></h3>
@@ -1540,12 +1576,21 @@ koi<span class="w"> </span>--mcp<span class="w"> </span>--mcp-port<span class="w
 <td>Run one shell command on a session, returns stdout and exit code</td>
 </tr>
 <tr>
+<td><code>koi_tunnel_start</code></td>
+<td>Bring up an L3 pivot on a session: create the TUN, deploy the agent, route CIDRs</td>
+</tr>
+<tr>
+<td><code>koi_tunnel_stop</code></td>
+<td>Tear down a session's tunnel: kill the agent, remove the interface and routes</td>
+</tr>
+<tr>
 <td><code>koi_module_&lt;name&gt;</code></td>
 <td>Run a module, one tool per module</td>
 </tr>
 </tbody>
 </table>
 <p>Without the flag these tools are not listed at all. An LLM offered a tool it cannot use just burns turns discovering that, one <code>PermissionError</code> at a time. The server still refuses the call if a client kept a list from a previous run.</p>
+<p><code>koi_tunnel_start</code> never prompts for a password, since MCP has no terminal. Koi has to be root or hold cached <code>sudo</code> credentials; otherwise it fails cleanly and the reason is in the tool result. No password is ever sent over the MCP channel. See <a href="../tunnel/">Tunneling</a>.</p>
 <h3 id="module-tools">Module tools</h3>
 <p>One tool per module, generated from the module's own <code>arguments</code> spec. Drop a new module in <code>src/koi/modules/</code> and it becomes callable over MCP on the next listener start, with no MCP code to write. See <a href="../modules-overview/">Module Development</a>.</p>
 <table>
@@ -1618,7 +1663,7 @@ koi<span class="w"> </span>--mcp<span class="w"> </span>--mcp-port<span class="w
 </tr>
 </tbody>
 </table>
-<p>That is 20 tools total with exec enabled, 4 without.</p>
+<p>That is 24 tools total with exec enabled, 6 without.</p>
 <h3 id="server-context">Server context</h3>
 <p>Two things give the model its bearings without the operator having to explain the setup in every conversation.</p>
 <p>The first is the <code>instructions</code> string sent at <code>initialize</code>. It says what Koi is, whether this connection can execute anything, and the two rules that matter in practice: one command per session at a time, and prefer a module over a hand-written command. Clients surface it as system context, so it costs nothing per call.</p>

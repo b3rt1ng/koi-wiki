@@ -473,6 +473,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../tunnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tunneling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrading-sessions/" class="md-nav__link">
         
   
@@ -1046,14 +1074,15 @@
 <p>Koi is actively being developed. This page tracks planned improvements.</p>
 <hr />
 <h2 id="tunneling-pivoting">Tunneling &amp; Pivoting</h2>
-<p>Once a shell is obtained, pivoting inside the internal network should be as seamless as possible. A <code>ligolo</code> module already exists to upload and deploy the ligolo-ng agent. The next step is deeper integration: automatic tunnel setup and route injection with minimal operator interaction.</p>
-<p>Planned work:</p>
+<p>Native Layer 3 tunneling now ships: <code>tunnel start &lt;id&gt; &lt;cidr&gt;</code> brings up a TUN interface, deploys a userland agent to the target and routes the internal network through it, with no binary dropped and no root on the target. See <a href="../tunnel/">Tunneling</a>.</p>
+<p>The root constraint is handled by keeping Koi unprivileged and elevating only the <code>ip</code> commands with <code>sudo</code>, so the operator is never forced to run the whole listener as root.</p>
+<p>Still on the list:</p>
 <ul>
-<li>Automated ligolo tunnel setup from within Koi</li>
-<li>Fast pivot deployment with minimal setup</li>
-<li>Integrated lateral movement support</li>
+<li>IPv6 routing (the stack is IPv4 only today)</li>
+<li>A Windows-target path (the current agent needs Python 3.13+)</li>
+<li>Deeper <code>ligolo</code> integration for targets without Python</li>
+<li>Automated lateral movement on top of a live tunnel</li>
 </ul>
-<p>The main constraint is that creating a <code>tun</code> interface requires root on the relay machine. Since Koi is designed to run as a normal user, this may influence the final design.</p>
 <hr />
 <h2 id="edr-evasion-improvements">EDR evasion improvements</h2>
 <p>Koi is effective against casual and mid-tier defensive solutions but remains relatively detectable against enterprise-grade EDRs.</p>

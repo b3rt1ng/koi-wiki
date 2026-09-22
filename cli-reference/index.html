@@ -497,6 +497,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tunnel-startstatusstop-id-cidr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tunnel &lt;start|status|stop&gt; &lt;id&gt; [cidr...]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#payload-iface" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -703,6 +714,34 @@
     
   
     Connecting Out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tunnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tunneling
   
 
     
@@ -1263,6 +1302,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tunnel-startstatusstop-id-cidr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tunnel &lt;start|status|stop&gt; &lt;id&gt; [cidr...]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#payload-iface" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1452,6 +1502,12 @@
 <td>Deliver a payload over a channel you already own</td>
 </tr>
 <tr>
+<td><code>tunnel</code></td>
+<td><code>tun</code></td>
+<td><code>tunnel &lt;start\|status\|stop&gt; &lt;id&gt; [cidr...]</code></td>
+<td>Manage a background L3 pivot tunnel on a session</td>
+</tr>
+<tr>
 <td><code>payload</code></td>
 <td><code>p</code></td>
 <td><code>payload [iface]</code></td>
@@ -1601,6 +1657,14 @@ koi ❯ connect ssh root:hunter2@10.10.14.7
 koi ❯ connect ssh -p 2222 -i ~/.ssh/id_ed25519 deploy@10.10.14.7
 </code></pre></div>
 <p><code>ssh</code> is currently the only transport. Extra arguments are passed through to it untouched. The callback address is derived from your routing table, and the session survives the <code>ssh</code> process exiting. See <a href="../connect/">Connecting Out</a> for the full picture.</p>
+<hr />
+<h3 id="tunnel-startstatusstop-id-cidr"><code>tunnel &lt;start|status|stop&gt; &lt;id&gt; [cidr...]</code></h3>
+<p>Turns a session into a Layer 3 pivot. <code>tunnel start</code> creates a TUN interface on your side (needs root; Koi elevates only the <code>ip</code> commands with <code>sudo</code>), deploys a userland agent to the target and routes the given CIDRs through it. <code>status</code> shows the live state, <code>stop</code> tears everything down.</p>
+<div class="highlight"><pre><span></span><code>koi ❯ tunnel start 1 192.168.50.0/24
+koi ❯ tunnel status 1
+koi ❯ tunnel stop 1
+</code></pre></div>
+<p>The target must be Linux with Python 3.13+. Routes that overlap another session's tunnel are refused, and a tunnel is torn down automatically when its session dies. See <a href="../tunnel/">Tunneling</a> for the full picture.</p>
 <hr />
 <h3 id="payload-iface"><code>payload [iface]</code></h3>
 <p>Prints ready-to-use reverse shell payloads for the given interface (or all interfaces if omitted).</p>
