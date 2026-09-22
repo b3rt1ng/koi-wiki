@@ -16,6 +16,7 @@ These commands are available from the main `koi` prompt.
 | `modules` | `mdls`, `mods` | `modules` | List available modules |
 | `reload` | `refresh`, `rl` | `reload` | Reload modules from disk |
 | `connect` | `conn` | `connect <transport> <target> [args...]` | Deliver a payload over a channel you already own |
+| `tunnel` | `tun` | `tunnel <start\|status\|stop> <id> [cidr...]` | Manage a background L3 pivot tunnel on a session |
 | `payload` | `p` | `payload [iface]` | Print reverse shell payloads |
 | `obfuscator` | `obs`, `cook` | `obfuscator [iface]` | Open the interactive payload obfuscator |
 | `logs` | `log` | `logs` | List recorded session logs |
@@ -126,6 +127,20 @@ koi ❯ connect ssh -p 2222 -i ~/.ssh/id_ed25519 deploy@10.10.14.7
 ```
 
 `ssh` is currently the only transport. Extra arguments are passed through to it untouched. The callback address is derived from your routing table, and the session survives the `ssh` process exiting. See [Connecting Out](connect.md) for the full picture.
+
+---
+
+### `tunnel <start|status|stop> <id> [cidr...]`
+
+Turns a session into a Layer 3 pivot. `tunnel start` creates a TUN interface on your side (needs root; Koi elevates only the `ip` commands with `sudo`), deploys a userland agent to the target and routes the given CIDRs through it. `status` shows the live state, `stop` tears everything down.
+
+```
+koi ❯ tunnel start 1 192.168.50.0/24
+koi ❯ tunnel status 1
+koi ❯ tunnel stop 1
+```
+
+The target must be Linux with Python 3.13+. Routes that overlap another session's tunnel are refused, and a tunnel is torn down automatically when its session dies. See [Tunneling](tunnel.md) for the full picture.
 
 ---
 

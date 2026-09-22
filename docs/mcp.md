@@ -101,15 +101,21 @@ Do not put a C2 control plane on a public interface just because it has a token 
 | `koi_list_sessions` | Every session with OS, PTY state, uptime, tag, and whether it is busy |
 | `koi_list_modules` | Available modules, their arguments and supported platforms |
 | `koi_tag` | Set or clear a tag on a session |
+| `koi_tunnel_list` | Every active L3 pivot tunnel: interface, routed CIDRs, agent state, packet counts |
+| `koi_tunnel_status` | One session's tunnel: state, routes, agent connection, packets, uptime |
 
 ### Only with `--mcp-allow-exec`
 
 | Tool | What it does |
 |---|---|
 | `koi_exec` | Run one shell command on a session, returns stdout and exit code |
+| `koi_tunnel_start` | Bring up an L3 pivot on a session: create the TUN, deploy the agent, route CIDRs |
+| `koi_tunnel_stop` | Tear down a session's tunnel: kill the agent, remove the interface and routes |
 | `koi_module_<name>` | Run a module, one tool per module |
 
 Without the flag these tools are not listed at all. An LLM offered a tool it cannot use just burns turns discovering that, one `PermissionError` at a time. The server still refuses the call if a client kept a list from a previous run.
+
+`koi_tunnel_start` never prompts for a password, since MCP has no terminal. Koi has to be root or hold cached `sudo` credentials; otherwise it fails cleanly and the reason is in the tool result. No password is ever sent over the MCP channel. See [Tunneling](tunnel.md).
 
 ### Module tools
 
@@ -133,7 +139,7 @@ One tool per module, generated from the module's own `arguments` spec. Drop a ne
 | `koi_module_wifi` | linux |
 | `koi_module_winscalate` | windows_ps |
 
-That is 20 tools total with exec enabled, 4 without.
+That is 24 tools total with exec enabled, 6 without.
 
 ### Server context
 

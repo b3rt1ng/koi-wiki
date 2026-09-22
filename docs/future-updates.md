@@ -6,15 +6,16 @@ Koi is actively being developed. This page tracks planned improvements.
 
 ## Tunneling & Pivoting
 
-Once a shell is obtained, pivoting inside the internal network should be as seamless as possible. A `ligolo` module already exists to upload and deploy the ligolo-ng agent. The next step is deeper integration: automatic tunnel setup and route injection with minimal operator interaction.
+Native Layer 3 tunneling now ships: `tunnel start <id> <cidr>` brings up a TUN interface, deploys a userland agent to the target and routes the internal network through it, with no binary dropped and no root on the target. See [Tunneling](tunnel.md).
 
-Planned work:
+The root constraint is handled by keeping Koi unprivileged and elevating only the `ip` commands with `sudo`, so the operator is never forced to run the whole listener as root.
 
-- Automated ligolo tunnel setup from within Koi
-- Fast pivot deployment with minimal setup
-- Integrated lateral movement support
+Still on the list:
 
-The main constraint is that creating a `tun` interface requires root on the relay machine. Since Koi is designed to run as a normal user, this may influence the final design.
+- IPv6 routing (the stack is IPv4 only today)
+- A Windows-target path (the current agent needs Python 3.13+)
+- Deeper `ligolo` integration for targets without Python
+- Automated lateral movement on top of a live tunnel
 
 ---
 
